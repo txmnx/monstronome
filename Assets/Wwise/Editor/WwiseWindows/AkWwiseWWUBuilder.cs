@@ -27,14 +27,14 @@ public class AkWwiseWWUBuilder
 	{
 		isTicking = true;
 
-		if (AkWwiseProjectInfo.GetData() != null)
+		/*if (AkWwiseProjectInfo.GetData() != null)
 		{
 			if (System.DateTime.Now.Subtract(s_lastFileCheck).Seconds > s_SecondsBetweenChecks &&
 			    !UnityEditor.EditorApplication.isCompiling && !UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode &&
 			    AkWwiseProjectInfo.GetData().autoPopulateEnabled)
 			{
 				AkWwisePicker.treeView.SaveExpansionStatus();
-				if (Populate())
+				/*if (Populate())
 				{
 					AkWwiseXMLBuilder.Populate();
 					AkWwisePicker.PopulateTreeview();
@@ -44,7 +44,7 @@ public class AkWwiseWWUBuilder
 
 				s_lastFileCheck = System.DateTime.Now;
 			}
-		}
+		}*/
 	}
 
 	public static void InitializeWwiseProjectData()
@@ -53,8 +53,8 @@ public class AkWwiseWWUBuilder
 		{
 			if (string.IsNullOrEmpty(AkWwiseEditorSettings.Instance.WwiseProjectPath))
 			{
-				UnityEngine.Debug.LogError("WwiseUnity: Wwise project needed to populate from Work Units. Aborting.");
-				return;
+				//UnityEngine.Debug.LogError("WwiseUnity: Wwise project needed to populate from Work Units. Aborting.");
+				//return;
 			}
 
 			var fullWwiseProjectPath = AkWwiseEditorSettings.WwiseProjectAbsolutePath;
