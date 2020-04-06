@@ -1,0 +1,64 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1090601500	SW_Intention_Brass			\Switches\SW_Intention_Brass	
+	4012344001	SW_Intention_Woods			\Switches\SW_Intention_Woods	
+	4144689221	SW_Intention_Percussions			\Switches\SW_Intention_Percussions	
+	4251027333	SW_Intention_Strings			\Switches\SW_Intention_Strings	
+
+Switch	ID	Name	Switch Group			Notes
+	56434811	Staccato	SW_Intention_Brass			
+	2077337834	Pizzicato	SW_Intention_Brass			
+	4208866100	Sustain	SW_Intention_Brass			
+	56434811	Staccato	SW_Intention_Woods			
+	2077337834	Pizzicato	SW_Intention_Woods			
+	4208866100	Sustain	SW_Intention_Woods			
+	56434811	Staccato	SW_Intention_Percussions			
+	2077337834	Pizzicato	SW_Intention_Percussions			
+	4208866100	Sustain	SW_Intention_Percussions			
+	56434811	Staccato	SW_Intention_Strings			
+	2077337834	Pizzicato	SW_Intention_Strings			
+	4208866100	Sustain	SW_Intention_Strings			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	766723505	Game_State			\States\Game_State	
+
+State	ID	Name	State Group			Notes
+	391998042	Tense	Game_State			
+	529726532	End	Game_State			
+	748895195	None	Game_State			
+	1026627430	Middle	Game_State			
+	1281810935	Start	Game_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	504532776	Brick			\Factory Reflect Acoustic Textures\Textures\Brick	
+	513139656	Mountain			\Factory Reflect Acoustic Textures\Textures\Mountain	
+	841620460	Concrete			\Factory Reflect Acoustic Textures\Textures\Concrete	
+	1755085759	Wood_Deep			\Factory Reflect Acoustic Textures\Textures\Wood_Deep	
+	1873957695	Anechoic			\Factory Reflect Acoustic Textures\Textures\Anechoic	
+	1970351858	Fabric			\Factory Reflect Acoustic Textures\Textures\Fabric	
+	2058049674	Wood			\Factory Reflect Acoustic Textures\Textures\Wood	
+	2412606308	Carpet			\Factory Reflect Acoustic Textures\Textures\Carpet	
+	2637588553	Tile			\Factory Reflect Acoustic Textures\Textures\Tile	
+	2928161104	Curtains			\Factory Reflect Acoustic Textures\Textures\Curtains	
+	3195498748	Cork_Tiles			\Factory Reflect Acoustic Textures\Textures\Cork_Tiles	
+	3670307564	Drywall			\Factory Reflect Acoustic Textures\Textures\Drywall	
+	4168643977	Acoustic_Banner			\Factory Reflect Acoustic Textures\Textures\Acoustic_Banner	
+	4262522749	Wood_Bright			\Factory Reflect Acoustic Textures\Textures\Wood_Bright	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	505915784	Brass			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Brass	
+	2058049674	Wood			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Wood	
+	3363523641	Strings			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Strings	
+	3539010900	Ambisonics_Bus			\Default Work Unit\Master Audio Bus\Ambisonics_Bus	
+	3762497105	Percussions			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Percussions	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	44205819	Reverb_ConcertHall			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Reverb_ConcertHall	
+
+Effect plug-ins	ID	Name	Type				Notes
+	195105701	Wwise_Meter_(Custom)	Wwise Meter			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

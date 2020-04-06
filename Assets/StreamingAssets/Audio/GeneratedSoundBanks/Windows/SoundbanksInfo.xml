@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome-UnityProject\monstronome\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<IncludedAuxBusses>
+				<AuxBus Id="44205819" Name="Reverb_ConcertHall" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Reverb_ConcertHall"/>
+			</IncludedAuxBusses>
+		</SoundBank>
+		<SoundBank Id="3550178992" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Monstronome_SNB</ObjectPath>
+			<ShortName>Monstronome_SNB</ShortName>
+			<Path>Monstronome_SNB.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2932040671" Name="Play_Music" ObjectPath="\Events\Music_Event\Play_Music" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="366121546" Language="SFX">
+							<ShortName>Annonce_Trumpet.wav</ShortName>
+							<Path>SFX\Annonce_Trumpet_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+			<IncludedAuxBusses>
+				<AuxBus Id="44205819" Name="Reverb_ConcertHall" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Reverb_ConcertHall"/>
+			</IncludedAuxBusses>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
