@@ -7,11 +7,11 @@ public class DebugGraph : MonoBehaviour
 {
     [Header("Properties")]
     //Horizontal speed of the points towards the left
-    public float speed = 0.1f;
+    public float speed = 0.025f;
     public float minValue = 0.0f;
     public float maxValue = 1.0f;
 
-    public float refreshRate = 2;
+    public float refreshRate = 60;
     //X position where points are removed
     private float m_LeftLimit = 1.6f;
 
