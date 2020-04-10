@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-public class XRController : MonoBehaviour
+public class XRCustomController : MonoBehaviour
 {
     public XRNode controllerNode;
 
