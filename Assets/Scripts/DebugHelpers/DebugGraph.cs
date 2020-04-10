@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/**
+ * Use to display float values over time
+ * Useful to see evolutions
+ */
 public class DebugGraph : MonoBehaviour
 {
     [Header("Properties")]

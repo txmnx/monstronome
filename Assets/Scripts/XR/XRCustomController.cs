@@ -2,6 +2,9 @@
 using UnityEngine;
 using UnityEngine.XR;
 
+/**
+ * Custom implementation of an XR controller
+ */
 public class XRCustomController : MonoBehaviour
 {
     public XRNode controllerNode;
@@ -50,8 +53,7 @@ public class XRCustomController : MonoBehaviour
         /* DEBUG */
         Vector3 deviceVelocity = new Vector3();
         if (inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out deviceVelocity)) {
-            debugGraph1.SetValue(deviceVelocity.x);
-            debugGraph2.SetValue(deviceVelocity.sqrMagnitude);
+            debugGraph1.SetValue(deviceVelocity.magnitude);
         }
     }
 
@@ -61,5 +63,4 @@ public class XRCustomController : MonoBehaviour
      */
     [Header("DEBUG")]
     public DebugGraph debugGraph1;
-    public DebugGraph debugGraph2;
 }
