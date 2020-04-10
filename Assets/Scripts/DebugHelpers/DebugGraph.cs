@@ -98,4 +98,9 @@ public class DebugGraph : MonoBehaviour
         valueText.text = value.ToString();
         UpdateLerpedValue();
     }
+
+    public void SetVariableName(string name)
+    {
+        variableNameText.text = name;
+    }
 }
