@@ -9,6 +9,6 @@ public class TempDebug : MonoBehaviour
 
     private void Update()
     {
-        debugGraph.SetValue(transform.position.x);
+        debugGraph?.SetValue(Mathf.Sin(Time.time));
     }
 }
