@@ -12,6 +12,7 @@ using UnityEngine.XR;
 [RequireComponent(typeof(XRCustomController))]
 public class XRBeatDetector : MonoBehaviour
 {
+    public BeatManager beatManager;
     public enum MagnitudePhase
     {
         ASCENDING,
@@ -36,8 +37,6 @@ public class XRBeatDetector : MonoBehaviour
     private float m_LastMagnitude = 0.0f;
     private MagnitudePhase currentMagnitudePhase = MagnitudePhase.STILL;
 
-    public DebugBeat debugBeat;
-
     private void FixedUpdate()
     {
         DetectBeat();
@@ -45,9 +44,9 @@ public class XRBeatDetector : MonoBehaviour
 
     /**
      * This function studies the evolution of the controller's magnitude
-     * If the magnitude reach a still or an ascending phase after a dropping phase
-     * That means that the controller followed a sequence movement - still - movement
-     * Currently we put the beat on the brief still moment but it is possible to put it on the movement phase
+     * If the magnitude reach a still or an descending phase after an ascending phase
+     * This means that the controller followed a sequence still - movement - still
+     * Currently we put the beat on the quick movement but it is possible to put it on the still phase
      */
     private void DetectBeat()
     {
@@ -58,8 +57,7 @@ public class XRBeatDetector : MonoBehaviour
             }
             else if (m_LastMagnitude < deviceVelocity.magnitude - magnitudeTreshold) {
                 if (currentMagnitudePhase == MagnitudePhase.DROPPING) {
-                    //TODO : here is a beat
-                    debugBeat.OnBeat();
+                    OnBeat();
                     UnityEngine.XR.HapticCapabilities capabilities;
                     if (m_Controller.inputDevice.TryGetHapticCapabilities(out capabilities)) {
                         if (capabilities.supportsImpulse) {
@@ -74,6 +72,16 @@ public class XRBeatDetector : MonoBehaviour
             }
 
             m_LastMagnitude = deviceVelocity.magnitude;
+        }
+    }
+
+    private void OnBeat()
+    {
+        if (m_Controller.controllerNode == XRNode.LeftHand) {
+            beatManager.OnBeatLeftHand();
+        }
+        else if (m_Controller.controllerNode == XRNode.RightHand) {
+            beatManager.OnBeatRightHand();
         }
     }
 }
