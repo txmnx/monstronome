@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PercussionFamily : InstrumentFamily
+public class PercussionsFamily : InstrumentFamily
 {
 }

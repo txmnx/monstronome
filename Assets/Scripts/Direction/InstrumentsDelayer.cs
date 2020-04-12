@@ -8,16 +8,16 @@ using UnityEngine;
 public class InstrumentsDelayer : MonoBehaviour
 {
     //TODO : maybe later we can store these references in a more global component
-    public WoodwindFamily woodwindFamily;
+    public WoodsFamily woodsFamily;
     public BrassFamily brassFamily;
-    public PercussionFamily percussionFamily;
-    public StringedFamily stringedFamily;
+    public PercussionsFamily percussionsFamily;
+    public StringsFamily stringsFamily;
 
     private InstrumentFamily[] families;
 
     private void Start()
     {
-        families = new InstrumentFamily[4] { woodwindFamily, brassFamily, percussionFamily, stringedFamily };
+        families = new InstrumentFamily[4] { woodsFamily, brassFamily, percussionsFamily, stringsFamily };
     }
 
     private void DelayAFamily()

@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodwindFamily : InstrumentFamily
+public class StringsFamily : InstrumentFamily
 {
 }

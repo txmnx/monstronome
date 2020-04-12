@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 413094684}
   - component: {fileID: 413094687}
   m_Layer: 8
-  m_Name: Woodwind
+  m_Name: Woods
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 854011151}
   - component: {fileID: 854011154}
   m_Layer: 8
-  m_Name: Percussion
+  m_Name: Percussions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,6 +1264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 900465590}
+  - component: {fileID: 900465591}
   m_Layer: 0
   m_Name: Instruments
   m_TagString: Untagged
@@ -1289,6 +1290,22 @@ Transform:
   m_Father: {fileID: 1628942733}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900465591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900465589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9833191e545825743b9a6f29708033af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  woodsFamily: {fileID: 413094687}
+  brassFamily: {fileID: 1129380438}
+  percussionsFamily: {fileID: 854011154}
+  stringsFamily: {fileID: 1247558651}
 --- !u!1 &1098746079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,7 +1706,7 @@ GameObject:
   - component: {fileID: 1247558648}
   - component: {fileID: 1247558651}
   m_Layer: 8
-  m_Name: Stringed
+  m_Name: Strings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2053,6 +2070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469885954748076575, guid: 1bcd079a8f7cb304f81e3b8bf5d62d11,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7469885954913017643, guid: 1bcd079a8f7cb304f81e3b8bf5d62d11,
         type: 3}
