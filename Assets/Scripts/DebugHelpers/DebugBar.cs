@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DebugDelayBar : MonoBehaviour
+/**
+ * Debug utility to update a bar
+ */
+public class DebugBar : MonoBehaviour
 {
     public TextMeshPro delayTextMesh;
     public Transform bar;
 
-    public void SetValue(float value)
+    //Value is the text displayed, coeff is the size of the bar in [0.0, 1.0]
+    public void UpdateValue(float value, float coeff)
     {
         delayTextMesh.text = value.ToString();
         bar.localScale = new Vector3(
-            value / SoundEngineTuner.MAX_DELAY,
+            coeff,
             bar.localScale.y,
             bar.localScale.z
         );
