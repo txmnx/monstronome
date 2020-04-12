@@ -10,18 +10,49 @@ public abstract class InstrumentFamily : MonoBehaviour
     public SoundEngineTuner soundEngineTuner;
 
     private float m_Delay = 0.0f;
+    private float m_MaxDelay = 0.0f;
+    private float timeSinceLastDelay = 0;
+    private float timeBetweenDelayUpdate = 0.5f;
 
     //DEBUG
-    private MeshRenderer meshRenderer;
+    private MeshRenderer m_MeshRenderer;
+    public DebugBar delayBar;
 
     private void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        m_MeshRenderer = GetComponent<MeshRenderer>();
     }
+
+    private void Update()
+    {
+        if (timeSinceLastDelay > timeBetweenDelayUpdate) {
+            UpdateDelay();
+            timeSinceLastDelay = timeSinceLastDelay % timeBetweenDelayUpdate;
+        }
+        timeSinceLastDelay += Time.deltaTime;
+    }
+
+
+    //We pick a new delay each timeBetweenDelayUpdate seconds to create a "sound false" effect
+    private void UpdateDelay()
+    {
+        m_Delay = Random.Range(0.0f, m_MaxDelay);
+        soundEngineTuner.SetDelay(this, m_Delay);
+    }
+
+    public void AddToMaxDelay(float addedMaxDelay)
+    {
+        m_MaxDelay += addedMaxDelay;
+        m_MaxDelay = (m_MaxDelay > SoundEngineTuner.MAX_DELAY) ? SoundEngineTuner.MAX_DELAY : m_MaxDelay;
+        delayBar.UpdateValue(m_MaxDelay, 1 - (m_MaxDelay / SoundEngineTuner.MAX_DELAY));
+    }
+
+
+    /* Events */
 
     virtual public void OnBeginLookedAt() 
     {
-        meshRenderer.material.SetColor("_BaseColor", new Color(1, 1, 0.5f, 1));
+        m_MeshRenderer.material.SetColor("_BaseColor", new Color(1, 1, 0.5f, 1));
     }
 
     virtual public void OnLookedAt()
@@ -31,6 +62,6 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     virtual public void OnEndLookedAt()
     {
-        meshRenderer.material.SetColor("_BaseColor", Color.white);
+        m_MeshRenderer.material.SetColor("_BaseColor", Color.white);
     }
 }
