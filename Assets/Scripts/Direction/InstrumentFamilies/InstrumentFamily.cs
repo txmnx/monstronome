@@ -19,6 +19,13 @@ public abstract class InstrumentFamily : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
+    public void AddDelay(float addedDelay)
+    {
+        m_Delay += addedDelay;
+        m_Delay = (m_Delay > SoundEngineTuner.MAX_DELAY) ? SoundEngineTuner.MAX_DELAY : m_Delay;
+        soundEngineTuner.SetDelay(this);
+    }
+
     virtual public void OnBeginLookedAt() 
     {
         meshRenderer.material.SetColor("_BaseColor", new Color(1, 1, 0.5f, 1));
