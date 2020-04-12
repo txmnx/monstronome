@@ -8,6 +8,7 @@ using UnityEngine;
 public class SoundEngineTuner : MonoBehaviour
 {
     public const float BASE_TEMPO = 120;
+    public const float MAX_DELAY = 0.5f;
 
     public void SetTempo(int bpm)
     {

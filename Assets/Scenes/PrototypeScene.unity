@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -97,9 +97,9 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: f0a0789609a8b2149b1441b7ea3a6cab,
+  m_LightingDataAsset: {fileID: 112000000, guid: 291a9402e75d0a643a2c2f4f62ad6c0a,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -707,6 +707,7 @@ GameObject:
   - component: {fileID: 413094686}
   - component: {fileID: 413094685}
   - component: {fileID: 413094684}
+  - component: {fileID: 413094687}
   m_Layer: 0
   m_Name: Woodwind
   m_TagString: Untagged
@@ -788,6 +789,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413094682}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &413094687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413094682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 348619491}
+  instrumentType: 0
 --- !u!1 &534080860
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +944,7 @@ GameObject:
   - component: {fileID: 854011153}
   - component: {fileID: 854011152}
   - component: {fileID: 854011151}
+  - component: {fileID: 854011154}
   m_Layer: 0
   m_Name: Percussion
   m_TagString: Untagged
@@ -1010,6 +1026,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854011149}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &854011154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854011149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 348619491}
+  instrumentType: 3
 --- !u!1 &900465589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1179,7 @@ GameObject:
   - component: {fileID: 1129380437}
   - component: {fileID: 1129380436}
   - component: {fileID: 1129380435}
+  - component: {fileID: 1129380438}
   m_Layer: 0
   m_Name: Brass
   m_TagString: Untagged
@@ -1230,6 +1261,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129380433}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1129380438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129380433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 348619491}
+  instrumentType: 1
 --- !u!4 &1153059046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2817627221118680355, guid: 495275ed3cd06ec45b863f09558fa414,
@@ -1327,6 +1372,7 @@ GameObject:
   - component: {fileID: 1247558650}
   - component: {fileID: 1247558649}
   - component: {fileID: 1247558648}
+  - component: {fileID: 1247558651}
   m_Layer: 0
   m_Name: Stringed
   m_TagString: Untagged
@@ -1408,6 +1454,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247558646}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1247558651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247558646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 348619491}
+  instrumentType: 2
 --- !u!1001 &1327905634
 PrefabInstance:
   m_ObjectHideFlags: 0
