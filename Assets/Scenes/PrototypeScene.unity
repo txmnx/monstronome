@@ -616,6 +616,8 @@ GameObject:
   - component: {fileID: 348619488}
   - component: {fileID: 348619487}
   - component: {fileID: 348619489}
+  - component: {fileID: 348619491}
+  - component: {fileID: 348619490}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -662,10 +664,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
-  minBPM: 20
-  maxBPM: 200
+  soundEngineTuner: {fileID: 0}
+  minBPM: 30
+  maxBPM: 180
   bpm: 0
   bpmGraph: {fileID: 277658482}
+--- !u!114 &348619490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4e623f5b77f054e8f4d8f773154369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 348619491}
+  bpmTranslator: {fileID: 348619489}
+--- !u!114 &348619491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83f1f54c5fa2f74c8d2eabc172948dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &540415013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,12 +1064,12 @@ PrefabInstance:
     - target: {fileID: 2817627221118680354, guid: 495275ed3cd06ec45b863f09558fa414,
         type: 3}
       propertyPath: minValue
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2817627221118680354, guid: 495275ed3cd06ec45b863f09558fa414,
         type: 3}
       propertyPath: maxValue
-      value: 220
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2817627221118680355, guid: 495275ed3cd06ec45b863f09558fa414,
         type: 3}

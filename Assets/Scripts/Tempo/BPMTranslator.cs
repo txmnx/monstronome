@@ -8,16 +8,17 @@ using UnityEngine;
 public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 {
     public BeatManager beatManager;
+    public SoundEngineTuner soundEngineTuner;
 
     //The bigger the buffer size is, the smoother the bpm's evolution is
     private const int BPM_BUFFER_SIZE = 8;
     private Queue<int> m_BufferLastBPMs;
 
-    public int minBPM = 20;
-    public int maxBPM = 200;
+    public int minBPM = 30;
+    public int maxBPM = 180;
 
     [HideInInspector]
-    public int bpm = 0;
+    public int bpm;
 
     private float m_TimeAtLastBeat = 0.0f;
 
@@ -27,7 +28,13 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
     private void Start()
     {
         beatManager.RegisterOnBeatMajorHandElement(this);
-        m_BufferLastBPMs = new Queue<int>(new int[BPM_BUFFER_SIZE]);
+
+        m_BufferLastBPMs = new Queue<int>();
+        int baseTempo = (int)SoundEngineTuner.BASE_TEMPO;
+        for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
+            m_BufferLastBPMs.Enqueue(baseTempo);
+        }
+        bpm = baseTempo;
     }
 
     private void Update()
