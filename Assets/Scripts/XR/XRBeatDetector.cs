@@ -5,9 +5,6 @@ using UnityEngine.XR;
 
 /**
  * Use to detect beat
- * TODO : 
- *  + make it a register agent who fire OnBeat on each beat
- *  + link it to a GameManager so that everyone can register
  */
 [RequireComponent(typeof(XRCustomController))]
 public class XRBeatDetector : MonoBehaviour
