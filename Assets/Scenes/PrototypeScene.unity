@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 291a9402e75d0a643a2c2f4f62ad6c0a,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 224941989}
   - component: {fileID: 224941986}
   - component: {fileID: 224941991}
+  - component: {fileID: 224941992}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -389,6 +390,20 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
+--- !u!114 &224941992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224941985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1e65f45ab47514aa95712b9e6301b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightLength: 10
+  selectedFamily: {fileID: 0}
 --- !u!114 &277658482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2817627221118680354, guid: 495275ed3cd06ec45b863f09558fa414,
@@ -708,7 +723,7 @@ GameObject:
   - component: {fileID: 413094685}
   - component: {fileID: 413094684}
   - component: {fileID: 413094687}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Woodwind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,11 +813,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 413094682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Script: {fileID: 11500000, guid: c22f7855d04ff2d438d7b2a6cfe59677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  instrumentType: 0
 --- !u!1 &534080860
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +959,7 @@ GameObject:
   - component: {fileID: 854011152}
   - component: {fileID: 854011151}
   - component: {fileID: 854011154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Percussion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,11 +1049,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 854011149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Script: {fileID: 11500000, guid: 810b2c2f8524b1642a1127665adbd223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  instrumentType: 3
 --- !u!1 &900465589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1193,7 @@ GameObject:
   - component: {fileID: 1129380436}
   - component: {fileID: 1129380435}
   - component: {fileID: 1129380438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Brass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1270,11 +1283,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1129380433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Script: {fileID: 11500000, guid: d59b85593e066644286f541927a8132f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  instrumentType: 1
 --- !u!4 &1153059046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2817627221118680355, guid: 495275ed3cd06ec45b863f09558fa414,
@@ -1373,7 +1385,7 @@ GameObject:
   - component: {fileID: 1247558649}
   - component: {fileID: 1247558648}
   - component: {fileID: 1247558651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stringed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,11 +1475,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247558646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa71f586138dc58499bdcb815f4d9810, type: 3}
+  m_Script: {fileID: 11500000, guid: bc2408a75a19f2a4b8f5ad663c7666aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  instrumentType: 2
 --- !u!1001 &1327905634
 PrefabInstance:
   m_ObjectHideFlags: 0
