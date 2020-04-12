@@ -14,7 +14,7 @@ public class InstrumentFamilySelector : MonoBehaviour
     [HideInInspector]
     public InstrumentFamily selectedFamily;
 
-    private Transform m_CachedSelectedFamily;
+    private Transform m_CachedSelectedFamilyTransform;
     
 
     //TODO : for the moment we use a raycast to detect which family is looked at
@@ -24,7 +24,7 @@ public class InstrumentFamilySelector : MonoBehaviour
     {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, sightLength, LAYER_MASK_INSTRUMENTS)) {
-            if (hit.transform != m_CachedSelectedFamily) {
+            if (hit.transform != m_CachedSelectedFamilyTransform) {
                 InstrumentFamily instrumentFamily;
                 if (instrumentFamily = hit.transform.GetComponent<InstrumentFamily>()) {
                     instrumentFamily.OnBeginLookedAt();
@@ -42,7 +42,12 @@ public class InstrumentFamilySelector : MonoBehaviour
                 selectedFamily.OnLookedAt();
             }
 
-            m_CachedSelectedFamily = hit.transform;
+            m_CachedSelectedFamilyTransform = hit.transform;
+        }
+        else {
+            selectedFamily?.OnEndLookedAt();
+            selectedFamily = null;
+            m_CachedSelectedFamilyTransform = null;
         }
     }
 }
