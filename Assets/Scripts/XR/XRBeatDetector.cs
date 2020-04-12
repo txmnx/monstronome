@@ -21,6 +21,7 @@ public class XRBeatDetector : MonoBehaviour
     //This is useful if we want to filter the gesture on a left/right gesture
     private float m_MinTreshold;
     private float m_MaxTreshold;
+
     //Margin of precision for the magnitude
     public float magnitudeTreshold;
     
@@ -74,11 +75,13 @@ public class XRBeatDetector : MonoBehaviour
 
     private void OnBeat()
     {
-        if (m_Controller.controllerNode == XRNode.LeftHand) {
-            beatManager.OnBeatLeftHand();
+        //Here we define the major hand as the right one
+        //TODO : abstract this selection
+        if (m_Controller.controllerNode == XRNode.RightHand) {
+            beatManager.OnBeatMajorHand();
         }
-        else if (m_Controller.controllerNode == XRNode.RightHand) {
-            beatManager.OnBeatRightHand();
+        else if (m_Controller.controllerNode == XRNode.LeftHand) {
+            beatManager.OnBeatMinorHand();
         }
     }
 }

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatLeftHandElement, OnBeatRightHandElement
+public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatMajorHandElement, OnBeatMinorHandElement
 {
     private List<OnBeatElement> m_OnBeatElements;
-    private List<OnBeatLeftHandElement> m_OnBeatLeftHandElements;
-    private List<OnBeatRightHandElement> m_OnBeatRightHandElements;
+    private List<OnBeatMajorHandElement> m_OnBeatMajorHandElements;
+    private List<OnBeatMinorHandElement> m_OnBeatMinorHandElements;
 
     private void Awake()
     {
         m_OnBeatElements = new List<OnBeatElement>();
-        m_OnBeatLeftHandElements = new List<OnBeatLeftHandElement>();
-        m_OnBeatRightHandElements = new List<OnBeatRightHandElement>();
+        m_OnBeatMajorHandElements = new List<OnBeatMajorHandElement>();
+        m_OnBeatMinorHandElements = new List<OnBeatMinorHandElement>();
     }
 
     public void RegisterOnBeatElement(OnBeatElement element)
@@ -20,14 +20,14 @@ public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatLeftHandElement, 
         m_OnBeatElements.Add(element);
     }
 
-    public void RegisterOnBeatLeftHandElement(OnBeatLeftHandElement element)
+    public void RegisterOnBeatMajorHandElement(OnBeatMajorHandElement element)
     {
-        m_OnBeatLeftHandElements.Add(element);
+        m_OnBeatMajorHandElements.Add(element);
     }
 
-    public void RegisterOnBeatRightHandElement(OnBeatRightHandElement element)
+    public void RegisterOnBeatMinorHandElement(OnBeatMinorHandElement element)
     {
-        m_OnBeatRightHandElements.Add(element);
+        m_OnBeatMinorHandElements.Add(element);
     }
 
     public void OnBeat()
@@ -37,17 +37,17 @@ public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatLeftHandElement, 
         }
     }
 
-    public void OnBeatLeftHand()
+    public void OnBeatMajorHand()
     {
-        foreach (OnBeatLeftHandElement el in m_OnBeatLeftHandElements) {
-            el.OnBeatLeftHand();
+        foreach (OnBeatMajorHandElement el in m_OnBeatMajorHandElements) {
+            el.OnBeatMajorHand();
         }
     }
 
-    public void OnBeatRightHand()
+    public void OnBeatMinorHand()
     {
-        foreach (OnBeatRightHandElement el in m_OnBeatRightHandElements) {
-            el.OnBeatRightHand();
+        foreach (OnBeatMinorHandElement el in m_OnBeatMinorHandElements) {
+            el.OnBeatMinorHand();
         }
     }
 }

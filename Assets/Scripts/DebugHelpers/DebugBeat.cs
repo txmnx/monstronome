@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Debugging of the XRBeatDetector Component
  */
-public class DebugBeat : MonoBehaviour, OnBeatRightHandElement
+public class DebugBeat : MonoBehaviour, OnBeatMajorHandElement
 {
     public BeatManager beatManager;
     public MeshRenderer panelRenderer;
@@ -15,11 +15,11 @@ public class DebugBeat : MonoBehaviour, OnBeatRightHandElement
 
     private void Start()
     {
-        beatManager.RegisterOnBeatRightHandElement(this);
+        beatManager.RegisterOnBeatMajorHandElement(this);
         m_DefaultMaterial = panelRenderer.material;
     }
 
-    public void OnBeatRightHand()
+    public void OnBeatMajorHand()
     {
         panelRenderer.material = onBeatMaterial;
         StartCoroutine(OnBeatEnd());

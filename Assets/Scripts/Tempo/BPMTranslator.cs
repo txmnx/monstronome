@@ -4,9 +4,8 @@ using UnityEngine;
 
 /**
  * Use to compute a BPM value with OnBeat events
- * TODO : refactor Leading hand/minor hand
  */
-public class BPMTranslator : MonoBehaviour, OnBeatRightHandElement
+public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 {
     public BeatManager beatManager;
 
@@ -27,7 +26,7 @@ public class BPMTranslator : MonoBehaviour, OnBeatRightHandElement
 
     private void Start()
     {
-        beatManager.RegisterOnBeatRightHandElement(this);
+        beatManager.RegisterOnBeatMajorHandElement(this);
         m_BufferLastBPMs = new Queue<int>(new int[BPM_BUFFER_SIZE]);
     }
 
@@ -40,7 +39,7 @@ public class BPMTranslator : MonoBehaviour, OnBeatRightHandElement
     //On each beat of the leading hand we store the beat duration in a buffer
     //the current bpm is defined with a weighted average of the buffer
     //it permits to smoothen the bpm evolution
-    public void OnBeatRightHand()
+    public void OnBeatMajorHand()
     {
         float timeSinceLastBeat = Time.time - m_TimeAtLastBeat;
         int currentBPM = Mathf.Clamp((int)(60.0f / timeSinceLastBeat), minBPM, maxBPM);
