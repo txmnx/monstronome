@@ -13,15 +13,31 @@ public class InstrumentsDelayer : MonoBehaviour
     public PercussionsFamily percussionsFamily;
     public StringsFamily stringsFamily;
 
-    private InstrumentFamily[] families;
+    private InstrumentFamily[] m_Families;
+
+    [Header("DEBUG")]
+    //For the delay generation we increment the maxDelay of a family at each secondsBetweenEachDelay seconds
+    public float secondsBetweenEachDelay = 0.5f;
+    public float delayToAdd = 0.01f;
+    private float timeSinceLastDelay = 0;
 
     private void Start()
     {
-        families = new InstrumentFamily[4] { woodsFamily, brassFamily, percussionsFamily, stringsFamily };
+        m_Families = new InstrumentFamily[4] { woodsFamily, brassFamily, percussionsFamily, stringsFamily };
     }
 
-    private void DelayAFamily()
+    private void Update()
     {
+        if (timeSinceLastDelay > secondsBetweenEachDelay) {
+            DelayFamily();
+            timeSinceLastDelay = timeSinceLastDelay % secondsBetweenEachDelay;
+        }
 
+        timeSinceLastDelay += Time.deltaTime;
+    }
+
+    private void DelayFamily()
+    {
+        m_Families[Random.Range(0, m_Families.Length)].AddToMaxDelay(delayToAdd);
     }
 }
