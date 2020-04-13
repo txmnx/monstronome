@@ -56,15 +56,6 @@ public class XRBeatDetector : MonoBehaviour
             else if (m_LastMagnitude < deviceVelocity.magnitude - magnitudeTreshold) {
                 if (currentMagnitudePhase == MagnitudePhase.DROPPING) {
                     OnBeat();
-                    UnityEngine.XR.HapticCapabilities capabilities;
-                    if (m_Controller.inputDevice.TryGetHapticCapabilities(out capabilities)) {
-                        if (capabilities.supportsImpulse) {
-                            uint channel = 0;
-                            float amplitude = 0.5f;
-                            float duration = 1.0f;
-                            m_Controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
-                        }
-                    }
                 }
                 currentMagnitudePhase = MagnitudePhase.ASCENDING;
             }
