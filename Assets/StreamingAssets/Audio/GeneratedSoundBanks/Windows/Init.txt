@@ -1,27 +1,53 @@
 Switch Group	ID	Name			Wwise Object Path	Notes
-	1090601500	SW_Intention_Brass			\Switches\SW_Intention_Brass	
-	4012344001	SW_Intention_Woods			\Switches\SW_Intention_Woods	
-	4144689221	SW_Intention_Percussions			\Switches\SW_Intention_Percussions	
-	4251027333	SW_Intention_Strings			\Switches\SW_Intention_Strings	
+	554303915	SW_Articulation_Brass			\Switches\Articulation\SW_Articulation_Brass	
+	1043506402	SW_Articulation_Woods			\Switches\Articulation\SW_Articulation_Woods	
+	1952059502	SW_Articulation_Strings			\Switches\Articulation\SW_Articulation_Strings	
+	2452737974	SW_Intensity_Strings			\Switches\Intensity\SW_Intensity_Strings	
+	3193984618	SW_Intensity_Woods			\Switches\Intensity\SW_Intensity_Woods	
+	3232210438	SW_Intensity_Percussions			\Switches\Intensity\SW_Intensity_Percussions	
+	4041549459	SW_Intensity_Brass			\Switches\Intensity\SW_Intensity_Brass	
 
 Switch	ID	Name	Switch Group			Notes
-	56434811	Staccato	SW_Intention_Brass			
-	2077337834	Pizzicato	SW_Intention_Brass			
-	4208866100	Sustain	SW_Intention_Brass			
-	56434811	Staccato	SW_Intention_Woods			
-	2077337834	Pizzicato	SW_Intention_Woods			
-	4208866100	Sustain	SW_Intention_Woods			
-	56434811	Staccato	SW_Intention_Percussions			
-	2077337834	Pizzicato	SW_Intention_Percussions			
-	4208866100	Sustain	SW_Intention_Percussions			
-	56434811	Staccato	SW_Intention_Strings			
-	2077337834	Pizzicato	SW_Intention_Strings			
-	4208866100	Sustain	SW_Intention_Strings			
+	1422035515	Legato	SW_Articulation_Brass			
+	3432601699	StaccatoRips	SW_Articulation_Brass			
+	3644683267	HarmonMute	SW_Articulation_Brass			
+	4028101794	FlutterMute	SW_Articulation_Brass			
+	56434811	Staccato	SW_Articulation_Woods			
+	1422035515	Legato	SW_Articulation_Woods			
+	3466625877	Flutter	SW_Articulation_Woods			
+	3997891192	Trill	SW_Articulation_Woods			
+	56434811	Staccato	SW_Articulation_Strings			
+	1422035515	Legato	SW_Articulation_Strings			
+	2077337834	Pizzicato	SW_Articulation_Strings			
+	4056223263	Tremolo	SW_Articulation_Strings			
+	545371365	Low	SW_Intensity_Strings			
+	1026627430	Middle	SW_Intensity_Strings			
+	2915956327	Hight	SW_Intensity_Strings			
+	3009393504	Huge	SW_Intensity_Strings			
+	545371365	Low	SW_Intensity_Woods			
+	1026627430	Middle	SW_Intensity_Woods			
+	2915956327	Hight	SW_Intensity_Woods			
+	3009393504	Huge	SW_Intensity_Woods			
+	545371365	Low	SW_Intensity_Percussions			
+	1026627430	Middle	SW_Intensity_Percussions			
+	2915956327	Hight	SW_Intensity_Percussions			
+	3009393504	Huge	SW_Intensity_Percussions			
+	545371365	Low	SW_Intensity_Brass			
+	1026627430	Middle	SW_Intensity_Brass			
+	2915956327	Hight	SW_Intensity_Brass			
+	3009393504	Huge	SW_Intensity_Brass			
 
 State Group	ID	Name			Wwise Object Path	Notes
+	249970651	Focus			\States\Focus	
 	766723505	Game_State			\States\Game_State	
 
 State	ID	Name	State Group			Notes
+	173669664	Focus_Woods	Focus			
+	748895195	None	Focus			
+	2755940665	Focus_Brass	Focus			
+	2855506176	Focus_Strings	Focus			
+	3029345696	Focus_None	Focus			
+	3205378936	Focus_Percussions	Focus			
 	391998042	Tense	Game_State			
 	529726532	End	Game_State			
 	748895195	None	Game_State			
@@ -57,6 +83,11 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	195105701	Wwise_Meter_(Custom)	Wwise Meter			
+	388257655	Wwise_Meter_(Custom)	Wwise Meter			
+	609398598	Wwise_Meter_(Custom)	Wwise Meter			
+	631786641	Resonance Audio Renderer (Custom)	Resonance Audio Renderer			
+	901116825	Wwise_Meter_(Custom)	Wwise Meter			
+	2849147824	Medium	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
