@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Represents a bounding box used to modify the articulation
+ */
 [RequireComponent(typeof(BoxCollider))]
 public class MoveArea : MonoBehaviour
 {

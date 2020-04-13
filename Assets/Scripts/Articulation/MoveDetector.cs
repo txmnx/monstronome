@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
+/**
+ * Deals with the move detection for the families articulations
+ */
 [RequireComponent(typeof(XRCustomController))]
 public class MoveDetector : MonoBehaviour
 {

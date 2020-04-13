@@ -10,16 +10,17 @@ public class SoundEngineTuner : MonoBehaviour
     public const float BASE_TEMPO = 120;
     public const float MAX_DELAY = 0.5f;
 
-    private Dictionary<System.Type, string> m_DelayRTPCs;
+    private Dictionary<System.Type, string> m_KeywordFamily;
+    private Dictionary<System.Type, string> m_ArticulationRTPCs;
 
     private void Awake()
     {
-        m_DelayRTPCs = new Dictionary<System.Type, string>()
+        m_KeywordFamily = new Dictionary<System.Type, string>()
         {
-            { typeof(WoodsFamily), "RTPC_Time_Delay_Woods" },
-            { typeof(BrassFamily), "RTPC_Time_Delay_Brass" },
-            { typeof(PercussionsFamily), "RTPC_Time_Delay_Percussions" },
-            { typeof(StringsFamily), "RTPC_Time_Delay_Strings" },
+            { typeof(WoodsFamily), "Woods" },
+            { typeof(BrassFamily), "Brass" },
+            { typeof(PercussionsFamily), "Percussions" },
+            { typeof(StringsFamily), "Strings" },
         };
     }
 
@@ -31,10 +32,36 @@ public class SoundEngineTuner : MonoBehaviour
     public void SetDelay(InstrumentFamily family, float delay)
     {
         try {
-            AkSoundEngine.SetRTPCValue(m_DelayRTPCs[family.GetType()], delay);
+            AkSoundEngine.SetRTPCValue(GetDelayRTPCRequest(m_KeywordFamily[family.GetType()]), delay);
         }
         catch (KeyNotFoundException) {
-            Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC delay dictionnary");
+            Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
         }
+    }
+
+    public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
+    {
+        if (family.articulationTypes.Length > 1) {
+            //See sound documentation for the explaining of the formula
+            float value = (float)type / (float)(family.articulationTypes.Length - 1);
+            value *= 100;
+
+            try {
+                AkSoundEngine.SetRTPCValue(GetArticulationRTPCRequest(m_KeywordFamily[family.GetType()]), value);
+            }
+            catch (KeyNotFoundException) {
+                Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
+            }
+        }
+    }
+
+    private string GetDelayRTPCRequest(string familyKeyword)
+    {
+        return "RTPC_Time_Delay_" + familyKeyword;
+    }
+
+    private string GetArticulationRTPCRequest(string familyKeyword)
+    {
+        return "RTPC_Articulation_" + familyKeyword;
     }
 }
