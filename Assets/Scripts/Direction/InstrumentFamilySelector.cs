@@ -39,7 +39,7 @@ public class InstrumentFamilySelector : MonoBehaviour
                 }
             }
             else {
-                selectedFamily.OnLookedAt();
+                selectedFamily?.OnLookedAt();
             }
 
             m_CachedSelectedFamilyTransform = hit.transform;
