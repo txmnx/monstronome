@@ -43,7 +43,7 @@ public class SoundEngineTuner : MonoBehaviour
     {
         if (family.articulationTypes.Length > 1) {
             //See sound documentation for the explaining of the formula
-            float value = (float)type / (float)(family.articulationTypes.Length - 1);
+            float value = (float)type / (float)(family.articulationTypes.Length);
             value *= 100;
 
             try {
