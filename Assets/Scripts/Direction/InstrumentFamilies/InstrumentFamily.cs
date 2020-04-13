@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /**
@@ -9,6 +10,20 @@ public abstract class InstrumentFamily : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
 
+    /* Articulations */
+    public enum ArticulationType
+    {
+        Legato,
+        Staccato,
+        Flutter,
+        Trill,
+        Pizzicato,
+        Tremolo,
+        Harmon,
+        Default
+    }
+    public ArticulationType[] articulationTypes;
+
     private float m_Delay = 0.0f;
     private float m_MaxDelay = 0.0f;
     private float timeSinceLastDelay = 0;
@@ -16,11 +31,14 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     //DEBUG
     private MeshRenderer m_MeshRenderer;
+    [Header("DEBUG")]
     public DebugBar delayBar;
+    public TextMeshPro articulationTextMesh;
 
     private void Start()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
+        SetArticulation(0);
     }
 
     private void Update()
@@ -47,6 +65,14 @@ public abstract class InstrumentFamily : MonoBehaviour
         delayBar.UpdateValue(m_MaxDelay, 1 - (m_MaxDelay / SoundEngineTuner.MAX_DELAY));
     }
 
+
+    public void SetArticulation(int index)
+    {
+        if (index < articulationTypes.Length) {
+            soundEngineTuner.SetArticulation(this, articulationTypes[index]);
+            articulationTextMesh.text = articulationTypes[index].ToString();
+        }
+    }
 
     /* Events */
 

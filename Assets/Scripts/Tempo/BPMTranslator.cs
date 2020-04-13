@@ -8,7 +8,6 @@ using UnityEngine;
 public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 {
     public BeatManager beatManager;
-    public SoundEngineTuner soundEngineTuner;
 
     //The bigger the buffer size is, the smoother the bpm's evolution is
     private const int BPM_BUFFER_SIZE = 8;
