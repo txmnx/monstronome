@@ -7,7 +7,7 @@ using UnityEngine.XR;
  * Deals with the move detection for the families articulations
  */
 [RequireComponent(typeof(XRCustomController))]
-public class MoveDetector : MonoBehaviour
+public class XRMoveDetector : MonoBehaviour
 {
     public InstrumentFamilySelector instrumentFamilySelector;
     public MoveArea[] moveAreas;
