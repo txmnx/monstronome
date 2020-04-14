@@ -69,7 +69,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void SetArticulation(int index)
     {
         if (index < articulationTypes.Length) {
-            soundEngineTuner.SetArticulation(this, articulationTypes[index]);
+            soundEngineTuner.SetArticulation(this, index);
             articulationTextMesh.text = articulationTypes[index].ToString();
         }
     }

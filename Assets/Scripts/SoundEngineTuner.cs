@@ -39,11 +39,11 @@ public class SoundEngineTuner : MonoBehaviour
         }
     }
 
-    public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
+    public void SetArticulation(InstrumentFamily family, int indexType)
     {
         if (family.articulationTypes.Length > 1) {
             //See sound documentation for the explaining of the formula
-            float value = (float)type / (float)(family.articulationTypes.Length);
+            float value = (float)indexType / (float)(family.articulationTypes.Length);
             value *= 100;
 
             try {
