@@ -9,7 +9,8 @@ using UnityEngine.XR;
 [RequireComponent(typeof(XRCustomController))]
 public class XRMoveDetector : MonoBehaviour
 {
-    public InstrumentFamilySelector instrumentFamilySelector;
+    //TODO: here it isnt the looker anymore ; should use selector
+    public InstrumentFamilyLooker instrumentFamilyLooker;
     public MoveArea[] moveAreas;
     private XRCustomController m_Controller;
 
@@ -44,7 +45,7 @@ public class XRMoveDetector : MonoBehaviour
                 }
 
                 if (i != moveAreas.Length) {
-                    instrumentFamilySelector.selectedFamily?.SetArticulation(moveAreas[i].articulationIndexToApply);
+                    instrumentFamilyLooker.lookedFamily?.SetArticulation(moveAreas[i].articulationIndexToApply);
                 }
             }
         }

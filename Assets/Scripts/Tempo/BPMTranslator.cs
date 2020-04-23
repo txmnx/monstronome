@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Use to compute a BPM value with OnBeat events
+ * Use to compute a BPM value with OnBeat events from BeatManager
  */
 public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 {

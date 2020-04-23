@@ -53,7 +53,7 @@ public class XRCustomController : MonoBehaviour
         /* DEBUG */
         Vector3 deviceVelocity = new Vector3();
         if (inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out deviceVelocity)) {
-            debugGraph1.SetValue(deviceVelocity.magnitude);
+            debugGraph.SetValue(deviceVelocity.magnitude);
         }
     }
 
@@ -62,5 +62,5 @@ public class XRCustomController : MonoBehaviour
      * DEBUG
      */
     [Header("DEBUG")]
-    public DebugGraph debugGraph1;
+    public DebugGraph debugGraph;
 }

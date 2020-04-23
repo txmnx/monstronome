@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 224941986}
   - component: {fileID: 224941991}
   - component: {fileID: 224941992}
+  - component: {fileID: 224941993}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -612,7 +613,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sightLength: 10
-  selectedFamily: {fileID: 0}
+  lookedFamily: {fileID: 0}
+--- !u!114 &224941993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224941985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cf0d783700c7546bfb4ee41147dfa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1968274598}
+  instrumentFamilyLooker: {fileID: 224941992}
 --- !u!1 &235050593
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,7 +3441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerNode: 5
-  debugGraph1: {fileID: 600202873}
+  debugGraph: {fileID: 600202873}
 --- !u!114 &1484290209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3755,7 +3770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7881baf45809dbf47ac568da61bcc13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instrumentFamilySelector: {fileID: 224941992}
+  instrumentFamilyLooker: {fileID: 224941992}
   moveAreas:
   - {fileID: 492206448}
   - {fileID: 2006062476}
@@ -3776,7 +3791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerNode: 4
-  debugGraph1: {fileID: 1256031507}
+  debugGraph: {fileID: 1256031507}
 --- !u!114 &1975139042 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7469885954343474705, guid: 1bcd079a8f7cb304f81e3b8bf5d62d11,
