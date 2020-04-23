@@ -225,9 +225,9 @@ public class AkCommonUserSettings
 	protected static string GetPluginPath()
 	{
 #if UNITY_EDITOR_WIN
-		return System.IO.Path.Combine(UnityEngine.Application.dataPath, "Wwise", "Deployment", "Plugins", "Windows", "x86_64", "DSP");
+		return System.IO.Path.Combine(UnityEngine.Application.dataPath, @"Wwise\Deployment\Plugins\Windows\x86_64\DSP");
 #elif UNITY_EDITOR_OSX
-		return System.IO.Path.Combine(UnityEngine.Application.dataPath, "Wwise", "Deployment", "Plugins", "Mac", "DSP");
+		return System.IO.Path.Combine(UnityEngine.Application.dataPath, @"Wwise/Deployment/Plugins/Mac/DSP");
 #elif UNITY_ANDROID || UNITY_WSA
 		return null;
 #elif PLATFORM_LUMIN
@@ -235,6 +235,8 @@ public class AkCommonUserSettings
 		var find = "Data";
 		var index = dataPath.LastIndexOf(find);
 		return index == -1 ? dataPath : dataPath.Remove(index, find.Length).Insert(index, "bin");
+#elif UNITY_STADIA
+		return System.IO.Path.Combine(UnityEngine.Application.dataPath, ".." + System.IO.Path.DirectorySeparatorChar);
 #else
 		return System.IO.Path.Combine(UnityEngine.Application.dataPath, "Plugins" + System.IO.Path.DirectorySeparatorChar);
 #endif

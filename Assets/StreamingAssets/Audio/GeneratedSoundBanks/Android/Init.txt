@@ -1,0 +1,94 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	554303915	SW_Articulation_Brass			\Switches\SW_Articulation_Brass	
+	1043506402	SW_Articulation_Woods			\Switches\SW_Articulation_Woods	
+	1952059502	SW_Articulation_Strings			\Switches\SW_Articulation_Strings	
+	2452737974	SW_Intensity_Strings			\Switches\SW_Intensity_Strings	
+	3193984618	SW_Intensity_Woods			\Switches\SW_Intensity_Woods	
+	3232210438	SW_Intensity_Percussions			\Switches\SW_Intensity_Percussions	
+	4041549459	SW_Intensity_Brass			\Switches\SW_Intensity_Brass	
+
+Switch	ID	Name	Switch Group			Notes
+	1422035515	Legato	SW_Articulation_Brass			
+	3432601699	StaccatoRips	SW_Articulation_Brass			
+	3644683267	HarmonMute	SW_Articulation_Brass			
+	4028101794	FlutterMute	SW_Articulation_Brass			
+	56434811	Staccato	SW_Articulation_Woods			
+	1422035515	Legato	SW_Articulation_Woods			
+	3466625877	Flutter	SW_Articulation_Woods			
+	3997891192	Trill	SW_Articulation_Woods			
+	56434811	Staccato	SW_Articulation_Strings			
+	1422035515	Legato	SW_Articulation_Strings			
+	2077337834	Pizzicato	SW_Articulation_Strings			
+	4056223263	Tremolo	SW_Articulation_Strings			
+	545371365	Low	SW_Intensity_Strings			
+	1026627430	Middle	SW_Intensity_Strings			
+	2915956327	Hight	SW_Intensity_Strings			
+	3009393504	Huge	SW_Intensity_Strings			
+	545371365	Low	SW_Intensity_Woods			
+	1026627430	Middle	SW_Intensity_Woods			
+	2915956327	Hight	SW_Intensity_Woods			
+	3009393504	Huge	SW_Intensity_Woods			
+	545371365	Low	SW_Intensity_Percussions			
+	1026627430	Middle	SW_Intensity_Percussions			
+	2915956327	Hight	SW_Intensity_Percussions			
+	3009393504	Huge	SW_Intensity_Percussions			
+	545371365	Low	SW_Intensity_Brass			
+	1026627430	Middle	SW_Intensity_Brass			
+	2915956327	Hight	SW_Intensity_Brass			
+	3009393504	Huge	SW_Intensity_Brass			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	249970651	Focus			\States\Focus	
+	766723505	Game_State			\States\Game_State	
+
+State	ID	Name	State Group			Notes
+	173669664	Focus_Woods	Focus			
+	748895195	None	Focus			
+	2755940665	Focus_Brass	Focus			
+	2855506176	Focus_Strings	Focus			
+	3029345696	Focus_None	Focus			
+	3205378936	Focus_Percussions	Focus			
+	391998042	Tense	Game_State			
+	529726532	End	Game_State			
+	748895195	None	Game_State			
+	1026627430	Middle	Game_State			
+	1281810935	Start	Game_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	504532776	Brick			\Factory Reflect Acoustic Textures\Textures\Brick	
+	513139656	Mountain			\Factory Reflect Acoustic Textures\Textures\Mountain	
+	841620460	Concrete			\Factory Reflect Acoustic Textures\Textures\Concrete	
+	1755085759	Wood_Deep			\Factory Reflect Acoustic Textures\Textures\Wood_Deep	
+	1873957695	Anechoic			\Factory Reflect Acoustic Textures\Textures\Anechoic	
+	1970351858	Fabric			\Factory Reflect Acoustic Textures\Textures\Fabric	
+	2058049674	Wood			\Factory Reflect Acoustic Textures\Textures\Wood	
+	2412606308	Carpet			\Factory Reflect Acoustic Textures\Textures\Carpet	
+	2637588553	Tile			\Factory Reflect Acoustic Textures\Textures\Tile	
+	2928161104	Curtains			\Factory Reflect Acoustic Textures\Textures\Curtains	
+	3195498748	Cork_Tiles			\Factory Reflect Acoustic Textures\Textures\Cork_Tiles	
+	3670307564	Drywall			\Factory Reflect Acoustic Textures\Textures\Drywall	
+	4168643977	Acoustic_Banner			\Factory Reflect Acoustic Textures\Textures\Acoustic_Banner	
+	4262522749	Wood_Bright			\Factory Reflect Acoustic Textures\Textures\Wood_Bright	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	505915784	Brass			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Brass	
+	2058049674	Wood			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Wood	
+	3363523641	Strings			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Strings	
+	3539010900	Ambisonics_Bus			\Default Work Unit\Master Audio Bus\Ambisonics_Bus	
+	3762497105	Percussions			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Percussions	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	44205819	Reverb_ConcertHall			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Reverb_ConcertHall	
+
+Effect plug-ins	ID	Name	Type				Notes
+	195105701	Wwise_Meter_(Custom)	Wwise Meter			
+	388257655	Wwise_Meter_(Custom)	Wwise Meter			
+	609398598	Wwise_Meter_(Custom)	Wwise Meter			
+	631786641	Resonance Audio Renderer (Custom)	Resonance Audio Renderer			
+	901116825	Wwise_Meter_(Custom)	Wwise Meter			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+
