@@ -10,57 +10,46 @@ using UnityEngine.XR;
 public class XRBeatDetector : MonoBehaviour
 {
     public BeatManager beatManager;
-    public enum MagnitudePhase
-    {
-        ASCENDING,
-        STILL,
-        DROPPING
-    }
-    //TODO : In camera space we define the area X where a beat is detected as 
-    //    -m_MaxTreshold X -m_MinTreshold 0 m_MinTreshold X m_MaxTreshold
-    //This is useful if we want to filter the gesture on a left/right gesture
-    private float m_MinTreshold;
-    private float m_MaxTreshold;
+    public Transform beatPlane;
 
-    //Margin of precision for the magnitude
-    public float magnitudeTreshold;
-    
     private XRCustomController m_Controller;
+
+    private Transform m_BeatPlaneParent;
+    private float m_BeatPlaneCenter;
+
+    private enum VerticalPlaneSide { Left, Right };
+    private VerticalPlaneSide m_CurrentSide;
 
     private void Start()
     {
         m_Controller = GetComponent<XRCustomController>();
+        m_BeatPlaneCenter = beatPlane.localPosition.x;
+        m_BeatPlaneParent = beatPlane.transform.parent;
+        m_CurrentSide = VerticalPlaneSide.Left;
     }
-
-    private float m_LastMagnitude = 0.0f;
-    private MagnitudePhase currentMagnitudePhase = MagnitudePhase.STILL;
 
     private void FixedUpdate()
     {
         DetectBeat();
     }
 
-    /**
-     * This function studies the evolution of the controller's magnitude
-     * If the magnitude reach a still or an descending phase after an ascending phase
-     * This means that the controller followed a sequence still - movement - still
-     * Currently we put the beat on the quick movement but it is possible to put it on the still phase
-     */
     private void DetectBeat()
     {
-        Vector3 deviceVelocity = new Vector3();
-        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out deviceVelocity)) {
-            if (m_LastMagnitude > deviceVelocity.magnitude + magnitudeTreshold) {
-                currentMagnitudePhase = MagnitudePhase.DROPPING;
-            }
-            else if (m_LastMagnitude < deviceVelocity.magnitude - magnitudeTreshold) {
-                if (currentMagnitudePhase == MagnitudePhase.DROPPING) {
-                    OnBeat();
-                }
-                currentMagnitudePhase = MagnitudePhase.ASCENDING;
-            }
+        VerticalPlaneSide side = GetBeatPlaneSide();
+        if (side != m_CurrentSide) {
+            OnBeat();
+            m_CurrentSide = side;
+        }
+    }
 
-            m_LastMagnitude = deviceVelocity.magnitude;
+    private VerticalPlaneSide GetBeatPlaneSide()
+    {
+        float x = m_BeatPlaneParent.InverseTransformPoint(transform.position).x;
+        if (x > m_BeatPlaneCenter) {
+            return VerticalPlaneSide.Right;
+        }
+        else {
+            return VerticalPlaneSide.Left;
         }
     }
 

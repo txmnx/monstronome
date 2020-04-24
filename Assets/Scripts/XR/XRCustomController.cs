@@ -44,10 +44,10 @@ public class XRCustomController : MonoBehaviour
         Quaternion deviceRotation = new Quaternion();
 
         if (inputDevice.TryGetFeatureValue(CommonUsages.devicePosition, out devicePosition)) {
-            transform.position = devicePosition;
+            transform.localPosition = devicePosition;
         }
         if (inputDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out deviceRotation)) {
-            transform.rotation = deviceRotation;
+            transform.localRotation = deviceRotation;
         }
 
         /* DEBUG */

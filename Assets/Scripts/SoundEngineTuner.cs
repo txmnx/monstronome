@@ -65,7 +65,7 @@ public class SoundEngineTuner : MonoBehaviour
         }
     }
 
-    //Highlight a family based with intensity offsets
+    //Highlight a family based on intensity offsets
     public void HighlightFamilyIntensity(InstrumentFamily family, float intensity, float intensityOthers)
     {
         string familyKeyword = m_KeywordFamily[family.GetType()];
