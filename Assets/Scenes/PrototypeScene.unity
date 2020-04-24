@@ -1141,7 +1141,6 @@ GameObject:
   - component: {fileID: 348619487}
   - component: {fileID: 348619489}
   - component: {fileID: 348619491}
-  - component: {fileID: 348619490}
   - component: {fileID: 348619492}
   m_Layer: 0
   m_Name: GameManager
@@ -1189,24 +1188,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
-  minBPM: 30
-  maxBPM: 180
+  soundEngineTuner: {fileID: 348619491}
+  minBPM: 45
+  maxBPM: 165
   bpm: 0
   bpmGraph: {fileID: 277658482}
---- !u!114 &348619490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348619486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a4e623f5b77f054e8f4d8f773154369, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEngineTuner: {fileID: 348619491}
-  bpmTranslator: {fileID: 348619489}
+  debugTextTempoType: {fileID: 1534753355}
 --- !u!114 &348619491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,8 +1344,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  articulationTypes: 00000000010000000200000003000000
   spotlight: {fileID: 1377526393}
+  articulationTypes: 00000000010000000200000003000000
   delayBar: {fileID: 1310245760}
   articulationTextMesh: {fileID: 351763482}
 --- !u!1 &473182383
@@ -2194,6 +2181,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &798737286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1628942733}
+    m_Modifications:
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440206, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.435
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.735
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.08269976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.906826
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.35538122
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.21102491
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 42.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 206.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144029, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_Name
+      value: DebugTempoType
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0638626e36c4074ba868d31ff00c4b8, type: 3}
+--- !u!4 &798737287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 798737286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &854011149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,8 +2401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  articulationTypes: 07000000
   spotlight: {fileID: 1971820067}
+  articulationTypes: 07000000
   delayBar: {fileID: 1975139042}
   articulationTextMesh: {fileID: 768573005}
 --- !u!114 &869300554 stripped
@@ -2594,8 +2691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  articulationTypes: 00000000010000000200000006000000
   spotlight: {fileID: 503611279}
+  articulationTypes: 00000000010000000200000006000000
   delayBar: {fileID: 869300554}
   articulationTextMesh: {fileID: 15402419}
 --- !u!4 &1153059046 stripped
@@ -2893,8 +2990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  articulationTypes: 00000000010000000400000005000000
   spotlight: {fileID: 2089489768}
+  articulationTypes: 00000000010000000400000005000000
   delayBar: {fileID: 1379334838}
   articulationTextMesh: {fileID: 1338466626}
 --- !u!4 &1256031506 stripped
@@ -3855,6 +3952,18 @@ Transform:
   m_Father: {fileID: 224941988}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534753355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 798737286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628942732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,6 +3996,7 @@ Transform:
   - {fileID: 1231795616}
   - {fileID: 534080861}
   - {fileID: 473182384}
+  - {fileID: 798737287}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

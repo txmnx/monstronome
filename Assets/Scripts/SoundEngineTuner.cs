@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class SoundEngineTuner : MonoBehaviour
     public const float MAX_DELAY = 0.5f;
 
     private Dictionary<System.Type, string> m_KeywordFamily;
+    //Used to retrieve tempo range from a tempo type
+    private Dictionary<InstrumentFamily.TempoType, TempoRange> m_TempoRanges;
 
     private void Awake()
     {
@@ -21,12 +24,30 @@ public class SoundEngineTuner : MonoBehaviour
             { typeof(PercussionsFamily), "Percussions" },
             { typeof(StringsFamily), "Strings" },
         };
+
+        m_TempoRanges = new Dictionary<InstrumentFamily.TempoType, TempoRange>()
+        {
+            { InstrumentFamily.TempoType.Lento, new TempoRange(45, 60, 75, InstrumentFamily.TempoType.Lento) },
+            { InstrumentFamily.TempoType.Andante, new TempoRange(75, 90, 105, InstrumentFamily.TempoType.Andante) },
+            { InstrumentFamily.TempoType.Allegro, new TempoRange(105, 120, 135, InstrumentFamily.TempoType.Allegro) },
+            { InstrumentFamily.TempoType.Presto, new TempoRange(135, 150, 165, InstrumentFamily.TempoType.Presto) },
+        };
     }
 
-    public void SetTempo(int bpm)
+    public void SetTempo(float bpm)
     {
-        AkSoundEngine.SetRTPCValue("RTPC_Tempo", (float)bpm / BASE_TEMPO);
+        AkSoundEngine.SetRTPCValue("RTPC_Tempo", bpm / BASE_TEMPO);
     }
+
+    public TempoRange GetTempoRange(float bpm)
+    {
+        foreach (TempoRange range in m_TempoRanges.Values) {
+            if (range.IsInRange(bpm)) {
+                return range;
+            }
+        }
+        return m_TempoRanges[InstrumentFamily.TempoType.Allegro];
+    } 
 
     public void SetDelay(InstrumentFamily family, float delay)
     {
@@ -115,5 +136,26 @@ public class SoundEngineTuner : MonoBehaviour
     private string GetIntensityRTPCRequest(string familyKeyword)
     {
         return "RTPC_Intensity_" + familyKeyword;
+    }
+
+
+    //Utilities
+    public struct TempoRange
+    {
+        public float min;
+        public float value;
+        public float max;
+        public InstrumentFamily.TempoType type;
+        public TempoRange(float _min, float _value, float _max, InstrumentFamily.TempoType _type)
+        {
+            min = _min;
+            value = _value;
+            max = _max;
+            type = _type;
+        }
+        public bool IsInRange(float a)
+        {
+            return (a <= max && a >= min);
+        }
     }
 }
