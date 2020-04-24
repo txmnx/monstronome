@@ -24,6 +24,8 @@ public abstract class InstrumentFamily : MonoBehaviour
     }
     public ArticulationType[] articulationTypes;
 
+    public Light spotlight;
+
     private float m_Delay = 0.0f;
     private float m_MaxDelay = 0.0f;
     private float timeSinceLastDelay = 0;
@@ -34,6 +36,11 @@ public abstract class InstrumentFamily : MonoBehaviour
     [Header("DEBUG")]
     public DebugBar delayBar;
     public TextMeshPro articulationTextMesh;
+
+    private void Awake()
+    {
+        spotlight.enabled = false;
+    }
 
     private void Start()
     {
