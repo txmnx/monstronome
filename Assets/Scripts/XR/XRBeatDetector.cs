@@ -20,6 +20,9 @@ public class XRBeatDetector : MonoBehaviour
     private enum VerticalPlaneSide { Left, Right };
     private VerticalPlaneSide m_CurrentSide;
 
+    private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
+    private float m_TimeSinceLastBeatDetection = 0.0f;
+
     private void Start()
     {
         m_Controller = GetComponent<XRCustomController>();
@@ -28,17 +31,26 @@ public class XRBeatDetector : MonoBehaviour
         m_CurrentSide = VerticalPlaneSide.Left;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        DetectBeat();
+        if (m_TimeSinceLastBeatDetection > m_TimeBetweenBeatDetection) {
+            DetectBeat();
+            m_TimeSinceLastBeatDetection %= m_TimeBetweenBeatDetection;
+        }
+        m_TimeSinceLastBeatDetection += Time.deltaTime;
     }
 
     private void DetectBeat()
     {
-        VerticalPlaneSide side = GetBeatPlaneSide();
-        if (side != m_CurrentSide) {
-            OnBeat();
-            m_CurrentSide = side;
+        bool triggerPressed;
+        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out triggerPressed)) {
+            if (triggerPressed) {
+                VerticalPlaneSide side = GetBeatPlaneSide();
+                if (side != m_CurrentSide) {
+                    OnBeat();
+                    m_CurrentSide = side;
+                }
+            }
         }
     }
 
