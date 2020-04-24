@@ -11,7 +11,6 @@ public class SoundEngineTuner : MonoBehaviour
     public const float MAX_DELAY = 0.5f;
 
     private Dictionary<System.Type, string> m_KeywordFamily;
-    private Dictionary<System.Type, string> m_ArticulationRTPCs;
 
     private void Awake()
     {
@@ -55,6 +54,54 @@ public class SoundEngineTuner : MonoBehaviour
         }
     }
 
+    //Intensity : [0, 100], default at 50
+    public void SetIntensity(InstrumentFamily family, float intensity)
+    {
+        try {
+            AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest(m_KeywordFamily[family.GetType()]), intensity);
+        }
+        catch (KeyNotFoundException) {
+            Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
+        }
+    }
+
+    //Highlight a family based with intensity offsets
+    public void HighlightFamilyIntensity(InstrumentFamily family, float intensity, float intensityOthers)
+    {
+        string familyKeyword = m_KeywordFamily[family.GetType()];
+        try {
+            switch (familyKeyword) {
+                case "Woods":
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Strings"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Percussions"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Brass"), intensityOthers);
+                    break;
+                case "Strings":
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Woods"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Percussions"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Brass"), intensityOthers);
+                    break;
+                case "Percussions":
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Strings"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Woods"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Brass"), intensityOthers);
+                    break;
+                case "Brass":
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Strings"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Percussions"), intensityOthers);
+                    AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest("Woods"), intensityOthers);
+                    break;
+                default:
+                    break;
+            }
+            
+            AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest(familyKeyword), intensity);
+        }
+        catch (KeyNotFoundException) {
+            Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
+        }
+    }
+
     private string GetDelayRTPCRequest(string familyKeyword)
     {
         return "RTPC_Time_Delay_" + familyKeyword;
@@ -63,5 +110,10 @@ public class SoundEngineTuner : MonoBehaviour
     private string GetArticulationRTPCRequest(string familyKeyword)
     {
         return "RTPC_Articulation_" + familyKeyword;
+    }
+
+    private string GetIntensityRTPCRequest(string familyKeyword)
+    {
+        return "RTPC_Intensity_" + familyKeyword;
     }
 }
