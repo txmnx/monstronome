@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /**
@@ -8,21 +9,25 @@ using UnityEngine;
 public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 {
     public BeatManager beatManager;
+    public SoundEngineTuner soundEngineTuner;
 
     //The bigger the buffer size is, the smoother the bpm's evolution is
     private const int BPM_BUFFER_SIZE = 8;
     private Queue<int> m_BufferLastBPMs;
 
-    public int minBPM = 30;
-    public int maxBPM = 180;
+    public int minBPM = 45;
+    public int maxBPM = 165;
 
     [HideInInspector]
     public int bpm;
-
     private float m_TimeAtLastBeat = 0.0f;
+
+    private InstrumentFamily.TempoType m_CurrentTempoType;
+
 
     [Header("DEBUG")]
     public DebugGraph bpmGraph;
+    public TextMeshPro debugTextTempoType;
 
     private void Start()
     {
@@ -33,13 +38,22 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
         for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
             m_BufferLastBPMs.Enqueue(baseTempo);
         }
+
         bpm = baseTempo;
+        m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
     }
 
     private void Update()
     {
+        SoundEngineTuner.TempoRange tempoRange = soundEngineTuner.GetTempoRange(bpm);
+        if (m_CurrentTempoType != tempoRange.type) {
+            soundEngineTuner.SetTempo(tempoRange.value);
+        }
+        m_CurrentTempoType = tempoRange.type;
+
         //DEBUG
         bpmGraph?.SetValue(bpm);
+        debugTextTempoType.text = tempoRange.type.ToString();
     }
 
     //On each beat of the leading hand we store the beat duration in a buffer

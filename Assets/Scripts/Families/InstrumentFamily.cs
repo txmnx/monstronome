@@ -9,8 +9,8 @@ using UnityEngine;
 public abstract class InstrumentFamily : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
+    public Light spotlight;
 
-    /* Articulations */
     public enum ArticulationType
     {
         Legato,
@@ -24,7 +24,13 @@ public abstract class InstrumentFamily : MonoBehaviour
     }
     public ArticulationType[] articulationTypes;
 
-    public Light spotlight;
+    public enum TempoType
+    {
+        Lento,
+        Andante,
+        Allegro,
+        Presto
+    }
 
     private float m_Delay = 0.0f;
     private float m_MaxDelay = 0.0f;
