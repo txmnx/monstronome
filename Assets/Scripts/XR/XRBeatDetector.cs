@@ -17,7 +17,7 @@ public class XRBeatDetector : MonoBehaviour
     private Transform m_BeatPlaneParent;
     private float m_BeatPlaneCenter;
 
-    private enum VerticalPlaneSide { Left, Right };
+    private enum VerticalPlaneSide { Left, Right, None };
     private VerticalPlaneSide m_CurrentSide;
 
     private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
@@ -47,9 +47,14 @@ public class XRBeatDetector : MonoBehaviour
             if (triggerPressed) {
                 VerticalPlaneSide side = GetBeatPlaneSide();
                 if (side != m_CurrentSide) {
-                    OnBeat();
+                    if (m_CurrentSide != VerticalPlaneSide.None) {
+                        OnBeat();
+                    }
                     m_CurrentSide = side;
                 }
+            }
+            else {
+                m_CurrentSide = VerticalPlaneSide.None;
             }
         }
     }
