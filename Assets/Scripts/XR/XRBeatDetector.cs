@@ -12,6 +12,9 @@ public class XRBeatDetector : MonoBehaviour
     public BeatManager beatManager;
     public Transform beatPlane;
 
+    [HideInInspector]
+    public bool isDirecting = false;
+
     private XRCustomController m_Controller;
 
     private Transform m_BeatPlaneParent;
@@ -61,9 +64,11 @@ public class XRBeatDetector : MonoBehaviour
                 else {
                     m_Amplitude = Mathf.Max(m_Amplitude, Vector3.Distance(m_BeatLocation, transform.position));
                 }
+                isDirecting = true;
             }
             else {
                 m_CurrentSide = VerticalPlaneSide.None;
+                isDirecting = false;
             }
         }
     }
