@@ -37,9 +37,9 @@ public class SoundEngineTuner : MonoBehaviour
 
         m_IntensityRanges = new Dictionary<InstrumentFamily.IntensityType, RTPCRange<InstrumentFamily.IntensityType>>()
         {
-            { InstrumentFamily.IntensityType.Pianissimo, new RTPCRange<InstrumentFamily.IntensityType>(0, 0.22f, 25, InstrumentFamily.IntensityType.Pianissimo) },
-            { InstrumentFamily.IntensityType.MezzoForte, new RTPCRange<InstrumentFamily.IntensityType>(0.22f, 0.35f, 50, InstrumentFamily.IntensityType.MezzoForte) },
-            { InstrumentFamily.IntensityType.Fortissimo, new RTPCRange<InstrumentFamily.IntensityType>(0.35f, 1000, 75, InstrumentFamily.IntensityType.Fortissimo) }
+            { InstrumentFamily.IntensityType.Pianissimo, new RTPCRange<InstrumentFamily.IntensityType>(0, 0.3f, 25, InstrumentFamily.IntensityType.Pianissimo) },
+            { InstrumentFamily.IntensityType.MezzoForte, new RTPCRange<InstrumentFamily.IntensityType>(0.3f, 0.6f, 50, InstrumentFamily.IntensityType.MezzoForte) },
+            { InstrumentFamily.IntensityType.Fortissimo, new RTPCRange<InstrumentFamily.IntensityType>(0.6f, 1000, 75, InstrumentFamily.IntensityType.Fortissimo) }
         };
     }
 

@@ -12,6 +12,9 @@ public class XRBeatDetector : MonoBehaviour
     public BeatManager beatManager;
     public Transform beatPlane;
 
+    [HideInInspector]
+    public bool isDirecting = false;
+
     private XRCustomController m_Controller;
 
     private Transform m_BeatPlaneParent;
@@ -22,7 +25,8 @@ public class XRBeatDetector : MonoBehaviour
 
     private enum VerticalPlaneSide { Left, Right, None };
     private VerticalPlaneSide m_CurrentSide;
-    private Vector3 m_BeatLocation;
+    private Vector3[] m_MaximumGesturePoints;
+    private int m_MaximumGesturePointIndex;
     private float m_Amplitude;
 
     private void Start()
@@ -31,7 +35,11 @@ public class XRBeatDetector : MonoBehaviour
         m_BeatPlaneCenter = beatPlane.localPosition.x;
         m_BeatPlaneParent = beatPlane.transform.parent;
         m_CurrentSide = VerticalPlaneSide.Left;
-        m_BeatLocation = new Vector3();
+        m_MaximumGesturePoints = new Vector3[2] {
+            new Vector3(m_BeatPlaneCenter, 0, 0),
+            new Vector3(m_BeatPlaneCenter, 0, 0)
+        };
+        m_MaximumGesturePointIndex = 0;
         m_Amplitude = 0.0f;
     }
 
@@ -54,16 +62,22 @@ public class XRBeatDetector : MonoBehaviour
                     if (m_CurrentSide != VerticalPlaneSide.None) {
                         OnBeat(m_Amplitude);
                         m_Amplitude = 0;
-                        m_BeatLocation = transform.position;
+                        m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
                     }
                     m_CurrentSide = side;
                 }
                 else {
-                    m_Amplitude = Mathf.Max(m_Amplitude, Vector3.Distance(m_BeatLocation, transform.position));
+                    float distanceLastMaximum = Vector3.Distance(transform.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
+                    if (m_Amplitude < distanceLastMaximum) {
+                        m_MaximumGesturePoints[m_MaximumGesturePointIndex] = transform.position;
+                        m_Amplitude = distanceLastMaximum;
+                    }
                 }
+                isDirecting = true;
             }
             else {
                 m_CurrentSide = VerticalPlaneSide.None;
+                isDirecting = false;
             }
         }
     }
