@@ -11,9 +11,10 @@ public class IntensityTranslator : MonoBehaviour, OnBeatMajorHandElement
     public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;
 
+    //TODO : if we don't want to smoothen the intensity evolution we don't have to use a buffer
     //The bigger the buffer size is, the smoother the intensity's evolution is
-    private const int AMPLITUDE_BUFFER_SIZE = 4;
-    private const float BASE_AMPLITUDE = 0.2f;
+    private const int AMPLITUDE_BUFFER_SIZE = 1;
+    private const float BASE_AMPLITUDE = 0.3f;
     private Queue<float> m_BufferLastAmplitudes;
 
     private InstrumentFamily.IntensityType m_CurrentIntensityType;
