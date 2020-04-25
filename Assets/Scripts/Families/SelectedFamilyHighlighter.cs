@@ -31,7 +31,7 @@ public class SelectedFamilyHighlighter : MonoBehaviour
         m_defaultBackgroundColor = mainCamera.backgroundColor;
         mainCamera.backgroundColor = Color.black;
 
-        soundEngineTuner.HighlightFamilyIntensity(family, 75, 0);
+        soundEngineTuner.FocusFamily(family);
     }
 
     private void OnDeselectFamily(InstrumentFamily family)
@@ -42,6 +42,6 @@ public class SelectedFamilyHighlighter : MonoBehaviour
         family.spotlight.enabled = false;
         mainCamera.backgroundColor = m_defaultBackgroundColor;
 
-        soundEngineTuner.HighlightFamilyIntensity(family, 50, 50);
+        soundEngineTuner.UnfocusFamily();
     }
 }
