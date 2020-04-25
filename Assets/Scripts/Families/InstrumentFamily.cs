@@ -32,6 +32,13 @@ public abstract class InstrumentFamily : MonoBehaviour
         Presto
     }
 
+    public enum IntensityType
+    {
+        Pianissimo,
+        MezzoForte,
+        Fortissimo
+    }
+
     private float m_Delay = 0.0f;
     private float m_MaxDelay = 0.0f;
     private float timeSinceLastDelay = 0;

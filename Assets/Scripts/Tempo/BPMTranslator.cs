@@ -13,13 +13,13 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 
     //The bigger the buffer size is, the smoother the bpm's evolution is
     private const int BPM_BUFFER_SIZE = 8;
-    private Queue<int> m_BufferLastBPMs;
+    private Queue<float> m_BufferLastBPMs;
 
-    public int minBPM = 45;
-    public int maxBPM = 165;
+    public float minBPM = 45;
+    public float maxBPM = 165;
 
     [HideInInspector]
-    public int bpm;
+    public float bpm;
     private float m_TimeAtLastBeat = 0.0f;
 
     private InstrumentFamily.TempoType m_CurrentTempoType;
@@ -33,8 +33,8 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
     {
         beatManager.RegisterOnBeatMajorHandElement(this);
 
-        m_BufferLastBPMs = new Queue<int>();
-        int baseTempo = (int)SoundEngineTuner.BASE_TEMPO;
+        m_BufferLastBPMs = new Queue<float>();
+        float baseTempo = SoundEngineTuner.BASE_TEMPO;
         for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
             m_BufferLastBPMs.Enqueue(baseTempo);
         }
@@ -45,15 +45,8 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 
     private void Update()
     {
-        SoundEngineTuner.TempoRange tempoRange = soundEngineTuner.GetTempoRange(bpm);
-        if (m_CurrentTempoType != tempoRange.type) {
-            soundEngineTuner.SetTempo(tempoRange.value);
-        }
-        m_CurrentTempoType = tempoRange.type;
-
         //DEBUG
         bpmGraph?.SetValue(bpm);
-        debugTextTempoType.text = tempoRange.type.ToString();
     }
 
     //On each beat of the leading hand we store the beat duration in a buffer
@@ -62,22 +55,24 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
     public void OnBeatMajorHand(float amplitude)
     {
         float timeSinceLastBeat = Time.time - m_TimeAtLastBeat;
-        int currentBPM = Mathf.Clamp((int)(60.0f / timeSinceLastBeat), minBPM, maxBPM);
+        float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), minBPM, maxBPM);
         m_BufferLastBPMs.Enqueue(currentBPM);
         m_BufferLastBPMs.Dequeue();
-        bpm = WeightedAverage(m_BufferLastBPMs);
+        bpm = CustomUtilities.WeightedAverage(m_BufferLastBPMs);
+        UpdateTempo();
 
         m_TimeAtLastBeat = Time.time;
     }
 
-    private int WeightedAverage(Queue<int> queue)
+    private void UpdateTempo()
     {
-        float average = 0;
-        float weight = 1.0f;
-        foreach (int el in queue) {
-            average += weight * (float)el;
-            weight -= 1 / queue.Count;
+        SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
+        if (m_CurrentTempoType != tempoRange.type) {
+            soundEngineTuner.SetTempo(tempoRange.value);
         }
-        return ((int)average / queue.Count);
+        m_CurrentTempoType = tempoRange.type;
+
+        //DEBUG
+        debugTextTempoType.text = tempoRange.type.ToString();
     }
 }
