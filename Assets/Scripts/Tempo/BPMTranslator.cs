@@ -59,7 +59,7 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
     //On each beat of the leading hand we store the beat duration in a buffer
     //the current bpm is defined with a weighted average of the buffer
     //it permits to smoothen the bpm evolution
-    public void OnBeatMajorHand()
+    public void OnBeatMajorHand(float amplitude)
     {
         float timeSinceLastBeat = Time.time - m_TimeAtLastBeat;
         int currentBPM = Mathf.Clamp((int)(60.0f / timeSinceLastBeat), minBPM, maxBPM);

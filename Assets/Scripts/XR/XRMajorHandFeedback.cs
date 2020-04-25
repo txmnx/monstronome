@@ -15,7 +15,7 @@ public class XRMajorHandFeedback : MonoBehaviour, OnBeatMajorHandElement
         beatManager.RegisterOnBeatMajorHandElement(this);
     }
 
-    public void OnBeatMajorHand()
+    public void OnBeatMajorHand(float amplitudeMove)
     {
         UnityEngine.XR.HapticCapabilities capabilities;
         if (controller.inputDevice.TryGetHapticCapabilities(out capabilities)) {

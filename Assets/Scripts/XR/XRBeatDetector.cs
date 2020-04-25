@@ -17,11 +17,13 @@ public class XRBeatDetector : MonoBehaviour
     private Transform m_BeatPlaneParent;
     private float m_BeatPlaneCenter;
 
-    private enum VerticalPlaneSide { Left, Right, None };
-    private VerticalPlaneSide m_CurrentSide;
-
     private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
     private float m_TimeSinceLastBeatDetection = 0.0f;
+
+    private enum VerticalPlaneSide { Left, Right, None };
+    private VerticalPlaneSide m_CurrentSide;
+    private Vector3 m_BeatLocation;
+    private float m_Amplitude;
 
     private void Start()
     {
@@ -29,6 +31,8 @@ public class XRBeatDetector : MonoBehaviour
         m_BeatPlaneCenter = beatPlane.localPosition.x;
         m_BeatPlaneParent = beatPlane.transform.parent;
         m_CurrentSide = VerticalPlaneSide.Left;
+        m_BeatLocation = new Vector3();
+        m_Amplitude = 0.0f;
     }
 
     private void Update()
@@ -48,9 +52,14 @@ public class XRBeatDetector : MonoBehaviour
                 VerticalPlaneSide side = GetBeatPlaneSide();
                 if (side != m_CurrentSide) {
                     if (m_CurrentSide != VerticalPlaneSide.None) {
-                        OnBeat();
+                        OnBeat(m_Amplitude);
+                        m_Amplitude = 0;
+                        m_BeatLocation = transform.position;
                     }
                     m_CurrentSide = side;
+                }
+                else {
+                    m_Amplitude = Mathf.Max(m_Amplitude, Vector3.Distance(m_BeatLocation, transform.position));
                 }
             }
             else {
@@ -70,15 +79,15 @@ public class XRBeatDetector : MonoBehaviour
         }
     }
 
-    private void OnBeat()
+    private void OnBeat(float amplitude)
     {
         //Here we define the major hand as the right one
         //TODO : abstract this selection
         if (m_Controller.controllerNode == XRNode.RightHand) {
-            beatManager.OnBeatMajorHand();
+            beatManager.OnBeatMajorHand(amplitude);
         }
         else if (m_Controller.controllerNode == XRNode.LeftHand) {
-            beatManager.OnBeatMinorHand();
+            beatManager.OnBeatMinorHand(amplitude);
         }
     }
 }
