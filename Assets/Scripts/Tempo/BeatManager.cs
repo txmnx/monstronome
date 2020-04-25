@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Use to register actions on beat
+ * Use to register actions on each beat
  */
 public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatMajorHandElement, OnBeatMinorHandElement
 {
@@ -33,24 +33,24 @@ public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatMajorHandElement,
         m_OnBeatMinorHandElements.Add(element);
     }
 
-    public void OnBeat()
+    public void OnBeat(float amplitude)
     {
         foreach (OnBeatElement el in m_OnBeatElements) {
-            el.OnBeat();
+            el.OnBeat(amplitude);
         }
     }
 
-    public void OnBeatMajorHand()
+    public void OnBeatMajorHand(float amplitude)
     {
         foreach (OnBeatMajorHandElement el in m_OnBeatMajorHandElements) {
-            el.OnBeatMajorHand();
+            el.OnBeatMajorHand(amplitude);
         }
     }
 
-    public void OnBeatMinorHand()
+    public void OnBeatMinorHand(float amplitude)
     {
         foreach (OnBeatMinorHandElement el in m_OnBeatMinorHandElements) {
-            el.OnBeatMinorHand();
+            el.OnBeatMinorHand(amplitude);
         }
     }
 }

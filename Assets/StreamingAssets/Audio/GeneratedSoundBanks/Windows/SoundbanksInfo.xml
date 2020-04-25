@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome-UnityProject\monstronome\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Terry\Documents\MONSTRONOME\Monstronome-UnityProject\monstronome\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\ELE5d5ab19ee5329\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -2407,19 +2407,6 @@
 					</SwitchContainers>
 				</Event>
 			</IncludedEvents>
-			<IncludedAuxBusses>
-				<AuxBus Id="44205819" Name="Reverb_ConcertHall" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Reverb_ConcertHall"/>
-			</IncludedAuxBusses>
-			<IncludedMemoryFiles>
-				<File Id="8071170" Language="SFX">
-					<ShortName>AK_Factory_IR\Churches\AK St-Katharinen.wav</ShortName>
-					<Path>Plugins\Wwise Convolution Reverb\AK_Factory_IR\Churches\AK St-Katharinen_CF006686.wem</Path>
-				</File>
-				<File Id="792360875" Language="SFX">
-					<ShortName>AK_Factory_IR_Amb\Churches\AK Amb St-Katharinen.wav</ShortName>
-					<Path>Plugins\Wwise Convolution Reverb\AK_Factory_IR_Amb\Churches\AK Amb St-Katharinen_0E234388.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
 			<GameParameters>
 				<GameParameter Id="234013449" Name="RTPC_Intensity_Strings" ObjectPath="\Game Parameters\Game_Parameters\Intensity\RTPC_Intensity_Strings"/>
 				<GameParameter Id="666250906" Name="RTPC_Time_Delay_Brass" ObjectPath="\Game Parameters\Game_Parameters\TimeDelay\RTPC_Time_Delay_Brass"/>
@@ -2435,60 +2422,60 @@
 				<GameParameter Id="4041181711" Name="RTPC_Time_Delay_Percussions" ObjectPath="\Game Parameters\Game_Parameters\TimeDelay\RTPC_Time_Delay_Percussions"/>
 			</GameParameters>
 			<SwitchGroups>
-				<SwitchGroup Id="554303915" Name="SW_Articulation_Brass" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Brass">
+				<SwitchGroup Id="554303915" Name="SW_Articulation_Brass" ObjectPath="\Switches\Switches\SW_Articulation_Brass">
 					<Switches>
-						<Switch Id="3432601699" Name="StaccatoRips" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Brass\StaccatoRips"/>
-						<Switch Id="1422035515" Name="Legato" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Brass\Legato"/>
-						<Switch Id="4028101794" Name="FlutterMute" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Brass\FlutterMute"/>
-						<Switch Id="3644683267" Name="HarmonMute" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Brass\HarmonMute"/>
+						<Switch Id="3432601699" Name="StaccatoRips" ObjectPath="\Switches\Switches\SW_Articulation_Brass\StaccatoRips"/>
+						<Switch Id="1422035515" Name="Legato" ObjectPath="\Switches\Switches\SW_Articulation_Brass\Legato"/>
+						<Switch Id="4028101794" Name="FlutterMute" ObjectPath="\Switches\Switches\SW_Articulation_Brass\FlutterMute"/>
+						<Switch Id="3644683267" Name="HarmonMute" ObjectPath="\Switches\Switches\SW_Articulation_Brass\HarmonMute"/>
 					</Switches>
 				</SwitchGroup>
-				<SwitchGroup Id="1043506402" Name="SW_Articulation_Woods" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Woods">
+				<SwitchGroup Id="1043506402" Name="SW_Articulation_Woods" ObjectPath="\Switches\Switches\SW_Articulation_Woods">
 					<Switches>
-						<Switch Id="56434811" Name="Staccato" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Woods\Staccato"/>
-						<Switch Id="1422035515" Name="Legato" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Woods\Legato"/>
-						<Switch Id="3466625877" Name="Flutter" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Woods\Flutter"/>
-						<Switch Id="3997891192" Name="Trill" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Woods\Trill"/>
+						<Switch Id="56434811" Name="Staccato" ObjectPath="\Switches\Switches\SW_Articulation_Woods\Staccato"/>
+						<Switch Id="1422035515" Name="Legato" ObjectPath="\Switches\Switches\SW_Articulation_Woods\Legato"/>
+						<Switch Id="3466625877" Name="Flutter" ObjectPath="\Switches\Switches\SW_Articulation_Woods\Flutter"/>
+						<Switch Id="3997891192" Name="Trill" ObjectPath="\Switches\Switches\SW_Articulation_Woods\Trill"/>
 					</Switches>
 				</SwitchGroup>
-				<SwitchGroup Id="1952059502" Name="SW_Articulation_Strings" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Strings">
+				<SwitchGroup Id="1952059502" Name="SW_Articulation_Strings" ObjectPath="\Switches\Switches\SW_Articulation_Strings">
 					<Switches>
-						<Switch Id="56434811" Name="Staccato" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Strings\Staccato"/>
-						<Switch Id="1422035515" Name="Legato" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Strings\Legato"/>
-						<Switch Id="2077337834" Name="Pizzicato" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Strings\Pizzicato"/>
-						<Switch Id="4056223263" Name="Tremolo" ObjectPath="\Switches\Switches\Articulation\SW_Articulation_Strings\Tremolo"/>
+						<Switch Id="56434811" Name="Staccato" ObjectPath="\Switches\Switches\SW_Articulation_Strings\Staccato"/>
+						<Switch Id="1422035515" Name="Legato" ObjectPath="\Switches\Switches\SW_Articulation_Strings\Legato"/>
+						<Switch Id="2077337834" Name="Pizzicato" ObjectPath="\Switches\Switches\SW_Articulation_Strings\Pizzicato"/>
+						<Switch Id="4056223263" Name="Tremolo" ObjectPath="\Switches\Switches\SW_Articulation_Strings\Tremolo"/>
 					</Switches>
 				</SwitchGroup>
-				<SwitchGroup Id="2452737974" Name="SW_Intensity_Strings" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Strings">
+				<SwitchGroup Id="2452737974" Name="SW_Intensity_Strings" ObjectPath="\Switches\Switches\SW_Intensity_Strings">
 					<Switches>
-						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Strings\Low"/>
-						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Strings\Middle"/>
-						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Strings\Hight"/>
-						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Strings\Huge"/>
+						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\SW_Intensity_Strings\Low"/>
+						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\SW_Intensity_Strings\Middle"/>
+						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\SW_Intensity_Strings\Hight"/>
+						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\SW_Intensity_Strings\Huge"/>
 					</Switches>
 				</SwitchGroup>
-				<SwitchGroup Id="3193984618" Name="SW_Intensity_Woods" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Woods">
+				<SwitchGroup Id="3193984618" Name="SW_Intensity_Woods" ObjectPath="\Switches\Switches\SW_Intensity_Woods">
 					<Switches>
-						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Woods\Low"/>
-						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Woods\Middle"/>
-						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Woods\Hight"/>
-						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Woods\Huge"/>
+						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\SW_Intensity_Woods\Low"/>
+						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\SW_Intensity_Woods\Middle"/>
+						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\SW_Intensity_Woods\Hight"/>
+						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\SW_Intensity_Woods\Huge"/>
 					</Switches>
 				</SwitchGroup>
-				<SwitchGroup Id="3232210438" Name="SW_Intensity_Percussions" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Percussions">
+				<SwitchGroup Id="3232210438" Name="SW_Intensity_Percussions" ObjectPath="\Switches\Switches\SW_Intensity_Percussions">
 					<Switches>
-						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Percussions\Low"/>
-						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Percussions\Middle"/>
-						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Percussions\Hight"/>
-						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Percussions\Huge"/>
+						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\SW_Intensity_Percussions\Low"/>
+						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\SW_Intensity_Percussions\Middle"/>
+						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\SW_Intensity_Percussions\Hight"/>
+						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\SW_Intensity_Percussions\Huge"/>
 					</Switches>
 				</SwitchGroup>
-				<SwitchGroup Id="4041549459" Name="SW_Intensity_Brass" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Brass">
+				<SwitchGroup Id="4041549459" Name="SW_Intensity_Brass" ObjectPath="\Switches\Switches\SW_Intensity_Brass">
 					<Switches>
-						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Brass\Low"/>
-						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Brass\Middle"/>
-						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Brass\Hight"/>
-						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\Intensity\SW_Intensity_Brass\Huge"/>
+						<Switch Id="545371365" Name="Low" ObjectPath="\Switches\Switches\SW_Intensity_Brass\Low"/>
+						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\SW_Intensity_Brass\Middle"/>
+						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\SW_Intensity_Brass\Hight"/>
+						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\SW_Intensity_Brass\Huge"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>

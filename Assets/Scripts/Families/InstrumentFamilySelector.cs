@@ -1,53 +1,58 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.XR;
 
 /**
- * Use to select the family which is looked at
- * This component should be put on an object that follows the head tracking device, such as the Camera
+ * Used to select a family
  */
 public class InstrumentFamilySelector : MonoBehaviour
 {
-    public int sightLength = 10;
-    private const int LAYER_MASK_INSTRUMENTS = 1 << 8;
+    public XRCustomController controller;
+    public InstrumentFamilyLooker instrumentFamilyLooker;
 
     [HideInInspector]
     public InstrumentFamily selectedFamily;
 
-    private Transform m_CachedSelectedFamilyTransform;
-    
+    //Treshold at which we consider a click to be on a particular direction
+    private float m_buttonTreshold = 0.5f;
 
-    //TODO : for the moment we use a raycast to detect which family is looked at
-    // but when the exact position of the families will be known
-    // since they won't move we could divide the orchestra into 4 areas and check in which rectangle the transform.forward falls
     private void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, sightLength, LAYER_MASK_INSTRUMENTS)) {
-            if (hit.transform != m_CachedSelectedFamilyTransform) {
-                InstrumentFamily instrumentFamily;
-                if (instrumentFamily = hit.transform.GetComponent<InstrumentFamily>()) {
-                    instrumentFamily.OnBeginLookedAt();
-                    instrumentFamily.OnLookedAt();
-
-                    selectedFamily?.OnEndLookedAt();
-                    selectedFamily = instrumentFamily;
-                }
-                else {
-                    selectedFamily?.OnEndLookedAt();
-                    selectedFamily = null;
+        bool isClicking;
+        if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out isClicking)) {
+            if (isClicking) {
+                Vector2 clickAxis;
+                if (controller.inputDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out clickAxis)) {
+                    if (clickAxis.y > m_buttonTreshold) {
+                        OnSelectButtonPressed();
+                    }
+                    if (clickAxis.y < -m_buttonTreshold) {
+                        OnDeselectButtonPressed();
+                    }
                 }
             }
-            else {
-                selectedFamily?.OnLookedAt();
-            }
-
-            m_CachedSelectedFamilyTransform = hit.transform;
-        }
-        else {
-            selectedFamily?.OnEndLookedAt();
-            selectedFamily = null;
-            m_CachedSelectedFamilyTransform = null;
         }
     }
+
+    private void OnSelectButtonPressed()
+    {
+        if (instrumentFamilyLooker.lookedFamily != null) {
+            if (selectedFamily == null) {
+                selectedFamily = instrumentFamilyLooker.lookedFamily;
+                OnSelectFamily?.Invoke(selectedFamily);
+            }
+        }
+    }
+
+    private void OnDeselectButtonPressed()
+    {
+        if (selectedFamily != null) {
+            OnDeselectFamily?.Invoke(selectedFamily);
+            selectedFamily = null;
+        }
+    }
+
+    //Events
+    public event Action<InstrumentFamily> OnSelectFamily;
+    public event Action<InstrumentFamily> OnDeselectFamily;
 }
