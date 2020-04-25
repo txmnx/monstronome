@@ -13,7 +13,9 @@ public class SoundEngineTuner : MonoBehaviour
 
     private Dictionary<System.Type, string> m_KeywordFamily;
     //Used to retrieve tempo range from a tempo type
-    private Dictionary<InstrumentFamily.TempoType, TempoRange> m_TempoRanges;
+    private Dictionary<InstrumentFamily.TempoType, RTPCRange<InstrumentFamily.TempoType>> m_TempoRanges;
+    //Used to retrieve intensity ranges from an intensity type
+    private Dictionary<InstrumentFamily.IntensityType, RTPCRange<InstrumentFamily.IntensityType>> m_IntensityRanges;
 
     private void Awake()
     {
@@ -25,12 +27,19 @@ public class SoundEngineTuner : MonoBehaviour
             { typeof(StringsFamily), "Strings" },
         };
 
-        m_TempoRanges = new Dictionary<InstrumentFamily.TempoType, TempoRange>()
+        m_TempoRanges = new Dictionary<InstrumentFamily.TempoType, RTPCRange<InstrumentFamily.TempoType>>()
         {
-            { InstrumentFamily.TempoType.Lento, new TempoRange(45, 60, 75, InstrumentFamily.TempoType.Lento) },
-            { InstrumentFamily.TempoType.Andante, new TempoRange(75, 90, 105, InstrumentFamily.TempoType.Andante) },
-            { InstrumentFamily.TempoType.Allegro, new TempoRange(105, 120, 135, InstrumentFamily.TempoType.Allegro) },
-            { InstrumentFamily.TempoType.Presto, new TempoRange(135, 150, 165, InstrumentFamily.TempoType.Presto) },
+            { InstrumentFamily.TempoType.Lento, new RTPCRange<InstrumentFamily.TempoType>(45, 75, 60, InstrumentFamily.TempoType.Lento) },
+            { InstrumentFamily.TempoType.Andante, new RTPCRange<InstrumentFamily.TempoType>(75, 105, 90, InstrumentFamily.TempoType.Andante) },
+            { InstrumentFamily.TempoType.Allegro, new RTPCRange<InstrumentFamily.TempoType>(105, 135, 120, InstrumentFamily.TempoType.Allegro) },
+            { InstrumentFamily.TempoType.Presto, new RTPCRange<InstrumentFamily.TempoType>(135, 165, 150, InstrumentFamily.TempoType.Presto) },
+        };
+
+        m_IntensityRanges = new Dictionary<InstrumentFamily.IntensityType, RTPCRange<InstrumentFamily.IntensityType>>()
+        {
+            { InstrumentFamily.IntensityType.Pianissimo, new RTPCRange<InstrumentFamily.IntensityType>(0, 0.22f, 25, InstrumentFamily.IntensityType.Pianissimo) },
+            { InstrumentFamily.IntensityType.MezzoForte, new RTPCRange<InstrumentFamily.IntensityType>(0.22f, 0.35f, 50, InstrumentFamily.IntensityType.MezzoForte) },
+            { InstrumentFamily.IntensityType.Fortissimo, new RTPCRange<InstrumentFamily.IntensityType>(0.35f, 1000, 75, InstrumentFamily.IntensityType.Fortissimo) }
         };
     }
 
@@ -55,9 +64,9 @@ public class SoundEngineTuner : MonoBehaviour
         AkSoundEngine.SetRTPCValue("RTPC_Tempo", bpm / BASE_TEMPO);
     }
 
-    public TempoRange GetTempoRange(float bpm)
+    public RTPCRange<InstrumentFamily.TempoType> GetTempoRange(float bpm)
     {
-        foreach (TempoRange range in m_TempoRanges.Values) {
+        foreach (RTPCRange<InstrumentFamily.TempoType> range in m_TempoRanges.Values) {
             if (range.IsInRange(bpm)) {
                 return range;
             }
@@ -65,18 +74,18 @@ public class SoundEngineTuner : MonoBehaviour
         return m_TempoRanges[InstrumentFamily.TempoType.Allegro];
     }
 
-    //Used to describe the min and max bpm ranges of a TempoType, and the value that should be used
-    public struct TempoRange
+    //Used to describe the min and max bpm ranges of a type, and the value that should be send to the RTPC
+    public struct RTPCRange<T>
     {
         public float min;
-        public float value;
         public float max;
-        public InstrumentFamily.TempoType type;
-        public TempoRange(float _min, float _value, float _max, InstrumentFamily.TempoType _type)
+        public float value;
+        public T type;
+        public RTPCRange(float _min, float _max, float _value, T _type)
         {
             min = _min;
-            value = _value;
             max = _max;
+            value = _value;
             type = _type;
         }
         public bool IsInRange(float a)
@@ -126,6 +135,23 @@ public class SoundEngineTuner : MonoBehaviour
         catch (KeyNotFoundException) {
             Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
         }
+    }
+
+    public void SetGlobalIntensity(float intensity)
+    {
+        foreach (string keywordFamily in m_KeywordFamily.Values) {
+            AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest(keywordFamily), intensity);
+        }
+    }
+
+    public RTPCRange<InstrumentFamily.IntensityType> GetIntensityRange(float amplitude)
+    {
+        foreach (RTPCRange<InstrumentFamily.IntensityType> range in m_IntensityRanges.Values) {
+            if (range.IsInRange(amplitude)) {
+                return range;
+            }
+        }
+        return m_IntensityRanges[InstrumentFamily.IntensityType.MezzoForte];
     }
 
 

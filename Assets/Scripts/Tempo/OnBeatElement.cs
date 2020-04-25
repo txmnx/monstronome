@@ -3,5 +3,5 @@
 //Object which fires OnBeat on each beat
 public interface OnBeatElement
 {
-    void OnBeat();
+    void OnBeat(float amplitude);
 }

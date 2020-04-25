@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /**
@@ -10,6 +11,7 @@ public class DebugBeat : MonoBehaviour, OnBeatMajorHandElement
     public BeatManager beatManager;
     public MeshRenderer panelRenderer;
     public Material onBeatMaterial;
+    public TextMeshPro amplitudeText;
 
     private Material m_DefaultMaterial;
 
@@ -19,8 +21,9 @@ public class DebugBeat : MonoBehaviour, OnBeatMajorHandElement
         m_DefaultMaterial = panelRenderer.material;
     }
 
-    public void OnBeatMajorHand()
+    public void OnBeatMajorHand(float amplitude)
     {
+        amplitudeText.text = amplitude.ToString();
         panelRenderer.material = onBeatMaterial;
         StartCoroutine(OnBeatEnd());
     }
