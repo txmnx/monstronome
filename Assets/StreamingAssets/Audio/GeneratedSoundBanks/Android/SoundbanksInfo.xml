@@ -24,6 +24,34 @@
 			<ShortName>Monstronome_SNB</ShortName>
 			<Path>Monstronome_SNB.bnk</Path>
 			<IncludedEvents>
+				<Event Id="122105866" Name="Play_Metronome" ObjectPath="\Events\Music_Event\Play_Metronome" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="158851882" Language="SFX">
+							<ShortName>Instruments\Metronome\BT MECHANICS Metronome 60 BPM.wav</ShortName>
+							<Path>SFX\Instruments\Metronome\BT MECHANICS Metronome 60 BPM_00A91270.wem</Path>
+						</File>
+						<File Id="312650174" Language="SFX">
+							<ShortName>Instruments\Percussions\Snare\C#4-25.wav</ShortName>
+							<Path>SFX\Instruments\Percussions\Snare\C#4-25_755F56E2.wem</Path>
+						</File>
+						<File Id="918900227" Language="SFX">
+							<ShortName>MIDI\Metronome.mid</ShortName>
+							<Path>SFX\MIDI\Metronome_3FDB57FE.wmid</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{29EFF903-4439-44BB-90A9-24033F2D3A13}">
+							<Media>
+								<File Id="158851882"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{A0E5EDA6-3923-458C-B192-6E92BB97DC99}">
+							<Media>
+								<File Id="312650174"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="2932040671" Name="Play_Music" ObjectPath="\Events\Music_Event\Play_Music" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="254098" Language="SFX">
@@ -2468,6 +2496,13 @@
 						<Switch Id="1026627430" Name="Middle" ObjectPath="\Switches\Switches\SW_Intensity_Percussions\Middle"/>
 						<Switch Id="2915956327" Name="Hight" ObjectPath="\Switches\Switches\SW_Intensity_Percussions\Hight"/>
 						<Switch Id="3009393504" Name="Huge" ObjectPath="\Switches\Switches\SW_Intensity_Percussions\Huge"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="3537469747" Name="Metronome" ObjectPath="\Switches\Switches\Metronome">
+					<Switches>
+						<Switch Id="4019199903" Name="Electronic" ObjectPath="\Switches\Switches\Metronome\Electronic"/>
+						<Switch Id="4112828996" Name="Acoustic" ObjectPath="\Switches\Switches\Metronome\Acoustic"/>
+						<Switch Id="3607016552" Name="Snare" ObjectPath="\Switches\Switches\Metronome\Snare"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="4041549459" Name="SW_Intensity_Brass" ObjectPath="\Switches\Switches\SW_Intensity_Brass">

@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	122105866	Play_Metronome			\Music_Event\Play_Metronome	
 	2932040671	Play_Music			\Music_Event\Play_Music	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -8,6 +9,7 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	2452737974	SW_Intensity_Strings			\Switches\SW_Intensity_Strings	
 	3193984618	SW_Intensity_Woods			\Switches\SW_Intensity_Woods	
 	3232210438	SW_Intensity_Percussions			\Switches\SW_Intensity_Percussions	
+	3537469747	Metronome			\Switches\Metronome	
 	4041549459	SW_Intensity_Brass			\Switches\SW_Intensity_Brass	
 
 Switch	ID	Name	Switch Group			Notes
@@ -35,6 +37,9 @@ Switch	ID	Name	Switch Group			Notes
 	1026627430	Middle	SW_Intensity_Percussions			
 	2915956327	Hight	SW_Intensity_Percussions			
 	3009393504	Huge	SW_Intensity_Percussions			
+	3607016552	Snare	Metronome			
+	4019199903	Electronic	Metronome			
+	4112828996	Acoustic	Metronome			
 	545371365	Low	SW_Intensity_Brass			
 	1026627430	Middle	SW_Intensity_Brass			
 	2915956327	Hight	SW_Intensity_Brass			
@@ -98,6 +103,9 @@ Effect plug-ins	ID	Name	Type				Notes
 	681644662	Wwise_Tremolo_(Custom)	Wwise Tremolo			
 	2804988072	Crazy_Copter	iZotope Trash Filters			
 
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	369091372	Wwise Sine	Wwise Sine		\Actor-Mixer Hierarchy\Default Work Unit\Metronome\Metronome_Bip\Bip\Wwise Sine	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	254098	D4-16_Mid	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Percussions\Snare\D4-16_Mid_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Percussions\Snare\D4\Middle\D4-16_Mid		49978
 	733210	C2_Huge	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Strings\Viola\Pizzicato\C2_Huge_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Strings\Viola\Pizzicato\C2\C2_Huge		96175
@@ -142,6 +150,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	158051080	C3	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Woods\Clarinet\Legato\C3_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Woods\Clarinet\Legato\C3\C3		268536
 	158627847	C2_Low	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Strings\Bass\Staccato\C2_Low_9F4EBF6E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Strings\Bass\Staccato\C2\C2_Low		73501
 	158639748	D#4-26_Huge	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Percussions\Snare\D#4-26_Huge_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Percussions\Snare\D#4\Huge\D#4-26_Huge		51722
+	158851882	Metronome	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Metronome\BT MECHANICS Metronome 60 BPM_00A91270.wem		\Actor-Mixer Hierarchy\Default Work Unit\Metronome\Metronome_Bip\Metronome		5099
 	160933972	Bassoon	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\MIDI_Start_BlocA_Bassoon_29696B43.wmid		\Interactive Music Hierarchy\Music\Music_MIDI\Start\Bloc_A\Bassoon		386
 	160997057	E3_Low	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Strings\Viola\Pizzicato\F2_Low_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Strings\Viola\Pizzicato\E3\E3_Low		88215
 	163332057	Bass	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\MIDI_Start_BlocB_Bass_D28C3242.wmid		\Interactive Music Hierarchy\Music\Music_MIDI\Start\Bloc_B\Bass		394
@@ -335,6 +344,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	899585788	F1_Heavy	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Strings\Bass\Pizzicato\F1_Heavy_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Strings\Bass\Pizzicato\F1\F1_Heavy		68976
 	901430141	F3_Middle	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Strings\Viola\Pizzicato\F3_Middle_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Strings\Viola\Pizzicato\F3\F3_Middle		82535
 	914638961	Bassoon	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\MIDI_Start_BlocC_Bassoon_631FD205.wmid		\Interactive Music Hierarchy\Music\Music_MIDI\Start\Bloc_C\Bassoon		342
+	918900227	Metronome	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\Metronome_3FDB57FE.wmid		\Interactive Music Hierarchy\Music\Metronome\Metronome\Metronome		49
 	920289044	Harp	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\MIDI_Start_BlocA_Harp_9C9AC864.wmid		\Interactive Music Hierarchy\Music\Music_MIDI\Start\Bloc_A\Harp		381
 	936485100	D4-13_Mid	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Percussions\Snare\D4-13_Mid_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Percussions\Snare\D4\Middle\D4-13_Mid		49937
 	939993152	C2_HeavyVar2	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Strings\Viola\Staccato\C2_HeavyVar2_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music_Asset\Strings\Viola\Staccato\C2\Hight\C2_HeavyVar2		104657
