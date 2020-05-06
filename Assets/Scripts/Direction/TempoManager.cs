@@ -80,10 +80,10 @@ public class TempoManager : MonoBehaviour
         SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
 
         //DEBUG
-        if (DebugInteractionModes.intensityInteractionModeRef == DebugInteractionModes.IntensityInteractionMode.Dynamic) {
+        if (DebugInteractionModes.tempoInteractionModeRef == DebugInteractionModes.TempoInteractionMode.Dynamic) {
             soundEngineTuner.SetTempo(bpm);
         }
-        else if (DebugInteractionModes.intensityInteractionModeRef == DebugInteractionModes.IntensityInteractionMode.Steps) {
+        else if (DebugInteractionModes.tempoInteractionModeRef == DebugInteractionModes.TempoInteractionMode.Steps) {
             if (m_CurrentTempoType != tempoRange.type) {
                 soundEngineTuner.SetTempo(tempoRange.value);
             }
