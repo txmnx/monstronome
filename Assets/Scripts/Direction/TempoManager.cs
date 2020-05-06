@@ -83,7 +83,7 @@ public class TempoManager : MonoBehaviour
         if (DebugInteractionModes.intensityInteractionModeRef == DebugInteractionModes.IntensityInteractionMode.Dynamic) {
             soundEngineTuner.SetTempo(bpm);
         }
-        else {
+        else if (DebugInteractionModes.intensityInteractionModeRef == DebugInteractionModes.IntensityInteractionMode.Steps) {
             if (m_CurrentTempoType != tempoRange.type) {
                 soundEngineTuner.SetTempo(tempoRange.value);
             }

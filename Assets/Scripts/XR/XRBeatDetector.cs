@@ -69,17 +69,35 @@ public class XRBeatDetector : MonoBehaviour
             m_CurrentSide = side;
         }
         else {
-            float distanceLastMaximum = Vector3.Distance(transform.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
-            if (m_Amplitude < distanceLastMaximum) {
-                m_MaximumGesturePoints[m_MaximumGesturePointIndex] = transform.position;
-                m_Amplitude = distanceLastMaximum;
+            //DEBUG
+            if (DebugInteractionModes.beatPositionModeRef == DebugInteractionModes.BeatPositionMode.Hand) {
+                float distanceLastMaximum = Vector3.Distance(transform.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
+                if (m_Amplitude < distanceLastMaximum) {
+                    m_MaximumGesturePoints[m_MaximumGesturePointIndex] = transform.position;
+                    m_Amplitude = distanceLastMaximum;
+                }
+            }
+            else if (DebugInteractionModes.beatPositionModeRef == DebugInteractionModes.BeatPositionMode.BatonTop) {
+                float distanceLastMaximum = Vector3.Distance(batonTop.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
+                if (m_Amplitude < distanceLastMaximum) {
+                    m_MaximumGesturePoints[m_MaximumGesturePointIndex] = batonTop.position;
+                    m_Amplitude = distanceLastMaximum;
+                }
             }
         }
     }
 
     private VerticalPlaneSide GetBeatPlaneSide()
     {
-        float x = m_BeatPlaneParent.InverseTransformPoint(transform.position).x;
+        float x = 0;
+        //DEBUG
+        if (DebugInteractionModes.beatPositionModeRef == DebugInteractionModes.BeatPositionMode.Hand) {
+            x = m_BeatPlaneParent.InverseTransformPoint(transform.position).x;
+        }
+        else if (DebugInteractionModes.beatPositionModeRef == DebugInteractionModes.BeatPositionMode.BatonTop) {
+            x = m_BeatPlaneParent.InverseTransformPoint(batonTop.position).x;
+        }
+        
         if (x > m_BeatPlaneCenter) {
             return VerticalPlaneSide.Right;
         }
