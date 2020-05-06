@@ -8,8 +8,9 @@ using UnityEngine;
  */
 public class TempoManager : MonoBehaviour
 {
-    public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;
+    public BeatManager beatManager;
+    public DirectionManager directionManager;
 
     /* BPM */
     //The bigger the buffer size is, the smoother the bpm's evolution is
@@ -24,6 +25,11 @@ public class TempoManager : MonoBehaviour
 
     private InstrumentFamily.TempoType m_CurrentTempoType;
 
+
+    /* Direction */
+    private int m_BeatsCountSinceBeginDirecting = 0;
+
+
     /* Debug */
     [Header("DEBUG")]
     public DebugGraph bpmGraph;
@@ -32,6 +38,7 @@ public class TempoManager : MonoBehaviour
     private void Start()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
+        directionManager.OnBeginDirecting += OnBeginDirecting;
 
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.BASE_TEMPO;
@@ -43,19 +50,28 @@ public class TempoManager : MonoBehaviour
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
     }
 
+    public void OnBeginDirecting()
+    {
+        m_BeatsCountSinceBeginDirecting = 0;
+    }
+
     //On each beat of the leading hand we store the beat duration in a buffer
     //the current bpm is defined with a weighted average of the buffer
     //it permits to smoothen the bpm evolution
-    //TODO : implement a OnTempoEnd event which fires when the player stop using the trigger to know if we have to recreate a timer
     public void OnBeatMajorHand(float amplitude)
     {
-        float timeSinceLastBeat = Time.time - m_TimeAtLastBeat;
-        float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), minBPM, maxBPM);
-        m_BufferLastBPMs.Enqueue(currentBPM);
-        m_BufferLastBPMs.Dequeue();
-        bpm = CustomUtilities.WeightedAverage(m_BufferLastBPMs);
-        UpdateTempo();
+        m_BeatsCountSinceBeginDirecting += 1;
 
+        //We register the bpm only if there have been 2 beats
+        if (m_BeatsCountSinceBeginDirecting > 1) {
+            float timeSinceLastBeat = Time.time - m_TimeAtLastBeat;
+            float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), minBPM, maxBPM);
+            m_BufferLastBPMs.Enqueue(currentBPM);
+            m_BufferLastBPMs.Dequeue();
+            bpm = CustomUtilities.WeightedAverage(m_BufferLastBPMs);
+            UpdateTempo();
+        }
+        
         m_TimeAtLastBeat = Time.time;
     }
 
