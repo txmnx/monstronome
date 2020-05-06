@@ -11,18 +11,17 @@ public class XRBeatDetector : MonoBehaviour
 {
     public BeatManager beatManager;
     public ConductManager conductManager;
-    public Transform beatPlane;
+    public Transform beatPlaneSFX;
 
     private XRCustomController m_Controller;
-
-    private Transform m_BeatPlaneParent;
-    private float m_BeatPlaneCenter;
 
     private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
     private float m_TimeSinceLastBeatDetection = 0.0f;
 
-    private enum VerticalPlaneSide { Left, Right, None };
-    private VerticalPlaneSide m_CurrentSide;
+    private Plane m_BeatPlane;
+
+    private enum BeatPlaneSide { Left, Right, None };
+    private BeatPlaneSide m_CurrentSide;
     private Vector3[] m_MaximumGesturePoints;
     private int m_MaximumGesturePointIndex;
     private float m_Amplitude;
@@ -31,21 +30,30 @@ public class XRBeatDetector : MonoBehaviour
     {
         conductManager.OnBeginConducting += OnBeginConducting;
         conductManager.OnConducting += OnConducting;
+        conductManager.OnEndConducting += OnEndConducting;
 
         m_Controller = GetComponent<XRCustomController>();
-        m_BeatPlaneCenter = beatPlane.localPosition.x;
-        m_BeatPlaneParent = beatPlane.transform.parent;
-        m_CurrentSide = VerticalPlaneSide.Left;
-        m_MaximumGesturePoints = new Vector3[2] {
-            new Vector3(m_BeatPlaneCenter, 0, 0),
-            new Vector3(m_BeatPlaneCenter, 0, 0)
-        };
+
+        m_CurrentSide = BeatPlaneSide.Left;
+        m_MaximumGesturePoints = new Vector3[2] { Vector3.zero, Vector3.zero };
         m_MaximumGesturePointIndex = 0;
         m_Amplitude = 0.0f;
     }
 
     public void OnBeginConducting() {
-        m_CurrentSide = VerticalPlaneSide.None;
+        m_BeatPlane = new Plane(Vector3.right, beatPositionDetection.position);
+
+        //Beat Plane animation and positioning
+        beatPlaneSFX.gameObject.SetActive(true);
+        beatPlaneSFX.position = beatPositionDetection.position;
+        beatPlaneSFX.forward = m_BeatPlane.normal;
+
+        m_MaximumGesturePoints = new Vector3[2] {
+            beatPositionDetection.position,
+            beatPositionDetection.position
+        };
+
+        m_CurrentSide = BeatPlaneSide.None;
     }
 
     public void OnConducting()
@@ -57,11 +65,17 @@ public class XRBeatDetector : MonoBehaviour
         m_TimeSinceLastBeatDetection += Time.deltaTime;
     }
 
+    public void OnEndConducting()
+    {
+        //The beat plane disappears
+        beatPlaneSFX.gameObject.SetActive(false);
+    }
+
     private void DetectBeat()
     {
-        VerticalPlaneSide side = GetBeatPlaneSide();
+        BeatPlaneSide side = GetBeatPlaneSide();
         if (side != m_CurrentSide) {
-            if (m_CurrentSide != VerticalPlaneSide.None) {
+            if (m_CurrentSide != BeatPlaneSide.None) {
                 OnBeat(m_Amplitude);
                 m_Amplitude = 0;
                 m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
@@ -77,8 +91,9 @@ public class XRBeatDetector : MonoBehaviour
         }
     }
 
-    private VerticalPlaneSide GetBeatPlaneSide()
+    private BeatPlaneSide GetBeatPlaneSide()
     {
+        /*
         float x = m_BeatPlaneParent.InverseTransformPoint(beatPositionDetection.position).x;
         
         if (x > m_BeatPlaneCenter) {
@@ -86,6 +101,14 @@ public class XRBeatDetector : MonoBehaviour
         }
         else {
             return VerticalPlaneSide.Left;
+        }
+        */
+        bool side = m_BeatPlane.GetSide(beatPositionDetection.position);
+        if (side) {
+            return BeatPlaneSide.Right;
+        }
+        else {
+            return BeatPlaneSide.Left;
         }
     }
 
