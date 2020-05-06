@@ -9,22 +9,22 @@ public class XRMajorHandFeedback : MonoBehaviour
 {
     public BeatManager beatManager;
     public XRCustomController controller;
-    public DirectionManager directionManager;
+    public ConductManager conductManager;
     public TrailRenderer trailRenderer;
 
     private void Start()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
-        directionManager.OnBeginDirecting += OnBeginDirecting;
-        directionManager.OnEndDirecting += OnEndDirecting;
+        conductManager.OnBeginConducting += OnBeginConducting;
+        conductManager.OnEndConducting += OnEndConducting;
     }
 
-    public void OnBeginDirecting()
+    public void OnBeginConducting()
     {
         trailRenderer.enabled = true;
     }
 
-    public void OnEndDirecting()
+    public void OnEndConducting()
     {
         trailRenderer.Clear();
         trailRenderer.enabled = false;

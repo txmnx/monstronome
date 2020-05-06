@@ -677,7 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1968274598}
   instrumentFamilyLooker: {fileID: 224941992}
-  directionManager: {fileID: 348619493}
+  conductManager: {fileID: 348619493}
   selectedFamily: {fileID: 0}
 --- !u!114 &231797536 stripped
 MonoBehaviour:
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
   beatManager: {fileID: 348619487}
-  directionManager: {fileID: 348619493}
+  conductManager: {fileID: 348619493}
   bpm: 0
   minBPM: 45
   maxBPM: 165
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0e0f4c6ff286e418b74370fcbe84d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUsingDirectionInput: 0
+  isUsingConductInput: 0
 --- !u!114 &348619494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2535,7 +2535,7 @@ GameObject:
   - component: {fileID: 1084374023}
   - component: {fileID: 1084374024}
   m_Layer: 0
-  m_Name: Trail
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4065,8 +4065,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
-  directionManager: {fileID: 348619493}
+  conductManager: {fileID: 348619493}
   beatPlane: {fileID: 1093371531}
+  batonTop: {fileID: 0}
 --- !u!114 &1484290210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4081,7 +4082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
   controller: {fileID: 1484290208}
-  directionManager: {fileID: 348619493}
+  conductManager: {fileID: 348619493}
   trailRenderer: {fileID: 1084374024}
 --- !u!114 &1484290211
 MonoBehaviour:
@@ -4095,7 +4096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ed454ce55257e4885f9aa1a8f7a489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionManager: {fileID: 348619493}
+  conductorManager: {fileID: 348619493}
 --- !u!1 &1504346131
 GameObject:
   m_ObjectHideFlags: 0

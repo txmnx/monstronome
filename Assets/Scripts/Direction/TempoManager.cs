@@ -10,7 +10,7 @@ public class TempoManager : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
-    public DirectionManager directionManager;
+    public ConductManager conductManager;
 
     /* BPM */
     //The bigger the buffer size is, the smoother the bpm's evolution is
@@ -26,8 +26,8 @@ public class TempoManager : MonoBehaviour
     private InstrumentFamily.TempoType m_CurrentTempoType;
 
 
-    /* Direction */
-    private int m_BeatsCountSinceBeginDirecting = 0;
+    /* Conduct */
+    private int m_BeatsCountSinceBeginConducting = 0;
 
 
     /* Debug */
@@ -38,7 +38,7 @@ public class TempoManager : MonoBehaviour
     private void Start()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
-        directionManager.OnBeginDirecting += OnBeginDirecting;
+        conductManager.OnBeginConducting += OnBeginConducting;
 
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.BASE_TEMPO;
@@ -50,9 +50,9 @@ public class TempoManager : MonoBehaviour
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
     }
 
-    public void OnBeginDirecting()
+    public void OnBeginConducting()
     {
-        m_BeatsCountSinceBeginDirecting = 0;
+        m_BeatsCountSinceBeginConducting = 0;
     }
 
     //On each beat of the leading hand we store the beat duration in a buffer
@@ -60,10 +60,10 @@ public class TempoManager : MonoBehaviour
     //it permits to smoothen the bpm evolution
     public void OnBeatMajorHand(float amplitude)
     {
-        m_BeatsCountSinceBeginDirecting += 1;
+        m_BeatsCountSinceBeginConducting += 1;
 
         //We register the bpm only if there have been 2 beats
-        if (m_BeatsCountSinceBeginDirecting > 1) {
+        if (m_BeatsCountSinceBeginConducting > 1) {
             float timeSinceLastBeat = Time.time - m_TimeAtLastBeat;
             float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), minBPM, maxBPM);
             m_BufferLastBPMs.Enqueue(currentBPM);

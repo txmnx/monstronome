@@ -6,18 +6,18 @@ using UnityEngine;
 /**
  * Used to post events about direction mode 
  */
-public class DirectionManager : MonoBehaviour
+public class ConductManager : MonoBehaviour
 {
     /* Events */
-    public event Action OnBeginDirecting;
-    public event Action OnDirecting;
-    public event Action OnEndDirecting;
+    public event Action OnBeginConducting;
+    public event Action OnConducting;
+    public event Action OnEndConducting;
 
     [HideInInspector]
-    public bool isUsingDirectionInput = false;
+    public bool isUsingConductInput = false;
     private bool m_CanDirect = true;
 
-    public bool enableDirecting
+    public bool enableConducting
     {
         get {
             return m_CanDirect;
@@ -26,15 +26,15 @@ public class DirectionManager : MonoBehaviour
         set {
             if (m_CanDirect != value) {
                 if (value == false) {
-                    if (isUsingDirectionInput) {
-                        PostOnEndDirecting();
+                    if (isUsingConductInput) {
+                        PostOnEndConducting();
                         m_CanDirect = false;
                     }
                 }
                 else {
-                    if (isUsingDirectionInput) {
+                    if (isUsingConductInput) {
                         m_CanDirect = true;
-                        PostOnBeginDirecting();
+                        PostOnBeginConducting();
                     }
                 }
             }
@@ -42,24 +42,24 @@ public class DirectionManager : MonoBehaviour
         }
     }
 
-    public void PostOnBeginDirecting()
+    public void PostOnBeginConducting()
     {
         if (m_CanDirect) {
-            OnBeginDirecting?.Invoke();
+            OnBeginConducting?.Invoke();
         }
     }
 
-    public void PostOnDirecting()
+    public void PostOnConducting()
     {
         if (m_CanDirect) {
-            OnDirecting?.Invoke();
+            OnConducting?.Invoke();
         }
     }
 
-    public void PostOnEndDirecting()
+    public void PostOnEndConducting()
     {
         if (m_CanDirect) {
-            OnEndDirecting?.Invoke();
+            OnEndConducting?.Invoke();
         }
     }
 }

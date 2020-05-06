@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.XR;
 
 /**
- * Use to detect beat when the player is directing
+ * Use to detect beat when the player is conducting
  */
 [RequireComponent(typeof(XRCustomController))]
 public class XRBeatDetector : MonoBehaviour
 {
     public BeatManager beatManager;
-    public DirectionManager directionManager;
+    public ConductManager conductManager;
     public Transform beatPlane;
 
     private XRCustomController m_Controller;
@@ -29,8 +29,8 @@ public class XRBeatDetector : MonoBehaviour
 
     private void Start()
     {
-        directionManager.OnBeginDirecting += OnBeginDirecting;
-        directionManager.OnDirecting += OnDirecting;
+        conductManager.OnBeginConducting += OnBeginConducting;
+        conductManager.OnConducting += OnConducting;
 
         m_Controller = GetComponent<XRCustomController>();
         m_BeatPlaneCenter = beatPlane.localPosition.x;
@@ -44,11 +44,11 @@ public class XRBeatDetector : MonoBehaviour
         m_Amplitude = 0.0f;
     }
 
-    public void OnBeginDirecting() {
+    public void OnBeginConducting() {
         m_CurrentSide = VerticalPlaneSide.None;
     }
 
-    public void OnDirecting()
+    public void OnConducting()
     {
         if (m_TimeSinceLastBeatDetection > m_TimeBetweenBeatDetection) {
             DetectBeat();
@@ -101,4 +101,8 @@ public class XRBeatDetector : MonoBehaviour
 
         beatManager.PostOnBeatEvent(amplitude);
     }
+
+    //DEBUG
+    [Header("DEBUG")]
+    public Transform batonTop;
 }
