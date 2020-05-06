@@ -52,6 +52,7 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
     //On each beat of the leading hand we store the beat duration in a buffer
     //the current bpm is defined with a weighted average of the buffer
     //it permits to smoothen the bpm evolution
+    //TODO : implement a OnTempoEnd event which fires when the player stop using the trigger to know if we have to recreate a timer
     public void OnBeatMajorHand(float amplitude)
     {
         float timeSinceLastBeat = Time.time - m_TimeAtLastBeat;

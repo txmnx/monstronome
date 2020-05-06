@@ -9,6 +9,7 @@ public class InstrumentFamilySelector : MonoBehaviour
 {
     public XRCustomController controller;
     public InstrumentFamilyLooker instrumentFamilyLooker;
+    public BeatManager beatManager;
 
     [HideInInspector]
     public InstrumentFamily selectedFamily;
@@ -40,6 +41,7 @@ public class InstrumentFamilySelector : MonoBehaviour
             if (selectedFamily == null) {
                 selectedFamily = instrumentFamilyLooker.lookedFamily;
                 OnSelectFamily?.Invoke(selectedFamily);
+                beatManager.canBeat = false;
             }
         }
     }
@@ -49,6 +51,7 @@ public class InstrumentFamilySelector : MonoBehaviour
         if (selectedFamily != null) {
             OnDeselectFamily?.Invoke(selectedFamily);
             selectedFamily = null;
+            beatManager.canBeat = true;
         }
     }
 

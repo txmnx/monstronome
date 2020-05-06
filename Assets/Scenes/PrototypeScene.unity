@@ -677,6 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1968274598}
   instrumentFamilyLooker: {fileID: 224941992}
+  beatManager: {fileID: 348619487}
   selectedFamily: {fileID: 0}
 --- !u!114 &231797536 stripped
 MonoBehaviour:
@@ -1143,6 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c96a67d1acedf2249b8bd203209bb220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canBeat: 1
 --- !u!4 &348619488
 Transform:
   m_ObjectHideFlags: 0
@@ -4421,7 +4423,7 @@ MonoBehaviour:
   data:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: ca463f3dc6c69fa41953a69c1a651a66,
+    WwiseObjectReference: {fileID: 11400000, guid: 2b2a027b7af103a479e6bf35b6f4711c,
       type: 2}
   useCallbacks: 0
   Callbacks: []
@@ -4450,7 +4452,7 @@ MonoBehaviour:
     valueGuidInternal: 
     groupIdInternal: 0
     groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 614eea826df9d36419c496eff788b4fa,
+    WwiseObjectReference: {fileID: 11400000, guid: f109968291fbfd44cb3bcb5dff89b7ab,
       type: 2}
   valueIdInternal: 0
   groupIdInternal: 0

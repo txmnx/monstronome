@@ -7,6 +7,9 @@ using UnityEngine;
  */
 public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatMajorHandElement, OnBeatMinorHandElement
 {
+    [HideInInspector]
+    public bool canBeat = true;
+
     private List<OnBeatElement> m_OnBeatElements;
     private List<OnBeatMajorHandElement> m_OnBeatMajorHandElements;
     private List<OnBeatMinorHandElement> m_OnBeatMinorHandElements;
@@ -35,22 +38,28 @@ public class BeatManager : MonoBehaviour, OnBeatElement, OnBeatMajorHandElement,
 
     public void OnBeat(float amplitude)
     {
-        foreach (OnBeatElement el in m_OnBeatElements) {
-            el.OnBeat(amplitude);
+        if (canBeat) {
+            foreach (OnBeatElement el in m_OnBeatElements) {
+                el.OnBeat(amplitude);
+            }
         }
     }
 
     public void OnBeatMajorHand(float amplitude)
     {
-        foreach (OnBeatMajorHandElement el in m_OnBeatMajorHandElements) {
-            el.OnBeatMajorHand(amplitude);
+        if (canBeat) {
+            foreach (OnBeatMajorHandElement el in m_OnBeatMajorHandElements) {
+                el.OnBeatMajorHand(amplitude);
+            }
         }
     }
 
     public void OnBeatMinorHand(float amplitude)
     {
-        foreach (OnBeatMinorHandElement el in m_OnBeatMinorHandElements) {
-            el.OnBeatMinorHand(amplitude);
+        if (canBeat) {
+            foreach (OnBeatMinorHandElement el in m_OnBeatMinorHandElements) {
+                el.OnBeatMinorHand(amplitude);
+            }
         }
     }
 }
