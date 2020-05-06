@@ -78,10 +78,17 @@ public class TempoManager : MonoBehaviour
     private void UpdateTempo()
     {
         SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
-        if (m_CurrentTempoType != tempoRange.type) {
-            soundEngineTuner.SetTempo(tempoRange.value);
+
+        //DEBUG
+        if (DebugInteractionModes.intensityInteractionModeRef == DebugInteractionModes.IntensityInteractionMode.Dynamic) {
+            soundEngineTuner.SetTempo(bpm);
         }
-        m_CurrentTempoType = tempoRange.type;
+        else {
+            if (m_CurrentTempoType != tempoRange.type) {
+                soundEngineTuner.SetTempo(tempoRange.value);
+            }
+            m_CurrentTempoType = tempoRange.type;
+        }
 
         //DEBUG
         debugTextTempoType.text = tempoRange.type.ToString();
