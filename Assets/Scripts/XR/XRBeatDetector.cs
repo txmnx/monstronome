@@ -98,10 +98,12 @@ public class XRBeatDetector : MonoBehaviour
         //Here we define the major hand as the right one
         //TODO : abstract this selection
         if (m_Controller.controllerNode == XRNode.RightHand) {
-            beatManager.OnBeatMajorHand(amplitude);
+            beatManager.PostOnBeatMajorHandEvent(amplitude);
         }
         else if (m_Controller.controllerNode == XRNode.LeftHand) {
-            beatManager.OnBeatMinorHand(amplitude);
+            beatManager.PostOnBeatMinorHandEvent(amplitude);
         }
+
+        beatManager.PostOnBeatEvent(amplitude);
     }
 }

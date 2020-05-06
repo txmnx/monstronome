@@ -6,7 +6,7 @@ using UnityEngine;
 /**
  * Use to compute a BPM value with OnBeat events from BeatManager
  */
-public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
+public class BPMTranslator : MonoBehaviour
 {
     public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;
@@ -31,7 +31,7 @@ public class BPMTranslator : MonoBehaviour, OnBeatMajorHandElement
 
     private void Start()
     {
-        beatManager.RegisterOnBeatMajorHandElement(this);
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
 
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.BASE_TEMPO;

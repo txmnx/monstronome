@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Provides feedback on the major hand controller
  */
-public class XRMajorHandFeedback : MonoBehaviour, OnBeatMajorHandElement
+public class XRMajorHandFeedback : MonoBehaviour
 {
     public BeatManager beatManager;
     public XRCustomController controller;
@@ -16,7 +16,7 @@ public class XRMajorHandFeedback : MonoBehaviour, OnBeatMajorHandElement
 
     private void Start()
     {
-        beatManager.RegisterOnBeatMajorHandElement(this);
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
     }
 
     private void Update()

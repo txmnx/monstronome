@@ -6,7 +6,7 @@ using UnityEngine;
 /**
  * Used to define the global intensity based on the amplitude of the player's gestures on the beat
  */
-public class IntensityTranslator : MonoBehaviour, OnBeatMajorHandElement
+public class IntensityTranslator : MonoBehaviour
 {
     public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;
@@ -21,7 +21,7 @@ public class IntensityTranslator : MonoBehaviour, OnBeatMajorHandElement
 
     private void Start()
     {
-        beatManager.RegisterOnBeatMajorHandElement(this);
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
         m_BufferLastAmplitudes = new Queue<float>();
 
         for (int i = 0; i < AMPLITUDE_BUFFER_SIZE; i++) {
