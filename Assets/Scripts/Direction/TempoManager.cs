@@ -6,25 +6,25 @@ using UnityEngine;
 /**
  * Use to compute a BPM value with OnBeat events from BeatManager
  */
-public class BPMTranslator : MonoBehaviour
+public class TempoManager : MonoBehaviour
 {
     public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;
 
+    /* BPM */
     //The bigger the buffer size is, the smoother the bpm's evolution is
     private const int BPM_BUFFER_SIZE = 8;
     private Queue<float> m_BufferLastBPMs;
-
-    public float minBPM = 45;
-    public float maxBPM = 165;
+    private float m_TimeAtLastBeat = 0.0f;
 
     [HideInInspector]
     public float bpm;
-    private float m_TimeAtLastBeat = 0.0f;
+    public float minBPM = 45;
+    public float maxBPM = 165;
 
     private InstrumentFamily.TempoType m_CurrentTempoType;
 
-
+    /* Debug */
     [Header("DEBUG")]
     public DebugGraph bpmGraph;
     public TextMeshPro debugTextTempoType;
@@ -41,12 +41,6 @@ public class BPMTranslator : MonoBehaviour
 
         bpm = baseTempo;
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
-    }
-
-    private void Update()
-    {
-        //DEBUG
-        bpmGraph?.SetValue(bpm);
     }
 
     //On each beat of the leading hand we store the beat duration in a buffer
@@ -75,5 +69,11 @@ public class BPMTranslator : MonoBehaviour
 
         //DEBUG
         debugTextTempoType.text = tempoRange.type.ToString();
+    }
+
+    private void Update()
+    {
+        //DEBUG
+        bpmGraph?.SetValue(bpm);
     }
 }

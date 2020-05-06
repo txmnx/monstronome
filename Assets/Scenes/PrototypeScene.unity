@@ -677,7 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1968274598}
   instrumentFamilyLooker: {fileID: 224941992}
-  beatManager: {fileID: 348619487}
+  directionManager: {fileID: 348619493}
   selectedFamily: {fileID: 0}
 --- !u!114 &231797536 stripped
 MonoBehaviour:
@@ -1121,10 +1121,11 @@ GameObject:
   m_Component:
   - component: {fileID: 348619488}
   - component: {fileID: 348619491}
+  - component: {fileID: 348619493}
   - component: {fileID: 348619487}
-  - component: {fileID: 348619492}
   - component: {fileID: 348619489}
   - component: {fileID: 348619490}
+  - component: {fileID: 348619492}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1173,9 +1174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
   soundEngineTuner: {fileID: 348619491}
+  bpm: 0
   minBPM: 45
   maxBPM: 165
-  bpm: 0
   bpmGraph: {fileID: 277658482}
   debugTextTempoType: {fileID: 4727130347671435854}
 --- !u!114 &348619490
@@ -1222,6 +1223,19 @@ MonoBehaviour:
   mainCamera: {fileID: 224941987}
   mainLight: {fileID: 106940604}
   selector: {fileID: 224941993}
+--- !u!114 &348619493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0e0f4c6ff286e418b74370fcbe84d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUsingDirectionInput: 0
 --- !u!114 &351763482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
@@ -3986,6 +4000,7 @@ GameObject:
   - component: {fileID: 1484290208}
   - component: {fileID: 1484290209}
   - component: {fileID: 1484290210}
+  - component: {fileID: 1484290211}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -4035,8 +4050,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
+  directionManager: {fileID: 348619493}
   beatPlane: {fileID: 1093371531}
-  isDirecting: 0
 --- !u!114 &1484290210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4051,8 +4066,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
   controller: {fileID: 1484290208}
-  detector: {fileID: 1484290209}
+  directionManager: {fileID: 348619493}
   trailRenderer: {fileID: 1084374024}
+--- !u!114 &1484290211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484290206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ed454ce55257e4885f9aa1a8f7a489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionManager: {fileID: 348619493}
 --- !u!1 &1504346131
 GameObject:
   m_ObjectHideFlags: 0

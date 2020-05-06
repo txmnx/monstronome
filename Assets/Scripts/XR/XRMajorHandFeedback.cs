@@ -9,23 +9,25 @@ public class XRMajorHandFeedback : MonoBehaviour
 {
     public BeatManager beatManager;
     public XRCustomController controller;
-    public XRBeatDetector detector;
+    public DirectionManager directionManager;
     public TrailRenderer trailRenderer;
-
-    private bool m_CachedIsDirecting = false;
 
     private void Start()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
+        directionManager.OnBeginDirecting += OnBeginDirecting;
+        directionManager.OnEndDirecting += OnEndDirecting;
     }
 
-    private void Update()
+    public void OnBeginDirecting()
     {
-        if (m_CachedIsDirecting != detector.isDirecting) {
-            if (!detector.isDirecting) trailRenderer.Clear();
-            trailRenderer.enabled = detector.isDirecting;
-        }
-        m_CachedIsDirecting = detector.isDirecting;
+        trailRenderer.enabled = true;
+    }
+
+    public void OnEndDirecting()
+    {
+        trailRenderer.Clear();
+        trailRenderer.enabled = false;
     }
 
     public void OnBeatMajorHand(float amplitudeMove)

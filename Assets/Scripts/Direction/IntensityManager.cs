@@ -6,7 +6,7 @@ using UnityEngine;
 /**
  * Used to define the global intensity based on the amplitude of the player's gestures on the beat
  */
-public class IntensityTranslator : MonoBehaviour
+public class IntensityManager : MonoBehaviour
 {
     public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;

@@ -4,16 +4,14 @@ using UnityEngine;
 using UnityEngine.XR;
 
 /**
- * Use to detect beat
+ * Use to detect beat when the player is directing
  */
 [RequireComponent(typeof(XRCustomController))]
 public class XRBeatDetector : MonoBehaviour
 {
     public BeatManager beatManager;
+    public DirectionManager directionManager;
     public Transform beatPlane;
-
-    [HideInInspector]
-    public bool isDirecting = false;
 
     private XRCustomController m_Controller;
 
@@ -31,6 +29,9 @@ public class XRBeatDetector : MonoBehaviour
 
     private void Start()
     {
+        directionManager.OnBeginDirecting += OnBeginDirecting;
+        directionManager.OnDirecting += OnDirecting;
+
         m_Controller = GetComponent<XRCustomController>();
         m_BeatPlaneCenter = beatPlane.localPosition.x;
         m_BeatPlaneParent = beatPlane.transform.parent;
@@ -43,7 +44,11 @@ public class XRBeatDetector : MonoBehaviour
         m_Amplitude = 0.0f;
     }
 
-    private void Update()
+    public void OnBeginDirecting() {
+        m_CurrentSide = VerticalPlaneSide.None;
+    }
+
+    public void OnDirecting()
     {
         if (m_TimeSinceLastBeatDetection > m_TimeBetweenBeatDetection) {
             DetectBeat();
@@ -54,30 +59,20 @@ public class XRBeatDetector : MonoBehaviour
 
     private void DetectBeat()
     {
-        bool triggerPressed;
-        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out triggerPressed)) {
-            if (triggerPressed) {
-                VerticalPlaneSide side = GetBeatPlaneSide();
-                if (side != m_CurrentSide) {
-                    if (m_CurrentSide != VerticalPlaneSide.None) {
-                        OnBeat(m_Amplitude);
-                        m_Amplitude = 0;
-                        m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
-                    }
-                    m_CurrentSide = side;
-                }
-                else {
-                    float distanceLastMaximum = Vector3.Distance(transform.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
-                    if (m_Amplitude < distanceLastMaximum) {
-                        m_MaximumGesturePoints[m_MaximumGesturePointIndex] = transform.position;
-                        m_Amplitude = distanceLastMaximum;
-                    }
-                }
-                isDirecting = true;
+        VerticalPlaneSide side = GetBeatPlaneSide();
+        if (side != m_CurrentSide) {
+            if (m_CurrentSide != VerticalPlaneSide.None) {
+                OnBeat(m_Amplitude);
+                m_Amplitude = 0;
+                m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
             }
-            else {
-                m_CurrentSide = VerticalPlaneSide.None;
-                isDirecting = false;
+            m_CurrentSide = side;
+        }
+        else {
+            float distanceLastMaximum = Vector3.Distance(transform.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
+            if (m_Amplitude < distanceLastMaximum) {
+                m_MaximumGesturePoints[m_MaximumGesturePointIndex] = transform.position;
+                m_Amplitude = distanceLastMaximum;
             }
         }
     }
