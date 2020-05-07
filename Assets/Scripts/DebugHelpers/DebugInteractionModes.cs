@@ -72,5 +72,6 @@ public class DebugInteractionModes : MonoBehaviour
 
         /* Rotation Y Beat Plan */
         rotationYBeatPlanRef = rotationYBeatPlan;
+
     }
 }

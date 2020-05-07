@@ -20,6 +20,7 @@ public class XRBeatDetector : MonoBehaviour
     private float m_TimeSinceLastBeatDetection = 0.0f;
 
     //DEBUG - MODES
+    private Vector3 m_camUpAtBeginDirecting;
     private Plane m_CurrentBeatPlane;
     private Plane m_BeatPlane
     {
@@ -27,7 +28,7 @@ public class XRBeatDetector : MonoBehaviour
         //We recompute the plane on each frame because we want to test if it works if the plane "follows" the eye
         get {
             if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
-                m_CurrentBeatPlane = new Plane(Vector3.Cross(mainCamera.forward, mainCamera.up), beatPlaneSFX.position);
+                m_CurrentBeatPlane = new Plane(Vector3.Cross(mainCamera.forward, Vector3.up), beatPlaneSFX.position);
             }
             return m_CurrentBeatPlane;
         }
@@ -57,24 +58,12 @@ public class XRBeatDetector : MonoBehaviour
     }
 
     public void OnBeginConducting() {
-        //DEBUG - MODES
-        if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.Absolute) {
-            //Absolute Positionning
-            m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, mainCamera.up), beatPositionDetection.position);
-            //Beat Plane animation and positioning
-            beatPlaneSFX.gameObject.SetActive(true);
-            beatPlaneSFX.position = beatPositionDetection.position;
-            beatPlaneSFX.forward = m_BeatPlane.normal;
-        }
-        else if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
-            //Relative Positionning
-            m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, mainCamera.up), beatPositionDetection.position);
+        m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, Vector3.up), beatPositionDetection.position);
 
-            //Beat Plane animation and positioning
-            beatPlaneSFX.gameObject.SetActive(true);
-            beatPlaneSFX.position = beatPositionDetection.position;
-            beatPlaneSFX.forward = m_BeatPlane.normal;
-        }
+        //Beat Plane animation and positioning
+        beatPlaneSFX.gameObject.SetActive(true);
+        beatPlaneSFX.position = beatPositionDetection.position;
+        beatPlaneSFX.forward = m_BeatPlane.normal;
 
         m_MaximumGesturePoints = new Vector3[2] {
             beatPositionDetection.position,
@@ -91,6 +80,12 @@ public class XRBeatDetector : MonoBehaviour
             m_TimeSinceLastBeatDetection %= m_TimeBetweenBeatDetection;
         }
         m_TimeSinceLastBeatDetection += Time.deltaTime;
+
+
+        //DEBUG - MODES
+        if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
+            beatPlaneSFX.forward = Vector3.Cross(mainCamera.forward, Vector3.up);
+        }
     }
 
     public void OnEndConducting()

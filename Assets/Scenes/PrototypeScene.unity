@@ -530,7 +530,6 @@ Transform:
   - {fileID: 52552105}
   - {fileID: 102752857}
   - {fileID: 1513585059}
-  - {fileID: 1093371531}
   m_Father: {fileID: 1504346132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1178,7 +1177,7 @@ MonoBehaviour:
   beatPositionMode: 0
   beatPosition: 0.99
   beatPlanSFX: {fileID: 1093371531}
-  rotationYBeatPlan: 1
+  rotationYBeatPlan: 0
 --- !u!114 &351763482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
@@ -2711,8 +2710,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.015}
   m_Children: []
-  m_Father: {fileID: 224941988}
-  m_RootOrder: 4
+  m_Father: {fileID: 1504346132}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1093371532
 MeshRenderer:
@@ -4229,6 +4228,7 @@ Transform:
   - {fileID: 224941988}
   - {fileID: 1968274596}
   - {fileID: 1484290207}
+  - {fileID: 1093371531}
   m_Father: {fileID: 1887650656}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
