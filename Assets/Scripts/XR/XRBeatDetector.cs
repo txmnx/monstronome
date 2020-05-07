@@ -12,13 +12,29 @@ public class XRBeatDetector : MonoBehaviour
     public BeatManager beatManager;
     public ConductManager conductManager;
     public Transform beatPlaneSFX;
+    public Transform mainCamera;
 
     private XRCustomController m_Controller;
 
     private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
     private float m_TimeSinceLastBeatDetection = 0.0f;
 
-    private Plane m_BeatPlane;
+    //DEBUG - MODES
+    private Plane m_CurrentBeatPlane;
+    private Plane m_BeatPlane
+    {
+        //DEBUG - MODES
+        //We recompute the plane on each frame because we want to test if it works if the plane "follows" the eye
+        get {
+            if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
+                m_CurrentBeatPlane = new Plane(Vector3.Cross(mainCamera.forward, mainCamera.up), beatPlaneSFX.position);
+            }
+            return m_CurrentBeatPlane;
+        }
+        set {
+            m_CurrentBeatPlane = value;
+        }
+    }
 
     private enum BeatPlaneSide { Left, Right, None };
     private BeatPlaneSide m_CurrentSide;
@@ -41,12 +57,24 @@ public class XRBeatDetector : MonoBehaviour
     }
 
     public void OnBeginConducting() {
-        m_BeatPlane = new Plane(Vector3.right, beatPositionDetection.position);
+        //DEBUG - MODES
+        if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.Absolute) {
+            //Absolute Positionning
+            m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, mainCamera.up), beatPositionDetection.position);
+            //Beat Plane animation and positioning
+            beatPlaneSFX.gameObject.SetActive(true);
+            beatPlaneSFX.position = beatPositionDetection.position;
+            beatPlaneSFX.forward = m_BeatPlane.normal;
+        }
+        else if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
+            //Relative Positionning
+            m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, mainCamera.up), beatPositionDetection.position);
 
-        //Beat Plane animation and positioning
-        beatPlaneSFX.gameObject.SetActive(true);
-        beatPlaneSFX.position = beatPositionDetection.position;
-        beatPlaneSFX.forward = m_BeatPlane.normal;
+            //Beat Plane animation and positioning
+            beatPlaneSFX.gameObject.SetActive(true);
+            beatPlaneSFX.position = beatPositionDetection.position;
+            beatPlaneSFX.forward = m_BeatPlane.normal;
+        }
 
         m_MaximumGesturePoints = new Vector3[2] {
             beatPositionDetection.position,

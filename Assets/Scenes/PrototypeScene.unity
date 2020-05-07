@@ -530,8 +530,9 @@ Transform:
   - {fileID: 52552105}
   - {fileID: 102752857}
   - {fileID: 1513585059}
+  - {fileID: 1093371531}
   m_Father: {fileID: 1504346132}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &224941989
 MonoBehaviour:
@@ -1170,10 +1171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af1748f5bef79d4db142371083f3b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 224941988}
+  cameraOffset: {fileID: 1504346132}
   tempoInteractionMode: 0
   beatPositionTransform: {fileID: 1218920007}
   beatPositionMode: 0
   beatPosition: 0.99
+  beatPlanSFX: {fileID: 1093371531}
+  rotationYBeatPlan: 1
 --- !u!114 &351763482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
@@ -2706,8 +2711,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.015}
   m_Children: []
-  m_Father: {fileID: 1504346132}
-  m_RootOrder: 0
+  m_Father: {fileID: 224941988}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1093371532
 MeshRenderer:
@@ -4132,7 +4137,7 @@ Transform:
   m_Children:
   - {fileID: 1098746080}
   m_Father: {fileID: 1504346132}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1484290208
 MonoBehaviour:
@@ -4163,6 +4168,7 @@ MonoBehaviour:
   beatManager: {fileID: 348619487}
   conductManager: {fileID: 348619493}
   beatPlaneSFX: {fileID: 1093371531}
+  mainCamera: {fileID: 224941988}
   beatPositionDetection: {fileID: 1218920007}
 --- !u!114 &1484290210
 MonoBehaviour:
@@ -4220,7 +4226,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1093371531}
   - {fileID: 224941988}
   - {fileID: 1968274596}
   - {fileID: 1484290207}
@@ -4764,7 +4769,7 @@ Transform:
   m_Children:
   - {fileID: 2010940908}
   m_Father: {fileID: 1504346132}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1968274597
 MonoBehaviour:
