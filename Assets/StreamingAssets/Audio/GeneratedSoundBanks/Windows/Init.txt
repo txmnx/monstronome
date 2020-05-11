@@ -1,45 +1,26 @@
 Switch Group	ID	Name			Wwise Object Path	Notes
-	554303915	SW_Articulation_Brass			\Switches\SW_Articulation_Brass	
-	1043506402	SW_Articulation_Woods			\Switches\SW_Articulation_Woods	
-	1952059502	SW_Articulation_Strings			\Switches\SW_Articulation_Strings	
 	2452737974	SW_Intensity_Strings			\Switches\SW_Intensity_Strings	
 	3193984618	SW_Intensity_Woods			\Switches\SW_Intensity_Woods	
 	3232210438	SW_Intensity_Percussions			\Switches\SW_Intensity_Percussions	
 	4041549459	SW_Intensity_Brass			\Switches\SW_Intensity_Brass	
 
 Switch	ID	Name	Switch Group			Notes
-	1422035515	Legato	SW_Articulation_Brass			
-	3432601699	StaccatoRips	SW_Articulation_Brass			
-	3644683267	HarmonMute	SW_Articulation_Brass			
-	4028101794	FlutterMute	SW_Articulation_Brass			
-	56434811	Staccato	SW_Articulation_Woods			
-	1422035515	Legato	SW_Articulation_Woods			
-	3466625877	Flutter	SW_Articulation_Woods			
-	3997891192	Trill	SW_Articulation_Woods			
-	56434811	Staccato	SW_Articulation_Strings			
-	1422035515	Legato	SW_Articulation_Strings			
-	2077337834	Pizzicato	SW_Articulation_Strings			
-	4056223263	Tremolo	SW_Articulation_Strings			
-	545371365	Low	SW_Intensity_Strings			
-	1026627430	Middle	SW_Intensity_Strings			
-	2915956327	Hight	SW_Intensity_Strings			
-	3009393504	Huge	SW_Intensity_Strings			
-	545371365	Low	SW_Intensity_Woods			
-	1026627430	Middle	SW_Intensity_Woods			
-	2915956327	Hight	SW_Intensity_Woods			
-	3009393504	Huge	SW_Intensity_Woods			
-	545371365	Low	SW_Intensity_Percussions			
-	1026627430	Middle	SW_Intensity_Percussions			
-	2915956327	Hight	SW_Intensity_Percussions			
-	3009393504	Huge	SW_Intensity_Percussions			
-	545371365	Low	SW_Intensity_Brass			
-	1026627430	Middle	SW_Intensity_Brass			
-	2915956327	Hight	SW_Intensity_Brass			
-	3009393504	Huge	SW_Intensity_Brass			
+	297596479	Forte	SW_Intensity_Strings			
+	2665367761	Pianissimo	SW_Intensity_Strings			
+	3831224266	MezzoForte	SW_Intensity_Strings			
+	297596479	Forte	SW_Intensity_Woods			
+	2665367761	Pianissimo	SW_Intensity_Woods			
+	3831224266	MezzoForte	SW_Intensity_Woods			
+	297596479	Forte	SW_Intensity_Percussions			
+	2665367761	Pianissimo	SW_Intensity_Percussions			
+	3831224266	MezzoForte	SW_Intensity_Percussions			
+	297596479	Forte	SW_Intensity_Brass			
+	2665367761	Pianissimo	SW_Intensity_Brass			
+	3831224266	MezzoForte	SW_Intensity_Brass			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	249970651	Focus			\States\Focus	
-	766723505	Game_State			\States\Game_State	
+	3991942870	Music			\States\Music	
 
 State	ID	Name	State Group			Notes
 	173669664	Focus_Woods	Focus			
@@ -48,11 +29,9 @@ State	ID	Name	State Group			Notes
 	2855506176	Focus_Strings	Focus			
 	3029345696	Focus_None	Focus			
 	3205378936	Focus_Percussions	Focus			
-	391998042	Tense	Game_State			
-	529726532	End	Game_State			
-	748895195	None	Game_State			
-	1026627430	Middle	Game_State			
-	1281810935	Start	Game_State			
+	748895195	None	Music			
+	1281810935	Start	Music			
+	3537469747	Metronome	Music			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Reflect Acoustic Textures\Textures\Brick	
@@ -71,21 +50,36 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4262522749	Wood_Bright			\Factory Reflect Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	505915784	Brass			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Brass	
-	2058049674	Wood			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Wood	
-	3363523641	Strings			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Strings	
+	393239870	SFX			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\SFX	
+	1033152923	Woods_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Woods_Orchestral	
+	1040548709	Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody	
+	1192927207	Strings_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Strings_Orchestral	
+	1346697092	Brass_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Brass_Orchestral	
+	1494786896	Percussions_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Percussions_Melody	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\UI	
+	2056404067	Brass_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Brass_Melody	
+	2500509012	Woods_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Woods_Melody	
+	2542362038	Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral	
+	2569719192	Strings_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Strings_Melody	
+	3537469747	Metronome			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Metronome	
 	3539010900	Ambisonics_Bus			\Default Work Unit\Master Audio Bus\Ambisonics_Bus	
-	3762497105	Percussions			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Percussions	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music	
+	4206581327	Percussions_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Percussions_Orchestral	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	44205819	Reverb_ConcertHall			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Reverb_ConcertHall	
 
 Effect plug-ins	ID	Name	Type				Notes
 	195105701	Wwise_Meter_(Custom)	Wwise Meter			
+	275811978	Wwise_Meter_(Custom)	Wwise Meter			
 	388257655	Wwise_Meter_(Custom)	Wwise Meter			
+	506565730	Wwise_Meter_(Custom)	Wwise Meter			
+	518484037	Wwise_Meter_(Custom)	Wwise Meter			
+	531754157	Resonance_Audio_Renderer_(Custom)	Resonance Audio Renderer			
 	609398598	Wwise_Meter_(Custom)	Wwise Meter			
-	631786641	Resonance Audio Renderer (Custom)	Resonance Audio Renderer			
+	705970931	Wwise_Meter_(Custom)	Wwise Meter			
+	860573817	Wwise_Recorder_(Custom)	Wwise Recorder			
 	901116825	Wwise_Meter_(Custom)	Wwise Meter			
 
 Audio Devices	ID	Name	Type				Notes
