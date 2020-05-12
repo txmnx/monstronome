@@ -15,7 +15,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         Legato,
         Pizzicato,
-        Stacatto,
+        Staccato,
         Default
     }
     public ArticulationType[] articulationTypes;
