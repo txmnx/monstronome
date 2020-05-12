@@ -8,6 +8,8 @@ using UnityEngine;
  */
 public class SoundEngineTuner : MonoBehaviour
 {
+    public WwiseCallBack soundReference;
+    
     public const float BASE_TEMPO = 120;
     public const float MAX_DELAY = 0.5f;
 
@@ -98,25 +100,24 @@ public class SoundEngineTuner : MonoBehaviour
     /* DELAY */
     public void SetDelay(InstrumentFamily family, float delay)
     {
+        /*
+         * TODO : we currently are looking for another way than delay to induce "cacophonie"
+         * 
         try {
             AkSoundEngine.SetRTPCValue(GetDelayRTPCRequest(m_KeywordFamily[family.GetType()]), delay);
         }
         catch (KeyNotFoundException) {
             Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
         }
+        */
     }
 
-
     /* ARTICULATION */
-    public void SetArticulation(InstrumentFamily family, int indexType)
+    public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {
-        if (family.articulationTypes.Length > 1) {
-            //See sound documentation for the explaining of the formula
-            float value = (float)indexType / (float)(family.articulationTypes.Length);
-            value *= 100;
-
+        if (type != InstrumentFamily.ArticulationType.Default) {
             try {
-                AkSoundEngine.SetRTPCValue(GetArticulationRTPCRequest(m_KeywordFamily[family.GetType()]), value);
+                AkSoundEngine.SetSwitch(GetArticulationSwitchRequest(m_KeywordFamily[family.GetType()]), type.ToString(), soundReference.gameObject);
             }
             catch (KeyNotFoundException) {
                 Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
@@ -161,9 +162,9 @@ public class SoundEngineTuner : MonoBehaviour
         return "RTPC_Time_Delay_" + familyKeyword;
     }
 
-    private string GetArticulationRTPCRequest(string familyKeyword)
+    private string GetArticulationSwitchRequest(string familyKeyword)
     {
-        return "RTPC_Articulation_" + familyKeyword;
+        return "SW_Articulation_" + familyKeyword;
     }
 
     private string GetIntensityRTPCRequest(string familyKeyword)
