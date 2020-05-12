@@ -4,6 +4,9 @@ using UnityEngine;
 
 /**
  * Deals with the delay generation of each instrument family
+ * 
+ * TODO : we currently are looking for another way than delay to induce "cacophonie"
+ *
  */
 public class InstrumentsDelayer : MonoBehaviour
 {

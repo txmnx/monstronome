@@ -167,7 +167,9 @@ public class AkSoundEngineController
 
 	public void OnApplicationFocus(bool focus)
 	{
+#if !UNITY_ANDROID
 		ActivateAudio(focus, AkWwiseInitializationSettings.ActivePlatformSettings.RenderDuringFocusLoss);
+#endif
 	}
 #endif
 

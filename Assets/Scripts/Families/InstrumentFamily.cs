@@ -9,20 +9,31 @@ using UnityEngine;
 public abstract class InstrumentFamily : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
+    public Light spotlight;
 
-    /* Articulations */
     public enum ArticulationType
     {
         Legato,
-        Staccato,
-        Flutter,
-        Trill,
         Pizzicato,
-        Tremolo,
-        Harmon,
+        Staccato,
         Default
     }
     public ArticulationType[] articulationTypes;
+
+    public enum TempoType
+    {
+        Lento,
+        Andante,
+        Allegro,
+        Presto
+    }
+
+    public enum IntensityType
+    {
+        Pianissimo,
+        MezzoForte,
+        Fortissimo
+    }
 
     private float m_Delay = 0.0f;
     private float m_MaxDelay = 0.0f;
@@ -34,6 +45,11 @@ public abstract class InstrumentFamily : MonoBehaviour
     [Header("DEBUG")]
     public DebugBar delayBar;
     public TextMeshPro articulationTextMesh;
+
+    private void Awake()
+    {
+        spotlight.enabled = false;
+    }
 
     private void Start()
     {
@@ -69,7 +85,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void SetArticulation(int index)
     {
         if (index < articulationTypes.Length) {
-            soundEngineTuner.SetArticulation(this, index);
+            soundEngineTuner.SetArticulation(this, articulationTypes[index]);
             articulationTextMesh.text = articulationTypes[index].ToString();
         }
     }

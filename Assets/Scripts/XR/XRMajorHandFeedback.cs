@@ -5,17 +5,32 @@ using UnityEngine;
 /**
  * Provides feedback on the major hand controller
  */
-public class XRMajorHandFeedback : MonoBehaviour, OnBeatMajorHandElement
+public class XRMajorHandFeedback : MonoBehaviour
 {
     public BeatManager beatManager;
     public XRCustomController controller;
+    public ConductManager conductManager;
+    public TrailRenderer trailRenderer;
 
     private void Start()
     {
-        beatManager.RegisterOnBeatMajorHandElement(this);
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
+        conductManager.OnBeginConducting += OnBeginConducting;
+        conductManager.OnEndConducting += OnEndConducting;
     }
 
-    public void OnBeatMajorHand()
+    public void OnBeginConducting()
+    {
+        trailRenderer.enabled = true;
+    }
+
+    public void OnEndConducting()
+    {
+        trailRenderer.Clear();
+        trailRenderer.enabled = false;
+    }
+
+    public void OnBeatMajorHand(float amplitudeMove)
     {
         UnityEngine.XR.HapticCapabilities capabilities;
         if (controller.inputDevice.TryGetHapticCapabilities(out capabilities)) {

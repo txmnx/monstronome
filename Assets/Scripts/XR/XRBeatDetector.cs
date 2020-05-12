@@ -4,75 +4,152 @@ using UnityEngine;
 using UnityEngine.XR;
 
 /**
- * Use to detect beat
+ * Use to detect beat when the player is conducting
  */
 [RequireComponent(typeof(XRCustomController))]
 public class XRBeatDetector : MonoBehaviour
 {
     public BeatManager beatManager;
-    public enum MagnitudePhase
-    {
-        ASCENDING,
-        STILL,
-        DROPPING
-    }
-    //TODO : In camera space we define the area X where a beat is detected as 
-    //    -m_MaxTreshold X -m_MinTreshold 0 m_MinTreshold X m_MaxTreshold
-    //This is useful if we want to filter the gesture on a left/right gesture
-    private float m_MinTreshold;
-    private float m_MaxTreshold;
+    public ConductManager conductManager;
+    public Transform beatPlaneSFX;
+    public Transform mainCamera;
 
-    //Margin of precision for the magnitude
-    public float magnitudeTreshold;
-    
     private XRCustomController m_Controller;
 
-    private void Start()
-    {
-        m_Controller = GetComponent<XRCustomController>();
-    }
+    private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
+    private float m_TimeSinceLastBeatDetection = 0.0f;
 
-    private float m_LastMagnitude = 0.0f;
-    private MagnitudePhase currentMagnitudePhase = MagnitudePhase.STILL;
-
-    private void FixedUpdate()
+    //DEBUG - MODES
+    private Vector3 m_camUpAtBeginDirecting;
+    private Plane m_CurrentBeatPlane;
+    private Plane m_BeatPlane
     {
-        DetectBeat();
-    }
-
-    /**
-     * This function studies the evolution of the controller's magnitude
-     * If the magnitude reach a still or an descending phase after an ascending phase
-     * This means that the controller followed a sequence still - movement - still
-     * Currently we put the beat on the quick movement but it is possible to put it on the still phase
-     */
-    private void DetectBeat()
-    {
-        Vector3 deviceVelocity = new Vector3();
-        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out deviceVelocity)) {
-            if (m_LastMagnitude > deviceVelocity.magnitude + magnitudeTreshold) {
-                currentMagnitudePhase = MagnitudePhase.DROPPING;
+        //DEBUG - MODES
+        //We recompute the plane on each frame because we want to test if it works if the plane "follows" the eye
+        get {
+            if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
+                m_CurrentBeatPlane = new Plane(Vector3.Cross(mainCamera.forward, Vector3.up), beatPlaneSFX.position);
             }
-            else if (m_LastMagnitude < deviceVelocity.magnitude - magnitudeTreshold) {
-                if (currentMagnitudePhase == MagnitudePhase.DROPPING) {
-                    OnBeat();
-                }
-                currentMagnitudePhase = MagnitudePhase.ASCENDING;
-            }
-
-            m_LastMagnitude = deviceVelocity.magnitude;
+            return m_CurrentBeatPlane;
+        }
+        set {
+            m_CurrentBeatPlane = value;
         }
     }
 
-    private void OnBeat()
+    private enum BeatPlaneSide { Left, Right, None };
+    private BeatPlaneSide m_CurrentSide;
+    private Vector3[] m_MaximumGesturePoints;
+    private int m_MaximumGesturePointIndex;
+    private float m_Amplitude;
+
+    private void Start()
+    {
+        conductManager.OnBeginConducting += OnBeginConducting;
+        conductManager.OnConducting += OnConducting;
+        conductManager.OnEndConducting += OnEndConducting;
+
+        m_Controller = GetComponent<XRCustomController>();
+
+        m_CurrentSide = BeatPlaneSide.Left;
+        m_MaximumGesturePoints = new Vector3[2] { Vector3.zero, Vector3.zero };
+        m_MaximumGesturePointIndex = 0;
+        m_Amplitude = 0.0f;
+    }
+
+    public void OnBeginConducting() {
+        m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, Vector3.up), beatPositionDetection.position);
+
+        //Beat Plane animation and positioning
+        beatPlaneSFX.gameObject.SetActive(true);
+        beatPlaneSFX.position = beatPositionDetection.position;
+        beatPlaneSFX.forward = m_BeatPlane.normal;
+
+        m_MaximumGesturePoints = new Vector3[2] {
+            beatPositionDetection.position,
+            beatPositionDetection.position
+        };
+
+        m_CurrentSide = BeatPlaneSide.None;
+    }
+
+    public void OnConducting()
+    {
+        if (m_TimeSinceLastBeatDetection > m_TimeBetweenBeatDetection) {
+            DetectBeat();
+            m_TimeSinceLastBeatDetection %= m_TimeBetweenBeatDetection;
+        }
+        m_TimeSinceLastBeatDetection += Time.deltaTime;
+
+
+        //DEBUG - MODES
+        if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
+            beatPlaneSFX.forward = Vector3.Cross(mainCamera.forward, Vector3.up);
+        }
+    }
+
+    public void OnEndConducting()
+    {
+        //The beat plane disappears
+        beatPlaneSFX.gameObject.SetActive(false);
+    }
+
+    private void DetectBeat()
+    {
+        BeatPlaneSide side = GetBeatPlaneSide();
+        if (side != m_CurrentSide) {
+            if (m_CurrentSide != BeatPlaneSide.None) {
+                OnBeat(m_Amplitude);
+                m_Amplitude = 0;
+                m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
+            }
+            m_CurrentSide = side;
+        }
+        else {
+            float distanceLastMaximum = Vector3.Distance(beatPositionDetection.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
+            if (m_Amplitude < distanceLastMaximum) {
+                m_MaximumGesturePoints[m_MaximumGesturePointIndex] = beatPositionDetection.position;
+                m_Amplitude = distanceLastMaximum;
+            }
+        }
+    }
+
+    private BeatPlaneSide GetBeatPlaneSide()
+    {
+        /*
+        float x = m_BeatPlaneParent.InverseTransformPoint(beatPositionDetection.position).x;
+        
+        if (x > m_BeatPlaneCenter) {
+            return VerticalPlaneSide.Right;
+        }
+        else {
+            return VerticalPlaneSide.Left;
+        }
+        */
+        bool side = m_BeatPlane.GetSide(beatPositionDetection.position);
+        if (side) {
+            return BeatPlaneSide.Right;
+        }
+        else {
+            return BeatPlaneSide.Left;
+        }
+    }
+
+    private void OnBeat(float amplitude)
     {
         //Here we define the major hand as the right one
         //TODO : abstract this selection
         if (m_Controller.controllerNode == XRNode.RightHand) {
-            beatManager.OnBeatMajorHand();
+            beatManager.PostOnBeatMajorHandEvent(amplitude);
         }
         else if (m_Controller.controllerNode == XRNode.LeftHand) {
-            beatManager.OnBeatMinorHand();
+            beatManager.PostOnBeatMinorHandEvent(amplitude);
         }
+
+        beatManager.PostOnBeatEvent(amplitude);
     }
+
+    //DEBUG
+    [Header("DEBUG")]
+    public Transform beatPositionDetection;
 }
