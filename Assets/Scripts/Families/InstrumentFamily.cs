@@ -14,12 +14,8 @@ public abstract class InstrumentFamily : MonoBehaviour
     public enum ArticulationType
     {
         Legato,
-        Staccato,
-        Flutter,
-        Trill,
         Pizzicato,
-        Tremolo,
-        Harmon,
+        Stacatto,
         Default
     }
     public ArticulationType[] articulationTypes;
@@ -89,7 +85,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void SetArticulation(int index)
     {
         if (index < articulationTypes.Length) {
-            soundEngineTuner.SetArticulation(this, index);
+            soundEngineTuner.SetArticulation(this, articulationTypes[index]);
             articulationTextMesh.text = articulationTypes[index].ToString();
         }
     }
