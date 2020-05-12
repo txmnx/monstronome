@@ -98,14 +98,22 @@ public class SoundEngineTuner : MonoBehaviour
     /* DELAY */
     public void SetDelay(InstrumentFamily family, float delay)
     {
+        /*
+         * TODO : we currently are looking for another way than delay to induce "cacophonie"
+         * 
         try {
             AkSoundEngine.SetRTPCValue(GetDelayRTPCRequest(m_KeywordFamily[family.GetType()]), delay);
         }
         catch (KeyNotFoundException) {
             Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
         }
+        */
     }
 
+    /**
+     * SetSwitch au lieu de SetRTPC
+     * Passer le game object de SoundReference
+     */
 
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, int indexType)

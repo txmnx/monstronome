@@ -29,7 +29,7 @@ public class WwiseCallBack : MonoBehaviour
 
             if (in_type == AkCallbackType.AK_MusicSyncBeat)                                                // Permet de déclencher des actions a chaque battements
             {
-                Debug.Log("BEAT");
+                Debug.Log("BEAT - WWise");
             }
         }
     }
