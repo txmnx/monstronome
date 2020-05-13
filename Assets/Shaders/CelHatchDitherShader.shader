@@ -6,12 +6,15 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 	Properties {
 		
 		_Outline("Thick of Outline",range(0,0.1)) = 0.02	
+		_OutlineColor ("Outline Color", Color) = (0, 0, 0, 1)
 		// texture
 		[NoScaleOffset] _MainTex("Albedo (RGB)", 2D) = "white" {}
 		[Toggle] _UseTexture("Use Texture?", float) = 1
 		_AlbedoColor ("Albedo Color", Color) = (0, 0, 0, 1)
-		[Toggle] _UseNormalMap("Use Normal Map?", float) = 0
-		_GrainNormal("Grain Normal Map", 2D) = "bump" {}
+		
+		/*[Toggle] _UseNormalMap("Use Normal Map?", float) = 0
+		_GrainNormal("Grain Normal Map", 2D) = "bump" {}*/
+		
 		_ToonEffect("Toon Effect",range(0,1)) = 0.5	
 		// num of layers
 		_Steps("Steps of toon",range(0,9)) = 3
@@ -57,6 +60,8 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 			// Built-in shader include files
 			#include "UnityCG.cginc"
 			float _Outline;
+			float4 _OutlineColor;
+			
 			struct v2f {
 				// SV_POSITION -> tell the engine how to move data through the graphics pipeline
 				float4 pos:SV_POSITION;
@@ -80,7 +85,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 			// fragment shader
 			float4 frag(v2f i) :COLOR
 			{
-				float4 c = 0;
+				float4 c = _OutlineColor;
 				return c;
 			}
 			ENDCG
@@ -99,10 +104,10 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 			float _Steps;
 			float _ToonEffect;
 			sampler2D _MainTex;
-			sampler2D _GrainNormal;
+			//sampler2D _GrainNormal;
 			float4 _AlbedoColor;
 			bool _UseTexture;
-			bool _UseNormalMap;
+			//bool _UseNormalMap;
 			float4 _MainTex_ST;
 			float _RimPower;
 			float _ToonRimStep;
@@ -154,14 +159,8 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				float3 normal:TEXCOORD2;
 				float2 uv:TEXCOORD3;
 				
-				float4 screenPosition : TEXCOORD4;
-				
-                float3 worldPos : TEXCOORD5;
-                // these three vectors will hold a 3x3 rotation matrix
-                // that transforms from tangent to world space
-                half3 tspace0 : TEXCOORD6; // tangent.x, bitangent.x, normal.x
-                half3 tspace1 : TEXCOORD7; // tangent.y, bitangent.y, normal.y
-                half3 tspace2 : TEXCOORD8; // tangent.z, bitangent.z, normal.z				
+				float4 screenPosition : TEXCOORD4;              
+                float3 vertexLighting : TEXCOORD5;
 			};
 			
 			float4 GetColor(v2f i) {
@@ -175,19 +174,6 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				v2f o;
 				// world coordination
 				o.pos = UnityObjectToClipPos(v.vertex);
-				
-				if(_UseNormalMap){
-                    o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
-                    half3 wNormal = UnityObjectToWorldNormal(v.normal);
-                    half3 wTangent = UnityObjectToWorldDir(tangent.xyz);
-                    // compute bitangent from cross product of normal and tangent
-                    half tangentSign = tangent.w * unity_WorldTransformParams.w;
-                    half3 wBitangent = cross(wNormal, wTangent) * tangentSign;
-                    // output the tangent space matrix
-                    o.tspace0 = half3(wTangent.x, wBitangent.x, wNormal.x);
-                    o.tspace1 = half3(wTangent.y, wBitangent.y, wNormal.y);
-                    o.tspace2 = half3(wTangent.z, wBitangent.z, wNormal.z);
-                }
                 
 				o.normal = v.normal;
 				// ObjSpaceLightDir -> object space direction (not normalized) to light, given object space vertex position.
@@ -197,25 +183,36 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				// macro, scales and offsets texture coordinates.
 				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
                 o.screenPosition = ComputeScreenPos(o.pos);
+                
+                // Diffuse reflection by four "vertex lights"      
+                o.vertexLighting = float3(0.0, 0.0, 0.0);
+                //#ifdef VERTEXLIGHT_ON
+                for (int index = 0; index < 4; index++)
+                {  
+                  float4 lightPosition = float4(unity_4LightPosX0[index], 
+                   unity_4LightPosY0[index], 
+                   unity_4LightPosZ0[index], 1.0);
+             
+                  float3 vertexToLightSource = 
+                  lightPosition.xyz - o.pos.xyz;    
+                  float3 lightDirection = normalize(vertexToLightSource);
+                  float squaredDistance = 
+                   dot(vertexToLightSource, vertexToLightSource);
+                  float attenuation = 1.0 / (1.0 + 
+                  unity_4LightAtten0[index] * squaredDistance);                  
+                  float3 diffuseReflection = attenuation 
+                   * unity_LightColor[index].rgb * _AlbedoColor 
+                   * max(0.0, dot(o.normal, lightDirection));     
+                  o.vertexLighting =  o.vertexLighting + diffuseReflection;
+                  }
+                //#endif
+
 				return o;
 			}
 			
 			float4 frag(v2f i) :COLOR
 			{
-			    float3 N;
-			    
-			    if(_UseNormalMap){
-                    // sample the normal map, and decode from the Unity encoding
-                    half3 tnormal = UnpackNormal(tex2D(_GrainNormal, i.uv));
-                    // transform normal from tangent to world space
-                    half3 worldNormal;
-                    worldNormal.x = dot(i.tspace0, tnormal);
-                    worldNormal.y = dot(i.tspace1, tnormal);
-                    worldNormal.z = dot(i.tspace2, tnormal);
-                    N = normalize(worldNormal);
-                } else {
-                    	N = normalize(i.normal);
-                }
+			    float3 N = normalize(i.normal);
                 
 				//float4 c = tex2D(_MainTex, i.uv);
 				float4 c = GetColor(i);
@@ -242,27 +239,67 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				rim = lerp(rim, toonRim, _ToonEffect);
 				// mix the color
 				c = c*_LightColor0*diffuse*rim;
-				
-				// Hatching
-				fixed intensity = dot(c, fixed3(0.2326, 0.7152, 0.0722));
-				c.rgb =  lerp(Hatching(i.uv * 8, intensity), c.rgb, _ShaderBlend);
-				
-				//Dithering
-				if(diffuse < _DitherStep) {
-                    //texture value the dithering is based on
-                    float texColor = GetColor(i).r;
-    
-                    //value from the dither pattern
-                    float2 screenPos = i.screenPosition.xy / i.screenPosition.w;
-                    float2 ditherCoordinate = screenPos * _ScreenParams.xy * _DitherPattern_TexelSize.xy;
-                    float ditherValue = tex2D(_DitherPattern, ditherCoordinate).r;
-    
-                    //combine dither pattern with texture value to get final result
-                    float ditheredValue = step(ditherValue, texColor);
-                    float4 ditherCol = lerp(_Color1, _Color2, ditheredValue);
-                    c.rgb = lerp(ditherCol, c.rgb, 0.5);
-				}
-				
+
+
+		
+			  float attenuation;
+              if (0.0 == _WorldSpaceLightPos0.w) // directional light?
+              {
+                attenuation = 1.0; // no attenuation
+                lightDir = normalize(_WorldSpaceLightPos0.xyz);
+              } 
+              else // point or spot light
+              {
+                float3 vertexToLightSource = 
+                 _WorldSpaceLightPos0.xyz - i.pos.xyz;
+                float distance = length(vertexToLightSource);
+                attenuation = 1.0 / distance; // linear attenuation 
+                lightDir = normalize(vertexToLightSource);
+              }
+         
+              float3 ambientLighting = 
+                UNITY_LIGHTMODEL_AMBIENT.rgb * _AlbedoColor.rgb;
+         
+              float3 diffuseReflection = 
+                attenuation * _LightColor0.rgb * _AlbedoColor.rgb 
+                * max(0.0, dot(N, lightDir));
+         
+              float3 specularReflection;
+              if (dot(N, lightDir) < 0.0) 
+                // light source on the wrong side?
+              {
+                specularReflection = float3(0.0, 0.0, 0.0); 
+                 // no specular reflection
+              }
+              else // light source on the right side
+              {
+                specularReflection = attenuation * _LightColor0.rgb 
+                 * /*_SpecColor.rgb * */pow(max(0.0, dot(
+                 reflect(-lightDir, N), 
+                 viewDir)), 1);
+              }
+                c.rgb += i.vertexLighting + ambientLighting + diffuseReflection;
+                
+            // Hatching
+            fixed intensity = dot(c, fixed3(0.2326, 0.7152, 0.0722));
+            c.rgb =  lerp(Hatching(i.uv * 8, intensity), c.rgb, _ShaderBlend);
+            
+            //Dithering
+            if(diffuse < _DitherStep) {
+                //texture value the dithering is based on
+                float texColor = GetColor(i).r;
+
+                //value from the dither pattern
+                float2 screenPos = i.screenPosition.xy / i.screenPosition.w;
+                float2 ditherCoordinate = screenPos * _ScreenParams.xy * _DitherPattern_TexelSize.xy;
+                float ditherValue = tex2D(_DitherPattern, ditherCoordinate).r;
+
+                //combine dither pattern with texture value to get final result
+                float ditheredValue = step(ditherValue, texColor);
+                float4 ditherCol = lerp(_Color1, _Color2, ditheredValue);
+                c.rgb = lerp(ditherCol, c.rgb, 0.5);
+			}
+
 				return c;
 			}
 				ENDCG
@@ -282,10 +319,10 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 			float _Steps;
 			float _ToonEffect;
 			sampler2D _MainTex;
-			sampler2D _GrainNormal;
+			//sampler2D _GrainNormal;
 			float4 _AlbedoColor;
 			bool _UseTexture;
-			bool _UseNormalMap;
+			//bool _UseNormalMap;
 			float4 _MainTex_ST;
 			
 			//Hatching
@@ -328,19 +365,14 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 		
 			struct v2f {
 				float4 pos:SV_POSITION;
+				//  first UV coordinate
 				float3 lightDir:TEXCOORD0;
 				float3 viewDir:TEXCOORD1;
 				float3 normal:TEXCOORD2;
 				float2 uv:TEXCOORD3;
 				
-				float4 screenPosition : TEXCOORD4;
-				            
-                float3 worldPos : TEXCOORD5;
-                // these three vectors will hold a 3x3 rotation matrix
-                // that transforms from tangent to world space
-                half3 tspace0 : TEXCOORD6; // tangent.x, bitangent.x, normal.x
-                half3 tspace1 : TEXCOORD7; // tangent.y, bitangent.y, normal.y
-                half3 tspace2 : TEXCOORD8; // tangent.z, bitangent.z, normal.z	
+				float4 screenPosition : TEXCOORD4;              
+                float3 vertexLighting : TEXCOORD5;
 			};
 			
 			float4 GetColor(v2f i) {
@@ -353,44 +385,42 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);
 				
-				if(_UseNormalMap){
-                    o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
-                    half3 wNormal = UnityObjectToWorldNormal(v.normal);
-                    half3 wTangent = UnityObjectToWorldDir(tangent.xyz);
-                    // compute bitangent from cross product of normal and tangent
-                    half tangentSign = tangent.w * unity_WorldTransformParams.w;
-                    half3 wBitangent = cross(wNormal, wTangent) * tangentSign;
-                    // output the tangent space matrix
-                    o.tspace0 = half3(wTangent.x, wBitangent.x, wNormal.x);
-                    o.tspace1 = half3(wTangent.y, wBitangent.y, wNormal.y);
-                    o.tspace2 = half3(wTangent.z, wBitangent.z, wNormal.z);
-                }
-				
 				o.normal = v.normal;
 				o.lightDir = ObjSpaceLightDir(v.vertex);
 				o.viewDir = ObjSpaceViewDir(v.vertex);
 				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 				
                 o.screenPosition = ComputeScreenPos(o.pos);
+                
+                // Diffuse reflection by four "vertex lights"      
+                o.vertexLighting = float3(0.0, 0.0, 0.0);
+                #ifdef VERTEXLIGHT_ON
+                for (int index = 0; index < 4; index++)
+                {  
+                  float4 lightPosition = float4(unity_4LightPosX0[index], 
+                   unity_4LightPosY0[index], 
+                   unity_4LightPosZ0[index], 1.0);
+             
+                  float3 vertexToLightSource = 
+                  lightPosition.xyz - o.pos.xyz;    
+                  float3 lightDirection = normalize(vertexToLightSource);
+                  float squaredDistance = 
+                   dot(vertexToLightSource, vertexToLightSource);
+                  float attenuation = 1.0 / (1.0 + 
+                  unity_4LightAtten0[index] * squaredDistance);                  
+                  float3 diffuseReflection = attenuation 
+                   * unity_LightColor[index].rgb * _AlbedoColor 
+                   * max(0.0, dot(o.normal, lightDirection));     
+                  o.vertexLighting =  o.vertexLighting + diffuseReflection;
+                  }
+                #endif
+                
 				return o;
 			}
 			
 			float4 frag(v2f i) :COLOR
 			{
-			    float3 N;
-			    
-			    if(_UseNormalMap){
-                    // sample the normal map, and decode from the Unity encoding
-                    half3 tnormal = UnpackNormal(tex2D(_GrainNormal, i.uv));
-                    // transform normal from tangent to world space
-                    half3 worldNormal;
-                    worldNormal.x = dot(i.tspace0, tnormal);
-                    worldNormal.y = dot(i.tspace1, tnormal);
-                    worldNormal.z = dot(i.tspace2, tnormal);
-                    N = normalize(worldNormal);
-                } else {
-                    	N = normalize(i.normal);
-                }
+                float3 N = normalize(i.normal);
                 
 				// load the texture
 				float4 c = GetColor(i);
@@ -412,27 +442,68 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				float toonSpec = floor(specular*atten * 2) / 2;
 				specular = lerp(specular,toonSpec,_ToonEffect);
 
-				c = c*_LightColor0*(diffuse + specular);
+				c = c*_LightColor0*(diffuse + specular);	
 				
-				//Hatching
-				fixed intensity = dot(c, fixed3(0.2326, 0.7152, 0.0722));
-				c.rgb =  lerp(Hatching(i.uv * 8, intensity), c.rgb, _ShaderBlend);
 				
-				//Dithering
-				//texture value the dithering is based on
+				
+                float attenuation;
+     
+                if (0.0 == _WorldSpaceLightPos0.w) // directional light?
+                {
+                  attenuation = 1.0; // no attenuation
+                  lightDir = 
+                   normalize(_WorldSpaceLightPos0.xyz);
+                } 
+                else // point or spot light
+                {
+                  float3 vertexToLightSource = 
+                   _WorldSpaceLightPos0.xyz - i.pos.xyz;
+                  float distance = length(vertexToLightSource);
+                  attenuation = 1.0 / distance; // linear attenuation 
+                  lightDir = normalize(vertexToLightSource);
+                }
+             
+                float3 ambientLighting = UNITY_LIGHTMODEL_AMBIENT.rgb * _AlbedoColor.rgb;
+           
+                float3 diffuseReflection = attenuation * _LightColor0.rgb * _AlbedoColor.rgb * max(0.0, dot(N, lightDir));
+             
+                float3 specularReflection;
+                if (dot(N, lightDir) < 0.0) 
+                  // light source on the wrong side?
+                {
+                  specularReflection = float3(0.0, 0.0, 0.0); 
+                   // no specular reflection
+                }
+                else // light source on the right side
+                {
+                   specularReflection = attenuation * _LightColor0.rgb 
+                   * /*_SpecColor.rgb * */pow(max(0.0, dot(
+                   reflect(-lightDir, N), 
+                   viewDir)), 1);
+                }
+                c.rgb += i.vertexLighting + ambientLighting + diffuseReflection;
+                    
+                    
+                    
+                //Hatching
+                fixed intensity = dot(c, fixed3(0.2326, 0.7152, 0.0722));
+                c.rgb =  lerp(Hatching(i.uv * 8, intensity), c.rgb, _ShaderBlend);
+                
+                //Dithering
+                //texture value the dithering is based on
                 float texColor = GetColor(i).r;
-
+    
                 //value from the dither pattern
                 float2 screenPos = i.screenPosition.xy / i.screenPosition.w;
                 float2 ditherCoordinate = screenPos * _ScreenParams.xy * _DitherPattern_TexelSize.xy;
                 float ditherValue = tex2D(_DitherPattern, ditherCoordinate).r;
-
+    
                 //combine dither pattern with texture value to get final result
                 float ditheredValue = step(ditherValue, texColor);
                 float4 ditherCol = lerp(_Color1, _Color2, ditheredValue);
-				c.rgb = lerp(ditherCol, c.rgb, 0.5);
-				
-				return c;
+                c.rgb = lerp(ditherCol, c.rgb, 0.5);	
+                    
+                return c;
 			}
 				ENDCG
 		}
