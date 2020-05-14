@@ -11,13 +11,20 @@ using UnityEngine.XR;
 [RequireComponent(typeof(Collider))]
 public class XRGrabber : MonoBehaviour
 {
+    private enum GrabberStatus
+    {
+        Default,
+        Hovering,
+        Grabbing
+    }
+    
     private XRCustomController m_Controller;
 
     private XRGrabbable m_HoveredObject;
     private XRGrabbable m_GrabbedObject;
 
-    private bool m_IsHovering = false;
-    private bool m_IsGrabbing = false;
+    private GrabberStatus m_Status;
+    private bool m_IsGrabbingNothing = false;
 
     private void Start()
     {
@@ -29,30 +36,39 @@ public class XRGrabber : MonoBehaviour
         bool triggerPressed;
         if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out triggerPressed)) {
             if (triggerPressed) {
+                //TODO : grab animation
+                if (m_Status == GrabberStatus.Hovering) {
+                    //TODO : Select m_HoveredObject
+                    m_Status = GrabberStatus.Grabbing;
+                }
             }
             else {
+                //TODO : ungrab animation
+                if (m_Status == GrabberStatus.Grabbing) {
+                    m_Status = GrabberStatus.Default;
+                }
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!m_IsGrabbing) {
+        if (m_Status != GrabberStatus.Grabbing) {
             m_HoveredObject = other.GetComponent<XRGrabbable>();
             if (m_HoveredObject) {
                 m_HoveredObject.Highlight();
-                m_IsHovering = true;
+                m_Status = GrabberStatus.Hovering;
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!m_IsGrabbing) {
+        if (m_Status != GrabberStatus.Grabbing) {
             m_HoveredObject = other.GetComponent<XRGrabbable>();
             if (m_HoveredObject) {
                 m_HoveredObject.RemoveHighlight();
-                m_IsHovering = false;
+                m_Status = GrabberStatus.Default;
             }
         }
     }
