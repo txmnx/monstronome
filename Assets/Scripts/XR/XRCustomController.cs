@@ -8,7 +8,8 @@ using UnityEngine.XR;
 public class XRCustomController : MonoBehaviour
 {
     public XRNode controllerNode;
-
+    
+    
     private InputDevice m_InputDevice;
     public InputDevice inputDevice
     {
