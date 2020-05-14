@@ -5283,6 +5283,8 @@ GameObject:
   - component: {fileID: 1968274596}
   - component: {fileID: 1968274598}
   - component: {fileID: 1968274597}
+  - component: {fileID: 1968274600}
+  - component: {fileID: 1968274599}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -5338,6 +5340,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerNode: 4
   debugGraph: {fileID: 1256031507}
+--- !u!114 &1968274599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968274595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8dbc7e3aadcc764b9b39723729941a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1968274600
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968274595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1971820065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6220,6 +6247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f6e989c5954ea46b1a92d230f06035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 4361424955560100209}
 --- !u!54 &8296172669241316148
 Rigidbody:
   m_ObjectHideFlags: 0

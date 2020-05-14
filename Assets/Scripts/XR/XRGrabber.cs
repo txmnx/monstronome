@@ -24,7 +24,6 @@ public class XRGrabber : MonoBehaviour
     private XRGrabbable m_GrabbedObject;
 
     private GrabberStatus m_Status;
-    private bool m_IsGrabbingNothing = false;
 
     private void Start()
     {
@@ -45,6 +44,7 @@ public class XRGrabber : MonoBehaviour
             else {
                 //TODO : ungrab animation
                 if (m_Status == GrabberStatus.Grabbing) {
+                    //TODO : Unselect m_HoveredObject
                     m_Status = GrabberStatus.Default;
                 }
             }
