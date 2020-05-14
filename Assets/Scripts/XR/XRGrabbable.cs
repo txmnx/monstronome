@@ -15,13 +15,17 @@ public class XRGrabbable : MonoBehaviour
     private Rigidbody rb;
     private bool m_UseGravity;
     private bool m_IsKinematic;
+    private CollisionDetectionMode m_CollisionDetectionMode;
+    private Transform m_Parent;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         m_UseGravity = rb.useGravity;
-        
         m_IsKinematic = rb.isKinematic;
+        m_CollisionDetectionMode = rb.collisionDetectionMode;
+        
+        //Init highlight shader
         m_HighlightSettingID = Shader.PropertyToID("HighlightActive");
         m_Block = new MaterialPropertyBlock();
         m_Block.SetFloat(m_HighlightSettingID, 0.0f);
@@ -32,12 +36,16 @@ public class XRGrabbable : MonoBehaviour
     {
         m_UseGravity = rb.useGravity;
         m_IsKinematic = rb.isKinematic;
+        m_CollisionDetectionMode = rb.collisionDetectionMode;
+        m_Parent = transform.parent;
     }
 
     public void OnExitGrab()
     {
         rb.useGravity = m_UseGravity;
         rb.isKinematic = m_IsKinematic;
+        rb.collisionDetectionMode = m_CollisionDetectionMode;
+        transform.parent = m_Parent;
     }
 
     public void Highlight()

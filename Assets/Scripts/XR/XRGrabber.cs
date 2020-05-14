@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.XR;
 
 /**
- * Component to grab XRGrabbable objects
+ * Controller component to grab XRGrabbable objects
  */
 [RequireComponent(typeof(XRCustomController))]
 [RequireComponent(typeof(Collider))]
@@ -37,14 +37,23 @@ public class XRGrabber : MonoBehaviour
             if (triggerPressed) {
                 //TODO : grab animation
                 if (m_Status == GrabberStatus.Hovering) {
-                    //TODO : Select m_HoveredObject
+                    m_GrabbedObject = m_HoveredObject;
+                    
+                    m_GrabbedObject.OnEnterGrab();
+                    Rigidbody rbGrabbed = m_GrabbedObject.GetComponent<Rigidbody>();
+                    rbGrabbed.useGravity = false;
+                    rbGrabbed.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+                    rbGrabbed.isKinematic = true;
+                    
+                    m_GrabbedObject.transform.parent = transform;
+                    
                     m_Status = GrabberStatus.Grabbing;
                 }
             }
             else {
                 //TODO : ungrab animation
                 if (m_Status == GrabberStatus.Grabbing) {
-                    //TODO : Unselect m_HoveredObject
+                    m_GrabbedObject.OnExitGrab();
                     m_Status = GrabberStatus.Default;
                 }
             }
