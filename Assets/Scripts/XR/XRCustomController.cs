@@ -41,19 +41,15 @@ public class XRCustomController : MonoBehaviour
 
     private void UpdateTrackingInput()
     {
-        Vector3 devicePosition = new Vector3();
-        Quaternion deviceRotation = new Quaternion();
-
-        if (inputDevice.TryGetFeatureValue(CommonUsages.devicePosition, out devicePosition)) {
+        if (inputDevice.TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 devicePosition)) {
             transform.localPosition = devicePosition;
         }
-        if (inputDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out deviceRotation)) {
+        if (inputDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion deviceRotation)) {
             transform.localRotation = deviceRotation;
         }
 
         /* DEBUG */
-        Vector3 deviceVelocity = new Vector3();
-        if (inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out deviceVelocity)) {
+        if (inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 deviceVelocity)) {
             debugGraph.SetValue(deviceVelocity.magnitude);
         }
     }

@@ -11,6 +11,8 @@ using UnityEngine.XR;
 [RequireComponent(typeof(Collider))]
 public class XRGrabber : MonoBehaviour
 {
+    public float throwPower = 1.0f;
+    
     private enum GrabberStatus
     {
         Default,
@@ -20,8 +22,8 @@ public class XRGrabber : MonoBehaviour
     
     private XRCustomController m_Controller;
 
-    private XRGrabbable m_HoveredObject;
-    private XRGrabbable m_GrabbedObject;
+    private XRGrabbable m_SelectedObject;
+    private Rigidbody m_RbGrabbedObject;
 
     private GrabberStatus m_Status;
 
@@ -32,20 +34,18 @@ public class XRGrabber : MonoBehaviour
 
     private void Update()
     {
-        bool triggerPressed;
-        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out triggerPressed)) {
+        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed)) {
             if (triggerPressed) {
                 //TODO : grab animation
                 if (m_Status == GrabberStatus.Hovering) {
-                    m_GrabbedObject = m_HoveredObject;
+                    m_SelectedObject.OnEnterGrab();
                     
-                    m_GrabbedObject.OnEnterGrab();
-                    Rigidbody rbGrabbed = m_GrabbedObject.GetComponent<Rigidbody>();
-                    rbGrabbed.useGravity = false;
-                    rbGrabbed.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
-                    rbGrabbed.isKinematic = true;
+                    m_RbGrabbedObject = m_SelectedObject.GetComponent<Rigidbody>();
+                    m_RbGrabbedObject.useGravity = false;
+                    m_RbGrabbedObject.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+                    m_RbGrabbedObject.isKinematic = true;
                     
-                    m_GrabbedObject.transform.parent = transform;
+                    m_SelectedObject.transform.parent = transform;
                     
                     m_Status = GrabberStatus.Grabbing;
                 }
@@ -53,7 +53,15 @@ public class XRGrabber : MonoBehaviour
             else {
                 //TODO : ungrab animation
                 if (m_Status == GrabberStatus.Grabbing) {
-                    m_GrabbedObject.OnExitGrab();
+                    m_SelectedObject.OnExitGrab();
+
+                    if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity)) {
+                        m_RbGrabbedObject.velocity = velocity * throwPower;
+                    }
+                    if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceAngularVelocity, out Vector3 angularVelocity)) {
+                        m_RbGrabbedObject.angularVelocity = angularVelocity * throwPower;
+                    }
+
                     m_Status = GrabberStatus.Default;
                 }
             }
@@ -63,9 +71,9 @@ public class XRGrabber : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (m_Status != GrabberStatus.Grabbing) {
-            m_HoveredObject = other.GetComponent<XRGrabbable>();
-            if (m_HoveredObject) {
-                m_HoveredObject.Highlight();
+            m_SelectedObject = other.GetComponent<XRGrabbable>();
+            if (m_SelectedObject) {
+                m_SelectedObject.Highlight();
                 m_Status = GrabberStatus.Hovering;
             }
         }
@@ -74,9 +82,9 @@ public class XRGrabber : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (m_Status != GrabberStatus.Grabbing) {
-            m_HoveredObject = other.GetComponent<XRGrabbable>();
-            if (m_HoveredObject) {
-                m_HoveredObject.RemoveHighlight();
+            m_SelectedObject = other.GetComponent<XRGrabbable>();
+            if (m_SelectedObject) {
+                m_SelectedObject.RemoveHighlight();
                 m_Status = GrabberStatus.Default;
             }
         }

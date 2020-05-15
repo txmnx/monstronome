@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class CustomUtilities
+public class CustomUtilities
 {
     public static float WeightedAverage(Queue<float> queue)
     {
@@ -10,7 +10,7 @@ public static class CustomUtilities
         float weight = 1.0f;
         foreach (float el in queue) {
             average += weight * el;
-            weight -= 1 / queue.Count;
+            weight -= 1 / (float)(queue.Count);
         }
         return (average / queue.Count);
     }
@@ -23,4 +23,14 @@ public static class CustomUtilities
         }
         return (average / queue.Count);
     }
+    
+    public static Vector3 Average(Vector3[] array)
+    {
+        Vector3 average = Vector3.zero;
+        foreach (Vector3 el in array) {
+            average += el;
+        }
+        return (average / (float)(array.Length));
+    }
+    
 }
