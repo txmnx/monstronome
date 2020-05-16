@@ -247,7 +247,6 @@ GameObject:
   - component: {fileID: 457016501819487555}
   - component: {fileID: 457016501819487552}
   - component: {fileID: 457016501819487553}
-  - component: {fileID: 457016501819487554}
   m_Layer: 0
   m_Name: DebugPanel
   m_TagString: Untagged
@@ -316,20 +315,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &457016501819487554
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457016501819487556}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &457016501868595804
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,8 +360,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7a3422e5e86d749b25d1e87f86c6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatManager: {fileID: 0}
   panelRenderer: {fileID: 457016501819487553}
   onBeatMaterial: {fileID: 2100000, guid: c112a72d5f87ed6449cea56e1259512a, type: 2}
+  onBeatCircleColor: {r: 0, g: 0, b: 0, a: 0}
+  amplitudeText: {fileID: 0}
+  circleBeat: {fileID: 0}
 --- !u!1 &457016502465672580
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +377,6 @@ GameObject:
   - component: {fileID: 457016502465672579}
   - component: {fileID: 457016502465672576}
   - component: {fileID: 457016502465672577}
-  - component: {fileID: 457016502465672578}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -457,17 +445,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &457016502465672578
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457016502465672580}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
