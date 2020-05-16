@@ -12,7 +12,8 @@ public class Potion : MonoBehaviour
     
     public Transform defaultBottle;
     public Transform breakedBottle;
-
+    public float speedUntilBreak = 1.35f;
+    
     [Header("VFX")]
     public Transform particlesAnimation;
     
@@ -35,9 +36,9 @@ public class Potion : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        float speed = m_Rigidbody.velocity.magnitude + (m_Rigidbody.angularVelocity.magnitude / 10);
+        float speed = m_Rigidbody.velocity.magnitude;
         
-        if (speed > 1.75f) {
+        if (speed > speedUntilBreak) {
             breakedBottle.gameObject.SetActive(true);
             
             float explosionForce = speed * speed;
