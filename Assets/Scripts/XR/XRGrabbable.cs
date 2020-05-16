@@ -9,6 +9,12 @@ using UnityEngine;
 public class XRGrabbable : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
+
+    [Header("Sound")]
+    public AK.Wwise.Event SFXOnThrow;
+    public AK.Wwise.Event SFXOnPickup;
+    public AK.Wwise.Event SFXOnShake;
+    
     private int m_HighlightSettingID;
     private MaterialPropertyBlock m_Block;
     
