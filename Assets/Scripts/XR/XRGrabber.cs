@@ -37,7 +37,7 @@ public class XRGrabber : MonoBehaviour
         if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed)) {
             if (triggerPressed) {
                 //TODO : grab animation
-                if (m_Status == GrabberStatus.Hovering) {
+                if (m_Status == GrabberStatus.Hovering && m_SelectedObject) {
                     m_SelectedObject.OnEnterGrab();
                     
                     m_RbGrabbedObject = m_SelectedObject.GetComponent<Rigidbody>();
@@ -52,7 +52,7 @@ public class XRGrabber : MonoBehaviour
             }
             else {
                 //TODO : ungrab animation
-                if (m_Status == GrabberStatus.Grabbing) {
+                if (m_Status == GrabberStatus.Grabbing && m_SelectedObject) {
                     m_SelectedObject.OnExitGrab();
 
                     if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity)) {

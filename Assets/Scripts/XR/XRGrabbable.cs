@@ -45,7 +45,7 @@ public class XRGrabbable : MonoBehaviour
         m_CollisionDetectionMode = rb.collisionDetectionMode;
         m_Parent = transform.parent;
 
-        //SFXOnPickup?.Post(gameObject);
+        SFXOnPickup.Post(gameObject);
     }
 
     public void OnExitGrab()
@@ -55,7 +55,7 @@ public class XRGrabbable : MonoBehaviour
         rb.collisionDetectionMode = m_CollisionDetectionMode;
         transform.parent = m_Parent;
 
-        //SFXOnThrow?.Post(gameObject);
+        SFXOnThrow.Post(gameObject);
     }
 
     public void Highlight()

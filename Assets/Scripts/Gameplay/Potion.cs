@@ -38,7 +38,6 @@ public class Potion : MonoBehaviour
         float speed = m_Rigidbody.velocity.magnitude + (m_Rigidbody.angularVelocity.magnitude / 10);
         
         if (speed > 1.75f) {
-            articulationManager.SetArticulation(articulationType);
             breakedBottle.gameObject.SetActive(true);
             
             float explosionForce = speed * speed;
@@ -47,12 +46,14 @@ public class Potion : MonoBehaviour
             }
             m_Rigidbody.isKinematic = true;
             
+            articulationManager.SetArticulation(articulationType);
+            
             foreach (ParticleSystem ps in m_ParticleSystems) {
                 ps.gameObject.SetActive(true);
                 ps.Play();
             }
             
-            //SFXOnPotionBreak?.Post(gameObject);
+            //SFXOnPotionBreak.Post(gameObject);
 
             foreach (Collider co in m_Colliders) {
                 co.enabled = false;
@@ -64,7 +65,7 @@ public class Potion : MonoBehaviour
             Destroy(this.gameObject, 4.0f);
         }
         else {
-            //SFXOnPotionCollision.Post(gameObject);
+            SFXOnPotionCollision.Post(gameObject);
         }
     }
 }
