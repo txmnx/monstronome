@@ -3596,7 +3596,7 @@ GameObject:
   - component: {fileID: 1084374023}
   - component: {fileID: 1084374024}
   m_Layer: 0
-  m_Name: Trail
+  m_Name: BatonTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4971,6 +4971,7 @@ GameObject:
   - component: {fileID: 1484290209}
   - component: {fileID: 1484290210}
   - component: {fileID: 1484290211}
+  - component: {fileID: 1484290212}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -5053,6 +5054,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conductorManager: {fileID: 348619493}
+--- !u!114 &1484290212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484290206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc048cfb9ce461448dc14cf89346b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conductManager: {fileID: 348619493}
+  batonTop: {fileID: 1084374022}
+  beatPlane: {fileID: 2043624664}
+  SFXWandIdleConducting:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 5a687fc75b15b1e4799065a2a097d9fb,
+      type: 2}
+  SFXWandBeginConducting:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 049129fb8a5a6534fb442313ffda8bdc,
+      type: 2}
+  SFXWandEndConducting:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ca315cb90c1fd414eac4a50039491574,
+      type: 2}
 --- !u!1 &1504346131
 GameObject:
   m_ObjectHideFlags: 0
