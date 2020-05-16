@@ -44,6 +44,8 @@ public class XRGrabbable : MonoBehaviour
         m_IsKinematic = rb.isKinematic;
         m_CollisionDetectionMode = rb.collisionDetectionMode;
         m_Parent = transform.parent;
+
+        //SFXOnPickup?.Post(gameObject);
     }
 
     public void OnExitGrab()
@@ -52,6 +54,8 @@ public class XRGrabbable : MonoBehaviour
         rb.isKinematic = m_IsKinematic;
         rb.collisionDetectionMode = m_CollisionDetectionMode;
         transform.parent = m_Parent;
+
+        //SFXOnThrow?.Post(gameObject);
     }
 
     public void Highlight()

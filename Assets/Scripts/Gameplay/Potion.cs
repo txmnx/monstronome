@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(XRGrabbable))]
 public class Potion : MonoBehaviour
 {
+    public ArticulationManager articulationManager;
+    public InstrumentFamily.ArticulationType articulationType;
+    
     public Transform defaultBottle;
     public Transform breakedBottle;
 
@@ -18,6 +22,7 @@ public class Potion : MonoBehaviour
 
     private Rigidbody m_Rigidbody;
     private Rigidbody[] m_RigidbodyPieces;
+    private Collider[] m_Colliders;
     private ParticleSystem[] m_ParticleSystems;
 
     private void Awake()
@@ -25,6 +30,7 @@ public class Potion : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         m_RigidbodyPieces = breakedBottle.GetComponentsInChildren<Rigidbody>();
         m_ParticleSystems = GetComponentsInChildren<ParticleSystem>();
+        m_Colliders = GetComponents<Collider>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -32,6 +38,7 @@ public class Potion : MonoBehaviour
         float speed = m_Rigidbody.velocity.magnitude + (m_Rigidbody.angularVelocity.magnitude / 10);
         
         if (speed > 1.75f) {
+            articulationManager.SetArticulation(articulationType);
             breakedBottle.gameObject.SetActive(true);
             
             float explosionForce = speed * speed;
@@ -40,19 +47,24 @@ public class Potion : MonoBehaviour
             }
             m_Rigidbody.isKinematic = true;
             
-            
             foreach (ParticleSystem ps in m_ParticleSystems) {
                 ps.gameObject.SetActive(true);
                 ps.Play();
             }
             
-            SFXOnPotionBreak?.Post(gameObject);
+            //SFXOnPotionBreak?.Post(gameObject);
+
+            foreach (Collider co in m_Colliders) {
+                co.enabled = false;
+            }
             
             Destroy(defaultBottle.gameObject);
+            Destroy(this);
+            Destroy(this.GetComponent<XRGrabbable>());
             Destroy(this.gameObject, 4.0f);
         }
         else {
-            SFXOnPotionCollision?.Post(gameObject);
+            //SFXOnPotionCollision.Post(gameObject);
         }
     }
 }
