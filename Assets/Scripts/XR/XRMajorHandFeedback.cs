@@ -5,27 +5,29 @@ using UnityEngine;
 /**
  * Provides feedback on the major hand controller
  */
-public class XRMajorHandFeedback : MonoBehaviour, OnBeatMajorHandElement
+public class XRMajorHandFeedback : MonoBehaviour
 {
     public BeatManager beatManager;
     public XRCustomController controller;
-    public XRBeatDetector detector;
+    public ConductManager conductManager;
     public TrailRenderer trailRenderer;
-
-    private bool m_CachedIsDirecting = false;
 
     private void Start()
     {
-        beatManager.RegisterOnBeatMajorHandElement(this);
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
+        conductManager.OnBeginConducting += OnBeginConducting;
+        conductManager.OnEndConducting += OnEndConducting;
     }
 
-    private void Update()
+    public void OnBeginConducting()
     {
-        if (m_CachedIsDirecting != detector.isDirecting) {
-            if (!detector.isDirecting) trailRenderer.Clear();
-            trailRenderer.enabled = detector.isDirecting;
-        }
-        m_CachedIsDirecting = detector.isDirecting;
+        trailRenderer.enabled = true;
+    }
+
+    public void OnEndConducting()
+    {
+        trailRenderer.Clear();
+        trailRenderer.enabled = false;
     }
 
     public void OnBeatMajorHand(float amplitudeMove)

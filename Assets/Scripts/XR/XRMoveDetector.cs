@@ -35,8 +35,7 @@ public class XRMoveDetector : MonoBehaviour
 
     private void DetectMove()
     {
-        Vector3 deviceVelocity = new Vector3();
-        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out deviceVelocity)) {
+        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out var deviceVelocity)) {
             if (deviceVelocity.magnitude > magnitudeTreshold) {
                 int i = 0;
                 while ((i < moveAreas.Length) && (! moveAreas[i].IsInBounds(transform.position))) {
