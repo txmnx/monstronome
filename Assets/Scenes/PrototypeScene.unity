@@ -951,6 +951,7 @@ GameObject:
   - component: {fileID: 348619495}
   - component: {fileID: 348619492}
   - component: {fileID: 348619494}
+  - component: {fileID: 348619496}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1000,6 +1001,11 @@ MonoBehaviour:
   soundEngineTuner: {fileID: 348619491}
   beatManager: {fileID: 348619487}
   conductManager: {fileID: 348619493}
+  families:
+  - {fileID: 413094687}
+  - {fileID: 1129380438}
+  - {fileID: 1247558651}
+  - {fileID: 854011154}
   bpm: 0
   minBPM: 45
   maxBPM: 165
@@ -1095,6 +1101,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61ed432b17239f4bb566e8f568c7860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  families:
+  - {fileID: 413094687}
+  - {fileID: 1129380438}
+  - {fileID: 1247558651}
+  - {fileID: 854011154}
+--- !u!114 &348619496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e5d2630d2db0d4faf9328e75a4c64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wwiseCallback: {fileID: 1915118170}
   families:
   - {fileID: 413094687}
   - {fileID: 1129380438}
@@ -4447,7 +4471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1610161222
 Transform:
   m_ObjectHideFlags: 0

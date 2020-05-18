@@ -8,9 +8,11 @@ using UnityEngine;
  */
 public class TempoManager : MonoBehaviour
 {
+    private const float BASE_ANIM_TEMPO = 90;
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
     public ConductManager conductManager;
+    public InstrumentFamily[] families = new InstrumentFamily[4];
 
     /* BPM */
     //The bigger the buffer size is, the smoother the bpm's evolution is
@@ -46,8 +48,9 @@ public class TempoManager : MonoBehaviour
             m_BufferLastBPMs.Enqueue(baseTempo);
         }
 
-        //bpm = baseTempo;
-        bpm = 90;
+        bpm = baseTempo;
+        //bpm = 90;
+        soundEngineTuner.SetTempo(bpm);
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
     }
 
@@ -69,8 +72,8 @@ public class TempoManager : MonoBehaviour
             float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), minBPM, maxBPM);
             m_BufferLastBPMs.Enqueue(currentBPM);
             m_BufferLastBPMs.Dequeue();
-            //bpm = CustomUtilities.Average(m_BufferLastBPMs);
-            bpm = 90;
+            bpm = CustomUtilities.Average(m_BufferLastBPMs);
+            //bpm = 90;
             UpdateTempo();
         }
         
@@ -90,6 +93,14 @@ public class TempoManager : MonoBehaviour
                 soundEngineTuner.SetTempo(tempoRange.value);
             }
             m_CurrentTempoType = tempoRange.type;
+        }
+
+        //We set the new animation speed
+        float animBPM = bpm / BASE_ANIM_TEMPO;
+        foreach (InstrumentFamily family in families) {
+            if (family.familyAnimator) {
+                family.familyAnimator.speed = animBPM;   
+            }
         }
 
         //DEBUG

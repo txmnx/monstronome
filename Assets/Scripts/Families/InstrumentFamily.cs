@@ -53,19 +53,13 @@ public abstract class InstrumentFamily : MonoBehaviour
     private void Awake()
     {
         spotlight.enabled = false;
+        m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
+        m_MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Start()
     {
-        m_MeshRenderer = GetComponent<MeshRenderer>();
         SetArticulation(0);
-        m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
-        
-        //DEBUG
-        //We start directly at the play state
-        if (familyAnimator) {
-            familyAnimator.SetTrigger("SwitchArticulation");
-        }
     }
 
     private void Update()
@@ -91,8 +85,7 @@ public abstract class InstrumentFamily : MonoBehaviour
         m_MaxDelay = (m_MaxDelay > SoundEngineTuner.MAX_DELAY) ? SoundEngineTuner.MAX_DELAY : m_MaxDelay;
         delayBar.UpdateValue(m_MaxDelay, 1 - (m_MaxDelay / SoundEngineTuner.MAX_DELAY));
     }
-
-
+    
     public void SetArticulation(int index)
     {
         if (index < articulationTypes.Length) {
@@ -111,17 +104,19 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     IEnumerator FadeArticulation(float start, float finish)
     {
-        if (start > finish) {
+        if (start > finish && finish < 0.0001f) {
             finish = 1;
         }
+        else if (start < 0.0001f && (GetBlendArticulation(articulationTypes.Length - 1) - finish) < 0.0001f) {
+            start = 1;
+        }
         
-        float fade = start;
-        Debug.Log(start + " + " + finish);
-        while ((finish - fade) > 0.0001f) {
-            fade = Mathf.Clamp(fade, start, finish);
+        float t = 0;
+        while (t < 0.99999f) {
+            float fade = Mathf.Lerp(start, finish, t);
             familyAnimator.SetFloat(m_BlendArticulationID, fade);
-            Debug.Log("fade : " + fade);
-            fade += Time.deltaTime;
+            Debug.Log("Fade : " + fade);
+            t += Time.deltaTime;
             yield return null;
         }
     }
@@ -132,7 +127,7 @@ public abstract class InstrumentFamily : MonoBehaviour
         blend /= articulationTypes.Length;
         return blend;
     }
-    
+
     /* Events */
 
     virtual public void OnBeginLookedAt() 
@@ -148,5 +143,13 @@ public abstract class InstrumentFamily : MonoBehaviour
     virtual public void OnEndLookedAt()
     {
         //m_MeshRenderer.material.SetColor("_BaseColor", Color.white);
+    }
+
+    public void StartPlaying()
+    {
+        //DEBUG
+        if (familyAnimator) {
+            familyAnimator.SetTrigger("SwitchArticulation");
+        }
     }
 }
