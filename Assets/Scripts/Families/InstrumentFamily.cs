@@ -11,6 +11,9 @@ public abstract class InstrumentFamily : MonoBehaviour
     public SoundEngineTuner soundEngineTuner;
     public Light spotlight;
 
+    public Animator familyAnimator;
+    private int m_BlendArticulationID;
+    
     public enum ArticulationType
     {
         Legato,
@@ -19,6 +22,7 @@ public abstract class InstrumentFamily : MonoBehaviour
         Default
     }
     public ArticulationType[] articulationTypes;
+    private int m_CurrentArticulationIndex = 0;
 
     public enum TempoType
     {
@@ -55,6 +59,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
         SetArticulation(0);
+        m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
     }
 
     private void Update()
@@ -86,15 +91,41 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         if (index < articulationTypes.Length) {
             soundEngineTuner.SetArticulation(this, articulationTypes[index]);
+            if (familyAnimator) {
+                StartCoroutine(FadeArticulation(GetBlendArticulation(m_CurrentArticulationIndex),
+                    GetBlendArticulation(m_CurrentArticulationIndex)));
+            }
+
+            m_CurrentArticulationIndex = index;
+
+            //DEBUG
             articulationTextMesh.text = articulationTypes[index].ToString();
         }
     }
 
+    IEnumerator FadeArticulation(float start, float finish)
+    {
+        float fade = start;
+        while ((finish - fade) < 0.0001f) {
+            fade = Mathf.Clamp(fade, start, finish);
+            familyAnimator.SetFloat(m_BlendArticulationID, fade);
+            fade += Time.deltaTime;
+            yield return null;
+        }
+    }
+    
+    float GetBlendArticulation(int index)
+    {
+        float blend = (float) index;
+        blend /= articulationTypes.Length;
+        return blend;
+    }
+    
     /* Events */
 
     virtual public void OnBeginLookedAt() 
     {
-        m_MeshRenderer.material.SetColor("_BaseColor", new Color(1, 1, 0.5f, 1));
+        //m_MeshRenderer.material.SetColor("_BaseColor", new Color(1, 1, 0.5f, 1));
     }
 
     virtual public void OnLookedAt()
@@ -104,6 +135,6 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     virtual public void OnEndLookedAt()
     {
-        m_MeshRenderer.material.SetColor("_BaseColor", Color.white);
+        //m_MeshRenderer.material.SetColor("_BaseColor", Color.white);
     }
 }
