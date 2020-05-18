@@ -46,7 +46,8 @@ public class TempoManager : MonoBehaviour
             m_BufferLastBPMs.Enqueue(baseTempo);
         }
 
-        bpm = baseTempo;
+        //bpm = baseTempo;
+        bpm = 90;
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
     }
 
@@ -68,7 +69,8 @@ public class TempoManager : MonoBehaviour
             float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), minBPM, maxBPM);
             m_BufferLastBPMs.Enqueue(currentBPM);
             m_BufferLastBPMs.Dequeue();
-            bpm = CustomUtilities.Average(m_BufferLastBPMs);
+            //bpm = CustomUtilities.Average(m_BufferLastBPMs);
+            bpm = 90;
             UpdateTempo();
         }
         

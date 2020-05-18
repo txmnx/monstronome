@@ -60,6 +60,12 @@ public abstract class InstrumentFamily : MonoBehaviour
         m_MeshRenderer = GetComponent<MeshRenderer>();
         SetArticulation(0);
         m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
+        
+        //DEBUG
+        //We start directly at the play state
+        if (familyAnimator) {
+            familyAnimator.SetTrigger("SwitchArticulation");
+        }
     }
 
     private void Update()
@@ -93,7 +99,7 @@ public abstract class InstrumentFamily : MonoBehaviour
             soundEngineTuner.SetArticulation(this, articulationTypes[index]);
             if (familyAnimator) {
                 StartCoroutine(FadeArticulation(GetBlendArticulation(m_CurrentArticulationIndex),
-                    GetBlendArticulation(m_CurrentArticulationIndex)));
+                    GetBlendArticulation(index)));
             }
 
             m_CurrentArticulationIndex = index;
@@ -105,10 +111,16 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     IEnumerator FadeArticulation(float start, float finish)
     {
+        if (start > finish) {
+            finish = 1;
+        }
+        
         float fade = start;
-        while ((finish - fade) < 0.0001f) {
+        Debug.Log(start + " + " + finish);
+        while ((finish - fade) > 0.0001f) {
             fade = Mathf.Clamp(fade, start, finish);
             familyAnimator.SetFloat(m_BlendArticulationID, fade);
+            Debug.Log("fade : " + fade);
             fade += Time.deltaTime;
             yield return null;
         }
@@ -116,7 +128,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     
     float GetBlendArticulation(int index)
     {
-        float blend = (float) index;
+        float blend = (float)index;
         blend /= articulationTypes.Length;
         return blend;
     }
