@@ -37,7 +37,7 @@ public class Potion : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         float speed = other.relativeVelocity.magnitude;
-        
+        Debug.Log("Speed : " + speed + " > " + speedUntilBreak);
         if (speed > speedUntilBreak) {
             breakedBottle.gameObject.SetActive(true);
             
