@@ -55,6 +55,9 @@ public class XRBeatDetector : MonoBehaviour
         m_MaximumGesturePoints = new Vector3[2] { Vector3.zero, Vector3.zero };
         m_MaximumGesturePointIndex = 0;
         m_Amplitude = 0.0f;
+        
+        //DEBUG
+        m_DefaultCircleColor = circleBeat.color;
     }
 
     public void OnBeginConducting() {
@@ -116,16 +119,6 @@ public class XRBeatDetector : MonoBehaviour
 
     private BeatPlaneSide GetBeatPlaneSide()
     {
-        /*
-        float x = m_BeatPlaneParent.InverseTransformPoint(beatPositionDetection.position).x;
-        
-        if (x > m_BeatPlaneCenter) {
-            return VerticalPlaneSide.Right;
-        }
-        else {
-            return VerticalPlaneSide.Left;
-        }
-        */
         bool side = m_BeatPlane.GetSide(beatPositionDetection.position);
         if (side) {
             return BeatPlaneSide.Right;
@@ -147,9 +140,23 @@ public class XRBeatDetector : MonoBehaviour
         }
 
         beatManager.PostOnBeatEvent(amplitude);
+        
+        //DEBUG
+        circleBeat.color = onBeatCircleColor;
+        StartCoroutine(OnBeatEnd());
     }
-
+    
+    //DEBUG
+    private IEnumerator OnBeatEnd()
+    {
+        yield return new WaitForSeconds(0.1f);
+        circleBeat.color = m_DefaultCircleColor;
+    }
+    
     //DEBUG
     [Header("DEBUG")]
     public Transform beatPositionDetection;
+    private Color m_DefaultCircleColor;
+    public SpriteRenderer circleBeat;
+    public Color onBeatCircleColor;
 }
