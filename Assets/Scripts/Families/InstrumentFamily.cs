@@ -11,7 +11,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     public SoundEngineTuner soundEngineTuner;
     public Light spotlight;
 
-    public Animator familyAnimator;
+    public Animator[] familyAnimators;
     private int m_BlendArticulationID;
     
     public enum ArticulationType
@@ -60,6 +60,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     private void Start()
     {
         SetArticulation(0);
+        StartCoroutine(LaunchAnimOffset());
     }
 
     private void Update()
@@ -90,7 +91,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         if (index < articulationTypes.Length) {
             soundEngineTuner.SetArticulation(this, articulationTypes[index]);
-            if (familyAnimator) {
+            if (familyAnimators.Length > 0) {
                 StartCoroutine(FadeArticulation(GetBlendArticulation(m_CurrentArticulationIndex),
                     GetBlendArticulation(index)));
             }
@@ -114,8 +115,9 @@ public abstract class InstrumentFamily : MonoBehaviour
         float t = 0;
         while (t < 0.99999f) {
             float fade = Mathf.Lerp(start, finish, t);
-            familyAnimator.SetFloat(m_BlendArticulationID, fade);
-            Debug.Log("Fade : " + fade);
+            foreach (Animator animator in familyAnimators) {
+                animator.SetFloat(m_BlendArticulationID, fade);
+            }
             t += Time.deltaTime;
             yield return null;
         }
@@ -148,8 +150,29 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void StartPlaying()
     {
         //DEBUG
-        if (familyAnimator) {
-            familyAnimator.SetTrigger("SwitchArticulation");
+        if (familyAnimators.Length > 0) {
+            int triggerID = Animator.StringToHash("SwitchArticulation");
+            StartCoroutine(SetAnimTriggerOffset(triggerID));
+        }
+    }
+
+    /**
+     * Coroutines used to play the animations of the different monsters with a small offset
+     */
+    private IEnumerator LaunchAnimOffset()
+    {
+        int entryID = Animator.StringToHash("Idle");
+        foreach (Animator animator in familyAnimators) {
+            animator.Play(entryID, 0);
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+    
+    private IEnumerator SetAnimTriggerOffset(int triggerID)
+    {
+        foreach (Animator animator in familyAnimators) {
+            animator.SetTrigger(triggerID);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
