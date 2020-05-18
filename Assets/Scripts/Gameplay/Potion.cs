@@ -54,7 +54,7 @@ public class Potion : MonoBehaviour
                 ps.Play();
             }
             
-            //SFXOnPotionBreak.Post(gameObject);
+            SFXOnPotionBreak.Post(gameObject);
 
             foreach (Collider co in m_Colliders) {
                 co.enabled = false;
