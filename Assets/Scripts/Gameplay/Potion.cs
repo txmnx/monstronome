@@ -37,11 +37,10 @@ public class Potion : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         float speed = other.relativeVelocity.magnitude;
-        Debug.Log("Speed : " + speed + " > " + speedUntilBreak);
         if (speed > speedUntilBreak) {
             breakedBottle.gameObject.SetActive(true);
             
-            float explosionForce = speed * speed;
+            float explosionForce = speed * speed * 0.5f;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
                 rb.AddExplosionForce(explosionForce, breakedBottle.position, 2.0f, 15.0f);
             }
