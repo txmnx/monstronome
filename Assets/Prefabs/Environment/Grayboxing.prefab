@@ -158,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5313479687959309824}
   m_Layer: 0
-  m_Name: Plafond
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4204234417085699630}
   m_Layer: 0
-  m_Name: Etage
+  m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7806972035582501199}
   m_Layer: 0
-  m_Name: Portes
+  m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 1935455960400748976, guid: 8c6b1d0427b518045a035f385029c9c2,
         type: 3}
       propertyPath: m_Name
-      value: metronomicon
+      value: Metronomicon
       objectReference: {fileID: 0}
     - target: {fileID: 3208611504862499747, guid: 8c6b1d0427b518045a035f385029c9c2,
         type: 3}
@@ -554,7 +554,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 681a4c66c1d58d14e93ba6b7859a3c1c,
         type: 3}
       propertyPath: m_Name
-      value: bac_potion
+      value: Potions Storage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 681a4c66c1d58d14e93ba6b7859a3c1c, type: 3}
@@ -640,7 +640,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c93e93012d0d52e41bcd0c2687099834,
         type: 3}
       propertyPath: m_Name
-      value: fabrique_potion (1)
+      value: Potion Factory
       objectReference: {fileID: 0}
     - target: {fileID: 1794698320864822802, guid: c93e93012d0d52e41bcd0c2687099834,
         type: 3}
@@ -778,7 +778,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: cc7cfd051a7838d4ba2896bc956fdb00,
         type: 3}
       propertyPath: m_Name
-      value: etages
+      value: Stages
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: cc7cfd051a7838d4ba2896bc956fdb00,
         type: 3}
@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 3572233811263273510, guid: b57ad023dff66d8429a1d7359669ab6c,
         type: 3}
       propertyPath: m_Name
-      value: Potions_Fabrique
+      value: Potions
       objectReference: {fileID: 0}
     - target: {fileID: 5097817170796116348, guid: b57ad023dff66d8429a1d7359669ab6c,
         type: 3}
@@ -1178,7 +1178,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: eb83014c0e23f5446b1805ed25db2ace,
         type: 3}
       propertyPath: m_Name
-      value: enveloppe_interieure 1
+      value: Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: eb83014c0e23f5446b1805ed25db2ace,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb83014c0e23f5446b1805ed25db2ace, type: 3}
@@ -1633,7 +1638,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8a1d4803b4614fb48b144d56d643ec3a,
         type: 3}
       propertyPath: m_Name
-      value: socle_scene
+      value: Ground Scene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a1d4803b4614fb48b144d56d643ec3a, type: 3}
@@ -1809,7 +1814,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c8bae3d9e815afa4caaf32d762209b7b,
         type: 3}
       propertyPath: m_Name
-      value: tour
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: c8bae3d9e815afa4caaf32d762209b7b,
         type: 3}
@@ -2139,7 +2144,7 @@ PrefabInstance:
     - target: {fileID: 3740596244699922699, guid: b463fe2d12888ba49a5a225c7239d352,
         type: 3}
       propertyPath: m_Name
-      value: Gradins
+      value: Audience
       objectReference: {fileID: 0}
     - target: {fileID: 3803843343597676073, guid: b463fe2d12888ba49a5a225c7239d352,
         type: 3}
