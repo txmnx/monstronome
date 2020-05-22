@@ -6,18 +6,20 @@ using UnityEngine;
 /**
  * Debugging of the XRBeatDetector Component
  */
-public class DebugBeat : MonoBehaviour, OnBeatMajorHandElement
+public class DebugBeat : MonoBehaviour
 {
     public BeatManager beatManager;
     public MeshRenderer panelRenderer;
     public Material onBeatMaterial;
     public TextMeshPro amplitudeText;
 
+
     private Material m_DefaultMaterial;
+
 
     private void Start()
     {
-        beatManager.RegisterOnBeatMajorHandElement(this);
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
         m_DefaultMaterial = panelRenderer.material;
     }
 
