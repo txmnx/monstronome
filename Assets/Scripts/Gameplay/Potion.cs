@@ -36,17 +36,17 @@ public class Potion : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        float speed = m_Rigidbody.velocity.magnitude;
-        
+        float speed = other.relativeVelocity.magnitude;
         if (speed > speedUntilBreak) {
             breakedBottle.gameObject.SetActive(true);
             
-            float explosionForce = speed * speed;
+            float explosionForce = speed * speed * 0.5f;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
                 rb.AddExplosionForce(explosionForce, breakedBottle.position, 2.0f, 15.0f);
             }
             m_Rigidbody.isKinematic = true;
             
+            /* TODO : should also call SetPotionType switch */
             articulationManager.SetArticulation(articulationType);
             
             foreach (ParticleSystem ps in m_ParticleSystems) {
@@ -54,7 +54,7 @@ public class Potion : MonoBehaviour
                 ps.Play();
             }
             
-            //SFXOnPotionBreak.Post(gameObject);
+            SFXOnPotionBreak.Post(gameObject);
 
             foreach (Collider co in m_Colliders) {
                 co.enabled = false;

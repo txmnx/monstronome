@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,14 @@ public class WwiseCallBack : MonoBehaviour
             {
                 Debug.Log("BEAT - WWise");
             }
+            
+            switch (musicCueName) {
+                case "Start":
+                    OnStartBlocBegin?.Invoke();
+                    break;
+            }
         }
     }
+    
+    public event Action OnStartBlocBegin;
 }
