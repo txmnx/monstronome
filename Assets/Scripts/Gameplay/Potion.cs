@@ -46,6 +46,7 @@ public class Potion : MonoBehaviour
             }
             m_Rigidbody.isKinematic = true;
             
+            /* TODO : should also call SetPotionType switch */
             articulationManager.SetArticulation(articulationType);
             
             foreach (ParticleSystem ps in m_ParticleSystems) {
