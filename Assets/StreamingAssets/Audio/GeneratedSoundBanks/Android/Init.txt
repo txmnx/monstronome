@@ -20,6 +20,7 @@ Switch	ID	Name	Switch Group			Notes
 
 State Group	ID	Name			Wwise Object Path	Notes
 	249970651	Focus			\States\Focus	
+	1090964253	PotionCount			\States\PotionCount	
 	3991942870	Music			\States\Music	
 
 State	ID	Name	State Group			Notes
@@ -29,6 +30,11 @@ State	ID	Name	State Group			Notes
 	2855506176	Focus_Strings	Focus			
 	3029345696	Focus_None	Focus			
 	3205378936	Focus_Percussions	Focus			
+	50072824	Left_3	PotionCount			
+	50072825	Left_2	PotionCount			
+	50072826	Left_1	PotionCount			
+	50072827	Left_0	PotionCount			
+	748895195	None	PotionCount			
 	748895195	None	Music			
 	1281810935	Start	Music			
 	3537469747	Metronome	Music			
@@ -43,6 +49,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	2058049674	Wood			\Factory Reflect Acoustic Textures\Textures\Wood	
 	2412606308	Carpet			\Factory Reflect Acoustic Textures\Textures\Carpet	
 	2637588553	Tile			\Factory Reflect Acoustic Textures\Textures\Tile	
+	2701297324	Sidechain_Theme_BaseMusic			\Game_Parameters\Sidechain\Sidechain_Theme_BaseMusic	
 	2928161104	Curtains			\Factory Reflect Acoustic Textures\Textures\Curtains	
 	3190805563	Sidechain_SFX_Music			\Game_Parameters\Sidechain\Sidechain_SFX_Music	
 	3195498748	Cork_Tiles			\Factory Reflect Acoustic Textures\Textures\Cork_Tiles	
@@ -53,15 +60,11 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	393239870	SFX			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\SFX	
 	1033152923	Woods_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Woods_Orchestral	
-	1040548709	Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody	
 	1192927207	Strings_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Strings_Orchestral	
+	1319017392	Theme			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Theme	
 	1346697092	Brass_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Brass_Orchestral	
-	1494786896	Percussions_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Percussions_Melody	
 	1551306167	UI			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\UI	
-	2056404067	Brass_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Brass_Melody	
-	2500509012	Woods_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Woods_Melody	
 	2542362038	Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral	
-	2569719192	Strings_Melody			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Melody\Strings_Melody	
 	3537469747	Metronome			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Metronome	
 	3539010900	Ambisonics_Bus			\Default Work Unit\Master Audio Bus\Ambisonics_Bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
@@ -73,14 +76,12 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	195105701	Wwise_Meter_(Custom)	Wwise Meter			
-	275811978	Wwise_Meter_(Custom)	Wwise Meter			
 	295546967	Wwise_Meter_(Custom)	Wwise Meter			
 	388257655	Wwise_Meter_(Custom)	Wwise Meter			
-	506565730	Wwise_Meter_(Custom)	Wwise Meter			
-	518484037	Wwise_Meter_(Custom)	Wwise Meter			
+	461384247	Wwise_Meter_(Custom)	Wwise Meter			
+	507687907	Wwise_Recorder_(Custom)	Wwise Recorder			
 	531754157	Resonance_Audio_Renderer_(Custom)	Resonance Audio Renderer			
 	609398598	Wwise_Meter_(Custom)	Wwise Meter			
-	705970931	Wwise_Meter_(Custom)	Wwise Meter			
 	901116825	Wwise_Meter_(Custom)	Wwise Meter			
 	1706684651	Plate_Medium	Wwise RoomVerb			
 
