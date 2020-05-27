@@ -42,6 +42,13 @@ public class WwiseCallBack : MonoBehaviour
             }
         }
     }
-    
-    public event Action OnStartBlocBegin;
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            AkSoundEngine.SetState("Music", "Start");
+        }
+    }
+
+public event Action OnStartBlocBegin;
 }
