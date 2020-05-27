@@ -8,7 +8,12 @@
 		<ExternalSourcesOutputRoot>C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
-	<StreamedFiles/>
+	<StreamedFiles>
+		<File Id="986933918" Language="SFX">
+			<ShortName>Instruments\Theme\Brass\BrassLegato-01.wav</ShortName>
+			<Path>SFX\Instruments\Theme\Brass\BrassLegato-01_755F56E2.wem</Path>
+		</File>
+	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
 		<SoundBank Id="1355168291" Language="SFX">
@@ -104,6 +109,12 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2932040671" Name="Play_Music" ObjectPath="\Events\Music_Event\Music\Play_Music" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="986933918" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-01.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-01_755F56E2.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
 					<IncludedMemoryFiles>
 						<File Id="1456136" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-20.wav</ShortName>
@@ -132,10 +143,6 @@
 						<File Id="14986047" Language="SFX">
 							<ShortName>MIDI\BlocMiddle_A\Brass\Midi_BlocMiddleA_Brass_Legato.mid</ShortName>
 							<Path>SFX\MIDI\BlocMiddle_A\Brass\Midi_BlocMiddleA_Brass_Legato_A0EF7EA5.wmid</Path>
-						</File>
-						<File Id="16590477" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-25.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-25_755F56E2.wem</Path>
 						</File>
 						<File Id="17386392" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-42.wav</ShortName>
@@ -181,13 +188,21 @@
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-04.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-04_755F56E2.wem</Path>
 						</File>
+						<File Id="30996931" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-24.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-24_755F56E2.wem</Path>
+						</File>
 						<File Id="33398092" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-01.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-01_755F56E2.wem</Path>
 						</File>
-						<File Id="33866371" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-16.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-16_755F56E2.wem</Path>
+						<File Id="33548643" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-26.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-26_755F56E2.wem</Path>
+						</File>
+						<File Id="35051269" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-19.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-19_755F56E2.wem</Path>
 						</File>
 						<File Id="36151991" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-14.wav</ShortName>
@@ -197,17 +212,13 @@
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-03.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-03_755F56E2.wem</Path>
 						</File>
-						<File Id="38788759" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-24.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-24_755F56E2.wem</Path>
-						</File>
 						<File Id="40069749" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-90.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-90_755F56E2.wem</Path>
 						</File>
-						<File Id="40338038" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-01.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-01_755F56E2.wem</Path>
+						<File Id="40168807" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-22.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-22_755F56E2.wem</Path>
 						</File>
 						<File Id="40645514" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Staccato\BlocMiddle_A_Woods_Staccato-10.wav</ShortName>
@@ -229,6 +240,14 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_You.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_You_755F56E2.wem</Path>
 						</File>
+						<File Id="42683071" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-23.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-23_755F56E2.wem</Path>
+						</File>
+						<File Id="43148214" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-05.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-05_755F56E2.wem</Path>
+						</File>
 						<File Id="44387855" Language="SFX">
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-27.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Brass\Transition1_Brass-27_755F56E2.wem</Path>
@@ -245,6 +264,10 @@
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-02.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-02_755F56E2.wem</Path>
 						</File>
+						<File Id="46974445" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-06.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-06_755F56E2.wem</Path>
+						</File>
 						<File Id="49117289" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-12.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-12_755F56E2.wem</Path>
@@ -257,6 +280,10 @@
 							<ShortName>Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-02_755F56E2.wem</Path>
 						</File>
+						<File Id="52716697" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-10.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-10_755F56E2.wem</Path>
+						</File>
 						<File Id="54448229" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussions-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussions-02_755F56E2.wem</Path>
@@ -264,10 +291,6 @@
 						<File Id="57046451" Language="SFX">
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-27.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-27_755F56E2.wem</Path>
-						</File>
-						<File Id="57259767" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-03.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-03_755F56E2.wem</Path>
 						</File>
 						<File Id="57271169" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-25.wav</ShortName>
@@ -300,6 +323,10 @@
 						<File Id="65651029" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-17.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-17_755F56E2.wem</Path>
+						</File>
+						<File Id="66401669" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-05.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-05_755F56E2.wem</Path>
 						</File>
 						<File Id="66778374" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-01.wav</ShortName>
@@ -353,6 +380,10 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-06_755F56E2.wem</Path>
 						</File>
+						<File Id="85341849" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-02.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-02_755F56E2.wem</Path>
+						</File>
 						<File Id="86644371" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-17.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-17_755F56E2.wem</Path>
@@ -360,6 +391,10 @@
 						<File Id="87142235" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-07.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-07_755F56E2.wem</Path>
+						</File>
+						<File Id="87243738" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-14.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-14_755F56E2.wem</Path>
 						</File>
 						<File Id="87834422" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-48.wav</ShortName>
@@ -377,13 +412,13 @@
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-20.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-20_755F56E2.wem</Path>
 						</File>
-						<File Id="91970664" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-12.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-12_755F56E2.wem</Path>
-						</File>
 						<File Id="92217649" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_D1.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_D1_755F56E2.wem</Path>
+						</File>
+						<File Id="92411191" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-10.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-10_9342A65F.wem</Path>
 						</File>
 						<File Id="93462408" Language="SFX">
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-06.wav</ShortName>
@@ -392,6 +427,10 @@
 						<File Id="96183092" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Brass\Staccato\BlocStart_A_Brass_Staccato-05.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Staccato\BlocStart_A_Brass_Staccato-05_755F56E2.wem</Path>
+						</File>
+						<File Id="96552346" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-03.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-03_755F56E2.wem</Path>
 						</File>
 						<File Id="97050005" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-33.wav</ShortName>
@@ -409,9 +448,17 @@
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-22.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-22_755F56E2.wem</Path>
 						</File>
+						<File Id="110776845" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-03.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-03_755F56E2.wem</Path>
+						</File>
 						<File Id="112088946" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-05.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-05_755F56E2.wem</Path>
+						</File>
+						<File Id="112420704" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-02.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-02_755F56E2.wem</Path>
 						</File>
 						<File Id="112823595" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_Legato.wav</ShortName>
@@ -477,6 +524,10 @@
 							<ShortName>Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato-01.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato-01_755F56E2.wem</Path>
 						</File>
+						<File Id="135295113" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-07.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-07_755F56E2.wem</Path>
+						</File>
 						<File Id="136922296" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-02_755F56E2.wem</Path>
@@ -496,6 +547,10 @@
 						<File Id="140844999" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Legato\BlocMiddle_A_Woods_Legato-07.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Legato\BlocMiddle_A_Woods_Legato-07_755F56E2.wem</Path>
+						</File>
+						<File Id="141500949" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-18.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-18_755F56E2.wem</Path>
 						</File>
 						<File Id="144918383" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-04.wav</ShortName>
@@ -541,6 +596,14 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-69.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-69_755F56E2.wem</Path>
 						</File>
+						<File Id="165716978" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-10.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-10_755F56E2.wem</Path>
+						</File>
+						<File Id="167916822" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-25.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-25_755F56E2.wem</Path>
+						</File>
 						<File Id="169127811" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-22.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-22_755F56E2.wem</Path>
@@ -553,6 +616,10 @@
 							<ShortName>Instruments\BlocA_Middle\Woods\Staccato\BlocMiddle_A_Woods_Staccato-09.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Staccato\BlocMiddle_A_Woods_Staccato-09_755F56E2.wem</Path>
 						</File>
+						<File Id="173219240" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-12.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-12_755F56E2.wem</Path>
+						</File>
 						<File Id="174115480" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-08.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-08_755F56E2.wem</Path>
@@ -564,10 +631,6 @@
 						<File Id="176857664" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-09.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-09_755F56E2.wem</Path>
-						</File>
-						<File Id="177159257" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-10.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-10_755F56E2.wem</Path>
 						</File>
 						<File Id="179359652" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-48.wav</ShortName>
@@ -585,6 +648,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-30.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-30_755F56E2.wem</Path>
 						</File>
+						<File Id="179974895" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-12.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-12_755F56E2.wem</Path>
+						</File>
 						<File Id="180001390" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-05.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-05_755F56E2.wem</Path>
@@ -601,9 +668,17 @@
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-03_755F56E2.wem</Path>
 						</File>
+						<File Id="187106558" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-22.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-22_755F56E2.wem</Path>
+						</File>
 						<File Id="187400575" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-12.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-12_755F56E2.wem</Path>
+						</File>
+						<File Id="189235463" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-14.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-14_755F56E2.wem</Path>
 						</File>
 						<File Id="189241242" Language="SFX">
 							<ShortName>MIDI\BlocMiddle_A\Woods\Midi_BlocMiddleA_Woods_Legato.mid</ShortName>
@@ -644,6 +719,10 @@
 						<File Id="203343896" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-04.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-04_755F56E2.wem</Path>
+						</File>
+						<File Id="204010640" Language="SFX">
+							<ShortName>Midi_Theme_BlocStart_Strings.mid</ShortName>
+							<Path>SFX\Midi_Theme_BlocStart_Strings_D237A1A9.wmid</Path>
 						</File>
 						<File Id="204569312" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-07.wav</ShortName>
@@ -705,6 +784,10 @@
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-19.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-19_755F56E2.wem</Path>
 						</File>
+						<File Id="227372125" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-08.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-08_755F56E2.wem</Path>
+						</File>
 						<File Id="227432778" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-20.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-20_755F56E2.wem</Path>
@@ -717,10 +800,6 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-93.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-93_755F56E2.wem</Path>
 						</File>
-						<File Id="236490658" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-05.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-05_755F56E2.wem</Path>
-						</File>
 						<File Id="237929630" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocA_Percussions_Pizzi-14.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocA_Percussions_Pizzi-14_755F56E2.wem</Path>
@@ -729,13 +808,17 @@
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-03.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-03_755F56E2.wem</Path>
 						</File>
-						<File Id="239564585" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-21.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-21_755F56E2.wem</Path>
+						<File Id="238767214" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-26.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-26_755F56E2.wem</Path>
 						</File>
 						<File Id="240468926" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-66.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-66_755F56E2.wem</Path>
+						</File>
+						<File Id="240965155" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-15.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-15_755F56E2.wem</Path>
 						</File>
 						<File Id="244324459" Language="SFX">
 							<ShortName>Midi_BlocStartA_Percussions_legato.mid</ShortName>
@@ -753,6 +836,10 @@
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-02.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-02_755F56E2.wem</Path>
 						</File>
+						<File Id="262205529" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-25.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-25_755F56E2.wem</Path>
+						</File>
 						<File Id="262641126" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-06_755F56E2.wem</Path>
@@ -761,17 +848,21 @@
 							<ShortName>Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussions-07.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussions-07_755F56E2.wem</Path>
 						</File>
+						<File Id="263408699" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-08.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-08_755F56E2.wem</Path>
+						</File>
 						<File Id="263703906" Language="SFX">
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-11.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-11_755F56E2.wem</Path>
 						</File>
-						<File Id="264173775" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-15.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-15_755F56E2.wem</Path>
-						</File>
 						<File Id="264633612" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Legato\BlocMiddle_A_Strings_Legato-04.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Legato\BlocMiddle_A_Strings_Legato-04_755F56E2.wem</Path>
+						</File>
+						<File Id="265775030" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-16.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-16_755F56E2.wem</Path>
 						</File>
 						<File Id="266953526" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-28.wav</ShortName>
@@ -817,6 +908,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-100.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-100_755F56E2.wem</Path>
 						</File>
+						<File Id="285367457" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-21.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-21_755F56E2.wem</Path>
+						</File>
 						<File Id="285707562" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato_C1-01.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato_C1-01_755F56E2.wem</Path>
@@ -828,6 +923,10 @@
 						<File Id="285856986" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_Legato-05.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_Legato-05_755F56E2.wem</Path>
+						</File>
+						<File Id="288770216" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-26.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-26_755F56E2.wem</Path>
 						</File>
 						<File Id="293940179" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi.wav</ShortName>
@@ -877,6 +976,10 @@
 							<ShortName>Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-03_755F56E2.wem</Path>
 						</File>
+						<File Id="319406455" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-08.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-08_755F56E2.wem</Path>
+						</File>
 						<File Id="319846077" Language="SFX">
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-08.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Brass\Transition1_Brass-08_755F56E2.wem</Path>
@@ -901,9 +1004,17 @@
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-01.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-01_755F56E2.wem</Path>
 						</File>
+						<File Id="323614728" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-11.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-11_755F56E2.wem</Path>
+						</File>
 						<File Id="325314135" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocA_Percussions_Pizzi-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocA_Percussions_Pizzi-02_755F56E2.wem</Path>
+						</File>
+						<File Id="326120776" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-15.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-15_755F56E2.wem</Path>
 						</File>
 						<File Id="326385623" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-07.wav</ShortName>
@@ -921,6 +1032,10 @@
 							<ShortName>Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussionssecondary.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussionssecondary_755F56E2.wem</Path>
 						</File>
+						<File Id="331269921" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-09.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-09_755F56E2.wem</Path>
+						</File>
 						<File Id="335281158" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-06_755F56E2.wem</Path>
@@ -928,6 +1043,10 @@
 						<File Id="335825942" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-09.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-09_755F56E2.wem</Path>
+						</File>
+						<File Id="336293865" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-01.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-01_755F56E2.wem</Path>
 						</File>
 						<File Id="337051429" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-01.wav</ShortName>
@@ -953,6 +1072,10 @@
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-13.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-13_755F56E2.wem</Path>
 						</File>
+						<File Id="341790030" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-06.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-06_755F56E2.wem</Path>
+						</File>
 						<File Id="344593247" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-99.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-99_755F56E2.wem</Path>
@@ -972,6 +1095,10 @@
 						<File Id="349395444" Language="SFX">
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-06.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-06_755F56E2.wem</Path>
+						</File>
+						<File Id="351157512" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-25.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-25_755F56E2.wem</Path>
 						</File>
 						<File Id="352795480" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_Legato-02.wav</ShortName>
@@ -1009,6 +1136,10 @@
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-12.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-12_755F56E2.wem</Path>
 						</File>
+						<File Id="366528716" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-09.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-09_755F56E2.wem</Path>
+						</File>
 						<File Id="367565999" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-26.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-26_755F56E2.wem</Path>
@@ -1025,9 +1156,21 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-14.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-14_755F56E2.wem</Path>
 						</File>
+						<File Id="369503229" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-21.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-21_755F56E2.wem</Path>
+						</File>
+						<File Id="370253324" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-08.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-08_755F56E2.wem</Path>
+						</File>
 						<File Id="370286021" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-94.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-94_755F56E2.wem</Path>
+						</File>
+						<File Id="370911978" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-16.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-16_755F56E2.wem</Path>
 						</File>
 						<File Id="371328122" Language="SFX">
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-05.wav</ShortName>
@@ -1041,9 +1184,17 @@
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Legato-09.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Legato-09_755F56E2.wem</Path>
 						</File>
+						<File Id="375206329" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-09.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-09_755F56E2.wem</Path>
+						</File>
 						<File Id="377677742" Language="SFX">
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-15.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-15_755F56E2.wem</Path>
+						</File>
+						<File Id="378629610" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-19.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-19_755F56E2.wem</Path>
 						</File>
 						<File Id="380267156" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-17.wav</ShortName>
@@ -1101,6 +1252,14 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-08.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-08_755F56E2.wem</Path>
 						</File>
+						<File Id="403655309" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-26.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-26_755F56E2.wem</Path>
+						</File>
+						<File Id="405446623" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-05.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-05_755F56E2.wem</Path>
+						</File>
 						<File Id="406114990" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-18.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-18_755F56E2.wem</Path>
@@ -1116,6 +1275,10 @@
 						<File Id="408847446" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-30.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-30_755F56E2.wem</Path>
+						</File>
+						<File Id="413377409" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-18.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-18_755F56E2.wem</Path>
 						</File>
 						<File Id="413690285" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-09.wav</ShortName>
@@ -1145,6 +1308,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-52.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-52_755F56E2.wem</Path>
 						</File>
+						<File Id="423450085" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-17.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-17_755F56E2.wem</Path>
+						</File>
 						<File Id="425284027" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-04.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-04_755F56E2.wem</Path>
@@ -1157,6 +1324,14 @@
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-13.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Brass\Transition1_Brass-13_755F56E2.wem</Path>
 						</File>
+						<File Id="429115859" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-05.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-05_755F56E2.wem</Path>
+						</File>
+						<File Id="429858681" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-15.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-15_755F56E2.wem</Path>
+						</File>
 						<File Id="432065583" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-13.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-13_755F56E2.wem</Path>
@@ -1168,6 +1343,10 @@
 						<File Id="432186830" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-14.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-14_755F56E2.wem</Path>
+						</File>
+						<File Id="435439698" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-05.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-05_755F56E2.wem</Path>
 						</File>
 						<File Id="437051178" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-29.wav</ShortName>
@@ -1197,13 +1376,13 @@
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-03.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-03_755F56E2.wem</Path>
 						</File>
+						<File Id="448173852" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-20.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-20_755F56E2.wem</Path>
+						</File>
 						<File Id="449074413" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-23.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-23_755F56E2.wem</Path>
-						</File>
-						<File Id="450928346" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-18.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-18_755F56E2.wem</Path>
 						</File>
 						<File Id="451262205" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-23.wav</ShortName>
@@ -1265,6 +1444,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-70.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-70_755F56E2.wem</Path>
 						</File>
+						<File Id="472883735" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-01.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-01_755F56E2.wem</Path>
+						</File>
 						<File Id="473449294" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-07.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Legato\BlocStart_A_Brass_Legato-07_755F56E2.wem</Path>
@@ -1280,6 +1463,14 @@
 						<File Id="478129909" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-15.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-15_755F56E2.wem</Path>
+						</File>
+						<File Id="478798060" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-01.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-01_755F56E2.wem</Path>
+						</File>
+						<File Id="481131797" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-23.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-23_755F56E2.wem</Path>
 						</File>
 						<File Id="482140394" Language="SFX">
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-21.wav</ShortName>
@@ -1300,6 +1491,10 @@
 						<File Id="484637449" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-49.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-49_755F56E2.wem</Path>
+						</File>
+						<File Id="486363585" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-10.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-10_755F56E2.wem</Path>
 						</File>
 						<File Id="486581250" Language="SFX">
 							<ShortName>Instruments\Metronome\Metronome-01.wav</ShortName>
@@ -1325,6 +1520,10 @@
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-22.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-22_755F56E2.wem</Path>
 						</File>
+						<File Id="497735447" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-19.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-19_755F56E2.wem</Path>
+						</File>
 						<File Id="502130669" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Staccato\BlocMiddle_A_Woods_Staccato-13.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Staccato\BlocMiddle_A_Woods_Staccato-13_755F56E2.wem</Path>
@@ -1332,6 +1531,10 @@
 						<File Id="503872390" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-27.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-27_755F56E2.wem</Path>
+						</File>
+						<File Id="504363300" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-21.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-21_755F56E2.wem</Path>
 						</File>
 						<File Id="504756559" Language="SFX">
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-11.wav</ShortName>
@@ -1373,13 +1576,17 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-06_755F56E2.wem</Path>
 						</File>
+						<File Id="518410646" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-04.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-04_755F56E2.wem</Path>
+						</File>
 						<File Id="520006708" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-04.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-04_755F56E2.wem</Path>
 						</File>
-						<File Id="523330226" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-13.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-13_755F56E2.wem</Path>
+						<File Id="524851703" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-07.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-07_755F56E2.wem</Path>
 						</File>
 						<File Id="529172533" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-60.wav</ShortName>
@@ -1397,6 +1604,10 @@
 							<ShortName>Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-07.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-07_755F56E2.wem</Path>
 						</File>
+						<File Id="539850111" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-13.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-13_755F56E2.wem</Path>
+						</File>
 						<File Id="540718140" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-07.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-07_755F56E2.wem</Path>
@@ -1412,6 +1623,10 @@
 						<File Id="544127412" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-19.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-19_755F56E2.wem</Path>
+						</File>
+						<File Id="547503202" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-01.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-01_755F56E2.wem</Path>
 						</File>
 						<File Id="547965951" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-10.wav</ShortName>
@@ -1441,6 +1656,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_E1_03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_E1_03_755F56E2.wem</Path>
 						</File>
+						<File Id="555463578" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-12.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-12_755F56E2.wem</Path>
+						</File>
 						<File Id="562707348" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-35.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-35_755F56E2.wem</Path>
@@ -1449,6 +1668,14 @@
 							<ShortName>Instruments\BlocA_Start\Brass\Staccato\BlocStart_A_Brass_Staccato-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Staccato\BlocStart_A_Brass_Staccato-02_755F56E2.wem</Path>
 						</File>
+						<File Id="564497326" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-08.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-08_755F56E2.wem</Path>
+						</File>
+						<File Id="565372482" Language="SFX">
+							<ShortName>Transition1_Midi_StringsLegato.mid</ShortName>
+							<Path>SFX\Transition1_Midi_StringsLegato_1EC00B60.wmid</Path>
+						</File>
 						<File Id="570440581" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-16.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-16_755F56E2.wem</Path>
@@ -1456,6 +1683,10 @@
 						<File Id="572336289" Language="SFX">
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-09.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Brass\Transition1_Brass-09_755F56E2.wem</Path>
+						</File>
+						<File Id="573377046" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-02.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-02_755F56E2.wem</Path>
 						</File>
 						<File Id="573634508" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-19.wav</ShortName>
@@ -1468,6 +1699,10 @@
 						<File Id="575624881" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-11.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-11_755F56E2.wem</Path>
+						</File>
+						<File Id="575938125" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal_755F56E2.wem</Path>
 						</File>
 						<File Id="576171644" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-09.wav</ShortName>
@@ -1569,6 +1804,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-98.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-98_755F56E2.wem</Path>
 						</File>
+						<File Id="607356749" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-06.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-06_755F56E2.wem</Path>
+						</File>
 						<File Id="608657336" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Legato\BlocMiddle_A_Strings_Legato-01.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Legato\BlocMiddle_A_Strings_Legato-01_755F56E2.wem</Path>
@@ -1593,13 +1832,13 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-50.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-50_755F56E2.wem</Path>
 						</File>
-						<File Id="614507904" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-08.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-08_755F56E2.wem</Path>
-						</File>
 						<File Id="615857025" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-49.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-49_755F56E2.wem</Path>
+						</File>
+						<File Id="616712825" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-12.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-12_755F56E2.wem</Path>
 						</File>
 						<File Id="616951432" Language="SFX">
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-15.wav</ShortName>
@@ -1608,6 +1847,10 @@
 						<File Id="617776841" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-02_755F56E2.wem</Path>
+						</File>
+						<File Id="617865500" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-26.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-26_755F56E2.wem</Path>
 						</File>
 						<File Id="620291160" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-21.wav</ShortName>
@@ -1629,6 +1872,10 @@
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-23.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-23_755F56E2.wem</Path>
 						</File>
+						<File Id="631339814" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-08.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-08_755F56E2.wem</Path>
+						</File>
 						<File Id="633843253" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-20.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-20_755F56E2.wem</Path>
@@ -1649,10 +1896,6 @@
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-22.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-22_755F56E2.wem</Path>
 						</File>
-						<File Id="637204983" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-02.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-02_755F56E2.wem</Path>
-						</File>
 						<File Id="638326451" Language="SFX">
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-07.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-07_755F56E2.wem</Path>
@@ -1664,6 +1907,10 @@
 						<File Id="639644324" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-17.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-17_755F56E2.wem</Path>
+						</File>
+						<File Id="641366848" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-07.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-07_755F56E2.wem</Path>
 						</File>
 						<File Id="641754179" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-25.wav</ShortName>
@@ -1709,6 +1956,10 @@
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocA_Percussions_Pizzi-13.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocA_Percussions_Pizzi-13_755F56E2.wem</Path>
 						</File>
+						<File Id="662484460" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-02.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-02_755F56E2.wem</Path>
+						</File>
 						<File Id="663518456" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-88.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-88_755F56E2.wem</Path>
@@ -1721,6 +1972,10 @@
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-02_755F56E2.wem</Path>
 						</File>
+						<File Id="666506130" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-17.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-17_755F56E2.wem</Path>
+						</File>
 						<File Id="667359633" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-04.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-04_755F56E2.wem</Path>
@@ -1732,6 +1987,10 @@
 						<File Id="668627985" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-16.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-16_755F56E2.wem</Path>
+						</File>
+						<File Id="668781230" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-12.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-12_755F56E2.wem</Path>
 						</File>
 						<File Id="669721811" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-10.wav</ShortName>
@@ -1749,10 +2008,6 @@
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-10.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-10_755F56E2.wem</Path>
 						</File>
-						<File Id="672924029" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-20.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-20_755F56E2.wem</Path>
-						</File>
 						<File Id="674947101" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-57.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-57_755F56E2.wem</Path>
@@ -1764,6 +2019,14 @@
 						<File Id="675954212" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_755F56E2.wem</Path>
+						</File>
+						<File Id="675962254" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-11.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-11_755F56E2.wem</Path>
+						</File>
+						<File Id="677706349" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-02.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-02_755F56E2.wem</Path>
 						</File>
 						<File Id="679104966" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-47.wav</ShortName>
@@ -1777,17 +2040,25 @@
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-10.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-10_755F56E2.wem</Path>
 						</File>
+						<File Id="681265815" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-13.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-13_755F56E2.wem</Path>
+						</File>
+						<File Id="681969474" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal_755F56E2.wem</Path>
+						</File>
 						<File Id="684562223" Language="SFX">
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-24.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-24_755F56E2.wem</Path>
 						</File>
-						<File Id="686112358" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-23.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-23_755F56E2.wem</Path>
-						</File>
 						<File Id="688314001" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-09.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-09_755F56E2.wem</Path>
+						</File>
+						<File Id="689456242" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-02.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-02_755F56E2.wem</Path>
 						</File>
 						<File Id="690267148" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Pizzicato\BlocMiddle_A_Woods_Pizzicato-15.wav</ShortName>
@@ -1817,9 +2088,17 @@
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-20.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-20_755F56E2.wem</Path>
 						</File>
+						<File Id="697927091" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-09.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-09_755F56E2.wem</Path>
+						</File>
 						<File Id="698354758" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-68.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-68_755F56E2.wem</Path>
+						</File>
+						<File Id="698620562" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-09.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-09_755F56E2.wem</Path>
 						</File>
 						<File Id="700633226" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-01.wav</ShortName>
@@ -1841,13 +2120,17 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-26.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-26_755F56E2.wem</Path>
 						</File>
-						<File Id="705798734" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-11.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-11_755F56E2.wem</Path>
-						</File>
 						<File Id="706372257" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-08.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-08_755F56E2.wem</Path>
+						</File>
+						<File Id="707517271" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-06.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-06_755F56E2.wem</Path>
+						</File>
+						<File Id="707575962" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-16.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-16_755F56E2.wem</Path>
 						</File>
 						<File Id="712211043" Language="SFX">
 							<ShortName>Midi_BlocStartA_Woods_Staccato.mid</ShortName>
@@ -1857,9 +2140,17 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-03_755F56E2.wem</Path>
 						</File>
+						<File Id="714826322" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-14.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-14_755F56E2.wem</Path>
+						</File>
 						<File Id="715048093" Language="SFX">
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-09.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-09_755F56E2.wem</Path>
+						</File>
+						<File Id="716012722" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-25.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-25_755F56E2.wem</Path>
 						</File>
 						<File Id="717739946" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-59.wav</ShortName>
@@ -1872,6 +2163,10 @@
 						<File Id="721152651" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-63.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-63_755F56E2.wem</Path>
+						</File>
+						<File Id="721460856" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-11.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-11_755F56E2.wem</Path>
 						</File>
 						<File Id="722251121" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-07.wav</ShortName>
@@ -1896,6 +2191,10 @@
 						<File Id="729972572" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-01.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-01_755F56E2.wem</Path>
+						</File>
+						<File Id="731630640" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-15.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-15_755F56E2.wem</Path>
 						</File>
 						<File Id="731667250" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-26.wav</ShortName>
@@ -1949,13 +2248,25 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-09.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-09_755F56E2.wem</Path>
 						</File>
+						<File Id="744493589" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-04.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-04_755F56E2.wem</Path>
+						</File>
+						<File Id="744640269" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-10.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-10_755F56E2.wem</Path>
+						</File>
 						<File Id="748143527" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_E1_02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_E1_02_A34796BE.wem</Path>
 						</File>
-						<File Id="751119554" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-26.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-26_755F56E2.wem</Path>
+						<File Id="748958306" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-11.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-11_755F56E2.wem</Path>
+						</File>
+						<File Id="751475916" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-17.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-17_755F56E2.wem</Path>
 						</File>
 						<File Id="752942581" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-13.wav</ShortName>
@@ -2001,6 +2312,14 @@
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-03.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-03_755F56E2.wem</Path>
 						</File>
+						<File Id="761355508" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-23.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-23_755F56E2.wem</Path>
+						</File>
+						<File Id="763593252" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-11.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-11_755F56E2.wem</Path>
+						</File>
 						<File Id="767333449" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Legato\BlocMiddle_A_Woods_Legato-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Legato\BlocMiddle_A_Woods_Legato-06_755F56E2.wem</Path>
@@ -2033,6 +2352,22 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato_Note1.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato_Note1_755F56E2.wem</Path>
 						</File>
+						<File Id="775017438" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-04.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-04_755F56E2.wem</Path>
+						</File>
+						<File Id="777912751" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-14.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-14_755F56E2.wem</Path>
+						</File>
+						<File Id="779573967" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-15.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-15_755F56E2.wem</Path>
+						</File>
+						<File Id="779647587" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-22.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-22_755F56E2.wem</Path>
+						</File>
 						<File Id="781011467" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-46.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-46_755F56E2.wem</Path>
@@ -2044,6 +2379,10 @@
 						<File Id="782726773" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-05.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-05_755F56E2.wem</Path>
+						</File>
+						<File Id="784277744" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-03.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-03_755F56E2.wem</Path>
 						</File>
 						<File Id="785863222" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-05.wav</ShortName>
@@ -2085,9 +2424,17 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-03_755F56E2.wem</Path>
 						</File>
+						<File Id="800704066" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-01.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-01_755F56E2.wem</Path>
+						</File>
 						<File Id="801947261" Language="SFX">
 							<ShortName>BlocStart_A_Percussions.mid</ShortName>
 							<Path>SFX\BlocStart_A_Percussions_E43E622F.wmid</Path>
+						</File>
+						<File Id="802083714" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-07.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-07_755F56E2.wem</Path>
 						</File>
 						<File Id="802556377" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Pizzicato_C1-02.wav</ShortName>
@@ -2129,9 +2476,17 @@
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass-29.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Brass\Transition1_Brass-29_755F56E2.wem</Path>
 						</File>
+						<File Id="807948817" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-04.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-04_755F56E2.wem</Path>
+						</File>
 						<File Id="812367299" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Pizzicato_E1.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Pizzicato_E1_755F56E2.wem</Path>
+						</File>
+						<File Id="812480685" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-18.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-18_755F56E2.wem</Path>
 						</File>
 						<File Id="813258073" Language="SFX">
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-12.wav</ShortName>
@@ -2140,6 +2495,10 @@
 						<File Id="815753125" Language="SFX">
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-30.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-30_755F56E2.wem</Path>
+						</File>
+						<File Id="819778173" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-24.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-24_755F56E2.wem</Path>
 						</File>
 						<File Id="820086227" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato-04.wav</ShortName>
@@ -2152,6 +2511,10 @@
 						<File Id="823046239" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-02.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-02_755F56E2.wem</Path>
+						</File>
+						<File Id="824880322" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-07.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-07_755F56E2.wem</Path>
 						</File>
 						<File Id="825001344" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-10.wav</ShortName>
@@ -2181,6 +2544,18 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-96.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-96_755F56E2.wem</Path>
 						</File>
+						<File Id="831644192" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-23.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-23_755F56E2.wem</Path>
+						</File>
+						<File Id="835771368" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-16.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-16_755F56E2.wem</Path>
+						</File>
+						<File Id="837080155" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-20.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-20_755F56E2.wem</Path>
+						</File>
 						<File Id="839051099" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-07.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-07_755F56E2.wem</Path>
@@ -2188,6 +2563,10 @@
 						<File Id="839866594" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Staccato-06_755F56E2.wem</Path>
+						</File>
+						<File Id="840449576" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-24.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-24_755F56E2.wem</Path>
 						</File>
 						<File Id="840882138" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight.wav</ShortName>
@@ -2201,6 +2580,14 @@
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-10.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-10_755F56E2.wem</Path>
 						</File>
+						<File Id="847320984" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-06.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-06_755F56E2.wem</Path>
+						</File>
+						<File Id="847649158" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-04.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-04_755F56E2.wem</Path>
+						</File>
 						<File Id="847873869" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-04.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-04_755F56E2.wem</Path>
@@ -2209,6 +2596,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-75.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-75_755F56E2.wem</Path>
 						</File>
+						<File Id="852390783" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-21.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-21_755F56E2.wem</Path>
+						</File>
 						<File Id="855032438" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-24.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-24_755F56E2.wem</Path>
@@ -2216,6 +2607,10 @@
 						<File Id="855447286" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-101.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-101_755F56E2.wem</Path>
+						</File>
+						<File Id="855685432" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-24.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-24_755F56E2.wem</Path>
 						</File>
 						<File Id="857304622" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-06.wav</ShortName>
@@ -2241,6 +2636,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-81.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-81_755F56E2.wem</Path>
 						</File>
+						<File Id="862204827" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-19.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-19_755F56E2.wem</Path>
+						</File>
 						<File Id="865566485" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-13.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-13_755F56E2.wem</Path>
@@ -2249,17 +2648,33 @@
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-22.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-22_755F56E2.wem</Path>
 						</File>
+						<File Id="869086343" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-06.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-06_755F56E2.wem</Path>
+						</File>
 						<File Id="869705045" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-13.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-13_755F56E2.wem</Path>
+						</File>
+						<File Id="870873195" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-19.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-19_755F56E2.wem</Path>
 						</File>
 						<File Id="871555473" Language="SFX">
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-23.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-23_755F56E2.wem</Path>
 						</File>
+						<File Id="871955472" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-10.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-10_755F56E2.wem</Path>
+						</File>
 						<File Id="875489465" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Pizzicato_D1.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Pizzicato_D1_755F56E2.wem</Path>
+						</File>
+						<File Id="878322050" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-25.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-25_755F56E2.wem</Path>
 						</File>
 						<File Id="880432955" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Pizzicato-03.wav</ShortName>
@@ -2272,6 +2687,10 @@
 						<File Id="882363382" Language="SFX">
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-04.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-04_755F56E2.wem</Path>
+						</File>
+						<File Id="882778319" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-16.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-16_755F56E2.wem</Path>
 						</File>
 						<File Id="884952674" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-104.wav</ShortName>
@@ -2289,6 +2708,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-03_755F56E2.wem</Path>
 						</File>
+						<File Id="887546303" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-22.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-22_755F56E2.wem</Path>
+						</File>
 						<File Id="889490486" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato-03_755F56E2.wem</Path>
@@ -2304,6 +2727,10 @@
 						<File Id="891575014" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-24.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-24_755F56E2.wem</Path>
+						</File>
+						<File Id="894507120" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-03.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-03_755F56E2.wem</Path>
 						</File>
 						<File Id="895565339" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussions-09.wav</ShortName>
@@ -2324,6 +2751,10 @@
 						<File Id="899671852" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-41.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-41_755F56E2.wem</Path>
+						</File>
+						<File Id="903849822" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-09.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-09_755F56E2.wem</Path>
 						</File>
 						<File Id="904416801" Language="SFX">
 							<ShortName>MIDI\BlocStart_A\Brass\Midi_BlocStartA_Brass_Legato.mid</ShortName>
@@ -2397,9 +2828,21 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-44.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-44_755F56E2.wem</Path>
 						</File>
-						<File Id="933188101" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-07.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-07_755F56E2.wem</Path>
+						<File Id="928584233" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-03.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-03_755F56E2.wem</Path>
+						</File>
+						<File Id="928696159" Language="SFX">
+							<ShortName>Instruments\Theme\Strings\Legato\StringsLegatoFinal-18.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Strings\Legato\StringsLegatoFinal-18_755F56E2.wem</Path>
+						</File>
+						<File Id="929701868" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-13.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-13_755F56E2.wem</Path>
+						</File>
+						<File Id="932298648" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-04.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-04_755F56E2.wem</Path>
 						</File>
 						<File Id="933561670" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-14.wav</ShortName>
@@ -2408,10 +2851,6 @@
 						<File Id="935163781" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-15.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-15_755F56E2.wem</Path>
-						</File>
-						<File Id="935193958" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-17.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-17_755F56E2.wem</Path>
 						</File>
 						<File Id="936801060" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Percussions\BlocStart_A_Percussions_Legato-05.wav</ShortName>
@@ -2428,6 +2867,10 @@
 						<File Id="941650626" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-25.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-25_755F56E2.wem</Path>
+						</File>
+						<File Id="942129746" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-03.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-03_755F56E2.wem</Path>
 						</File>
 						<File Id="942347072" Language="SFX">
 							<ShortName>BlocStart_A_PizziStac.mid</ShortName>
@@ -2461,6 +2904,14 @@
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions-29.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions-29_755F56E2.wem</Path>
 						</File>
+						<File Id="958111161" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-14.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-14_755F56E2.wem</Path>
+						</File>
+						<File Id="958558525" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-05.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-05_755F56E2.wem</Path>
+						</File>
 						<File Id="959952819" Language="SFX">
 							<ShortName>Instruments\Theme\Woods\WoodsLegato-01.wav</ShortName>
 							<Path>SFX\Instruments\Theme\Woods\WoodsLegato-01_755F56E2.wem</Path>
@@ -2489,13 +2940,13 @@
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-26.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-26_755F56E2.wem</Path>
 						</File>
+						<File Id="973742295" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-22.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-22_755F56E2.wem</Path>
+						</File>
 						<File Id="974203196" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-15.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-15_755F56E2.wem</Path>
-						</File>
-						<File Id="975131933" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-09.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-09_755F56E2.wem</Path>
 						</File>
 						<File Id="976243707" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussionssecondary-01.wav</ShortName>
@@ -2517,9 +2968,18 @@
 							<ShortName>Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Brass\Pizzicato\BlocStart_A_Brass_Pizzicato-02_755F56E2.wem</Path>
 						</File>
+						<File Id="978633543" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-17.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-17_755F56E2.wem</Path>
+						</File>
 						<File Id="982572573" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Woods\Staccato\BlocMiddle_A_Woods_Staccato-11.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Woods\Staccato\BlocMiddle_A_Woods_Staccato-11_755F56E2.wem</Path>
+						</File>
+						<File Id="986933918" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-01.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-01_755F56E2.wem</Path>
+							<PrefetchSize>8151</PrefetchSize>
 						</File>
 						<File Id="986941471" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass_Legato-02.wav</ShortName>
@@ -2561,10 +3021,6 @@
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-19.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-19_755F56E2.wem</Path>
 						</File>
-						<File Id="1000594470" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-04.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-04_755F56E2.wem</Path>
-						</File>
 						<File Id="1003084006" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussions-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Percussions\BlocMiddle_A_Percussions-06_755F56E2.wem</Path>
@@ -2577,13 +3033,13 @@
 							<ShortName>Instruments\Transition1\Percussions\Transition1_Percussions.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Percussions\Transition1_Percussions_755F56E2.wem</Path>
 						</File>
-						<File Id="1008386502" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-14.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-14_755F56E2.wem</Path>
-						</File>
 						<File Id="1008509792" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-18.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-18_755F56E2.wem</Path>
+						</File>
+						<File Id="1013773755" Language="SFX">
+							<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-07.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Woods\Woods_Theme_BlocStart-07_755F56E2.wem</Path>
 						</File>
 						<File Id="1019941833" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-62.wav</ShortName>
@@ -2625,6 +3081,10 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-20.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Base\BlocMiddle_A_Strings_Staccato-20_755F56E2.wem</Path>
 						</File>
+						<File Id="1034413529" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-11.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-11_755F56E2.wem</Path>
+						</File>
 						<File Id="1034631433" Language="SFX">
 							<ShortName>Instruments\Transition1\Woods\Transition1_Woods-28.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Woods\Transition1_Woods-28_755F56E2.wem</Path>
@@ -2641,17 +3101,13 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-03_755F56E2.wem</Path>
 						</File>
-						<File Id="1037652389" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-19.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-19_755F56E2.wem</Path>
-						</File>
 						<File Id="1038352685" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Legato\BlocMiddle_A_Strings_Legato-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Legato\BlocMiddle_A_Strings_Legato-03_755F56E2.wem</Path>
 						</File>
-						<File Id="1040572489" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-22.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-22_755F56E2.wem</Path>
+						<File Id="1042044635" Language="SFX">
+							<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-23.wav</ShortName>
+							<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-23_755F56E2.wem</Path>
 						</File>
 						<File Id="1042409501" Language="SFX">
 							<ShortName>Midi_BlocStartA_Brass_Staccato.mid</ShortName>
@@ -2665,9 +3121,9 @@
 							<ShortName>Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-07.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Staccato\Secondary\BlocMiddle_A_Strings_Secondary_C1-07_755F56E2.wem</Path>
 						</File>
-						<File Id="1047014626" Language="SFX">
-							<ShortName>Instruments\Theme\Strings\Pizzicato\StringsPizzicato-06.wav</ShortName>
-							<Path>SFX\Instruments\Theme\Strings\Pizzicato\StringsPizzicato-06_755F56E2.wem</Path>
+						<File Id="1051162667" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-27.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-27_755F56E2.wem</Path>
 						</File>
 						<File Id="1051228932" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-103.wav</ShortName>
@@ -2681,6 +3137,14 @@
 							<ShortName>Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Legato-05.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Woods\BlocStart_A_Woods_Legato-05_755F56E2.wem</Path>
 						</File>
+						<File Id="1056793345" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-21.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-21_755F56E2.wem</Path>
+						</File>
+						<File Id="1059171477" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-18.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-18_755F56E2.wem</Path>
+						</File>
 						<File Id="1059468418" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-71.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-71_755F56E2.wem</Path>
@@ -2689,13 +3153,29 @@
 							<ShortName>Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-05.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Middle\Brass\BlocMiddle_A_Brass-05_755F56E2.wem</Path>
 						</File>
+						<File Id="1060088697" Language="SFX">
+							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-10.wav</ShortName>
+							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-10_02EA251F.wem</Path>
+						</File>
 						<File Id="1061298141" Language="SFX">
 							<ShortName>Instruments\Transition1\Brass\Transition1_Brass.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Brass\Transition1_Brass_755F56E2.wem</Path>
 						</File>
+						<File Id="1062377162" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-24.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-24_755F56E2.wem</Path>
+						</File>
 						<File Id="1063886606" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-06.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-06_755F56E2.wem</Path>
+						</File>
+						<File Id="1064825660" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-17.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-17_755F56E2.wem</Path>
+						</File>
+						<File Id="1066772740" Language="SFX">
+							<ShortName>Instruments\Theme\Brass\BrassLegato-20.wav</ShortName>
+							<Path>SFX\Instruments\Theme\Brass\BrassLegato-20_755F56E2.wem</Path>
 						</File>
 						<File Id="1071368077" Language="SFX">
 							<ShortName>Instruments\BlocA_Middle\Strings\Pizzicato\BlocMiddle_A_Strings_Pizzicato-41.wav</ShortName>
@@ -2750,8 +3230,7 @@
 								<File Id="742873623"/>
 								<File Id="742873623"/>
 								<File Id="196333494"/>
-								<File Id="482344561"/>
-								<File Id="998813302"/>
+								<File Id="204010640"/>
 								<File Id="382892278"/>
 								<File Id="604044517"/>
 								<File Id="604044517"/>
@@ -2844,6 +3323,7 @@
 								<File Id="398960060"/>
 								<File Id="398960060"/>
 								<File Id="398960060"/>
+								<File Id="565372482"/>
 								<File Id="742873623"/>
 								<File Id="742873623"/>
 								<File Id="742873623"/>
@@ -3549,66 +4029,32 @@
 									<Children>
 										<SwitchContainer SwitchValue="{68C50061-6A98-42F5-9E09-302CA71CB7CC}">
 											<Media>
-												<File Id="40338038"/>
-												<File Id="637204983"/>
-												<File Id="57259767"/>
-												<File Id="1000594470"/>
-												<File Id="236490658"/>
-												<File Id="1047014626"/>
-												<File Id="933188101"/>
-												<File Id="614507904"/>
-												<File Id="975131933"/>
-												<File Id="177159257"/>
-												<File Id="705798734"/>
-												<File Id="91970664"/>
-												<File Id="523330226"/>
-												<File Id="1008386502"/>
-												<File Id="264173775"/>
-												<File Id="33866371"/>
-												<File Id="935193958"/>
-												<File Id="450928346"/>
-												<File Id="1037652389"/>
-												<File Id="672924029"/>
-												<File Id="239564585"/>
-												<File Id="1040572489"/>
-												<File Id="686112358"/>
-												<File Id="38788759"/>
-												<File Id="16590477"/>
-												<File Id="751119554"/>
-											</Media>
-										</SwitchContainer>
-									</Children>
-								</SwitchContainer>
-								<SwitchContainer SwitchValue="{11CB2E04-8E7F-47B5-B217-07E5180EA277}">
-									<Children>
-										<SwitchContainer SwitchValue="{5384BC6C-5FA8-4ABC-9E5A-0D3391F93C76}">
-											<Media>
-												<File Id="959952819"/>
-												<File Id="823046239"/>
-												<File Id="238154861"/>
-												<File Id="880921203"/>
-												<File Id="139489224"/>
-												<File Id="609504238"/>
-												<File Id="87142235"/>
-												<File Id="896395292"/>
-												<File Id="176857664"/>
-												<File Id="795085726"/>
-												<File Id="319278849"/>
-												<File Id="497439167"/>
-												<File Id="341734368"/>
-												<File Id="1025549413"/>
-												<File Id="301775186"/>
-												<File Id="390465757"/>
-												<File Id="65651029"/>
-												<File Id="230941491"/>
-												<File Id="28092065"/>
-												<File Id="1456136"/>
-												<File Id="963489014"/>
-												<File Id="497479969"/>
-												<File Id="449074413"/>
-												<File Id="891575014"/>
-												<File Id="57271169"/>
-												<File Id="731667250"/>
+												<File Id="336293865"/>
+												<File Id="662484460"/>
+												<File Id="784277744"/>
+												<File Id="932298648"/>
+												<File Id="958558525"/>
+												<File Id="869086343"/>
+												<File Id="135295113"/>
+												<File Id="319406455"/>
+												<File Id="697927091"/>
+												<File Id="871955472"/>
+												<File Id="763593252"/>
+												<File Id="668781230"/>
+												<File Id="681265815"/>
+												<File Id="189235463"/>
+												<File Id="429858681"/>
+												<File Id="835771368"/>
+												<File Id="423450085"/>
+												<File Id="1059171477"/>
+												<File Id="35051269"/>
+												<File Id="1056793345"/>
+												<File Id="187106558"/>
+												<File Id="831644192"/>
+												<File Id="819778173"/>
+												<File Id="878322050"/>
+												<File Id="238767214"/>
+												<File Id="187106558"/>
 											</Media>
 										</SwitchContainer>
 									</Children>
@@ -3617,7 +4063,72 @@
 									<Children/>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{3064128F-1C3F-4FC8-B6DB-4282EC01EDC0}">
-									<Children/>
+									<Children>
+										<SwitchContainer SwitchValue="{D725C514-1A0B-43B1-B63C-B11156E51DC7}">
+											<Media>
+												<File Id="973742295"/>
+												<File Id="110776845"/>
+												<File Id="429115859"/>
+												<File Id="777912751"/>
+												<File Id="707517271"/>
+												<File Id="448173852"/>
+												<File Id="641366848"/>
+												<File Id="478798060"/>
+												<File Id="539850111"/>
+												<File Id="882778319"/>
+												<File Id="903849822"/>
+												<File Id="1034413529"/>
+												<File Id="812480685"/>
+												<File Id="486363585"/>
+												<File Id="573377046"/>
+												<File Id="518410646"/>
+												<File Id="378629610"/>
+												<File Id="1042044635"/>
+												<File Id="262205529"/>
+												<File Id="263408699"/>
+												<File Id="285367457"/>
+												<File Id="616712825"/>
+												<File Id="666506130"/>
+												<File Id="731630640"/>
+												<File Id="840449576"/>
+												<File Id="617865500"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{11CB2E04-8E7F-47B5-B217-07E5180EA277}">
+									<Children>
+										<SwitchContainer SwitchValue="{5384BC6C-5FA8-4ABC-9E5A-0D3391F93C76}">
+											<Media>
+												<File Id="929701868"/>
+												<File Id="707575962"/>
+												<File Id="141500949"/>
+												<File Id="958111161"/>
+												<File Id="369503229"/>
+												<File Id="748958306"/>
+												<File Id="761355508"/>
+												<File Id="978633543"/>
+												<File Id="631339814"/>
+												<File Id="96552346"/>
+												<File Id="744640269"/>
+												<File Id="375206329"/>
+												<File Id="472883735"/>
+												<File Id="179974895"/>
+												<File Id="341790030"/>
+												<File Id="779647587"/>
+												<File Id="1013773755"/>
+												<File Id="855685432"/>
+												<File Id="112420704"/>
+												<File Id="807948817"/>
+												<File Id="326120776"/>
+												<File Id="716012722"/>
+												<File Id="870873195"/>
+												<File Id="288770216"/>
+												<File Id="405446623"/>
+												<File Id="779647587"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{68C50061-6A98-42F5-9E09-302CA71CB7CC}">
 									<Media>
@@ -3937,6 +4448,111 @@
 										<File Id="1003490078"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{DC200334-F48E-4ED4-9C0B-6752C5EF87DD}">
+									<Children>
+										<SwitchContainer SwitchValue="{68C50061-6A98-42F5-9E09-302CA71CB7CC}">
+											<Media>
+												<File Id="575938125"/>
+												<File Id="800704066"/>
+												<File Id="689456242"/>
+												<File Id="928584233"/>
+												<File Id="775017438"/>
+												<File Id="66401669"/>
+												<File Id="847320984"/>
+												<File Id="824880322"/>
+												<File Id="370253324"/>
+												<File Id="331269921"/>
+												<File Id="52716697"/>
+												<File Id="721460856"/>
+												<File Id="504363300"/>
+												<File Id="714826322"/>
+												<File Id="240965155"/>
+												<File Id="265775030"/>
+												<File Id="751475916"/>
+												<File Id="928696159"/>
+												<File Id="497735447"/>
+												<File Id="837080155"/>
+												<File Id="504363300"/>
+												<File Id="887546303"/>
+												<File Id="42683071"/>
+												<File Id="30996931"/>
+												<File Id="167916822"/>
+												<File Id="403655309"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{11CB2E04-8E7F-47B5-B217-07E5180EA277}">
+									<Children>
+										<SwitchContainer SwitchValue="{5384BC6C-5FA8-4ABC-9E5A-0D3391F93C76}">
+											<Media>
+												<File Id="959952819"/>
+												<File Id="823046239"/>
+												<File Id="238154861"/>
+												<File Id="880921203"/>
+												<File Id="139489224"/>
+												<File Id="609504238"/>
+												<File Id="87142235"/>
+												<File Id="896395292"/>
+												<File Id="176857664"/>
+												<File Id="795085726"/>
+												<File Id="319278849"/>
+												<File Id="497439167"/>
+												<File Id="341734368"/>
+												<File Id="1025549413"/>
+												<File Id="301775186"/>
+												<File Id="390465757"/>
+												<File Id="65651029"/>
+												<File Id="230941491"/>
+												<File Id="28092065"/>
+												<File Id="1456136"/>
+												<File Id="963489014"/>
+												<File Id="497479969"/>
+												<File Id="449074413"/>
+												<File Id="891575014"/>
+												<File Id="57271169"/>
+												<File Id="731667250"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{60DFFE4C-EB6E-4956-9964-4965DF4C357C}">
+									<Children/>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3064128F-1C3F-4FC8-B6DB-4282EC01EDC0}">
+									<Children>
+										<SwitchContainer SwitchValue="{D725C514-1A0B-43B1-B63C-B11156E51DC7}">
+											<Media>
+												<File Id="986933918"/>
+												<File Id="85341849"/>
+												<File Id="942129746"/>
+												<File Id="744493589"/>
+												<File Id="435439698"/>
+												<File Id="607356749"/>
+												<File Id="524851703"/>
+												<File Id="227372125"/>
+												<File Id="366528716"/>
+												<File Id="165716978"/>
+												<File Id="323614728"/>
+												<File Id="555463578"/>
+												<File Id="87243738"/>
+												<File Id="779573967"/>
+												<File Id="370911978"/>
+												<File Id="1064825660"/>
+												<File Id="413377409"/>
+												<File Id="862204827"/>
+												<File Id="1066772740"/>
+												<File Id="852390783"/>
+												<File Id="40168807"/>
+												<File Id="481131797"/>
+												<File Id="1062377162"/>
+												<File Id="351157512"/>
+												<File Id="33548643"/>
+												<File Id="1051162667"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
 								<SwitchContainer SwitchValue="{D725C514-1A0B-43B1-B63C-B11156E51DC7}">
 									<Media>
 										<File Id="603255070"/>
@@ -4112,6 +4728,24 @@
 										<File Id="483407612"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{17E0056E-B8A7-487F-BEBB-C1D3EDE665A9}">
+									<Media>
+										<File Id="547503202"/>
+										<File Id="677706349"/>
+										<File Id="894507120"/>
+										<File Id="847649158"/>
+										<File Id="43148214"/>
+										<File Id="46974445"/>
+										<File Id="802083714"/>
+										<File Id="564497326"/>
+										<File Id="698620562"/>
+										<File Id="1060088697"/>
+										<File Id="675962254"/>
+										<File Id="173219240"/>
+										<File Id="681969474"/>
+										<File Id="92411191"/>
+									</Media>
+								</SwitchContainer>
 								<SwitchContainer SwitchValue="{75D0D2F5-F447-4118-9AAB-257DDA49906A}">
 									<Media>
 										<File Id="729972572"/>
@@ -4188,6 +4822,8 @@
 				</Event>
 				<Event Id="3679762312" Name="Resume_All" ObjectPath="\Events\Setup_Event\Resume_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3271167387" Name="SetWoods" ObjectPath="\Events\Music_Event\Debug\SetWoods" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2516234976" Name="SFX_Brass_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Brass_Broken" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="212679835" Name="SFX_Percussions_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Percussions_Broken" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1231703344" Name="SFX_Potion_Broken" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Broken" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.147086" DurationMax="3.117456">
 					<IncludedMemoryFiles>
 						<File Id="95828565" Language="SFX">
@@ -4351,6 +4987,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3427361090" Name="SFX_Potion_Wrong" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Wrong" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2404344115" Name="SFX_Strings_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Strings_Broken" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3420964884" Name="SFX_Wand_Enter" ObjectPath="\Events\SFX_Event\SFX\Wand\SFX_Wand_Enter" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="454031838" Language="SFX">
@@ -4391,6 +5028,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2822419119" Name="SFX_Woods_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Woods_Broken" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="56434811" Name="Staccato" ObjectPath="\Events\Music_Event\Debug\Staccato" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3086540886" Name="StopAll" ObjectPath="\Events\Setup_Event\StopAll" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
@@ -4457,6 +5095,7 @@
 						<Switch Id="3363523641" Name="Strings" ObjectPath="\Switches\Switches\SW_Family_Solist\Strings"/>
 						<Switch Id="505915784" Name="Brass" ObjectPath="\Switches\Switches\SW_Family_Solist\Brass"/>
 						<Switch Id="3762497105" Name="Percussions" ObjectPath="\Switches\Switches\SW_Family_Solist\Percussions"/>
+						<Switch Id="1182451328" Name="Nobody" ObjectPath="\Switches\Switches\SW_Family_Solist\Nobody"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="3232210438" Name="SW_Intensity_Percussions" ObjectPath="\Switches\Switches\SW_Intensity_Percussions">
