@@ -8,12 +8,13 @@ using UnityEngine;
 public class ArticulationPotion : BreakableObject
 {
     [Header("Articulation")]
+    public SoundEngineTuner soundEngineTuner;
     public ArticulationManager articulationManager;
     public InstrumentFamily.ArticulationType articulationType;
 
     override protected void OnBreak() 
     {
-        /* TODO : should also call SetPotionType switch */
+        soundEngineTuner.SetSwitchPotionType("Articulation");
         articulationManager.SetArticulation(articulationType);
     }
 }

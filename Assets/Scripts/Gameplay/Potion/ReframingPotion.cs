@@ -16,10 +16,11 @@ public class ReframingPotion : BreakableObject
     }
 
     [Header("Reframing")]
+    public SoundEngineTuner soundEngineTuner;
     public ReframingPotionType type;
     
     override protected void OnBreak() 
     {
-        //TODO : SetSwitch ReframingPotionType
+        soundEngineTuner.SetSwitchPotionType(type.ToString());
     }
 }
