@@ -10,8 +10,9 @@ public class WwiseCallBack : MonoBehaviour
     private void Start()
     {
         AkSoundEngine.PostEvent("Play_Music", gameObject, (uint)AkCallbackType.AK_MusicSyncUserCue | (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction, this);
-        AkSoundEngine.SetState("Music", "Start");
+        AkSoundEngine.SetState("Music", "Metronome");
         AkSoundEngine.SetState("PotionCount", "Left_0");   // Nombre de potions restantes que le joueur doit lancer pour corriger la famille
+        AkSoundEngine.SetSwitch("SW_Family_Solist", "Woods", gameObject);
     }
 
     public void StopMusic()
