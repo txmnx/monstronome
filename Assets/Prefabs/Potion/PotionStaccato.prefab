@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 5744209662141570151}
   - component: {fileID: 2162323093861310155}
   - component: {fileID: 4870772829793967272}
-  - component: {fileID: 8305061754855108599}
+  - component: {fileID: 3990781794092746945}
   m_Layer: 0
   m_Name: PotionStaccato
   m_TagString: Untagged
@@ -666,7 +666,7 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
---- !u!114 &8305061754855108599
+--- !u!114 &3990781794092746945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -675,23 +675,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4717331306811703601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89bf0cd6f348da04d9824b45fb5151f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 36074c1f3664cc044a5c0c148ea4be99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  articulationManager: {fileID: 0}
-  articulationType: 2
-  defaultBottle: {fileID: 7810904266043168099}
-  breakedBottle: {fileID: 3449200238790001808}
+  defaultObject: {fileID: 7810904266043168099}
+  breakedObject: {fileID: 3449200238790001808}
   speedUntilBreak: 4
   particlesAnimation: {fileID: 7102467015507507156}
-  SFXOnPotionBreak:
+  SFXOnObjectBreak:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
-  SFXOnPotionCollision:
+  SFXOnObjectCollision:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  articulationManager: {fileID: 0}
+  articulationType: 2
 --- !u!1 &4805479551997062225
 GameObject:
   m_ObjectHideFlags: 0
