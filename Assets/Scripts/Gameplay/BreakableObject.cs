@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Represents a grabbable object that can be breaked
+ * Represents an object that can be breaked
  * 
  */
-[RequireComponent(typeof(XRGrabbable))]
+[RequireComponent(typeof(Rigidbody))]
 public class BreakableObject : MonoBehaviour
 {
     [Header("Breakable Object")]
