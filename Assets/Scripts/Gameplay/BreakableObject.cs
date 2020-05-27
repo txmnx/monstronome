@@ -8,7 +8,7 @@ using UnityEngine;
  * 
  */
 [RequireComponent(typeof(XRGrabbable))]
-public class BreakeableObject : MonoBehaviour
+public class BreakableObject : MonoBehaviour
 {
     [Header("Breakable Object")]
     public Transform defaultObject;

@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Potion used to change an instrument family's articulation
  */
-public class ArticulationPotion : BreakeableObject
+public class ArticulationPotion : BreakableObject
 {
     [Header("Articulation")]
     public ArticulationManager articulationManager;

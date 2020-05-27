@@ -6,7 +6,7 @@ using UnityEngine;
  * Potion used as in the reframing mode
  *
  */
-public class ReframingPotion : BreakeableObject
+public class ReframingPotion : BreakableObject
 {
     // Start is called before the first frame update
     void Start()
