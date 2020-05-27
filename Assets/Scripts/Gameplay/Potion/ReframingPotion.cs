@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,15 +9,17 @@ using UnityEngine;
  */
 public class ReframingPotion : BreakableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum ReframingPotionType
     {
-        
+        Bonus,
+        Malus
     }
 
-    // Update is called once per frame
-    void Update()
+    [Header("Reframing")]
+    public ReframingPotionType type;
+    
+    override protected void OnBreak() 
     {
-        
+        //TODO : SetSwitch ReframingPotionType
     }
 }

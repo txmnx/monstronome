@@ -52,13 +52,12 @@ public class BreakableObject : MonoBehaviour
                 ps.Play();
             }
             
-            SFXOnObjectBreak.Post(gameObject);
-
             foreach (Collider co in m_Colliders) {
                 co.enabled = false;
             }
             
             OnBreak();
+            SFXOnObjectBreak.Post(gameObject);
             
             Destroy(defaultObject.gameObject);
             Destroy(this);
