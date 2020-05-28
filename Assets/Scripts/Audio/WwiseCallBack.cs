@@ -48,7 +48,8 @@ public class WwiseCallBack : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            AkSoundEngine.SetState("Music", "Start");
+            OnStartBlocBegin?.Invoke();
+            //AkSoundEngine.SetState("Music", "Start");
         }
     }
 
