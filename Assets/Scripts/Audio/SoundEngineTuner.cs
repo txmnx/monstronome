@@ -10,7 +10,8 @@ public class SoundEngineTuner : MonoBehaviour
 {
     public WwiseCallBack soundReference;
 
-    public const float BASE_TEMPO = 120;
+    public const float BASE_TEMPO = 120.0f;
+    public const float START_TEMPO = 90.0f;
     public const float MAX_DELAY = 0.5f;
 
     private Dictionary<System.Type, string> m_KeywordFamily;
@@ -69,6 +70,7 @@ public class SoundEngineTuner : MonoBehaviour
     /* TEMPO */
     public void SetTempo(float bpm)
     {
+        Debug.Log("BPM : " + bpm);
         AkSoundEngine.SetRTPCValue("RTPC_Tempo", bpm / BASE_TEMPO);
     }
 

@@ -8,8 +8,7 @@ using UnityEngine;
  */
 public class TempoManager : MonoBehaviour
 {
-    //TODO : Should be 90
-    private const float BASE_ANIM_TEMPO = 82.5f;
+    private const float BASE_ANIM_TEMPO = 90.0f;
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
     public ConductManager conductManager;
@@ -44,7 +43,7 @@ public class TempoManager : MonoBehaviour
         conductManager.OnBeginConducting += OnBeginConducting;
 
         m_BufferLastBPMs = new Queue<float>();
-        float baseTempo = SoundEngineTuner.BASE_TEMPO;
+        float baseTempo = SoundEngineTuner.START_TEMPO;
         for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
             m_BufferLastBPMs.Enqueue(baseTempo);
         }

@@ -1,12 +1,52 @@
 fileFormatVersion: 2
-guid: d8c320251c9a50547bc1a1a81c7675ac
+guid: 583db2028cf79894781e76347c9a95db
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: -5016506297945847435
-    second: broken
-  externalObjects: {}
+      74: 3953826621566093030
+    second: ALFRED_Idle
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bras
+    second: {fileID: 2100000, guid: 7c025da0d98606b48af4f0061c40854b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: caisse
+    second: {fileID: 2100000, guid: 72dfab2c63569774197feb013d87d68e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cheveux
+    second: {fileID: 2100000, guid: a7891056b9006cc42b8102510d9ef2bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chouchou2
+    second: {fileID: 2100000, guid: 80c5f348866756546a3cb469862495c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jambe_bracelet
+    second: {fileID: 2100000, guid: 80c5f348866756546a3cb469862495c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: noeud
+    second: {fileID: 2100000, guid: 33782b8af40e84543b291607b3e3ad4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: oeil
+    second: {fileID: 2100000, guid: 18b57504b52b7cf44a1c87761060f51d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paupiere
+    second: {fileID: 2100000, guid: d6ab9c333f92ea44386a5a65212c59ab, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -33,36 +73,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: broken
-      takeName: ALFRED_Broken
-      internalID: 0
-      firstFrame: 1
-      lastFrame: 330
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -99,8 +110,13 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
-  importAnimation: 1
+  referencedClips:
+  - 0c83172c2f4eeb8489d67abb6f14d3a4
+  - cf23946299627ef4e983f5206362d70c
+  - ca9812ea9ff23174d947bbd5dd370ed9
+  - 0a89e58949c2087449c4dc896700decb
+  - cb260d49097f4ba4ca16f735631274ed
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
