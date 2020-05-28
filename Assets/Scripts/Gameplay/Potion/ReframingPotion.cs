@@ -19,8 +19,9 @@ public class ReframingPotion : BreakableObject
     public SoundEngineTuner soundEngineTuner;
     public ReframingPotionType type;
     
-    override protected void OnBreak() 
+    override protected void Start()
     {
-        soundEngineTuner.SetSwitchPotionType(type.ToString());
+        base.Start();
+        soundEngineTuner.SetSwitchPotionType(type.ToString(), gameObject);
     }
 }

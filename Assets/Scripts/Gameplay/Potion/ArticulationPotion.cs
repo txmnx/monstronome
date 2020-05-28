@@ -12,9 +12,14 @@ public class ArticulationPotion : BreakableObject
     public ArticulationManager articulationManager;
     public InstrumentFamily.ArticulationType articulationType;
 
+    override protected void Start()
+    {
+        base.Start();
+        soundEngineTuner.SetSwitchPotionType("Articulation", gameObject);
+    }
+    
     override protected void OnBreak() 
     {
-        soundEngineTuner.SetSwitchPotionType("Articulation");
         articulationManager.SetArticulation(articulationType);
     }
 }

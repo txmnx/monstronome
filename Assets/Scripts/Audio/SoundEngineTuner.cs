@@ -119,9 +119,9 @@ public class SoundEngineTuner : MonoBehaviour
     }
 
     /* POTIONS */
-    public void SetSwitchPotionType(string type)
+    public void SetSwitchPotionType(string type, GameObject referenceObject)
     {
-        AkSoundEngine.SetSwitch("SW_Potion_Type", type, soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Potion_Type", type, referenceObject);
     }
     
     /* ARTICULATION */

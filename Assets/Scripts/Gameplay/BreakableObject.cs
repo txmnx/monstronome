@@ -35,6 +35,9 @@ public class BreakableObject : MonoBehaviour
         m_Colliders = GetComponents<Collider>();
     }
 
+    protected virtual void Start()
+    {}
+
     private void OnCollisionEnter(Collision other)
     {
         float speed = other.relativeVelocity.magnitude;
