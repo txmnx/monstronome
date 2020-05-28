@@ -1,0 +1,69 @@
+Event	ID	Name			Wwise Object Path	Notes
+	212679835	SFX_Percussions_Broken			\SFX_Event\SFX\Family\SFX_Percussions_Broken	
+	345071173	SFX_Potion_Collision			\SFX_Event\SFX\Potion\SFX_Potion_Collision	
+	1231703344	SFX_Potion_Broken			\SFX_Event\SFX\Potion\SFX_Potion_Broken	
+	1368847222	SFX_Wand_Exit			\SFX_Event\SFX\Wand\SFX_Wand_Exit	
+	2242916472	SFX_Potion_Spawn			\SFX_Event\SFX\Potion\SFX_Potion_Spawn	
+	2404344115	SFX_Strings_Broken			\SFX_Event\SFX\Family\SFX_Strings_Broken	
+	2516234976	SFX_Brass_Broken			\SFX_Event\SFX\Family\SFX_Brass_Broken	
+	2822419119	SFX_Woods_Broken			\SFX_Event\SFX\Family\SFX_Woods_Broken	
+	3420964884	SFX_Wand_Enter			\SFX_Event\SFX\Wand\SFX_Wand_Enter	
+	3427361090	SFX_Potion_Wrong			\SFX_Event\SFX\Potion\SFX_Potion_Wrong	
+	3591561671	SFX_Potion_Shake			\SFX_Event\SFX\Potion\SFX_Potion_Shake	
+	3606142437	SFX_Potion_Throw			\SFX_Event\SFX\Potion\SFX_Potion_Throw	
+	3638337738	SFX_Wand_Iddle			\SFX_Event\SFX\Wand\SFX_Wand_Iddle	
+	3668990679	SFX_Potion_Pickup			\SFX_Event\SFX\Potion\SFX_Potion_Pickup	
+	3758674935	SFX_Potion_Right			\SFX_Event\SFX\Potion\SFX_Potion_Right	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	371597594	SW_Potion_Type			\Switches\SW_Potion_Type	
+
+Switch	ID	Name	Switch Group			Notes
+	1680241497	Malus	SW_Potion_Type			
+	1762926010	Articulation	SW_Potion_Type			
+	2356001030	Bonus	SW_Potion_Type			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2031370766	RTPC_Potion_Speed			\Game_Parameters\Feedback\RTPC_Potion_Speed	
+
+Modulator Time	ID	Name			Wwise Object Path	Notes
+	122980461	Modulator Time (Custom)				
+	202286159	Modulator Time (Custom)				
+	521306605	Modulator Time (Custom)				
+	573953175	Modulator Time (Custom)				
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	25642482	SFX_Potion_Pickup-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Pickup\SFX_Potion_Pickup-06_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Pickup\SFX_Potion_Pickup-06		34481
+	95828565	SFX_Bottle_Broken-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-03_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Legato\SFX_Bottle_Broken-03		182256
+	98152316	SFX_Potion_Throw-05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Throw\SFX_Potion_Throw-05_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Throw\SFX_Potion_Throw-05		51700
+	178995129	SFX_Bottle_Broken-04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-04_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Legato\SFX_Bottle_Broken-04		136401
+	245555650	SFX_Bottle_Broken-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-01_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Legato\SFX_Bottle_Broken-01		139394
+	266327888	SFX_Potion_Throw-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Throw\SFX_Potion_Throw-03_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Throw\SFX_Potion_Throw-03		33135
+	295587626	SFX_Wand_Exit-04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Wand\Exit\SFX_Wand_Exit-04_989528EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Wand\Wand_Tempo_Exit\SFX_Wand_Exit-04		27820
+	332418928	SFX_Potion_Pickup-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Pickup\SFX_Potion_Pickup-03_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Pickup\SFX_Potion_Pickup-03		21614
+	340746061	SFX_Bottle_Collision	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Collision\SFX_Bottle_Collision_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Collision\Collision_Hight\SFX_Bottle_Collision		11347
+	367375893	SFX_Bottle_Collision-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Collision\SFX_Bottle_Collision-03_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Collision\Collision_Medium\SFX_Bottle_Collision-03		9922
+	373189250	SFX_Bottle_Collision-04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Collision\SFX_Bottle_Collision-04_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Collision\Collision_Medium\SFX_Bottle_Collision-04		6960
+	376588425	SFX_Wand_Exit-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Wand\Exit\SFX_Wand_Exit-03_C0344A5C.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Wand\Wand_Tempo_Exit\SFX_Wand_Exit-03		25197
+	376823886	SFX_Potion_Throw-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Throw\SFX_Potion_Throw-01_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Throw\SFX_Potion_Throw-01		35267
+	388019456	SFX_Potion_Pickup-04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Pickup\SFX_Potion_Pickup-04_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Pickup\SFX_Potion_Pickup-04		28399
+	435156506	SFX_Bottle_Collision-05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Collision\SFX_Bottle_Collision-05_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Collision\Collision_Medium\SFX_Bottle_Collision-05		7783
+	454031838	Wand_Tempo_Chime	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Wand\Wand_Tempo_Chime_35A0525B.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Wand\Wand_Tempo_Iddle\Wand_Tempo_Chime		987619
+	457697378	SFX_Wand_Exit-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Wand\Exit\SFX_Wand_Exit-01_FB4F805C.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Wand\Wand_Tempo_Exit\SFX_Wand_Exit-01		31719
+	469420341	SFX_Potion_Throw-04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Throw\SFX_Potion_Throw-04_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Throw\SFX_Potion_Throw-04		43711
+	612772428	SFX_Bottle_Broken-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-06_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Legato\SFX_Bottle_Broken-06		164482
+	620827041	SFX_Potion_Throw-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Throw\SFX_Potion_Throw-06_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Throw\SFX_Potion_Throw-06		27654
+	653509919	SFX_Potion_Pickup-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Pickup\SFX_Potion_Pickup-07_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Pickup\SFX_Potion_Pickup-01		28440
+	682956080	SFX_Wand_Exit-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Wand\Exit\SFX_Wand_Exit-02_BE5FC53E.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Wand\Wand_Tempo_Exit\SFX_Wand_Exit-02		31483
+	686222116	SFX_Bottle_Collision-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Collision\SFX_Bottle_Collision-06_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Collision\Collision_Low\SFX_Bottle_Collision-06		13990
+	708352250	SFX_Potion_Throw-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Throw\SFX_Potion_Throw-02_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Throw\SFX_Potion_Throw-02		39278
+	779400648	SFX_Potion_Bubbles	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Bubbles\SFX_Potion_Bubbles-01_A7F1D520.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Bubbles\SFX_Potion_Bubbles		675350
+	792566179	SFX_Bottle_Broken-07	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-07_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Legato\SFX_Bottle_Broken-07		172198
+	827724873	SFX_Bottle_Broken-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-08_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Legato\SFX_Bottle_Broken-02		171883
+	847035281	SFX_Bottle_Broken-05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-05_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Legato\SFX_Bottle_Broken-05		161529
+	891198138	SFX_Potion_Pickup-05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Pickup\SFX_Potion_Pickup-05_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Pickup\SFX_Potion_Pickup-05		23517
+	913916932	SFX_Bottle_Collision-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Collision\SFX_Bottle_Collision-01_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Collision\Collision_Hight\SFX_Bottle_Collision-01		18855
+	921603160	SFX_Potion_Pickup-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Pickup\SFX_Potion_Pickup-02_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Pickup\SFX_Potion_Pickup-02		21007
+	942162758	SFX_Bottle_Collision-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Potion\Collision\SFX_Bottle_Collision-02_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Collision\Collision_Medium\SFX_Bottle_Collision-02		7720
+	1067945181	Wand_Tempo_Enter-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\SFX\Wand\Wand_Tempo_Enter-02_F3526F0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Wand\Wand_Tempo_Enter\Wand_Tempo_Enter-01		61082
+
