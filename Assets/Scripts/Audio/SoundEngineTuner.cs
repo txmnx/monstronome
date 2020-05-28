@@ -9,7 +9,7 @@ using UnityEngine;
 public class SoundEngineTuner : MonoBehaviour
 {
     public WwiseCallBack soundReference;
-    
+
     public const float BASE_TEMPO = 120;
     public const float MAX_DELAY = 0.5f;
 
@@ -18,6 +18,12 @@ public class SoundEngineTuner : MonoBehaviour
     private Dictionary<InstrumentFamily.TempoType, RTPCRange<InstrumentFamily.TempoType>> m_TempoRanges;
     //Used to retrieve intensity ranges from an intensity type
     private Dictionary<InstrumentFamily.IntensityType, RTPCRange<InstrumentFamily.IntensityType>> m_IntensityRanges;
+
+    public float volumestrings;
+    public float volumewoods;
+    public float volumepercussions;
+    public float volumebrass;
+
 
     private void Awake()
     {
@@ -182,4 +188,14 @@ public class SoundEngineTuner : MonoBehaviour
     {
         return "Focus_" + familyKeyword;
     }
+
+    private void Update()
+    {
+        int type = 1;
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Strings", gameObject, 0, out volumestrings, ref type);
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Woods", gameObject, 0, out volumewoods, ref type);
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Percussions", gameObject, 0, out volumepercussions, ref type);
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Brass", gameObject, 0, out volumebrass, ref type);
+    }
 }
+
