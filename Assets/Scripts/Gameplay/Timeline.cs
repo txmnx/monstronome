@@ -20,18 +20,22 @@ public class Timeline : MonoBehaviour
         m_TimelineSize = m_TimelineDirection.magnitude;
         m_TimelineDirection = m_TimelineDirection.normalized;
 
-        m_AimingPosition = end.localPosition;
+        m_AimingPosition = start.localPosition;
     }
 
     private void Update()
     {
-        MoveCursor(0.01f * Time.deltaTime);
-        cursor.localPosition = Vector3.Lerp(cursor.localPosition, m_AimingPosition, 0.5f);
+        UpdateCursor();
+    }
+    
+    public void UpdateCursor()
+    {
+        cursor.localPosition = Vector3.Lerp(cursor.localPosition, m_AimingPosition, 0.01f);
     }
 
     public void MoveCursor(float percent)
     {
-        m_AimingPosition = cursor.localPosition + m_TimelineSize * percent * m_TimelineDirection;
+        m_AimingPosition += m_TimelineSize * percent * m_TimelineDirection;
     }
 
     public void SetCursor(float percent)
