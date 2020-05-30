@@ -13,6 +13,8 @@ public class SoundEngineTuner : MonoBehaviour
     public const float BASE_TEMPO = 120.0f;
     public const float START_TEMPO = 90.0f;
     public const float MAX_DELAY = 0.5f;
+    //Track length (in beats)
+    public const float TRACK_LENGTH = 320.0f;
 
     private Dictionary<System.Type, string> m_KeywordFamily;
     //Used to retrieve tempo range from a tempo type

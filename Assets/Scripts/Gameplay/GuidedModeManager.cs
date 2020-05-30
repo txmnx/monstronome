@@ -54,10 +54,9 @@ public class GuidedModeManager : MonoBehaviour
     private IEnumerator UpdatePlaying()
     {
         while (m_CurrentStep == GuidedModeStep.Playing) {
-            //float percentBeat = 100.0f / 320.0f;
             float beatPerSeconds = tempoManager.bpm / 60.0f;
-            float percent = beatPerSeconds / 3.2f;
-            percent *= 0.01f;
+            float percent = beatPerSeconds / (SoundEngineTuner.TRACK_LENGTH * 0.01f); //We scale the beat on one second to the whole track on the base of 100
+            percent *= 0.01f; //MoveCursor takes a [0, 1] value
             timeline.MoveCursor(percent * Time.deltaTime);
             timeline.UpdateCursor();
             yield return null;

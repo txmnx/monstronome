@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Moves a cursor along a timeline
+ */
 public class Timeline : MonoBehaviour
 {
     public Transform cursor;
