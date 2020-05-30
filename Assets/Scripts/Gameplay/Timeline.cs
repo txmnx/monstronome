@@ -23,22 +23,22 @@ public class Timeline : MonoBehaviour
         m_AimingPosition = start.localPosition;
     }
 
-    private void Update()
-    {
-        UpdateCursor();
-    }
-    
     public void UpdateCursor()
     {
-        cursor.localPosition = Vector3.Lerp(cursor.localPosition, m_AimingPosition, 0.01f);
+        cursor.localPosition = Vector3.Lerp(cursor.localPosition, m_AimingPosition, 0.5f);
     }
 
     public void MoveCursor(float percent)
     {
         m_AimingPosition += m_TimelineSize * percent * m_TimelineDirection;
     }
-
+    
     public void SetCursor(float percent)
+    {
+        m_AimingPosition = start.localPosition + m_TimelineSize * percent * m_TimelineDirection;
+    }
+
+    public void ResetCursor(float percent)
     {
         cursor.localPosition = start.localPosition + m_TimelineSize * percent * m_TimelineDirection;
         m_AimingPosition = cursor.localPosition;

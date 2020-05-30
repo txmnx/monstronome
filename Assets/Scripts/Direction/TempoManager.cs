@@ -110,8 +110,6 @@ public class TempoManager : MonoBehaviour
                 animator.speed = animBPM;   
             }
         }
-        
-        Debug.Log("Animation speed : " + animBPM);
     }
     
     private void Update()
