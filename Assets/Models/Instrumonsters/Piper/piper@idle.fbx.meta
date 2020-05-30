@@ -1,52 +1,12 @@
 fileFormatVersion: 2
-guid: 0b5c9df9a9284a9449dfdf500dc340a7
+guid: 110c01793aa7eaa4a899f248cb684e3b
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
-      74: 3953826621566093030
-    second: ALFRED_Idle
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: bras
-    second: {fileID: 2100000, guid: 7c025da0d98606b48af4f0061c40854b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: caisse
-    second: {fileID: 2100000, guid: 72dfab2c63569774197feb013d87d68e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cheveux
-    second: {fileID: 2100000, guid: a7891056b9006cc42b8102510d9ef2bd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: chouchou2
-    second: {fileID: 2100000, guid: 80c5f348866756546a3cb469862495c1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: jambe_bracelet
-    second: {fileID: 2100000, guid: 80c5f348866756546a3cb469862495c1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: noeud
-    second: {fileID: 2100000, guid: 33782b8af40e84543b291607b3e3ad4a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: oeil
-    second: {fileID: 2100000, guid: 18b57504b52b7cf44a1c87761060f51d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: paupiere
-    second: {fileID: 2100000, guid: d6ab9c333f92ea44386a5a65212c59ab, type: 2}
+      74: 1044046221389648955
+    second: idle
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -75,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ALFRED_Idle
-      takeName: ALFRED_Idle
+      name: idle
+      takeName: Piper_Idle
       internalID: 0
-      firstFrame: 1
-      lastFrame: 450
+      firstFrame: 0
+      lastFrame: 400
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -106,7 +66,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 25
+    globalScale: 14
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -139,13 +99,8 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - d8c320251c9a50547bc1a1a81c7675ac
-  - c8d55f99d9637f9429d32a05aaa7ecae
-  - 70372b4a2ee2cfb45aeaad7bdf0c300d
-  - be8b5c32a5984b24ca765a78ed8a47cc
-  - 765c3e3a59560cd47857a5036c069327
-  importAnimation: 0
+  referencedClips: []
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -157,7 +112,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 25
+    globalScale: 14
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

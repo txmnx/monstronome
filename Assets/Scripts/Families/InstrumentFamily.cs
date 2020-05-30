@@ -90,28 +90,35 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void SetArticulation(int index)
     {
         if (index < articulationTypes.Length) {
-            soundEngineTuner.SetArticulation(this, articulationTypes[index]);
-            if (familyAnimators.Length > 0) {
-                StartCoroutine(FadeArticulation(GetBlendArticulation(m_CurrentArticulationIndex),
-                    GetBlendArticulation(index)));
+            if (m_CurrentArticulationIndex != index) {
+                soundEngineTuner.SetArticulation(this, articulationTypes[index]);
+                if (familyAnimators.Length > 0) {
+                    StartCoroutine(FadeArticulation(m_CurrentArticulationIndex, index));
+                }
+
+                m_CurrentArticulationIndex = index;
+
+                //DEBUG
+                articulationTextMesh.text = articulationTypes[index].ToString();
             }
-
-            m_CurrentArticulationIndex = index;
-
-            //DEBUG
-            articulationTextMesh.text = articulationTypes[index].ToString();
         }
     }
-
-    IEnumerator FadeArticulation(float start, float finish)
+    
+    IEnumerator FadeArticulation(int idStart, int idFinish)
     {
-        if (start > finish && finish < 0.0001f) {
-            finish = 1;
-        }
-        else if (start < 0.0001f && (GetBlendArticulation(articulationTypes.Length - 1) - finish) < 0.0001f) {
-            start = 1;
-        }
+        float start = GetBlendArticulation(idStart);
+        float finish = GetBlendArticulation(idFinish);
         
+        //TODO : This method only works if there are three or less articulation animations 
+        if (Mathf.Abs(idFinish - idStart) > 1) {
+            if (idStart > idFinish) {
+                finish = 1;
+            }
+            else {
+                start = 1;
+            }
+        }
+
         float t = 0;
         while (t < 0.99999f) {
             float fade = Mathf.Lerp(start, finish, t);
