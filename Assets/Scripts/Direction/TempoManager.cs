@@ -8,7 +8,8 @@ using UnityEngine;
  */
 public class TempoManager : MonoBehaviour
 {
-    private const float BASE_ANIM_TEMPO = 90.0f;
+    private const float BASE_ANIM_TEMPO = 87.272727f;
+    //private const float BASE_ANIM_TEMPO = 90.0f;
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
     public ConductManager conductManager;
