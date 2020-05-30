@@ -1233,6 +1233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e5d2630d2db0d4faf9328e75a4c64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beatManager: {fileID: 348619487}
+  tempoManager: {fileID: 348619489}
   wwiseCallback: {fileID: 1915118170}
   families:
   - {fileID: 413094687}
@@ -1240,7 +1242,6 @@ MonoBehaviour:
   - {fileID: 1247558651}
   - {fileID: 854011154}
   timeline: {fileID: 2066500633}
-  tempoManager: {fileID: 348619489}
 --- !u!114 &348619497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5524,7 +5525,7 @@ PrefabInstance:
     - target: {fileID: 6362429254250750910, guid: 9320b22a3e4e7b041b2d3224d9f70a81,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6362429254250750910, guid: 9320b22a3e4e7b041b2d3224d9f70a81,
         type: 3}
@@ -6374,7 +6375,7 @@ Transform:
   - {fileID: 1915118168}
   - {fileID: 1610161222}
   m_Father: {fileID: 1031486161}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -132.8, z: 0}
 --- !u!1 &1677331258 stripped
 GameObject:

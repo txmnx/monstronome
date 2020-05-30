@@ -9,10 +9,15 @@ using UnityEngine;
  */
 public class GuidedModeManager : MonoBehaviour
 {
+    public BeatManager beatManager;
+    public TempoManager tempoManager;
+    
     public WwiseCallBack wwiseCallback;
     public InstrumentFamily[] families = new InstrumentFamily[4];
     public Timeline timeline;
-    public TempoManager tempoManager;
+
+    //TODO : start orchestra with the tuning and the 4 beats instead
+    private bool m_HasOneBeat = false;
     
     private enum GuidedModeStep
     {
@@ -33,6 +38,8 @@ public class GuidedModeManager : MonoBehaviour
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
         }
+
+        beatManager.OnBeatMajorHand += OnBeat;
     }
 
     public void StartOrchestra()
@@ -57,6 +64,14 @@ public class GuidedModeManager : MonoBehaviour
         }
     }
 
+    private void OnBeat(float amplitude)
+    {
+        if (!m_HasOneBeat) {
+            AkSoundEngine.SetState("Music", "Start");
+        }
+        m_HasOneBeat = true;
+    }
+    
     //Events
     public event Action OnStartOrchestra;
 }
