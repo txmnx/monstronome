@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,16 +28,13 @@ public class TempoManager : MonoBehaviour
     public float maxBPM = 165;
 
     private InstrumentFamily.TempoType m_CurrentTempoType;
-
-
+    
     /* Conduct */
     private int m_BeatsCountSinceBeginConducting = 0;
-
-
+    
     /* Debug */
     [Header("DEBUG")]
     public DebugGraph bpmGraph;
-    public TextMeshPro debugTextTempoType;
 
     private void Start()
     {
@@ -53,6 +51,7 @@ public class TempoManager : MonoBehaviour
         soundEngineTuner.SetTempo(bpm);
         UpdateAnimationSpeed();
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
+        OnTempoChange?.Invoke(m_CurrentTempoType);
     }
 
     public void OnBeginConducting()
@@ -82,6 +81,7 @@ public class TempoManager : MonoBehaviour
 
     private void UpdateTempo()
     {
+        OnTempoChange?.Invoke(m_CurrentTempoType);
         SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
 
         //DEBUG
@@ -97,9 +97,6 @@ public class TempoManager : MonoBehaviour
         
         //We set the new animation speed
         UpdateAnimationSpeed();
-            
-        //DEBUG
-        debugTextTempoType.text = tempoRange.type.ToString();
     }
 
     private void UpdateAnimationSpeed()
@@ -117,4 +114,7 @@ public class TempoManager : MonoBehaviour
         //DEBUG
         bpmGraph?.SetValue(bpm);
     }
+    
+    /* Events */
+    public Action<InstrumentFamily.TempoType> OnTempoChange;
 }

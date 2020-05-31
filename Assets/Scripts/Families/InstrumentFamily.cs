@@ -59,7 +59,6 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     private void Start()
     {
-        SetArticulation(0);
         StartCoroutine(LaunchAnimOffset());
     }
 

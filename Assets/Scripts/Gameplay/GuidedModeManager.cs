@@ -9,13 +9,21 @@ using UnityEngine;
  */
 public class GuidedModeManager : MonoBehaviour
 {
+    [Header("Managers")]
     public BeatManager beatManager;
+    public ArticulationManager articulationManager;
+    public IntensityManager intensityManager;
     public TempoManager tempoManager;
-    
     public WwiseCallBack wwiseCallback;
-    public InstrumentFamily[] families = new InstrumentFamily[4];
-    public Timeline timeline;
 
+    [Header("Animations")]
+    public InstrumentFamily[] families = new InstrumentFamily[4];
+    
+    [Header("Guided mode")]
+    public Timeline timeline;
+    public DrawableOrchestraState drawableRules;
+    public DrawableOrchestraState drawableOrchestaState;
+    
     //TODO : start orchestra with the tuning and the 4 beats instead
     private bool m_HasOneBeat = false;
 
@@ -37,9 +45,6 @@ public class GuidedModeManager : MonoBehaviour
     private OrchestraState m_CurrentRule;
     private Dictionary<string, OrchestraState> m_Rules;
 
-    public DrawableOrchestraState drawableRules;
-    public DrawableOrchestraState drawableOrchestaState;
-    
     private enum GuidedModeStep
     {
         Tuning,
@@ -49,6 +54,7 @@ public class GuidedModeManager : MonoBehaviour
     }
     private GuidedModeStep m_CurrentStep;
 
+    
     private void Awake()
     {
         wwiseCallback.OnCue += LaunchState;
@@ -68,33 +74,13 @@ public class GuidedModeManager : MonoBehaviour
             {"Transition2", new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.Fortissimo, InstrumentFamily.TempoType.Allegro)},
             {"Transition3", new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.Pianissimo, InstrumentFamily.TempoType.Lento)}
         };
+
+        articulationManager.OnArticulationChange += OnArticulationChange;
+        intensityManager.OnIntensityChange += OnIntensityChange;
+        tempoManager.OnTempoChange += OnTempoChange;
         
         drawableRules.Show(false);
-    }
-
-    public void LaunchState(string stateName)
-    {
-        if (m_Rules.TryGetValue(stateName, out OrchestraState rule)) {
-            m_CurrentRule = rule;
-            drawableRules.Show(true);
-            drawableRules.DrawOrchestraState(m_CurrentRule);
-        }
-        
-        switch (stateName) {
-            case "Start":
-                StartOrchestra();
-                break;
-        }
-        
-    }
-    
-    public void StartOrchestra()
-    {
-        if (m_CurrentStep == GuidedModeStep.Intro) {
-            OnStartOrchestra?.Invoke();
-            m_CurrentStep = GuidedModeStep.Playing;
-            StartCoroutine(UpdatePlaying());
-        }
+        drawableOrchestaState.Show(true);
     }
 
     private IEnumerator UpdatePlaying()
@@ -109,6 +95,50 @@ public class GuidedModeManager : MonoBehaviour
         }
     }
 
+    
+    /* Events */
+    public void LaunchState(string stateName)
+    {
+        if (m_Rules.TryGetValue(stateName, out OrchestraState rule)) {
+            m_CurrentRule = rule;
+            drawableRules.Show(true);
+            drawableRules.DrawOrchestraState(m_CurrentRule);
+        }
+        
+        switch (stateName) {
+            case "Start":
+                StartOrchestra();
+                break;
+        }
+    }
+
+    public void StartOrchestra()
+    {
+        if (m_CurrentStep == GuidedModeStep.Intro) {
+            OnStartOrchestra?.Invoke();
+            m_CurrentStep = GuidedModeStep.Playing;
+            StartCoroutine(UpdatePlaying());
+        }
+    }
+    
+    public void OnArticulationChange(InstrumentFamily.ArticulationType type)
+    {
+        m_CurrentOrchestraState.articulationType = type;
+        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
+    }
+    
+    public void OnIntensityChange(InstrumentFamily.IntensityType type)
+    {
+        m_CurrentOrchestraState.intensityType = type;
+        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
+    }
+    
+    public void OnTempoChange(InstrumentFamily.TempoType type)
+    {
+        m_CurrentOrchestraState.tempoType = type;
+        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
+    }
+
     private void OnBeat(float amplitude)
     {
         if (!m_HasOneBeat) {
@@ -117,6 +147,5 @@ public class GuidedModeManager : MonoBehaviour
         m_HasOneBeat = true;
     }
     
-    //Events
     public event Action OnStartOrchestra;
 }
