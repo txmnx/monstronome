@@ -72,7 +72,6 @@ public class SoundEngineTuner : MonoBehaviour
     /* TEMPO */
     public void SetTempo(float bpm)
     {
-        Debug.Log("BPM : " + bpm);
         AkSoundEngine.SetRTPCValue("RTPC_Tempo", bpm / BASE_TEMPO);
     }
 
