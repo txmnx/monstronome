@@ -1096,11 +1096,12 @@ GameObject:
   - component: {fileID: 348619491}
   - component: {fileID: 348619493}
   - component: {fileID: 348619487}
-  - component: {fileID: 348619489}
-  - component: {fileID: 348619490}
   - component: {fileID: 348619495}
+  - component: {fileID: 348619490}
+  - component: {fileID: 348619489}
   - component: {fileID: 348619492}
   - component: {fileID: 348619496}
+  - component: {fileID: 348619498}
   - component: {fileID: 348619494}
   - component: {fileID: 348619497}
   m_Layer: 0
@@ -1270,19 +1271,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e5d2630d2db0d4faf9328e75a4c64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatManager: {fileID: 348619487}
-  articulationManager: {fileID: 348619495}
-  intensityManager: {fileID: 348619490}
-  tempoManager: {fileID: 348619489}
   wwiseCallback: {fileID: 1915118170}
+  beatManager: {fileID: 348619487}
+  tempoManager: {fileID: 348619489}
+  timeline: {fileID: 2066500633}
   families:
   - {fileID: 413094687}
   - {fileID: 1129380438}
   - {fileID: 1247558651}
   - {fileID: 854011154}
-  timeline: {fileID: 2066500633}
-  drawableRules: {fileID: 676444775}
-  drawableOrchestaState: {fileID: 111859411}
+  directionRulesManager: {fileID: 348619498}
 --- !u!114 &348619497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1295,6 +1293,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7541c26fc5fb345bc151b35bb695a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &348619498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5465350a26824b46a40ce41d820c986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wwiseCallback: {fileID: 1915118170}
+  articulationManager: {fileID: 348619495}
+  intensityManager: {fileID: 348619490}
+  tempoManager: {fileID: 348619489}
+  drawableRules: {fileID: 676444775}
+  drawableOrchestaState: {fileID: 111859411}
 --- !u!114 &351763482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,

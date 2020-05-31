@@ -43,7 +43,7 @@ public class DrawableOrchestraState : MonoBehaviour
         tempoDisplay.SetActive(show);
     }
     
-    public void DrawOrchestraState(GuidedModeManager.OrchestraState state)
+    public void DrawOrchestraState(DirectionRulesManager.OrchestraState state)
     {
         m_ArticulationText.text = state.articulationType.ToString();
         m_IntensityText.text = state.intensityType.ToString();
