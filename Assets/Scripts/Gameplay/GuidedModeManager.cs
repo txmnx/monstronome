@@ -18,6 +18,27 @@ public class GuidedModeManager : MonoBehaviour
 
     //TODO : start orchestra with the tuning and the 4 beats instead
     private bool m_HasOneBeat = false;
+
+    public struct OrchestraState
+    {
+        public InstrumentFamily.ArticulationType articulationType;
+        public InstrumentFamily.IntensityType intensityType;
+        public InstrumentFamily.TempoType tempoType;
+
+        public OrchestraState(InstrumentFamily.ArticulationType articulation, InstrumentFamily.IntensityType intensity,
+            InstrumentFamily.TempoType tempo)
+        {
+            articulationType = articulation;
+            intensityType = intensity;
+            tempoType = tempo;
+        }
+    }
+    private OrchestraState m_CurrentOrchestraState;
+    private OrchestraState m_CurrentRule;
+    private Dictionary<string, OrchestraState> m_Rules;
+
+    public DrawableOrchestraState drawableRules;
+    public DrawableOrchestraState drawableOrchestaState;
     
     private enum GuidedModeStep
     {
@@ -26,12 +47,11 @@ public class GuidedModeManager : MonoBehaviour
         Playing,
         Final
     }
-
     private GuidedModeStep m_CurrentStep;
 
     private void Awake()
     {
-        wwiseCallback.OnStartBlocBegin += StartOrchestra;
+        wwiseCallback.OnCue += LaunchState;
 
         //m_CurrentStep = GuidedModeStep.Tuning;
         m_CurrentStep = GuidedModeStep.Intro;
@@ -40,8 +60,34 @@ public class GuidedModeManager : MonoBehaviour
         }
 
         beatManager.OnBeatMajorHand += OnBeat;
+
+        m_Rules = new Dictionary<string, OrchestraState>()
+        {
+            {"Start", new OrchestraState(InstrumentFamily.ArticulationType.Pizzicato, InstrumentFamily.IntensityType.MezzoForte, InstrumentFamily.TempoType.Andante)},
+            {"Transition1", new OrchestraState(InstrumentFamily.ArticulationType.Staccato, InstrumentFamily.IntensityType.MezzoForte, InstrumentFamily.TempoType.Allegro)},
+            {"Transition2", new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.Fortissimo, InstrumentFamily.TempoType.Allegro)},
+            {"Transition3", new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.Pianissimo, InstrumentFamily.TempoType.Lento)}
+        };
+        
+        drawableRules.Show(false);
     }
 
+    public void LaunchState(string stateName)
+    {
+        if (m_Rules.TryGetValue(stateName, out OrchestraState rule)) {
+            m_CurrentRule = rule;
+            drawableRules.Show(true);
+            drawableRules.DrawOrchestraState(m_CurrentRule);
+        }
+        
+        switch (stateName) {
+            case "Start":
+                StartOrchestra();
+                break;
+        }
+        
+    }
+    
     public void StartOrchestra()
     {
         if (m_CurrentStep == GuidedModeStep.Intro) {

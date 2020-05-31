@@ -37,11 +37,7 @@ public class WwiseCallBack : MonoBehaviour
                 Debug.Log("BEAT - WWise");
             }
             
-            switch (m_MusicCueName) {
-                case "Start":
-                    OnStartBlocBegin?.Invoke();
-                    break;
-            }
+            OnCue?.Invoke(m_MusicCueName);
         }
     }
     private void Update()
@@ -52,5 +48,5 @@ public class WwiseCallBack : MonoBehaviour
         }
     }
 
-    public event Action OnStartBlocBegin;
+    public event Action<string> OnCue;
 }
