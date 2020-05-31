@@ -91,6 +91,7 @@ public class GuidedModeManager : MonoBehaviour
             percent *= 0.01f; //MoveCursor takes a [0, 1] value
             timeline.MoveCursor(percent * Time.deltaTime);
             timeline.UpdateCursor();
+            CheckRules();
             yield return null;
         }
     }
@@ -118,6 +119,34 @@ public class GuidedModeManager : MonoBehaviour
             OnStartOrchestra?.Invoke();
             m_CurrentStep = GuidedModeStep.Playing;
             StartCoroutine(UpdatePlaying());
+        }
+    }
+
+    private Color m_ColorGood = Color.green;
+    private Color m_ColorBad = Color.red;
+    private void CheckRules()
+    {
+        if (m_CurrentOrchestraState.articulationType == m_CurrentRule.articulationType) {
+            drawableRules.HighlightArticulation(m_ColorGood);
+        }
+        else {
+            drawableRules.HighlightArticulation(m_ColorBad);
+        }
+        
+        
+        if (m_CurrentOrchestraState.intensityType == m_CurrentRule.intensityType) {
+            drawableRules.HighlightIntensity(m_ColorGood);
+        }
+        else {
+            drawableRules.HighlightIntensity(m_ColorBad);
+        }
+        
+        
+        if (m_CurrentOrchestraState.tempoType == m_CurrentRule.tempoType) {
+            drawableRules.HighlightTempo(m_ColorGood);
+        }
+        else {
+            drawableRules.HighlightTempo(m_ColorBad);
         }
     }
     

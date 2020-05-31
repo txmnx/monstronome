@@ -375,6 +375,9 @@ MonoBehaviour:
   articulationDisplay: {fileID: 635479678}
   intensityDisplay: {fileID: 1219191220}
   tempoDisplay: {fileID: 1658529941}
+  articulationRenderer: {fileID: 434263628}
+  intensityRenderer: {fileID: 1605176851}
+  tempoRenderer: {fileID: 1425133418}
 --- !u!1 &224941985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,6 +1379,12 @@ MonoBehaviour:
   articulationTypes: 000000000100000002000000
   delayBar: {fileID: 1310245760}
   articulationTextMesh: {fileID: 351763482}
+--- !u!23 &434263628 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4727130346371335537, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 635479676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &473182383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1416,12 @@ Transform:
   m_Father: {fileID: 1610161222}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -31.02, y: -47, z: 0}
+--- !u!23 &476259811 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4727130346371335537, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1996757176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &503611277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2204,6 +2219,9 @@ MonoBehaviour:
   articulationDisplay: {fileID: 992396924}
   intensityDisplay: {fileID: 1996757178}
   tempoDisplay: {fileID: 1738046518}
+  articulationRenderer: {fileID: 1354422407}
+  intensityRenderer: {fileID: 476259811}
+  tempoRenderer: {fileID: 1936055909}
 --- !u!4 &728367082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
@@ -5454,6 +5472,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1339201980}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1354422407 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4727130346371335537, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 992396922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1375160056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6090,6 +6114,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!23 &1425133418 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4727130346371335537, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1658529939}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1484290206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6503,6 +6533,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!23 &1605176851 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4727130346371335537, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1219191218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1610161221
 GameObject:
   m_ObjectHideFlags: 0
@@ -7242,6 +7278,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0638626e36c4074ba868d31ff00c4b8, type: 3}
+--- !u!23 &1936055909 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4727130346371335537, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1738046516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1968274595
 GameObject:
   m_ObjectHideFlags: 0
