@@ -552,7 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1968274598}
   instrumentFamilyLooker: {fileID: 224941992}
-  conductManager: {fileID: 348619493}
+  conductingEventsManager: {fileID: 0}
   selectedFamily: {fileID: 0}
 --- !u!1 &235050593
 GameObject:
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
   beatManager: {fileID: 348619487}
-  conductManager: {fileID: 348619493}
+  conductingEventsManager: {fileID: 348619493}
   families:
   - {fileID: 413094687}
   - {fileID: 1129380438}
@@ -6199,7 +6199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
-  conductManager: {fileID: 348619493}
+  conductingEventsManager: {fileID: 348619493}
   beatPlaneSFX: {fileID: 1093371531}
   mainCamera: {fileID: 224941988}
   beatPositionDetection: {fileID: 1218920007}
@@ -6219,7 +6219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
   controller: {fileID: 1484290208}
-  conductManager: {fileID: 348619493}
+  conductingEventsManager: {fileID: 348619493}
   trailRenderer: {fileID: 1084374024}
 --- !u!114 &1484290211
 MonoBehaviour:
@@ -6233,7 +6233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ed454ce55257e4885f9aa1a8f7a489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conductorManager: {fileID: 348619493}
+  conductingEventsManager: {fileID: 348619493}
 --- !u!114 &1484290212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6246,7 +6246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc048cfb9ce461448dc14cf89346b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conductManager: {fileID: 348619493}
+  conductingEventsManager: {fileID: 348619493}
   batonTop: {fileID: 1084374022}
   beatPlane: {fileID: 2043624664}
   SFXWandIdleConducting:

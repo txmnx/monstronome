@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectionRulesManager : MonoBehaviour
+/**
+ * Compute the conducting rules of the guided mode
+ * Checks if the player follows them or not
+ */
+public class ConductingRulesManager : MonoBehaviour
 {
     [Header("Callbacks")] 
     public WwiseCallBack wwiseCallback;

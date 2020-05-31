@@ -13,7 +13,7 @@ public class TempoManager : MonoBehaviour
     //private const float BASE_ANIM_TEMPO = 90.0f;
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
-    public ConductManager conductManager;
+    public ConductingEventsManager conductingEventsManager;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     /* BPM */
@@ -39,7 +39,7 @@ public class TempoManager : MonoBehaviour
     private void Start()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
-        conductManager.OnBeginConducting += OnBeginConducting;
+        conductingEventsManager.OnBeginConducting += OnBeginConducting;
 
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.START_TEMPO;

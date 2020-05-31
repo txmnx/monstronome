@@ -5,8 +5,7 @@ using TMPro;
 using UnityEngine;
 
 /**
- * Used to display the actual state of the orchestra for the guided mode
- * 
+ * Display the actual state of the orchestra for the guided mode
  */
 public class DrawableOrchestraState : MonoBehaviour
 {
@@ -43,7 +42,7 @@ public class DrawableOrchestraState : MonoBehaviour
         tempoDisplay.SetActive(show);
     }
     
-    public void DrawOrchestraState(DirectionRulesManager.OrchestraState state)
+    public void DrawOrchestraState(ConductingRulesManager.OrchestraState state)
     {
         m_ArticulationText.text = state.articulationType.ToString();
         m_IntensityText.text = state.intensityType.ToString();

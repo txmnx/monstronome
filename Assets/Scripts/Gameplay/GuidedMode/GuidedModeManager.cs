@@ -5,8 +5,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 /**
- * Utility that launch behaviors based on orchestra events
- * 
+ * Launch behaviors based on orchestra events when the player is in guided mode
  */
 public class GuidedModeManager : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class GuidedModeManager : MonoBehaviour
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     [Header("Modes")]
-    public DirectionRulesManager directionRulesManager;
+    public ConductingRulesManager directionRulesManager;
 
     //TODO : start orchestra with the tuning and the 4 beats instead
     private bool m_HasOneBeat = false;

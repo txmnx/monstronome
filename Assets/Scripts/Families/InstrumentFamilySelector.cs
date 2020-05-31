@@ -9,7 +9,7 @@ public class InstrumentFamilySelector : MonoBehaviour
 {
     public XRCustomController controller;
     public InstrumentFamilyLooker instrumentFamilyLooker;
-    public ConductManager conductManager;
+    public ConductingEventsManager conductingEventsManager;
 
     [HideInInspector]
     public InstrumentFamily selectedFamily;
@@ -41,7 +41,7 @@ public class InstrumentFamilySelector : MonoBehaviour
             if (selectedFamily == null) {
                 selectedFamily = instrumentFamilyLooker.lookedFamily;
                 OnSelectFamily?.Invoke(selectedFamily);
-                conductManager.enableConducting = false;
+                conductingEventsManager.enableConducting = false;
             }
         }
     }
@@ -51,7 +51,7 @@ public class InstrumentFamilySelector : MonoBehaviour
         if (selectedFamily != null) {
             OnDeselectFamily?.Invoke(selectedFamily);
             selectedFamily = null;
-            conductManager.enableConducting = true;
+            conductingEventsManager.enableConducting = true;
         }
     }
 
