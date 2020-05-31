@@ -40,8 +40,8 @@ public class GuidedModeManager : MonoBehaviour
         Other
     }
     private TrackType m_CurrentTrackType;
-    
-    
+
+
     private void Awake()
     {
         wwiseCallback.OnCue += LaunchState;
@@ -66,7 +66,8 @@ public class GuidedModeManager : MonoBehaviour
             timeline.MoveCursor(percent * Time.deltaTime);
             timeline.UpdateCursor();
 
-            directionRulesManager.Check();
+            //We can't loose or gain score from the conducting rules outside of track blocks
+            directionRulesManager.Check(m_CurrentTrackType == TrackType.Block);
             
             yield return null;
         }

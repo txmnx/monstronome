@@ -14,11 +14,15 @@ public class ConductingRulesManager : MonoBehaviour
     public ArticulationManager articulationManager;
     public IntensityManager intensityManager;
     public TempoManager tempoManager;
-    
+
     [Header("Drawables")]
     public DrawableOrchestraState drawableRules;
     public DrawableOrchestraState drawableOrchestaState;
 
+    [Header("Score")]
+    public ScoreManager scoreManager;
+    public ScoringParametersScriptableObject scoringParameters;
+    
     /* Rules */
     private Dictionary<string, OrchestraState> m_Rules;
     private OrchestraState m_CurrentRules;
@@ -38,6 +42,10 @@ public class ConductingRulesManager : MonoBehaviour
             tempoType = tempo;
         }
     }
+    
+    /* Score timer */
+    private float m_TimeSinceLastScore = 0.0f;
+    
 
     private void Awake()
     {
@@ -67,17 +75,15 @@ public class ConductingRulesManager : MonoBehaviour
     }
 
     //Called at each frame by the GuidedModeManager
-    public void Check()
+    public void Check(bool setScore)
     {
-        UpdateDrawables();
-    }
-    
-    private void UpdateDrawables()
-    {
+        int mistakes = 0;
+        
         if (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType) {
             drawableRules.HighlightArticulation(Color.green);
         }
         else {
+            mistakes += 1;
             drawableRules.HighlightArticulation(Color.red);
         }
 
@@ -85,6 +91,7 @@ public class ConductingRulesManager : MonoBehaviour
             drawableRules.HighlightIntensity(Color.green);
         }
         else {
+            mistakes += 1;
             drawableRules.HighlightIntensity(Color.red);
         }
         
@@ -92,10 +99,24 @@ public class ConductingRulesManager : MonoBehaviour
             drawableRules.HighlightTempo(Color.green);
         }
         else {
+            mistakes += 1;
             drawableRules.HighlightTempo(Color.red);
+        }    
+        
+        m_TimeSinceLastScore += Time.deltaTime;
+        if (m_TimeSinceLastScore > scoringParameters.checkPerSeconds) {
+            if (setScore) {
+                if (mistakes == 0) {
+                    scoreManager.AddScore(scoringParameters.noMistake);
+                }
+                else {
+                    scoreManager.AddScore(scoringParameters.perMistake * (float) mistakes);
+                }
+            }
+            m_TimeSinceLastScore %= scoringParameters.checkPerSeconds;
         }
     }
-    
+
     /* Callbacks */
     public void OnArticulationChange(InstrumentFamily.ArticulationType type)
     {
