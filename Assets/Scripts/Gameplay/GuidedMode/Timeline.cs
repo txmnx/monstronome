@@ -16,6 +16,8 @@ public class Timeline : MonoBehaviour
     private float m_TimelineSize;
 
     private Vector3 m_AimingPosition;
+
+    private float m_CursorPercent;
     
     private void Start()
     {
@@ -24,6 +26,7 @@ public class Timeline : MonoBehaviour
         m_TimelineDirection = m_TimelineDirection.normalized;
 
         m_AimingPosition = start.localPosition;
+        m_CursorPercent = 0.0f;
     }
 
     public void UpdateCursor()
@@ -33,17 +36,20 @@ public class Timeline : MonoBehaviour
 
     public void MoveCursor(float percent)
     {
-        m_AimingPosition += m_TimelineSize * percent * m_TimelineDirection;
+        m_CursorPercent = Mathf.Clamp(m_CursorPercent + percent, 0, 1);
+        m_AimingPosition = m_TimelineSize * m_CursorPercent * m_TimelineDirection;
     }
     
     public void SetCursor(float percent)
     {
-        m_AimingPosition = start.localPosition + m_TimelineSize * percent * m_TimelineDirection;
+        m_CursorPercent = Mathf.Clamp(percent, 0, 1);
+        m_AimingPosition = start.localPosition + m_TimelineSize * m_CursorPercent * m_TimelineDirection;
     }
 
     public void ResetCursor(float percent)
     {
-        cursor.localPosition = start.localPosition + m_TimelineSize * percent * m_TimelineDirection;
+        m_CursorPercent = Mathf.Clamp(percent, 0, 1);
+        cursor.localPosition = start.localPosition + m_TimelineSize * m_CursorPercent * m_TimelineDirection;
         m_AimingPosition = cursor.localPosition;
     }
 }
