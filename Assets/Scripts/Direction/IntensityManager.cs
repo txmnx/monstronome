@@ -45,6 +45,8 @@ public class IntensityManager : MonoBehaviour
             soundEngineTuner.SetGlobalIntensity(intensityRange.value);
         }
         m_CurrentIntensityType = intensityRange.type;
+        
+        OnIntensityChange?.Invoke(m_CurrentIntensityType);
     }
     
     /* Events */
