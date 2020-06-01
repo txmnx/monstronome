@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /**
  * Represents a class of instruments that can be directed
@@ -12,6 +14,7 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     public Animator[] familyAnimators;
     private int m_BlendArticulationID;
+    private int m_BrokenLayerID;
     
     [Header("Highlight")]
     public Light spotlight;
@@ -57,6 +60,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         spotlight.enabled = false;
         m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
+        m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
         m_MeshRenderer = GetComponent<MeshRenderer>();
     }
 
@@ -174,6 +178,14 @@ public abstract class InstrumentFamily : MonoBehaviour
         }
     }
 
+    public void SetBrokenAnimation(ReframingManager.DegradationState degradationState)
+    {
+        float degradationStateLength = Enum.GetValues(typeof(ReframingManager.DegradationState)).Length;
+        foreach (Animator animator in familyAnimators) {
+            animator.SetLayerWeight(m_BrokenLayerID, (float)degradationState / degradationStateLength);
+        }
+    }
+    
     /**
      * Coroutines used to play the animations of the different monsters with a small offset
      */

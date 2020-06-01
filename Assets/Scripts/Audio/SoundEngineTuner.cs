@@ -61,6 +61,11 @@ public class SoundEngineTuner : MonoBehaviour
         AkSoundEngine.SetSwitch("SW_Family_Solist", GetFocusRTPCRequest(m_KeywordFamily[family.GetType()]), soundReference.gameObject);
     }
     
+    public void SetDegradation(ReframingManager.DegradationState degradationState)
+    {
+        AkSoundEngine.SetState("PotionCount", degradationState.ToString());
+    }
+    
     //Highlight a family with a volume offset
     public void FocusFamily(InstrumentFamily family)
     {

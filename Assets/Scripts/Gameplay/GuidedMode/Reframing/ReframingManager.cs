@@ -29,7 +29,6 @@ public class ReframingManager : MonoBehaviour
         Left_2,
         Left_3
     }
-
     private DegradationState m_CurrentDegradationState;
 
     public void LoadFamilies(InstrumentFamily[] families)
@@ -96,11 +95,17 @@ public class ReframingManager : MonoBehaviour
         m_IsDegrading = true;
         
         //TODO : here we start the reframing family fail
-
+        m_CurrentDegradationState = DegradationState.Left_3;
+        soundEngineTuner.SetDegradation(m_CurrentDegradationState);
         
         StartCoroutine(UpdateReframing());
     }
 
+    private void UpdateBrokenAnimation()
+    {
+        
+    }
+    
     private void PickNewReframingFamily()
     {
         //We pick the family which will fail
