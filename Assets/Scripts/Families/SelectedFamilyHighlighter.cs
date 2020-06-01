@@ -9,12 +9,13 @@ using UnityEngine;
 public class SelectedFamilyHighlighter : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
-
-    public Camera mainCamera;
+    
     public Light mainLight;
+    public Light ambientLight;
     public InstrumentFamilySelector selector;
 
-    private Color m_defaultBackgroundColor;
+    private float m_CachedMainLightIntensity;
+    private float m_CachedAmbientLightIntensity;
 
     private void Start()
     {
@@ -25,11 +26,14 @@ public class SelectedFamilyHighlighter : MonoBehaviour
     private void OnSelectFamily(InstrumentFamily family)
     {
         RenderSettings.ambientIntensity = 0.1f;
-        RenderSettings.reflectionIntensity = 0;
-        mainLight.enabled = false;
+        RenderSettings.reflectionIntensity = 0.2f;
+        
+        m_CachedMainLightIntensity = mainLight.intensity;
+        mainLight.intensity = 0;
+        m_CachedAmbientLightIntensity = ambientLight.intensity;
+        ambientLight.intensity = 0;
+        
         family.spotlight.enabled = true;
-        m_defaultBackgroundColor = mainCamera.backgroundColor;
-        mainCamera.backgroundColor = Color.black;
 
         soundEngineTuner.FocusFamily(family);
     }
@@ -38,9 +42,11 @@ public class SelectedFamilyHighlighter : MonoBehaviour
     {
         RenderSettings.ambientIntensity = 1;
         RenderSettings.reflectionIntensity = 1;
-        mainLight.enabled = true;
+        
+        mainLight.intensity = m_CachedMainLightIntensity;
+        ambientLight.intensity = m_CachedAmbientLightIntensity;
+        
         family.spotlight.enabled = false;
-        mainCamera.backgroundColor = m_defaultBackgroundColor;
 
         soundEngineTuner.UnfocusFamily();
     }
