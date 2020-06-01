@@ -32,9 +32,9 @@ public class SelectedFamilyHighlighter : MonoBehaviour
         mainLight.intensity = 0;
         m_CachedAmbientLightIntensity = ambientLight.intensity;
         ambientLight.intensity = 0;
-        
-        family.spotlight.enabled = true;
 
+        family.OnEnterHighlight();
+        
         soundEngineTuner.FocusFamily(family);
     }
 
@@ -45,9 +45,9 @@ public class SelectedFamilyHighlighter : MonoBehaviour
         
         mainLight.intensity = m_CachedMainLightIntensity;
         ambientLight.intensity = m_CachedAmbientLightIntensity;
-        
-        family.spotlight.enabled = false;
 
+        family.OnExitHighlight();
+        
         soundEngineTuner.UnfocusFamily();
     }
 }

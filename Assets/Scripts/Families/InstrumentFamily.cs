@@ -9,10 +9,13 @@ using UnityEngine;
 public abstract class InstrumentFamily : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
-    public Light spotlight;
 
     public Animator[] familyAnimators;
     private int m_BlendArticulationID;
+    
+    [Header("Highlight")]
+    public Light spotlight;
+    public Renderer highlightHintRenderer;
     
     public enum ArticulationType
     {
@@ -140,17 +143,26 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     virtual public void OnBeginLookedAt() 
     {
-        //m_MeshRenderer.material.SetColor("_BaseColor", new Color(1, 1, 0.5f, 1));
+        highlightHintRenderer.enabled = true;
     }
 
     virtual public void OnLookedAt()
-    {
-
-    }
+    {}
 
     virtual public void OnEndLookedAt()
     {
-        //m_MeshRenderer.material.SetColor("_BaseColor", Color.white);
+        highlightHintRenderer.enabled = false;
+    }
+
+    public void OnEnterHighlight()
+    {
+        spotlight.enabled = true;
+        highlightHintRenderer.enabled = false;
+    }
+    
+    public void OnExitHighlight()
+    {
+        spotlight.enabled = false;
     }
 
     public void StartPlaying()

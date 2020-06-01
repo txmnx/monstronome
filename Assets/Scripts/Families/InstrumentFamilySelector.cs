@@ -14,6 +14,9 @@ public class InstrumentFamilySelector : MonoBehaviour
     [HideInInspector]
     public InstrumentFamily selectedFamily;
 
+    [HideInInspector]
+    public bool hasSelected = false;
+    
     //Treshold at which we consider a click to be on a particular direction
     private float m_buttonTreshold = 0.5f;
 
@@ -38,8 +41,9 @@ public class InstrumentFamilySelector : MonoBehaviour
     private void OnSelectButtonPressed()
     {
         if (instrumentFamilyLooker.lookedFamily != null) {
-            if (selectedFamily == null) {
+            if (!hasSelected) {
                 selectedFamily = instrumentFamilyLooker.lookedFamily;
+                hasSelected = true;
                 OnSelectFamily?.Invoke(selectedFamily);
                 conductingEventsManager.enableConducting = false;
             }
@@ -48,9 +52,10 @@ public class InstrumentFamilySelector : MonoBehaviour
 
     private void OnDeselectButtonPressed()
     {
-        if (selectedFamily != null) {
+        if (hasSelected) {
             OnDeselectFamily?.Invoke(selectedFamily);
             selectedFamily = null;
+            hasSelected = false;
             conductingEventsManager.enableConducting = true;
         }
     }
