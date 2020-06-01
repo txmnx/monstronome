@@ -44,16 +44,16 @@ public class GuidedModeManager : MonoBehaviour
 
     private void Awake()
     {
-        wwiseCallback.OnCue += LaunchState;
-
         //m_CurrentStep = GuidedModeStep.Tuning;
         m_CurrentGuidedModeStep = GuidedModeStep.Intro;
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
         }
 
+        reframingManager.LoadFamilies(families);
+        
+        wwiseCallback.OnCue += LaunchState;
         beatManager.OnBeatMajorHand += OnBeat;
-
         m_CurrentTrackType = TrackType.Other;
     }
 

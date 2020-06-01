@@ -55,7 +55,12 @@ public class SoundEngineTuner : MonoBehaviour
     }
 
 
-    /* FOCUS */
+    /* REFRAMING */
+    public void SetSolistFamily(InstrumentFamily family)
+    {
+        AkSoundEngine.SetSwitch("SW_Family_Solist", GetFocusRTPCRequest(m_KeywordFamily[family.GetType()]), soundReference.gameObject);
+    }
+    
     //Highlight a family with a volume offset
     public void FocusFamily(InstrumentFamily family)
     {
