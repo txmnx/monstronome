@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Manages the instruments failures and the reframing phases
+ */
 public class ReframingManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Timeline timeline;
+    
+    public void CheckShouldReframe()
     {
-        
+            
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void LaunchFail()
     {
-        
+        //TODO : here we pick a family and start its fail
     }
 }

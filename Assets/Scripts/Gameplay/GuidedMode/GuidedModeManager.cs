@@ -31,7 +31,7 @@ public class GuidedModeManager : MonoBehaviour
         Playing,
         Final
     }
-    private GuidedModeStep m_CurrentStep;
+    private GuidedModeStep m_CurrentGuidedModeStep;
 
     private enum TrackType
     {
@@ -41,13 +41,12 @@ public class GuidedModeManager : MonoBehaviour
     }
     private TrackType m_CurrentTrackType;
 
-
     private void Awake()
     {
         wwiseCallback.OnCue += LaunchState;
 
         //m_CurrentStep = GuidedModeStep.Tuning;
-        m_CurrentStep = GuidedModeStep.Intro;
+        m_CurrentGuidedModeStep = GuidedModeStep.Intro;
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
         }
@@ -59,11 +58,11 @@ public class GuidedModeManager : MonoBehaviour
 
     private IEnumerator UpdatePlaying()
     {
-        while (m_CurrentStep == GuidedModeStep.Playing) {
+        while (m_CurrentGuidedModeStep == GuidedModeStep.Playing) {
             float beatPerSeconds = tempoManager.bpm / 60.0f;
-            float percent = beatPerSeconds / (SoundEngineTuner.TRACK_LENGTH * 0.01f); //We scale the beat on one second to the whole track on the base of 100
-            percent *= 0.01f; //MoveCursor takes a [0, 1] value
-            timeline.MoveCursor(percent * Time.deltaTime);
+            float t = beatPerSeconds / (SoundEngineTuner.TRACK_LENGTH * 0.01f); //We scale the beat on one second to the whole track on the base of 100
+            t *= 0.01f; //MoveCursor takes a [0, 1] value
+            timeline.MoveCursor(t * Time.deltaTime);
             timeline.UpdateCursor();
 
             //We can't loose or gain score from the conducting rules outside of track blocks
@@ -76,6 +75,7 @@ public class GuidedModeManager : MonoBehaviour
     /* Events */
     public void LaunchState(string stateName)
     {
+        bool updateTimelineStep = true;
         switch (stateName) {
             case "Start":
                 m_CurrentTrackType = TrackType.Block;
@@ -99,14 +99,21 @@ public class GuidedModeManager : MonoBehaviour
             case "End":
                 m_CurrentTrackType = TrackType.Block;
                 break;
+            default:
+                updateTimelineStep = false;
+                break;
+        }
+
+        if (updateTimelineStep) {
+            timeline.SetCurrentStep(stateName);
         }
     }
 
     public void StartOrchestra()
     {
-        if (m_CurrentStep == GuidedModeStep.Intro) {
+        if (m_CurrentGuidedModeStep == GuidedModeStep.Intro) {
             OnStartOrchestra?.Invoke();
-            m_CurrentStep = GuidedModeStep.Playing;
+            m_CurrentGuidedModeStep = GuidedModeStep.Playing;
             StartCoroutine(UpdatePlaying());
         }
     }
