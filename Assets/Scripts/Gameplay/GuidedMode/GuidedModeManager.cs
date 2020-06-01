@@ -20,6 +20,7 @@ public class GuidedModeManager : MonoBehaviour
 
     [Header("Modes")]
     public ConductingRulesManager directionRulesManager;
+    public ReframingManager reframingManager;
 
     //TODO : start orchestra with the tuning and the 4 beats instead
     private bool m_HasOneBeat = false;
@@ -33,7 +34,7 @@ public class GuidedModeManager : MonoBehaviour
     }
     private GuidedModeStep m_CurrentGuidedModeStep;
 
-    private enum TrackType
+    public enum TrackType
     {
         Block,
         Transition,
@@ -65,8 +66,9 @@ public class GuidedModeManager : MonoBehaviour
             timeline.MoveCursor(t * Time.deltaTime);
             timeline.UpdateCursor();
 
-            //We can't loose or gain score from the conducting rules outside of track blocks
+            //We can't loose or gain score outside of the track blocks
             directionRulesManager.Check(m_CurrentTrackType == TrackType.Block);
+            reframingManager.CheckLaunchFail(m_CurrentTrackType == TrackType.Block);
             
             yield return null;
         }
