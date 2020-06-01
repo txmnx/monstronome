@@ -1299,6 +1299,7 @@ GameObject:
   - component: {fileID: 348619492}
   - component: {fileID: 348619496}
   - component: {fileID: 348619498}
+  - component: {fileID: 348619500}
   - component: {fileID: 348619499}
   - component: {fileID: 348619494}
   - component: {fileID: 348619497}
@@ -1479,6 +1480,7 @@ MonoBehaviour:
   - {fileID: 1247558651}
   - {fileID: 854011154}
   directionRulesManager: {fileID: 348619498}
+  reframingManager: {fileID: 348619500}
 --- !u!114 &348619497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,6 +1526,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1302881281}
+--- !u!114 &348619500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6a3ed7e9e9e9e4f929cea9d3586cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 2066500633}
+  tempoManager: {fileID: 348619489}
+  reframingParameters: {fileID: 11400000, guid: af6eea50a8288f74584b84542c6748c3,
+    type: 2}
 --- !u!114 &351763482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,

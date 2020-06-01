@@ -13,16 +13,19 @@ public class ReframingManager : MonoBehaviour
 
     private InstrumentFamily m_ReframingFamily;
     private bool m_IsFailing = false;
-    private bool m_CanFail = true;
+    private bool m_CanFail = false;
 
-    private bool m_HasAlreadyFailed = false;
     private bool m_IsBlock = false;
     
-    /* Reframing */
+    
+    /* REFRAMING */
+    
     IEnumerator UpdateReframing()
     {
         while (m_IsFailing) {
-
+            //TODO : Here we check the player actions during reframing
+            OnEndReframing();
+            
             yield return null;
         }
     }
@@ -33,7 +36,9 @@ public class ReframingManager : MonoBehaviour
         StartCoroutine(WaitCanFail(reframingParameters.timeBetweenFails));
     }
     
-    /* Launch fails */
+    
+    /* LAUNCH FAILS */
+    
     //Check and launch a fail if it is possible
     public void CheckLaunchFail(bool isBlock)
     {
@@ -44,14 +49,9 @@ public class ReframingManager : MonoBehaviour
             }
             else {
                 if (m_CanFail) {
-                    if (!m_HasAlreadyFailed) {
+                    float secondsUntilNextStep = timeline.GetBeatsUntilNextStep() * (60.0f / tempoManager.bpm);
+                    if (secondsUntilNextStep > reframingParameters.minTimeUntilBlockEnd) {
                         LaunchFail();
-                    }
-                    else {
-                        float secondsUntilNextStep = timeline.GetBeatsUntilNextStep() * (60.0f / tempoManager.bpm);
-                        if (secondsUntilNextStep > reframingParameters.minTimeUntilBlockEnd) {
-                            LaunchFail();
-                        }
                     }
                 }
             }
@@ -74,19 +74,21 @@ public class ReframingManager : MonoBehaviour
     {
         m_CanFail = false;
         m_IsFailing = true;
-        m_HasAlreadyFailed = true;
+        
         //TODO : here we pick a family and start its fail
+        
+        StartCoroutine(UpdateReframing());
     }
 
     private void OnEnterBlock()
     {
-        float timeFirstFail = Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail);
-        StartCoroutine(WaitCanFail(timeFirstFail));
+        StartCoroutine(WaitCanFail(Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail)));
     }
 
     private void OnExitBlock()
     {
         m_IsFailing = false;
+        m_CanFail = false;
         //TODO : here reset the fail
     }
 }

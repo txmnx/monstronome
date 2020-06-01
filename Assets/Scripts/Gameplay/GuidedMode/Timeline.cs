@@ -64,24 +64,28 @@ public class Timeline : MonoBehaviour
     {
         if (m_Steps.TryGetValue(stateName, out float statePercent)) {
             m_CurrentStep = new KeyValuePair<string, float>(stateName, statePercent);
-            
+
             //We store the next step (closest superior step)
             KeyValuePair<string, float> nextStep = new KeyValuePair<string, float>("", 1.0f);
+            float closestPercent = 1.0f;
             foreach (KeyValuePair<string, float> step in m_Steps) {
-                if (step.Value >= statePercent) {
-                    if (statePercent < nextStep.Value) {
+                if (step.Value > statePercent) {
+                    if (step.Value < closestPercent) {
+                        closestPercent = step.Value;
                         nextStep = step;
                     }
                 }
             }
 
+            Debug.Log("Next Step : " + nextStep.Key);
             m_CachedNextStep = nextStep;
         }
     }
     
     public float GetBeatsUntilNextStep()
     {
-        return (m_CachedNextStep.Value - m_Cursor) * SoundEngineTuner.TRACK_LENGTH;
+        float beats = (m_CachedNextStep.Value - m_Cursor) * SoundEngineTuner.TRACK_LENGTH;
+        return beats;
     }
     
     public void SetCursor(float percent)
