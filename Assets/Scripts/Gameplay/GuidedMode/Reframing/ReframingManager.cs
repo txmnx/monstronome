@@ -10,7 +10,7 @@ public class ReframingManager : MonoBehaviour
     [Header("Reframing")]
     public SoundEngineTuner soundEngineTuner;
     
-    [Header("Launch fails")]
+    [Header("Launch degradation")]
     public Timeline timeline;
     public TempoManager tempoManager;
     public ReframingParametersScriptableObject reframingParameters;
@@ -18,8 +18,8 @@ public class ReframingManager : MonoBehaviour
     private InstrumentFamily[] m_InstrumentFamilies;
     private InstrumentFamily m_ReframingFamily;
     
-    private bool m_IsFailing = false;
-    private bool m_CanFail = false;
+    private bool m_IsDegrading = false;
+    private bool m_CanDegrade = false;
     private bool m_IsBlock = false;
 
     public enum DegradationState
@@ -41,7 +41,7 @@ public class ReframingManager : MonoBehaviour
     
     IEnumerator UpdateReframing()
     {
-        while (m_IsFailing) {
+        while (m_IsDegrading) {
             //TODO : Here we check the player actions during reframing
             OnEndReframing();
             
@@ -51,9 +51,9 @@ public class ReframingManager : MonoBehaviour
     
     private void OnEndReframing()
     {
-        m_IsFailing = false;
-        PickNewReframingFamily()
-        StartCoroutine(WaitCanFail(reframingParameters.timeBetweenFails));
+        m_IsDegrading = false;
+        PickNewReframingFamily();
+        StartCoroutine(WaitCanDegrade(reframingParameters.timeBetweenFails));
     }
     
     
@@ -68,7 +68,7 @@ public class ReframingManager : MonoBehaviour
                 OnEnterBlock();
             }
             else {
-                if (m_CanFail) {
+                if (m_CanDegrade) {
                     float secondsUntilNextStep = timeline.GetBeatsUntilNextStep() * (60.0f / tempoManager.bpm);
                     if (secondsUntilNextStep > reframingParameters.minTimeUntilBlockEnd) {
                         LaunchFail();
@@ -84,16 +84,16 @@ public class ReframingManager : MonoBehaviour
         }
     }
 
-    IEnumerator WaitCanFail(float seconds)
+    IEnumerator WaitCanDegrade(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        m_CanFail = true;
+        m_CanDegrade = true;
     }
     
     private void LaunchFail()
     {
-        m_CanFail = false;
-        m_IsFailing = true;
+        m_CanDegrade = false;
+        m_IsDegrading = true;
         
         //TODO : here we start the reframing family fail
 
@@ -111,13 +111,14 @@ public class ReframingManager : MonoBehaviour
     private void OnEnterBlock()
     {
         PickNewReframingFamily();
-        StartCoroutine(WaitCanFail(Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail)));
+        StartCoroutine(WaitCanDegrade(Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail)));
     }
 
     private void OnExitBlock()
     {
-        m_IsFailing = false;
-        m_CanFail = false;
+        m_CanDegrade = false;
+        m_IsDegrading = false;
+        
         //TODO : here reset the fail
     }
 }
