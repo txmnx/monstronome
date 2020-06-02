@@ -58,7 +58,7 @@ public class SoundEngineTuner : MonoBehaviour
     /* REFRAMING */
     public void SetSolistFamily(InstrumentFamily family)
     {
-        AkSoundEngine.SetSwitch("SW_Family_Solist", GetFocusRTPCRequest(m_KeywordFamily[family.GetType()]), soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Family_Solist", m_KeywordFamily[family.GetType()], soundReference.gameObject);
     }
     
     public void SetDegradation(ReframingManager.DegradationState degradationState)
