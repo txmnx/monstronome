@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33992c6a11062a408cd688197d15531, type: 3}
   m_Name: ScoringParameters
   m_EditorClassIdentifier: 
+  checkPerSeconds: 1
   noMistake: 1
   perMistake: -0.5
+  degradation: -1
+  isReframing: -0.5
+  reframingSuccess: 5

@@ -68,7 +68,7 @@ public class GuidedModeManager : MonoBehaviour
 
             //We can't loose or gain score outside of the track blocks
             directionRulesManager.Check(m_CurrentTrackType == TrackType.Block);
-            reframingManager.CheckLaunchFail(m_CurrentTrackType == TrackType.Block);
+            reframingManager.Check(m_CurrentTrackType == TrackType.Block);
             
             yield return null;
         }

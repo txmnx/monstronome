@@ -12,11 +12,16 @@ public class ReframingManager : MonoBehaviour
 {
     [Header("Reframing")]
     public SoundEngineTuner soundEngineTuner;
-    
+
     [Header("Degradation")]
     public Timeline timeline;
     public TempoManager tempoManager;
     public ReframingParametersScriptableObject reframingParameters;
+    
+    [Header("Score")]
+    public ScoreManager scoreManager;
+    public ScoringParametersScriptableObject scoringParameters;
+    public InstrumentFamilySelector instrumentFamilySelector;
 
     private InstrumentFamily[] m_InstrumentFamilies;
     private InstrumentFamily m_ReframingFamily;
@@ -44,14 +49,41 @@ public class ReframingManager : MonoBehaviour
         }
     }
     private ReframingRules m_CurrentReframingRules;
-
     private int m_ReframingPotionIndex = 0;
+    
+    /* Score timer */
+    private float m_TimeSinceLastScore = 0.0f;
 
     public void LoadFamilies(InstrumentFamily[] families)
     {
         m_InstrumentFamilies = families;
     }
+
+    public void Check(bool isBlock)
+    {
+        CheckLaunchFail(isBlock);
+        UpdateScore(isBlock);
+    }
     
+    public void UpdateScore(bool setScore)
+    {
+        if (setScore) {
+            m_TimeSinceLastScore += Time.deltaTime;
+            if (m_TimeSinceLastScore > scoringParameters.checkPerSeconds) {
+
+                if (m_IsDegrading) {
+                    if (instrumentFamilySelector.selectedFamily == m_ReframingFamily) {
+                        scoreManager.AddScore(scoringParameters.isReframing);
+                    }
+                    else {
+                        scoreManager.AddScore(scoringParameters.degradation);
+                    }
+                }
+
+                m_TimeSinceLastScore %= scoringParameters.checkPerSeconds;
+            }
+        }
+    }
     
     /* REFRAMING */
 
@@ -101,6 +133,8 @@ public class ReframingManager : MonoBehaviour
     
     private IEnumerator OnSuccess()
     {
+        scoreManager.AddScore(scoringParameters.reframingSuccess);
+        
         m_CanCheckPotionType = false;
         yield return BlinkAnimation(Color.green, Color.yellow);
         
