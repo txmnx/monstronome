@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Used to post events about direction mode 
+ * Post events about whether the player is conducting or not 
  */
-public class ConductManager : MonoBehaviour
+public class ConductingEventsManager : MonoBehaviour
 {
     /* Events */
     public event Action OnBeginConducting;

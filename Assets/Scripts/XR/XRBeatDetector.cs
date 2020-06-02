@@ -10,7 +10,7 @@ using UnityEngine.XR;
 public class XRBeatDetector : MonoBehaviour
 {
     public BeatManager beatManager;
-    public ConductManager conductManager;
+    public ConductingEventsManager conductingEventsManager;
     public Transform beatPlaneSFX;
     public Transform mainCamera;
 
@@ -45,9 +45,9 @@ public class XRBeatDetector : MonoBehaviour
 
     private void Start()
     {
-        conductManager.OnBeginConducting += OnBeginConducting;
-        conductManager.OnConducting += OnConducting;
-        conductManager.OnEndConducting += OnEndConducting;
+        conductingEventsManager.OnBeginConducting += OnBeginConducting;
+        conductingEventsManager.OnConducting += OnConducting;
+        conductingEventsManager.OnEndConducting += OnEndConducting;
 
         m_Controller = GetComponent<XRCustomController>();
 

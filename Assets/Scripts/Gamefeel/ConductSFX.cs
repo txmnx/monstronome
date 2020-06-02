@@ -9,7 +9,7 @@ using UnityEngine;
  */
 public class ConductSFX : MonoBehaviour
 {
-    public ConductManager conductManager;
+    public ConductingEventsManager conductingEventsManager;
     public GameObject batonTop;
     public GameObject beatPlane;
     public AK.Wwise.Event SFXWandIdleConducting;
@@ -19,8 +19,8 @@ public class ConductSFX : MonoBehaviour
     
     private void Start()
     {
-        conductManager.OnBeginConducting += OnBeginConducting;
-        conductManager.OnEndConducting += OnEndConducting;
+        conductingEventsManager.OnBeginConducting += OnBeginConducting;
+        conductingEventsManager.OnEndConducting += OnEndConducting;
     }
 
     public void OnBeginConducting()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,6 +28,10 @@ public class IntensityManager : MonoBehaviour
         for (int i = 0; i < AMPLITUDE_BUFFER_SIZE; i++) {
             m_BufferLastAmplitudes.Enqueue(BASE_AMPLITUDE);
         }
+        
+        float averageAmplitude = CustomUtilities.Average(m_BufferLastAmplitudes);
+        SoundEngineTuner.RTPCRange<InstrumentFamily.IntensityType> intensityRange = soundEngineTuner.GetIntensityRange(averageAmplitude);
+        OnIntensityChange?.Invoke(intensityRange.type);
     }
 
     public void OnBeatMajorHand(float amplitude)
@@ -40,15 +45,10 @@ public class IntensityManager : MonoBehaviour
             soundEngineTuner.SetGlobalIntensity(intensityRange.value);
         }
         m_CurrentIntensityType = intensityRange.type;
-
-        //DEBUG
-        averageAmplitudeText.text = averageAmplitude.ToString();
-        intensityTypeText.text = m_CurrentIntensityType.ToString();
+        
+        OnIntensityChange?.Invoke(m_CurrentIntensityType);
     }
-
-
-    /* DEBUG */
-    [Header("DEBUG")]
-    public TextMeshPro averageAmplitudeText;
-    public TextMeshPro intensityTypeText;
+    
+    /* Events */
+    public Action<InstrumentFamily.IntensityType> OnIntensityChange;
 }

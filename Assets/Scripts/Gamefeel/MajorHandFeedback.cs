@@ -9,14 +9,14 @@ public class MajorHandFeedback : MonoBehaviour
 {
     public BeatManager beatManager;
     public XRCustomController controller;
-    public ConductManager conductManager;
+    public ConductingEventsManager conductingEventsManager;
     public TrailRenderer trailRenderer;
 
     private void Start()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
-        conductManager.OnBeginConducting += OnBeginConducting;
-        conductManager.OnEndConducting += OnEndConducting;
+        conductingEventsManager.OnBeginConducting += OnBeginConducting;
+        conductingEventsManager.OnEndConducting += OnEndConducting;
     }
 
     public void OnBeginConducting()

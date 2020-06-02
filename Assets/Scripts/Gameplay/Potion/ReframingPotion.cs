@@ -5,17 +5,21 @@ using UnityEngine;
 
 /**
  * Potion used as in the reframing mode
- *
  */
 public class ReframingPotion : BreakableObject
 {
     public enum ReframingPotionType
     {
-        Bonus,
-        Malus
+        Reframing1,
+        Reframing2,
+        Reframing3,
+        Reframing4,
+        Reframing5,
+        Reframing6,
     }
 
-    [Header("Reframing")]
+    [Header("Reframing")] 
+    public ReframingManager reframingManager;
     public SoundEngineTuner soundEngineTuner;
     public ReframingPotionType type;
     
@@ -23,5 +27,10 @@ public class ReframingPotion : BreakableObject
     {
         base.Start();
         soundEngineTuner.SetSwitchPotionType(type.ToString(), gameObject);
+    }
+
+    override protected void OnBreak(Collision other)
+    {
+        reframingManager.CheckReframingPotionType(this, other);
     }
 }
