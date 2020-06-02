@@ -47,14 +47,6 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     private float m_Delay = 0.0f;
     private float m_MaxDelay = 0.0f;
-    private float timeSinceLastDelay = 0;
-    private float timeBetweenDelayUpdate = 0.5f;
-
-    //DEBUG
-    private MeshRenderer m_MeshRenderer;
-    [Header("DEBUG")]
-    public DebugBar delayBar;
-    public TextMeshPro articulationTextMesh;
 
     private void Awake()
     {
@@ -65,8 +57,6 @@ public abstract class InstrumentFamily : MonoBehaviour
         if (familyAnimators.Length > 0) {
             m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
         }
-
-        m_MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Start()
@@ -74,16 +64,8 @@ public abstract class InstrumentFamily : MonoBehaviour
         StartCoroutine(LaunchAnimOffset());
     }
 
-    private void Update()
-    {
-        if (timeSinceLastDelay > timeBetweenDelayUpdate) {
-            UpdateDelay();
-            timeSinceLastDelay = timeSinceLastDelay % timeBetweenDelayUpdate;
-        }
-        timeSinceLastDelay += Time.deltaTime;
-    }
-
-
+    
+    //TODO : we no longer use the delay feature
     //We pick a new delay each timeBetweenDelayUpdate seconds to create a "sound false" effect
     private void UpdateDelay()
     {
@@ -95,7 +77,6 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         m_MaxDelay += addedMaxDelay;
         m_MaxDelay = (m_MaxDelay > SoundEngineTuner.MAX_DELAY) ? SoundEngineTuner.MAX_DELAY : m_MaxDelay;
-        delayBar.UpdateValue(m_MaxDelay, 1 - (m_MaxDelay / SoundEngineTuner.MAX_DELAY));
     }
     
     public void SetArticulation(int index)
@@ -108,9 +89,6 @@ public abstract class InstrumentFamily : MonoBehaviour
                 }
 
                 m_CurrentArticulationIndex = index;
-
-                //DEBUG
-                articulationTextMesh.text = articulationTypes[index].ToString();
             }
         }
     }
