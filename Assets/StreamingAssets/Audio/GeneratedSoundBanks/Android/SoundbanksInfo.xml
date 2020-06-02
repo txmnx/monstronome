@@ -5348,7 +5348,7 @@
 				</Event>
 				<Event Id="3679762312" Name="Resume_All" ObjectPath="\Events\Setup_Event\Resume_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3271167387" Name="SetWoods" ObjectPath="\Events\Music_Event\Debug\SetWoods" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2516234976" Name="SFX_Brass_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Brass_Broken" DurationType="OneShot" DurationMin="1.735500" DurationMax="2.117771">
+				<Event Id="3734706292" Name="SFX_Broken_Brass" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Brass" DurationType="OneShot" DurationMin="1.735500" DurationMax="2.117771">
 					<ExcludedMemoryFiles>
 						<File Id="427169365" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken.wav</ShortName>
@@ -5364,8 +5364,28 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="3791035039" Name="SFX_Feedback_GoalSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="212679835" Name="SFX_Percussions_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Percussions_Broken" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2398493165" Name="SFX_Broken_Percussions" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Percussions" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="158413085" Name="SFX_Broken_Strings" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Strings" DurationType="OneShot" DurationMin="2.864563" DurationMax="4.601083">
+					<ExcludedMemoryFiles>
+						<File Id="95194890" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken_755F56E2.wem</Path>
+						</File>
+						<File Id="541550513" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-01.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-01_755F56E2.wem</Path>
+						</File>
+						<File Id="1037924236" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-02.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-02_755F56E2.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
+				<Event Id="3687219673" Name="SFX_Broken_Woods" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Woods" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="218690933" Name="SFX_Feedback_GoalSuccess_Brass" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Brass" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3514940132" Name="SFX_Feedback_GoalSuccess_Percussions" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Percussions" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3295301748" Name="SFX_Feedback_GoalSuccess_Strings" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Strings" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3216556012" Name="SFX_Feedback_GoalSuccess_Woods" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Woods" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1231703344" Name="SFX_Potion_Broken" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Broken" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.147086" DurationMax="3.117456">
 					<ExcludedMemoryFiles>
 						<File Id="95828565" Language="SFX">
@@ -5625,22 +5645,6 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="2404344115" Name="SFX_Strings_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Strings_Broken" DurationType="OneShot" DurationMin="2.864563" DurationMax="4.601083">
-					<ExcludedMemoryFiles>
-						<File Id="95194890" Language="SFX">
-							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken.wav</ShortName>
-							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken_755F56E2.wem</Path>
-						</File>
-						<File Id="541550513" Language="SFX">
-							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-01.wav</ShortName>
-							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-01_755F56E2.wem</Path>
-						</File>
-						<File Id="1037924236" Language="SFX">
-							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-02.wav</ShortName>
-							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-02_755F56E2.wem</Path>
-						</File>
-					</ExcludedMemoryFiles>
-				</Event>
 				<Event Id="3420964884" Name="SFX_Wand_Enter" ObjectPath="\Events\SFX_Event\SFX\Wand\SFX_Wand_Enter" MaxAttenuation="100.000000" DurationType="Infinite">
 					<ExcludedMemoryFiles>
 						<File Id="454031838" Language="SFX">
@@ -5681,7 +5685,6 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="2822419119" Name="SFX_Woods_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Woods_Broken" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="56434811" Name="Staccato" ObjectPath="\Events\Music_Event\Debug\Staccato" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3086540886" Name="StopAll" ObjectPath="\Events\Setup_Event\StopAll" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="922786755" Name="UI_Menu_Back" ObjectPath="\Events\UI_Event\UI\UI_Menu_Back" DurationType="OneShot" DurationMin="0.803729" DurationMax="0.803729">
@@ -5909,6 +5912,7 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
+				<Event Id="2153411292" Name="UI_Settings_Slider_Volume" ObjectPath="\Events\UI_Event\UI\UI_Settings_Slider_Volume" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<ReferencedStreamedFiles>
 				<File Id="986933918"/>
@@ -9706,6 +9710,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2153411292" Name="UI_Settings_Slider_Volume" ObjectPath="\Events\UI_Event\UI\UI_Settings_Slider_Volume" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 		</SoundBank>
 		<SoundBank Id="3710691832" Language="SFX">
@@ -9713,7 +9718,7 @@
 			<ShortName>SNB_SFX</ShortName>
 			<Path>SNB_SFX.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2516234976" Name="SFX_Brass_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Brass_Broken" DurationType="OneShot" DurationMin="1.735500" DurationMax="2.117771">
+				<Event Id="3734706292" Name="SFX_Broken_Brass" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Brass" DurationType="OneShot" DurationMin="1.735500" DurationMax="2.117771">
 					<IncludedMemoryFiles>
 						<File Id="427169365" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken.wav</ShortName>
@@ -9729,8 +9734,28 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3791035039" Name="SFX_Feedback_GoalSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="212679835" Name="SFX_Percussions_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Percussions_Broken" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2398493165" Name="SFX_Broken_Percussions" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Percussions" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="158413085" Name="SFX_Broken_Strings" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Strings" DurationType="OneShot" DurationMin="2.864563" DurationMax="4.601083">
+					<IncludedMemoryFiles>
+						<File Id="95194890" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken_755F56E2.wem</Path>
+						</File>
+						<File Id="541550513" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-01.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-01_755F56E2.wem</Path>
+						</File>
+						<File Id="1037924236" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-02.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-02_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3687219673" Name="SFX_Broken_Woods" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Broken_Woods" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="218690933" Name="SFX_Feedback_GoalSuccess_Brass" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Brass" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3514940132" Name="SFX_Feedback_GoalSuccess_Percussions" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Percussions" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3295301748" Name="SFX_Feedback_GoalSuccess_Strings" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Strings" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3216556012" Name="SFX_Feedback_GoalSuccess_Woods" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Woods" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1231703344" Name="SFX_Potion_Broken" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Broken" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.147086" DurationMax="3.117456">
 					<IncludedMemoryFiles>
 						<File Id="95828565" Language="SFX">
@@ -9990,22 +10015,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2404344115" Name="SFX_Strings_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Strings_Broken" DurationType="OneShot" DurationMin="2.864563" DurationMax="4.601083">
-					<IncludedMemoryFiles>
-						<File Id="95194890" Language="SFX">
-							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken.wav</ShortName>
-							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken_755F56E2.wem</Path>
-						</File>
-						<File Id="541550513" Language="SFX">
-							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-01.wav</ShortName>
-							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-01_755F56E2.wem</Path>
-						</File>
-						<File Id="1037924236" Language="SFX">
-							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-02.wav</ShortName>
-							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-02_755F56E2.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="3420964884" Name="SFX_Wand_Enter" ObjectPath="\Events\SFX_Event\SFX\Wand\SFX_Wand_Enter" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="454031838" Language="SFX">
@@ -10046,7 +10055,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2822419119" Name="SFX_Woods_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Woods_Broken" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="2031370766" Name="RTPC_Potion_Speed" ObjectPath="\Game Parameters\Game_Parameters\Feedback\RTPC_Potion_Speed"/>
