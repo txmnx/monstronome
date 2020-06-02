@@ -31,10 +31,20 @@ public class ReframingManager : MonoBehaviour
     }
     private DegradationState m_CurrentDegradationState;
 
+    public struct ReframingRules
+    {
+        public ReframingPotion.ReframingPotionType[] rules;
+        public ReframingRules(ReframingPotion.ReframingPotionType[] _rules)
+        {
+            rules = _rules;
+        }
+    }
+    
     public void LoadFamilies(InstrumentFamily[] families)
     {
         m_InstrumentFamilies = families;
     }
+    
     
     /* REFRAMING */
     
