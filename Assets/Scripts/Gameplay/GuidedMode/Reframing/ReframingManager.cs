@@ -25,7 +25,7 @@ public class ReframingManager : MonoBehaviour
     private bool m_IsDegrading = false;
     private bool m_CanDegrade = false;
     private bool m_IsBlock = false;
-
+    
     public enum DegradationState
     {
         Left_0,
@@ -55,29 +55,31 @@ public class ReframingManager : MonoBehaviour
     
     /* REFRAMING */
 
-    public void CheckReframingPotionType(ReframingPotion potion)
+    public void CheckReframingPotionType(ReframingPotion potion, Collision other)
     {
-        if (m_IsDegrading && m_CanCheckPotionType) {
-            if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
-                m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
+        if (m_ReframingFamily.gameObject == other.gameObject) {
+            if (m_IsDegrading && m_CanCheckPotionType) {
+                if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
+                    m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
 
-                if ((int)m_CurrentDegradationState > 1) {
-                    //There are still rules to process
-                    m_CurrentDegradationState -= 1;
-                    m_ReframingPotionIndex += 1;
-                    UpdateDegradation(m_CurrentDegradationState);
+                    if ((int) m_CurrentDegradationState > 1) {
+                        //There are still rules to process
+                        m_CurrentDegradationState -= 1;
+                        m_ReframingPotionIndex += 1;
+                        UpdateDegradation(m_CurrentDegradationState);
+                    }
+                    else {
+                        //Success
+                        UpdateDegradation(DegradationState.Left_0);
+                        StartCoroutine(OnSuccess());
+                    }
                 }
                 else {
-                    //Success
-                    UpdateDegradation(DegradationState.Left_0);
-                    StartCoroutine(SuccessAnimation());
+                    //Failure
+                    m_ReframingPotionIndex = 0;
+                    UpdateDegradation(DegradationState.Left_3);
+                    StartCoroutine(OnFailure());
                 }
-            }
-            else {
-                //Failure
-                m_ReframingPotionIndex = 0;
-                UpdateDegradation(DegradationState.Left_3);
-                StartCoroutine(FailureAnimation());
             }
         }
     }
@@ -97,18 +99,17 @@ public class ReframingManager : MonoBehaviour
         }
     }
     
-    private IEnumerator SuccessAnimation()
+    private IEnumerator OnSuccess()
     {
         m_CanCheckPotionType = false;
         yield return BlinkAnimation(Color.green, Color.yellow);
         
         m_ReframingFamily.drawableReframingRules.ResetColors();
-        
-        OnEndReframing();
         m_CanCheckPotionType = true;
+        OnEndReframing();
     }
     
-    private IEnumerator FailureAnimation()
+    private IEnumerator OnFailure()
     {
         m_CanCheckPotionType = false;
         yield return BlinkAnimation(Color.red, Color.black);
@@ -116,6 +117,7 @@ public class ReframingManager : MonoBehaviour
         m_ReframingFamily.drawableReframingRules.ResetColors();
         
         m_CurrentReframingRules = GenerateRandomReframingRules();
+        m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
         m_CanCheckPotionType = true;
     }
     
@@ -196,6 +198,7 @@ public class ReframingManager : MonoBehaviour
     {
         m_CanDegrade = false;
         m_IsDegrading = true;
+        m_CanCheckPotionType = true;
         
         //We start the reframing family degradation
         UpdateDegradation(DegradationState.Left_3);

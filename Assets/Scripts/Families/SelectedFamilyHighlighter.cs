@@ -25,8 +25,8 @@ public class SelectedFamilyHighlighter : MonoBehaviour
 
     private void OnSelectFamily(InstrumentFamily family)
     {
-        RenderSettings.ambientIntensity = 0.1f;
-        RenderSettings.reflectionIntensity = 0.2f;
+        RenderSettings.ambientIntensity = 0.4f;
+        RenderSettings.reflectionIntensity = 0.4f;
         
         m_CachedMainLightIntensity = mainLight.intensity;
         mainLight.intensity = 0;
