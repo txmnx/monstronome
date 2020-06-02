@@ -10,7 +10,7 @@ public class ReframingManager : MonoBehaviour
     [Header("Reframing")]
     public SoundEngineTuner soundEngineTuner;
     
-    [Header("Launch degradation")]
+    [Header("Degradation")]
     public Timeline timeline;
     public TempoManager tempoManager;
     public ReframingParametersScriptableObject reframingParameters;
@@ -42,7 +42,7 @@ public class ReframingManager : MonoBehaviour
     {
         while (m_IsDegrading) {
             //TODO : Here we check the player actions during reframing
-            OnEndReframing();
+            //OnEndReframing();
             
             yield return null;
         }
@@ -94,23 +94,22 @@ public class ReframingManager : MonoBehaviour
         m_CanDegrade = false;
         m_IsDegrading = true;
         
-        //TODO : here we start the reframing family fail
+        //We start the reframing family degradation
         m_CurrentDegradationState = DegradationState.Left_3;
         soundEngineTuner.SetDegradation(m_CurrentDegradationState);
+        m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
         
         StartCoroutine(UpdateReframing());
     }
 
-    private void UpdateBrokenAnimation()
-    {
-        
-    }
-    
     private void PickNewReframingFamily()
     {
         //We pick the family which will fail
-        m_ReframingFamily = m_InstrumentFamilies[Random.Range(0, m_InstrumentFamilies.Length)];
-        soundEngineTuner.SetSolistFamily(m_ReframingFamily);   
+        int pick = Random.Range(0, m_InstrumentFamilies.Length);
+        Debug.Log("pick : " + pick);
+        m_ReframingFamily = m_InstrumentFamilies[pick];
+        soundEngineTuner.SetSolistFamily(m_ReframingFamily);
+        Debug.Log("Solist family : " + m_ReframingFamily);
     }
     
     private void OnEnterBlock()
@@ -124,6 +123,9 @@ public class ReframingManager : MonoBehaviour
         m_CanDegrade = false;
         m_IsDegrading = false;
         
-        //TODO : here reset the fail
+        //We reset the degradation
+        m_CurrentDegradationState = DegradationState.Left_0;
+        soundEngineTuner.SetDegradation(m_CurrentDegradationState);
+        m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
     }
 }

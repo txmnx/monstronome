@@ -60,7 +60,12 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         spotlight.enabled = false;
         m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
-        m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
+        
+        //TODO : DEBUG
+        if (familyAnimators.Length > 0) {
+            m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
+        }
+
         m_MeshRenderer = GetComponent<MeshRenderer>();
     }
 
@@ -115,7 +120,7 @@ public abstract class InstrumentFamily : MonoBehaviour
         float start = GetBlendArticulation(idStart);
         float finish = GetBlendArticulation(idFinish);
         
-        //TODO : This method only works if there are three or less articulation animations 
+        //This method only works if there are three or less articulation animations 
         if (Mathf.Abs(idFinish - idStart) > 1) {
             if (idStart > idFinish) {
                 finish = 1;
@@ -181,8 +186,20 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void SetBrokenAnimation(ReframingManager.DegradationState degradationState)
     {
         float degradationStateLength = Enum.GetValues(typeof(ReframingManager.DegradationState)).Length;
-        foreach (Animator animator in familyAnimators) {
-            animator.SetLayerWeight(m_BrokenLayerID, (float)degradationState / degradationStateLength);
+        StartCoroutine(FadeToBrokenAnimation((float)degradationState / (degradationStateLength - 1)));
+    }
+
+    IEnumerator FadeToBrokenAnimation(float weight)
+    {
+        float start = familyAnimators[0].GetLayerWeight(m_BrokenLayerID);
+        float t = 0;
+        while (t < 0.99999f) {
+            float fade = Mathf.Lerp(start, weight, t);
+            foreach (Animator animator in familyAnimators) {
+                animator.SetLayerWeight(m_BrokenLayerID, fade);
+            }
+            t += Time.deltaTime;
+            yield return null;
         }
     }
     
