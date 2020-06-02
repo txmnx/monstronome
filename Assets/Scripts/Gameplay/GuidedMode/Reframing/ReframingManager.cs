@@ -102,6 +102,7 @@ public class ReframingManager : MonoBehaviour
                     }
                     else {
                         //Success
+                        m_ReframingPotionIndex = 0;
                         UpdateDegradation(DegradationState.Left_0);
                         StartCoroutine(OnSuccess());
                     }
