@@ -202,6 +202,14 @@ public class SoundEngineTuner : MonoBehaviour
         return "Focus_" + familyKeyword;
     }
 
+    private void Start()
+    {
+        AkSoundEngine.SetSwitch("SW_Articulation_Brass", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Woods", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Strings", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Percussions", "Pizzicato", soundReference.gameObject);
+    }
+
     private void Update()
     {
         int type = 1;
