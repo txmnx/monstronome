@@ -21,6 +21,7 @@ public class ReframingManager : MonoBehaviour
     private InstrumentFamily[] m_InstrumentFamilies;
     private InstrumentFamily m_ReframingFamily;
     
+    private bool m_CanCheckPotionType = false;
     private bool m_IsDegrading = false;
     private bool m_CanDegrade = false;
     private bool m_IsBlock = false;
@@ -43,7 +44,9 @@ public class ReframingManager : MonoBehaviour
         }
     }
     private ReframingRules m_CurrentReframingRules;
-    
+
+    private int m_ReframingPotionIndex = 0;
+
     public void LoadFamilies(InstrumentFamily[] families)
     {
         m_InstrumentFamilies = families;
@@ -51,15 +54,69 @@ public class ReframingManager : MonoBehaviour
     
     
     /* REFRAMING */
-    
-    IEnumerator UpdateReframing()
+
+    public void CheckReframingPotionType(ReframingPotion potion)
     {
-        while (m_IsDegrading) {
-            //TODO : Here we check the player actions during reframing
-            //OnEndReframing();
-            
-            yield return null;
+        if (m_IsDegrading && m_CanCheckPotionType) {
+            if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
+                m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
+
+                if ((int)m_CurrentDegradationState > 1) {
+                    //There are still rules to process
+                    m_CurrentDegradationState -= 1;
+                    m_ReframingPotionIndex += 1;
+                    UpdateDegradation(m_CurrentDegradationState);
+                }
+                else {
+                    //Success
+                    UpdateDegradation(DegradationState.Left_0);
+                    StartCoroutine(SuccessAnimation());
+                }
+            }
+            else {
+                //Failure
+                m_ReframingPotionIndex = 0;
+                UpdateDegradation(DegradationState.Left_3);
+                StartCoroutine(FailureAnimation());
+            }
         }
+    }
+
+    private IEnumerator BlinkAnimation(Color color1, Color color2)
+    {
+        for (int repeat = 0; repeat < 4; ++repeat) {
+            for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color1);
+            }
+            yield return new WaitForSeconds(0.2f);
+        
+            for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color2);
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+    
+    private IEnumerator SuccessAnimation()
+    {
+        m_CanCheckPotionType = false;
+        yield return BlinkAnimation(Color.green, Color.yellow);
+        
+        m_ReframingFamily.drawableReframingRules.ResetColors();
+        
+        OnEndReframing();
+        m_CanCheckPotionType = true;
+    }
+    
+    private IEnumerator FailureAnimation()
+    {
+        m_CanCheckPotionType = false;
+        yield return BlinkAnimation(Color.red, Color.black);
+
+        m_ReframingFamily.drawableReframingRules.ResetColors();
+        
+        m_CurrentReframingRules = GenerateRandomReframingRules();
+        m_CanCheckPotionType = true;
     }
     
     private void OnEndReframing()
@@ -93,6 +150,13 @@ public class ReframingManager : MonoBehaviour
         rules[2] = possibilities[randomIndex];
 
         return new ReframingRules(rules);
+    }
+
+    private void UpdateDegradation(DegradationState state)
+    {
+        m_CurrentDegradationState = state;
+        soundEngineTuner.SetDegradation(m_CurrentDegradationState);
+        m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
     }
     
     /* LAUNCH FAILS */
@@ -134,15 +198,11 @@ public class ReframingManager : MonoBehaviour
         m_IsDegrading = true;
         
         //We start the reframing family degradation
-        m_CurrentDegradationState = DegradationState.Left_3;
-        soundEngineTuner.SetDegradation(m_CurrentDegradationState);
-        m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
+        UpdateDegradation(DegradationState.Left_3);
         
         m_CurrentReframingRules = GenerateRandomReframingRules();
         m_ReframingFamily.drawableReframingRules.Show(true);
         m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
-
-        StartCoroutine(UpdateReframing());
     }
 
     private void PickNewReframingFamily()
@@ -164,11 +224,11 @@ public class ReframingManager : MonoBehaviour
     {
         m_CanDegrade = false;
         m_IsDegrading = false;
+        m_ReframingPotionIndex = 0;
+        m_CanCheckPotionType = true;
         
         //We reset the degradation
-        m_CurrentDegradationState = DegradationState.Left_0;
-        soundEngineTuner.SetDegradation(m_CurrentDegradationState);
-        m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
+        UpdateDegradation(DegradationState.Left_0);
         m_ReframingFamily.drawableReframingRules.Show(false);
     }
 }

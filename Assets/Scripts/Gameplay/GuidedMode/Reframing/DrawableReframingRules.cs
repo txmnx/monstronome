@@ -16,7 +16,9 @@ public class DrawableReframingRules : MonoBehaviour
 
     private MaterialPropertyBlock m_Block;
     private int m_ColorPropertyId;
-
+    private Color m_BaseColor;
+    
+    
     public void Init()
     {
         m_PotionRuleTexts = new TextMeshPro[potionDisplays.Length];
@@ -27,6 +29,7 @@ public class DrawableReframingRules : MonoBehaviour
 
         m_Block = new MaterialPropertyBlock();
         m_ColorPropertyId = Shader.PropertyToID("_EmissionColor");
+        m_BaseColor = potionDisplayRenderers[0].material.GetColor(m_ColorPropertyId);
     }
 
     public void Show(bool show)
@@ -40,6 +43,14 @@ public class DrawableReframingRules : MonoBehaviour
     {
         for (int i = 0; i < reframingRules.rules.Length; ++i) {
             m_PotionRuleTexts[i].text = reframingRules.rules[i].ToString();
+        }
+    }
+
+    public void ResetColors()
+    {
+        foreach (Renderer rend in potionDisplayRenderers) {
+            m_Block.SetColor(m_ColorPropertyId, m_BaseColor);
+            rend.SetPropertyBlock(m_Block);
         }
     }
     
