@@ -5,14 +5,17 @@ using UnityEngine;
 
 /**
  * Potion used as in the reframing mode
- *
  */
 public class ReframingPotion : BreakableObject
 {
     public enum ReframingPotionType
     {
-        Bonus,
-        Malus
+        Reframing1,
+        Reframing2,
+        Reframing3,
+        Reframing4,
+        Reframing5,
+        Reframing6,
     }
 
     [Header("Reframing")]
