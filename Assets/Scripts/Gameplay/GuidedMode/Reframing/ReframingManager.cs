@@ -94,6 +94,8 @@ public class ReframingManager : MonoBehaviour
                 if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
                     m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
 
+                    soundEngineTuner.SetSwitchPotionType("Bonus", potion.gameObject);
+                    
                     if ((int) m_CurrentDegradationState > 1) {
                         //There are still rules to process
                         m_CurrentDegradationState -= 1;
@@ -109,6 +111,8 @@ public class ReframingManager : MonoBehaviour
                 }
                 else {
                     //Failure
+                    soundEngineTuner.SetSwitchPotionType("Malus", potion.gameObject);
+                    
                     m_ReframingPotionIndex = 0;
                     UpdateDegradation(DegradationState.Left_3);
                     StartCoroutine(OnFailure());
