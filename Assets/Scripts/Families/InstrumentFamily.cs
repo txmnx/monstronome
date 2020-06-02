@@ -19,6 +19,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     [Header("Highlight")]
     public Light spotlight;
     public Renderer highlightHintRenderer;
+    public DrawableReframingRules drawableReframingRules;
     
     public enum ArticulationType
     {
@@ -57,6 +58,9 @@ public abstract class InstrumentFamily : MonoBehaviour
         if (familyAnimators.Length > 0) {
             m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
         }
+
+        drawableReframingRules.Init();
+        drawableReframingRules.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -145,11 +149,13 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         spotlight.enabled = true;
         highlightHintRenderer.enabled = false;
+        drawableReframingRules.gameObject.SetActive(true);
     }
     
     public void OnExitHighlight()
     {
         spotlight.enabled = false;
+        drawableReframingRules.gameObject.SetActive(false);
     }
 
     public void StartPlaying()

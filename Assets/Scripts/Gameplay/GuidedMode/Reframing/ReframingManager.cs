@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /**
  * Manages the instruments failures and the reframing phases
@@ -39,6 +42,7 @@ public class ReframingManager : MonoBehaviour
             rules = _rules;
         }
     }
+    private ReframingRules m_CurrentReframingRules;
     
     public void LoadFamilies(InstrumentFamily[] families)
     {
@@ -61,10 +65,35 @@ public class ReframingManager : MonoBehaviour
     private void OnEndReframing()
     {
         m_IsDegrading = false;
+        m_ReframingFamily.drawableReframingRules.Show(false);
         PickNewReframingFamily();
         StartCoroutine(WaitCanDegrade(reframingParameters.timeBetweenFails));
     }
-    
+
+    private ReframingRules GenerateRandomReframingRules()
+    {
+        ReframingPotion.ReframingPotionType[] rules = new ReframingPotion.ReframingPotionType[3];
+        List<ReframingPotion.ReframingPotionType> possibilities = new List<ReframingPotion.ReframingPotionType>();
+        foreach (ReframingPotion.ReframingPotionType possibility in Enum.GetValues(typeof(ReframingPotion.ReframingPotionType))) {
+            possibilities.Add(possibility);
+        }
+        
+        //First potion
+        int randomIndex = Random.Range(0, possibilities.Count);
+        rules[0] = possibilities[randomIndex];
+        possibilities.RemoveAt(randomIndex);
+        
+        //Second potion
+        randomIndex = Random.Range(0, possibilities.Count);
+        rules[1] = possibilities[randomIndex];
+        possibilities.RemoveAt(randomIndex);
+        
+        //Third potion
+        randomIndex = Random.Range(0, possibilities.Count);
+        rules[2] = possibilities[randomIndex];
+
+        return new ReframingRules(rules);
+    }
     
     /* LAUNCH FAILS */
     
@@ -109,6 +138,10 @@ public class ReframingManager : MonoBehaviour
         soundEngineTuner.SetDegradation(m_CurrentDegradationState);
         m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
         
+        m_CurrentReframingRules = GenerateRandomReframingRules();
+        m_ReframingFamily.drawableReframingRules.Show(true);
+        m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
+
         StartCoroutine(UpdateReframing());
     }
 
@@ -116,7 +149,6 @@ public class ReframingManager : MonoBehaviour
     {
         //We pick the family which will fail
         int pick = Random.Range(0, m_InstrumentFamilies.Length);
-        Debug.Log("pick : " + pick);
         m_ReframingFamily = m_InstrumentFamilies[pick];
         soundEngineTuner.SetSolistFamily(m_ReframingFamily);
         Debug.Log("Solist family : " + m_ReframingFamily);
@@ -137,5 +169,6 @@ public class ReframingManager : MonoBehaviour
         m_CurrentDegradationState = DegradationState.Left_0;
         soundEngineTuner.SetDegradation(m_CurrentDegradationState);
         m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
+        m_ReframingFamily.drawableReframingRules.Show(false);
     }
 }
