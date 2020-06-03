@@ -26,6 +26,8 @@ public class ReframingManager : MonoBehaviour
     private InstrumentFamily[] m_InstrumentFamilies;
     private InstrumentFamily m_ReframingFamily;
     
+    
+    private bool m_CanPickNewFamily = false;
     private bool m_CanCheckPotionType = false;
     private bool m_IsDegrading = false;
     private bool m_CanDegrade = false;
@@ -57,6 +59,11 @@ public class ReframingManager : MonoBehaviour
     public void LoadFamilies(InstrumentFamily[] families)
     {
         m_InstrumentFamilies = families;
+    }
+
+    public void InitStart()
+    {
+        PickNewReframingFamily(true);
     }
 
     public void Check(bool isBlock)
@@ -200,6 +207,7 @@ public class ReframingManager : MonoBehaviour
         m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
     }
     
+    
     /* LAUNCH FAILS */
     
     //Check and launch a fail if it is possible
@@ -247,13 +255,19 @@ public class ReframingManager : MonoBehaviour
         m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
     }
 
-    private void PickNewReframingFamily()
+    private void PickNewReframingFamily(bool force = false)
     {
-        //We pick the family which will fail
-        int pick = Random.Range(0, m_InstrumentFamilies.Length);
-        m_ReframingFamily = m_InstrumentFamilies[pick];
-        soundEngineTuner.SetSolistFamily(m_ReframingFamily);
-        Debug.Log("Solist family : " + m_ReframingFamily);
+        if (m_CanPickNewFamily || force) {
+            //We pick the family which will fail
+            int pick = Random.Range(0, m_InstrumentFamilies.Length);
+            m_ReframingFamily = m_InstrumentFamilies[pick];
+            soundEngineTuner.SetSolistFamily(m_ReframingFamily);
+            Debug.Log("Solist family : " + m_ReframingFamily);
+        }
+        else {
+            //We can't pick a random family when we enter the first block - it should be set before
+            m_CanPickNewFamily = true;
+        }
     }
     
     private void OnEnterBlock()

@@ -120,13 +120,27 @@ public class GuidedModeManager : MonoBehaviour
         }
     }
 
+    public event Action OnStartOrchestra;
+    
+    
+    /* TODO : DEBUG */
     private void OnBeat(float amplitude)
     {
         if (!m_HasOneBeat) {
+            reframingManager.InitStart();
             AkSoundEngine.SetState("Music", "Start");
         }
         m_HasOneBeat = true;
     }
-    
-    public event Action OnStartOrchestra;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1")) {
+            if (!m_HasOneBeat) {
+                reframingManager.InitStart();
+                AkSoundEngine.SetState("Music", "Start");
+            }
+            m_HasOneBeat = true;
+        }
+    }
 }
