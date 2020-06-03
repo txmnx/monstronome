@@ -212,11 +212,13 @@ public class SoundEngineTuner : MonoBehaviour
 
     private void Update()
     {
+        
         int type = 1;
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Strings", gameObject, 0, out volumestrings, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Woods", gameObject, 0, out volumewoods, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Percussions", gameObject, 0, out volumepercussions, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Brass", gameObject, 0, out volumebrass, ref type);
+        
     }
 }
 
