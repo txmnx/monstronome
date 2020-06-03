@@ -1,8 +1,8 @@
 Event	ID	Name			Wwise Object Path	Notes
 	56434811	Staccato			\Music_Event\Debug\Staccato	
+	121937159	Public_ApplauseEnd			\Ambience_Event\Public_ApplauseEnd	
 	122105866	Play_Metronome			\Music_Event\Music\Play_Metronome	
-	158413085	SFX_Broken_Strings			\SFX_Event\SFX\Family\SFX_Broken_Strings	
-	218690933	SFX_Feedback_GoalSuccess_Brass			\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Brass	
+	247346967	SFX_Feedback_ReframingSuccess			\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess	
 	345071173	SFX_Potion_Collision			\SFX_Event\SFX\Potion\SFX_Potion_Collision	
 	589115224	UI_Menu_Option_Select			\UI_Event\UI\UI_Menu_Option_Select	
 	722522513	UI_Menu_Option_Hovered			\UI_Event\UI\UI_Menu_Option_Hovered	
@@ -15,34 +15,34 @@ Event	ID	Name			Wwise Object Path	Notes
 	1422035515	Legato			\Music_Event\Debug\Legato	
 	1598298728	Music_Menu			\Music_Event\Music\Music_Menu	
 	1722761166	UI_Menu_Pause_Resume_Countdown			\UI_Event\UI\UI_Menu_Pause_Resume_Countdown	
+	1834445417	UI_SoundBoard_Slider_Step_Metronome			\UI_Event\UI\UI_SoundBoard_Slider_Step_Metronome	
+	1936030412	UI_SoundBoard_Slider_Step_Music			\UI_Event\UI\UI_SoundBoard_Slider_Step_Music	
+	2012101007	SFX_Family_Broken			\SFX_Event\SFX\Family\SFX_Family_Broken	
 	2077337834	Pizzicato			\Music_Event\Debug\Pizzicato	
 	2153411292	UI_Settings_Slider_Volume			\UI_Event\UI\UI_Settings_Slider_Volume	
+	2219910546	UI_SoundBoard_Slider_Step_SFXVoice			\UI_Event\UI\UI_SoundBoard_Slider_Step_SFXVoice	
 	2242916472	SFX_Potion_Spawn			\SFX_Event\SFX\Potion\SFX_Potion_Spawn	
 	2269109418	UI_Menu_Pause_Resume			\UI_Event\UI\UI_Menu_Pause_Resume	
 	2368806795	Music_End_Beat			\Music_Event\Music\Music_End_Beat	
-	2398493165	SFX_Broken_Percussions			\SFX_Event\SFX\Family\SFX_Broken_Percussions	
 	2546653270	Music_Tuning			\Music_Event\Music\Music_Tuning	
 	2768496808	Music_Introduction_Beat			\Music_Event\Music\Music_Introduction_Beat	
 	2814570109	UI_Menu_Main_Hovered			\UI_Event\UI\UI_Menu_Main_Hovered	
 	2932040671	Play_Music			\Music_Event\Music\Play_Music	
 	3019098628	UI_Menu_Main_Select			\UI_Event\UI\UI_Menu_Main_Select	
 	3086540886	StopAll			\Setup_Event\StopAll	
-	3216556012	SFX_Feedback_GoalSuccess_Woods			\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Woods	
 	3271167387	SetWoods			\Music_Event\Debug\SetWoods	
-	3295301748	SFX_Feedback_GoalSuccess_Strings			\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Strings	
 	3420964884	SFX_Wand_Enter			\SFX_Event\SFX\Wand\SFX_Wand_Enter	
 	3427361090	SFX_Potion_Wrong			\SFX_Event\SFX\Potion\SFX_Potion_Wrong	
-	3514940132	SFX_Feedback_GoalSuccess_Percussions			\SFX_Event\SFX\Feedback\SFX_Feedback_GoalSuccess_Percussions	
 	3591561671	SFX_Potion_Shake			\SFX_Event\SFX\Potion\SFX_Potion_Shake	
 	3606142437	SFX_Potion_Throw			\SFX_Event\SFX\Potion\SFX_Potion_Throw	
 	3638337738	SFX_Wand_Iddle			\SFX_Event\SFX\Wand\SFX_Wand_Iddle	
 	3668990679	SFX_Potion_Pickup			\SFX_Event\SFX\Potion\SFX_Potion_Pickup	
 	3679762312	Resume_All			\Setup_Event\Resume_All	
-	3687219673	SFX_Broken_Woods			\SFX_Event\SFX\Family\SFX_Broken_Woods	
-	3734706292	SFX_Broken_Brass			\SFX_Event\SFX\Family\SFX_Broken_Brass	
 	3758674935	SFX_Potion_Right			\SFX_Event\SFX\Potion\SFX_Potion_Right	
 	3864097025	Pause_All			\Setup_Event\Pause_All	
+	4055031953	UI_SoundBoard_Slider_Step_Master			\UI_Event\UI\UI_SoundBoard_Slider_Step_Master	
 	4170617512	UI_Menu_Pause_Hovered			\UI_Event\UI\UI_Menu_Pause_Hovered	
+	4283111574	Public_ApplauseIntro			\Ambience_Event\Public_ApplauseIntro	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	371597594	SW_Potion_Type			\Switches\SW_Potion_Type	
@@ -105,7 +105,11 @@ Custom State	ID	Name	State Group	Owner		Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	129	MIDI note velocity			\MIDI note velocity	
 	234013449	RTPC_Intensity_Strings			\Game_Parameters\Intensity\RTPC_Intensity_Strings	
+	250876189	RTPC_SetVolume_VoiceSFX			\Game_Parameters\SetVolume\RTPC_SetVolume_VoiceSFX	
 	1164038749	RTPC_Intensity_Woods			\Game_Parameters\Intensity\RTPC_Intensity_Woods	
+	1728933839	RTPC_SetVolume_Music			\Game_Parameters\SetVolume\RTPC_SetVolume_Music	
+	1832739962	RTPC_SetVolume_Metronome			\Game_Parameters\SetVolume\RTPC_SetVolume_Metronome	
+	1866890756	RTPC_SetVolume_Master			\Game_Parameters\SetVolume\RTPC_SetVolume_Master	
 	2031370766	RTPC_Potion_Speed			\Game_Parameters\Feedback\RTPC_Potion_Speed	
 	2676178657	RTPC_Intensity_Percussions			\Game_Parameters\Intensity\RTPC_Intensity_Percussions	
 	3154931128	RTPC_Intensity_Brass			\Game_Parameters\Intensity\RTPC_Intensity_Brass	
@@ -114,19 +118,26 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	1050871	Modulator Envelope (Custom)				
 	44120094	Modulator Envelope (Custom)				
+	66307488	Modulator Envelope (Custom)				
+	67661999	Modulator Envelope (Custom)				
 	81265429	Modulator Envelope (Custom)				
 	81852197	Modulator Envelope (Custom)				
 	131640516	Modulator Envelope (Custom)				
 	153151924	Modulator Envelope (Custom)				
 	180023256	Modulator Envelope (Custom)				
 	246838900	Modulator Envelope (Custom)				
+	284453258	Modulator Envelope (Custom)				
 	293606780	Modulator Envelope (Custom)				
 	359100654	Modulator Envelope (Custom)				
 	410820250	Modulator Envelope (Custom)				
+	440442573	Modulator Envelope (Custom)				
 	452423007	Modulator Envelope (Custom)				
 	476056139	Modulator Envelope (Custom)				
 	747812616	Modulator Envelope (Custom)				
+	794966625	Modulator Envelope (Custom)				
+	870748181	Modulator Envelope (Custom)				
 	917666219	Modulator Envelope (Custom)				
+	919003391	Modulator Envelope (Custom)				
 
 Modulator Time	ID	Name			Wwise Object Path	Notes
 	122980461	Modulator Time (Custom)				
@@ -143,6 +154,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	14986047	Strings	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocMiddle_A\Brass\Midi_BlocMiddleA_Brass_Legato_A0EF7EA5.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Strings		68
 	41800163	MusicMenu	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Music\Menu\MusicMenu_073B4D0C.wem		\Interactive Music Hierarchy\Music\Music_Menu\Music_Menu\MusicMenu		2816232
 	45162288	Midi_BlocMiddleA_Woods_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocMiddle_A\Woods\Midi_BlocMiddleA_Woods_Staccato_8F6865AA.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Midi_BlocMiddleA_Woods_Legato		128
+	70839842	Percussions	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Theme_Bloc_End_Divers_B975CF02.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_End_A\Percussions		237
 	70853608	Woods	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Midi_BlocStartA_Woods_Legato_03D1B1F4.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Woods		84
 	103300285	Bloc_Middle_MIDI_Strings_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Bloc_Tense_MIDI_Strings_Legato_A05B8094.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Tense_A\Bloc_Middle_MIDI_Strings_Legato		204
 	189241242	Midi_BlocMiddleA_Woods_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocMiddle_A\Woods\Midi_BlocMiddleA_Woods_Legato_3BF3BB8D.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Midi_BlocMiddleA_Woods_Legato		122
@@ -155,12 +167,15 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	384824802	BlocA_Middle_Brass	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocMiddle_A\Brass\BlocA_Middle_Brass_EF93B1CC.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\BlocA_Middle_Brass		214
 	398960060	Brass	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\Transition1\Transition1_Midi_AD1E7181.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Transition_Start_Middle\Brass		297
 	482344561	Theme	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\Theme\Strings\Midi_Theme_Strings_Pizzicato_B370BDE8.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Theme		234
+	488709061	MIDI_Bloc_End_Strings_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocEnd_A\MIDI_Bloc_End_Strings_Legato_61CD81C6.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_End_A\MIDI_Bloc_End_Strings_Legato		252
 	565372482	Strings	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Transition1_Midi_StringsLegato_1EC00B60.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Transition_Start_Middle\Strings		134
 	604044517	Strings	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocMiddle_A\Strings\Midi_BlocMiddleA_Strings_Pizzicato_9A0C2894.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Strings		887
+	633056633	MIDI_Bloc_End_Woods_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocEnd_A\MIDI_Bloc_End_Woods_Legato_F993F64C.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_End_A\MIDI_Bloc_End_Woods_Legato		174
 	677349961	BlocTense_MIDI_Brass_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocTense_A\Bloc_Tense_MIDI_Woods_Legato_C4D39ACC.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Tense_A\BlocTense_MIDI_Brass_Legato		118
 	692551481	BlocA_Middle_Strings_Secondary	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocMiddle_A\Strings\BlocA_Middle_Strings_Secondary_12C583FC.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\BlocA_Middle_Strings_Secondary		693
 	705472760	Theme	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Percussions_Solo_BlocMiddle_F743E15F.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Theme		230
 	712211043	Woods	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Midi_BlocStartA_Woods_Staccato_8482A441.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Woods		113
+	730181579	Theme	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI_Bloc_Tense_Solo_D8D41B0A.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Tense_A\Theme		102
 	742873623	Metronome_Midi	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\Metronome\Metronome_Midi_3FDB57FE.wmid		\Interactive Music Hierarchy\Music\Music\Metronome\Metronome\Metronome_Midi		49
 	767642076	Midi_BlocMiddleA_Woods_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\MIDI\BlocMiddle_A\Woods\Midi_BlocMiddleA_Woods_Pizzicato_6CA9CDAB.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Midi_BlocMiddleA_Woods_Legato		201
 	801947261	Percussions	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\BlocStart_A_Percussions_E43E622F.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Percussions		158

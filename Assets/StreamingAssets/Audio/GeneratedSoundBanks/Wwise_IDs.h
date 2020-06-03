@@ -22,16 +22,12 @@ namespace AK
         static const AkUniqueID PIZZICATO = 2077337834U;
         static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
+        static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
+        static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
         static const AkUniqueID RESUME_ALL = 3679762312U;
         static const AkUniqueID SETWOODS = 3271167387U;
-        static const AkUniqueID SFX_BROKEN_BRASS = 3734706292U;
-        static const AkUniqueID SFX_BROKEN_PERCUSSIONS = 2398493165U;
-        static const AkUniqueID SFX_BROKEN_STRINGS = 158413085U;
-        static const AkUniqueID SFX_BROKEN_WOODS = 3687219673U;
-        static const AkUniqueID SFX_FEEDBACK_GOALSUCCESS_BRASS = 218690933U;
-        static const AkUniqueID SFX_FEEDBACK_GOALSUCCESS_PERCUSSIONS = 3514940132U;
-        static const AkUniqueID SFX_FEEDBACK_GOALSUCCESS_STRINGS = 3295301748U;
-        static const AkUniqueID SFX_FEEDBACK_GOALSUCCESS_WOODS = 3216556012U;
+        static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
+        static const AkUniqueID SFX_FEEDBACK_REFRAMINGSUCCESS = 247346967U;
         static const AkUniqueID SFX_POTION_BROKEN = 1231703344U;
         static const AkUniqueID SFX_POTION_COLLISION = 345071173U;
         static const AkUniqueID SFX_POTION_PICKUP = 3668990679U;
@@ -57,6 +53,10 @@ namespace AK
         static const AkUniqueID UI_MENU_PAUSE_RESUME_COUNTDOWN = 1722761166U;
         static const AkUniqueID UI_MENU_PAUSE_SELECT = 795989787U;
         static const AkUniqueID UI_SETTINGS_SLIDER_VOLUME = 2153411292U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MASTER = 4055031953U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_METRONOME = 1834445417U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MUSIC = 1936030412U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_SFXVOICE = 2219910546U;
     } // namespace EVENTS
 
     namespace STATES
