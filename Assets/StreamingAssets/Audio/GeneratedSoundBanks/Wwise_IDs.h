@@ -22,11 +22,12 @@ namespace AK
         static const AkUniqueID PIZZICATO = 2077337834U;
         static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
+        static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
+        static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
         static const AkUniqueID RESUME_ALL = 3679762312U;
         static const AkUniqueID SETWOODS = 3271167387U;
-        static const AkUniqueID SFX_BRASS_BROKEN = 2516234976U;
-        static const AkUniqueID SFX_FEEDBACK_GOALSUCCESS = 3791035039U;
-        static const AkUniqueID SFX_PERCUSSIONS_BROKEN = 212679835U;
+        static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
+        static const AkUniqueID SFX_FEEDBACK_REFRAMINGSUCCESS = 247346967U;
         static const AkUniqueID SFX_POTION_BROKEN = 1231703344U;
         static const AkUniqueID SFX_POTION_COLLISION = 345071173U;
         static const AkUniqueID SFX_POTION_PICKUP = 3668990679U;
@@ -35,11 +36,9 @@ namespace AK
         static const AkUniqueID SFX_POTION_SPAWN = 2242916472U;
         static const AkUniqueID SFX_POTION_THROW = 3606142437U;
         static const AkUniqueID SFX_POTION_WRONG = 3427361090U;
-        static const AkUniqueID SFX_STRINGS_BROKEN = 2404344115U;
         static const AkUniqueID SFX_WAND_ENTER = 3420964884U;
         static const AkUniqueID SFX_WAND_EXIT = 1368847222U;
         static const AkUniqueID SFX_WAND_IDDLE = 3638337738U;
-        static const AkUniqueID SFX_WOODS_BROKEN = 2822419119U;
         static const AkUniqueID STACCATO = 56434811U;
         static const AkUniqueID STOPALL = 3086540886U;
         static const AkUniqueID UI_MENU_BACK = 922786755U;
@@ -53,6 +52,11 @@ namespace AK
         static const AkUniqueID UI_MENU_PAUSE_RESUME = 2269109418U;
         static const AkUniqueID UI_MENU_PAUSE_RESUME_COUNTDOWN = 1722761166U;
         static const AkUniqueID UI_MENU_PAUSE_SELECT = 795989787U;
+        static const AkUniqueID UI_SETTINGS_SLIDER_VOLUME = 2153411292U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MASTER = 4055031953U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_METRONOME = 1834445417U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MUSIC = 1936030412U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_SFXVOICE = 2219910546U;
     } // namespace EVENTS
 
     namespace STATES
