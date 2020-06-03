@@ -12,6 +12,7 @@ public class GuidedModeManager : MonoBehaviour
     [Header("Callbacks")]
     public WwiseCallBack wwiseCallback;
     public BeatManager beatManager;
+    public ArticulationManager articulationManager;
     
     [Header("Animations")]
     public TempoManager tempoManager;
@@ -120,13 +121,33 @@ public class GuidedModeManager : MonoBehaviour
         }
     }
 
+    public void InitStartOrchestra()
+    {
+        articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
+        reframingManager.InitStart();
+    }
+
+    public event Action OnStartOrchestra;
+    
+    
+    /* TODO : DEBUG */
     private void OnBeat(float amplitude)
     {
         if (!m_HasOneBeat) {
+            InitStartOrchestra();
             AkSoundEngine.SetState("Music", "Start");
         }
         m_HasOneBeat = true;
     }
-    
-    public event Action OnStartOrchestra;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1")) {
+            if (!m_HasOneBeat) {
+                InitStartOrchestra();
+                AkSoundEngine.SetState("Music", "Start");
+            }
+            m_HasOneBeat = true;
+        }
+    }
 }

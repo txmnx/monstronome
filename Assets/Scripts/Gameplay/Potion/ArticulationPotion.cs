@@ -22,4 +22,10 @@ public class ArticulationPotion : BreakableObject
     {
         articulationManager.SetArticulation(articulationType);
     }
+    
+    override protected void OnCollisionSFX(Collision other) 
+    {
+        //TODO : set potion speed
+        base.OnCollisionSFX(other);
+    }
 }

@@ -14,7 +14,7 @@ public class SoundEngineTuner : MonoBehaviour
     public const float START_TEMPO = 90.0f;
     public const float MAX_DELAY = 0.5f;
     //Track length (in beats)
-    public const float TRACK_LENGTH = 320.0f;
+    public const float TRACK_LENGTH = 480.0f;
 
     private Dictionary<System.Type, string> m_KeywordFamily;
     //Used to retrieve tempo range from a tempo type
@@ -137,6 +137,9 @@ public class SoundEngineTuner : MonoBehaviour
         AkSoundEngine.SetSwitch("SW_Potion_Type", type, referenceObject);
     }
     
+    //TODO : SetPotionSpeed
+    //public void SetPotionSpeed()
+    
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {
@@ -212,11 +215,13 @@ public class SoundEngineTuner : MonoBehaviour
 
     private void Update()
     {
+        
         int type = 1;
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Strings", gameObject, 0, out volumestrings, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Woods", gameObject, 0, out volumewoods, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Percussions", gameObject, 0, out volumepercussions, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Brass", gameObject, 0, out volumebrass, ref type);
+        
     }
 }
 

@@ -37,12 +37,12 @@ public class Timeline : MonoBehaviour
         m_Steps = new Dictionary<string, float>()
         {
             {"Start", 0},
-            {"Transition1", 0.2f},
-            {"Middle", 0.3f},
-            {"Transition2", 0.7f},
-            {"Tense", 0.8f},
-            {"Transition3", 0.85f},
-            {"End", 0.95f}
+            {"Transition1", 0.133333333f},
+            {"Middle", 0.2f},
+            {"Transition2", 0.466666666f},
+            {"Tense", 0.533333333f},
+            {"Transition3", 0.8f},
+            {"End", 0.866666666f}
         };
         
         m_CurrentStep = new KeyValuePair<string, float>("Start", 0);
