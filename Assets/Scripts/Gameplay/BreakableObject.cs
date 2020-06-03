@@ -43,7 +43,7 @@ public class BreakableObject : MonoBehaviour
         float speed = other.relativeVelocity.magnitude;
         if (speed > speedUntilBreak) {
             breakedObject.gameObject.SetActive(true);
-            
+
             float explosionForce = speed * speed * 0.5f;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
                 rb.AddExplosionForce(explosionForce, breakedObject.position, 2.0f, 15.0f);
@@ -59,7 +59,7 @@ public class BreakableObject : MonoBehaviour
                 co.enabled = false;
             }
             
-            OnBreak();
+            OnBreak(other);
             SFXOnObjectBreak.Post(gameObject);
             
             Destroy(defaultObject.gameObject);
@@ -72,6 +72,6 @@ public class BreakableObject : MonoBehaviour
         }
     }
 
-    protected virtual void OnBreak()
+    protected virtual void OnBreak(Collision other)
     {}
 }

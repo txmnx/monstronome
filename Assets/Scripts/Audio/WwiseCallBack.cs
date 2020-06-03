@@ -37,21 +37,16 @@ public class WwiseCallBack : MonoBehaviour
                 Debug.Log("BEAT - WWise");
             }
             
-            switch (m_MusicCueName) {
-                case "Start":
-                    OnStartBlocBegin?.Invoke();
-                    break;
-            }
+            OnCue?.Invoke(m_MusicCueName);
         }
     }
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            OnStartBlocBegin?.Invoke();
             AkSoundEngine.SetState("Music", "Start");
         }
     }
 
-public event Action OnStartBlocBegin;
+    public event Action<string> OnCue;
 }

@@ -13,6 +13,8 @@ public class SoundEngineTuner : MonoBehaviour
     public const float BASE_TEMPO = 120.0f;
     public const float START_TEMPO = 90.0f;
     public const float MAX_DELAY = 0.5f;
+    //Track length (in beats)
+    public const float TRACK_LENGTH = 320.0f;
 
     private Dictionary<System.Type, string> m_KeywordFamily;
     //Used to retrieve tempo range from a tempo type
@@ -53,7 +55,17 @@ public class SoundEngineTuner : MonoBehaviour
     }
 
 
-    /* FOCUS */
+    /* REFRAMING */
+    public void SetSolistFamily(InstrumentFamily family)
+    {
+        AkSoundEngine.SetSwitch("SW_Family_Solist", m_KeywordFamily[family.GetType()], soundReference.gameObject);
+    }
+    
+    public void SetDegradation(ReframingManager.DegradationState degradationState)
+    {
+        AkSoundEngine.SetState("PotionCount", degradationState.ToString());
+    }
+    
     //Highlight a family with a volume offset
     public void FocusFamily(InstrumentFamily family)
     {
@@ -70,7 +82,6 @@ public class SoundEngineTuner : MonoBehaviour
     /* TEMPO */
     public void SetTempo(float bpm)
     {
-        Debug.Log("BPM : " + bpm);
         AkSoundEngine.SetRTPCValue("RTPC_Tempo", bpm / BASE_TEMPO);
     }
 
@@ -189,6 +200,14 @@ public class SoundEngineTuner : MonoBehaviour
     private string GetFocusRTPCRequest(string familyKeyword)
     {
         return "Focus_" + familyKeyword;
+    }
+
+    private void Start()
+    {
+        AkSoundEngine.SetSwitch("SW_Articulation_Brass", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Woods", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Strings", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Percussions", "Pizzicato", soundReference.gameObject);
     }
 
     private void Update()

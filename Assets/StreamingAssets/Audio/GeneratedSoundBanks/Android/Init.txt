@@ -40,10 +40,14 @@ State	ID	Name	State Group			Notes
 	3537469747	Metronome	Music			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	250876189	RTPC_SetVolume_VoiceSFX			\Game_Parameters\SetVolume\RTPC_SetVolume_VoiceSFX	
 	504532776	Brick			\Factory Reflect Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Reflect Acoustic Textures\Textures\Mountain	
 	841620460	Concrete			\Factory Reflect Acoustic Textures\Textures\Concrete	
+	1728933839	RTPC_SetVolume_Music			\Game_Parameters\SetVolume\RTPC_SetVolume_Music	
 	1755085759	Wood_Deep			\Factory Reflect Acoustic Textures\Textures\Wood_Deep	
+	1832739962	RTPC_SetVolume_Metronome			\Game_Parameters\SetVolume\RTPC_SetVolume_Metronome	
+	1866890756	RTPC_SetVolume_Master			\Game_Parameters\SetVolume\RTPC_SetVolume_Master	
 	1873957695	Anechoic			\Factory Reflect Acoustic Textures\Textures\Anechoic	
 	1970351858	Fabric			\Factory Reflect Acoustic Textures\Textures\Fabric	
 	2058049674	Wood			\Factory Reflect Acoustic Textures\Textures\Wood	
@@ -63,8 +67,11 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	1192927207	Strings_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Strings_Orchestral	
 	1319017392	Theme			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Theme	
 	1346697092	Brass_Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral\Brass_Orchestral	
-	1551306167	UI			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\UI	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\Menu\UI	
+	1598298728	Music_Menu			\Default Work Unit\Master Audio Bus\Menu\Music_Menu	
 	2542362038	Orchestral			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Orchestral	
+	2607556080	Menu			\Default Work Unit\Master Audio Bus\Menu	
+	3170124113	Voice			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Voice	
 	3537469747	Metronome			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Music\Metronome	
 	3539010900	Ambisonics_Bus			\Default Work Unit\Master Audio Bus\Ambisonics_Bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
@@ -73,6 +80,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	44205819	Reverb_ConcertHall			\Default Work Unit\Master Audio Bus\Ambisonics_Bus\Reverb_ConcertHall	
+	1031316333	Reverb_Menu			\Default Work Unit\Master Audio Bus\Reverb_Menu	
 
 Effect plug-ins	ID	Name	Type				Notes
 	195105701	Wwise_Meter_(Custom)	Wwise Meter			
@@ -84,6 +92,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	609398598	Wwise_Meter_(Custom)	Wwise Meter			
 	901116825	Wwise_Meter_(Custom)	Wwise Meter			
 	1706684651	Plate_Medium	Wwise RoomVerb			
+	4085211115	Berlin_Stadtbad_Org_Stereo	Wwise Convolution Reverb			Impulse response created by Pinguin ing.büro © 2010 Pinguin ing.büro.  All rights reserved. IR Pre-delay: 5ms  
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

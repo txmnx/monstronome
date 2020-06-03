@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class TempoManager : MonoBehaviour
     //private const float BASE_ANIM_TEMPO = 90.0f;
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
-    public ConductManager conductManager;
+    public ConductingEventsManager conductingEventsManager;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     /* BPM */
@@ -27,21 +28,18 @@ public class TempoManager : MonoBehaviour
     public float maxBPM = 165;
 
     private InstrumentFamily.TempoType m_CurrentTempoType;
-
-
+    
     /* Conduct */
     private int m_BeatsCountSinceBeginConducting = 0;
-
-
+    
     /* Debug */
     [Header("DEBUG")]
     public DebugGraph bpmGraph;
-    public TextMeshPro debugTextTempoType;
 
     private void Start()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
-        conductManager.OnBeginConducting += OnBeginConducting;
+        conductingEventsManager.OnBeginConducting += OnBeginConducting;
 
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.START_TEMPO;
@@ -53,6 +51,7 @@ public class TempoManager : MonoBehaviour
         soundEngineTuner.SetTempo(bpm);
         UpdateAnimationSpeed();
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
+        OnTempoChange?.Invoke(m_CurrentTempoType);
     }
 
     public void OnBeginConducting()
@@ -83,7 +82,8 @@ public class TempoManager : MonoBehaviour
     private void UpdateTempo()
     {
         SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
-
+        OnTempoChange?.Invoke(tempoRange.type);
+        
         //DEBUG
         if (DebugInteractionModes.tempoInteractionModeRef == DebugInteractionModes.TempoInteractionMode.Dynamic) {
             soundEngineTuner.SetTempo(bpm);
@@ -97,9 +97,6 @@ public class TempoManager : MonoBehaviour
         
         //We set the new animation speed
         UpdateAnimationSpeed();
-            
-        //DEBUG
-        debugTextTempoType.text = tempoRange.type.ToString();
     }
 
     private void UpdateAnimationSpeed()
@@ -110,8 +107,6 @@ public class TempoManager : MonoBehaviour
                 animator.speed = animBPM;   
             }
         }
-        
-        Debug.Log("Animation speed : " + animBPM);
     }
     
     private void Update()
@@ -119,4 +114,7 @@ public class TempoManager : MonoBehaviour
         //DEBUG
         bpmGraph?.SetValue(bpm);
     }
+    
+    /* Events */
+    public Action<InstrumentFamily.TempoType> OnTempoChange;
 }
