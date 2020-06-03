@@ -23,6 +23,13 @@ public class ReframingManager : MonoBehaviour
     public ScoringParametersScriptableObject scoringParameters;
     public InstrumentFamilySelector instrumentFamilySelector;
 
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnFamilyDegradation;
+    public AK.Wwise.Event SFXOnReframingSuccess;
+    public AK.Wwise.Event SFXOnPotionRight;
+    public AK.Wwise.Event SFXOnPotionWrong;
+    public AK.Wwise.Event SFXOnTransitionBeforeReframing;
+    
     private InstrumentFamily[] m_InstrumentFamilies;
     private InstrumentFamily m_ReframingFamily;
     
@@ -101,6 +108,7 @@ public class ReframingManager : MonoBehaviour
                 if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
                     m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
 
+                    SFXOnPotionRight.Post(potion.gameObject);
                     soundEngineTuner.SetSwitchPotionType("Bonus", potion.gameObject);
                     
                     if ((int) m_CurrentDegradationState > 1) {
@@ -118,6 +126,7 @@ public class ReframingManager : MonoBehaviour
                 }
                 else {
                     //Failure
+                    SFXOnPotionWrong.Post(potion.gameObject);
                     soundEngineTuner.SetSwitchPotionType("Malus", potion.gameObject);
                     
                     m_ReframingPotionIndex = 0;
@@ -146,6 +155,7 @@ public class ReframingManager : MonoBehaviour
     private IEnumerator OnSuccess()
     {
         scoreManager.AddScore(scoringParameters.reframingSuccess);
+        SFXOnReframingSuccess.Post(m_ReframingFamily.gameObject);
         
         m_CanCheckPotionType = false;
         yield return BlinkAnimation(Color.green, Color.yellow);
@@ -248,8 +258,9 @@ public class ReframingManager : MonoBehaviour
         m_CanCheckPotionType = true;
         
         //We start the reframing family degradation
+        SFXOnFamilyDegradation.Post(m_ReframingFamily.gameObject);
         UpdateDegradation(DegradationState.Left_3);
-        
+
         m_CurrentReframingRules = GenerateRandomReframingRules();
         m_ReframingFamily.drawableReframingRules.Show(true);
         m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
@@ -278,6 +289,11 @@ public class ReframingManager : MonoBehaviour
 
     private void OnExitBlock()
     {
+        if (m_IsDegrading) {
+            //If there was still a degradation when the block ended
+            SFXOnTransitionBeforeReframing.Post(m_ReframingFamily.gameObject);
+        }
+        
         m_CanDegrade = false;
         m_IsDegrading = false;
         m_ReframingPotionIndex = 0;
