@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /**
  * Represents a class of instruments that can be directed
@@ -9,10 +11,15 @@ using UnityEngine;
 public abstract class InstrumentFamily : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
-    public Light spotlight;
 
     public Animator[] familyAnimators;
     private int m_BlendArticulationID;
+    private int m_BrokenLayerID;
+    
+    [Header("Highlight")]
+    public Light spotlight;
+    public Renderer highlightHintRenderer;
+    public DrawableReframingRules drawableReframingRules;
     
     public enum ArticulationType
     {
@@ -41,38 +48,28 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     private float m_Delay = 0.0f;
     private float m_MaxDelay = 0.0f;
-    private float timeSinceLastDelay = 0;
-    private float timeBetweenDelayUpdate = 0.5f;
-
-    //DEBUG
-    private MeshRenderer m_MeshRenderer;
-    [Header("DEBUG")]
-    public DebugBar delayBar;
-    public TextMeshPro articulationTextMesh;
 
     private void Awake()
     {
         spotlight.enabled = false;
         m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
-        m_MeshRenderer = GetComponent<MeshRenderer>();
+        
+        //TODO : DEBUG
+        if (familyAnimators.Length > 0) {
+            m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
+        }
+
+        drawableReframingRules.Init();
+        drawableReframingRules.gameObject.SetActive(false);
     }
 
     private void Start()
     {
-        SetArticulation(0);
         StartCoroutine(LaunchAnimOffset());
     }
 
-    private void Update()
-    {
-        if (timeSinceLastDelay > timeBetweenDelayUpdate) {
-            UpdateDelay();
-            timeSinceLastDelay = timeSinceLastDelay % timeBetweenDelayUpdate;
-        }
-        timeSinceLastDelay += Time.deltaTime;
-    }
-
-
+    
+    //TODO : we no longer use the delay feature
     //We pick a new delay each timeBetweenDelayUpdate seconds to create a "sound false" effect
     private void UpdateDelay()
     {
@@ -84,34 +81,37 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         m_MaxDelay += addedMaxDelay;
         m_MaxDelay = (m_MaxDelay > SoundEngineTuner.MAX_DELAY) ? SoundEngineTuner.MAX_DELAY : m_MaxDelay;
-        delayBar.UpdateValue(m_MaxDelay, 1 - (m_MaxDelay / SoundEngineTuner.MAX_DELAY));
     }
     
     public void SetArticulation(int index)
     {
         if (index < articulationTypes.Length) {
-            soundEngineTuner.SetArticulation(this, articulationTypes[index]);
-            if (familyAnimators.Length > 0) {
-                StartCoroutine(FadeArticulation(GetBlendArticulation(m_CurrentArticulationIndex),
-                    GetBlendArticulation(index)));
+            if (m_CurrentArticulationIndex != index) {
+                soundEngineTuner.SetArticulation(this, articulationTypes[index]);
+                if (familyAnimators.Length > 0) {
+                    StartCoroutine(FadeArticulation(m_CurrentArticulationIndex, index));
+                }
+
+                m_CurrentArticulationIndex = index;
             }
-
-            m_CurrentArticulationIndex = index;
-
-            //DEBUG
-            articulationTextMesh.text = articulationTypes[index].ToString();
         }
     }
-
-    IEnumerator FadeArticulation(float start, float finish)
+    
+    IEnumerator FadeArticulation(int idStart, int idFinish)
     {
-        if (start > finish && finish < 0.0001f) {
-            finish = 1;
-        }
-        else if (start < 0.0001f && (GetBlendArticulation(articulationTypes.Length - 1) - finish) < 0.0001f) {
-            start = 1;
-        }
+        float start = GetBlendArticulation(idStart);
+        float finish = GetBlendArticulation(idFinish);
         
+        //This method only works if there are three or less articulation animations 
+        if (Mathf.Abs(idFinish - idStart) > 1) {
+            if (idStart > idFinish) {
+                finish = 1;
+            }
+            else {
+                start = 1;
+            }
+        }
+
         float t = 0;
         while (t < 0.99999f) {
             float fade = Mathf.Lerp(start, finish, t);
@@ -134,17 +134,28 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     virtual public void OnBeginLookedAt() 
     {
-        //m_MeshRenderer.material.SetColor("_BaseColor", new Color(1, 1, 0.5f, 1));
+        highlightHintRenderer.enabled = true;
     }
 
     virtual public void OnLookedAt()
-    {
-
-    }
+    {}
 
     virtual public void OnEndLookedAt()
     {
-        //m_MeshRenderer.material.SetColor("_BaseColor", Color.white);
+        highlightHintRenderer.enabled = false;
+    }
+
+    public void OnEnterHighlight()
+    {
+        spotlight.enabled = true;
+        highlightHintRenderer.enabled = false;
+        drawableReframingRules.gameObject.SetActive(true);
+    }
+    
+    public void OnExitHighlight()
+    {
+        spotlight.enabled = false;
+        drawableReframingRules.gameObject.SetActive(false);
     }
 
     public void StartPlaying()
@@ -156,6 +167,26 @@ public abstract class InstrumentFamily : MonoBehaviour
         }
     }
 
+    public void SetBrokenAnimation(ReframingManager.DegradationState degradationState)
+    {
+        float degradationStateLength = Enum.GetValues(typeof(ReframingManager.DegradationState)).Length;
+        StartCoroutine(FadeToBrokenAnimation((float)degradationState / (degradationStateLength - 1)));
+    }
+
+    IEnumerator FadeToBrokenAnimation(float weight)
+    {
+        float start = familyAnimators[0].GetLayerWeight(m_BrokenLayerID);
+        float t = 0;
+        while (t < 0.99999f) {
+            float fade = Mathf.Lerp(start, weight, t);
+            foreach (Animator animator in familyAnimators) {
+                animator.SetLayerWeight(m_BrokenLayerID, fade);
+            }
+            t += Time.deltaTime;
+            yield return null;
+        }
+    }
+    
     /**
      * Coroutines used to play the animations of the different monsters with a small offset
      */

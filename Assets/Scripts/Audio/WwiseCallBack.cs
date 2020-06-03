@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class WwiseCallBack : MonoBehaviour
 {
-    string musicCueName;
+    public SoundEngineTuner soundEngineTuner;
+    private string m_MusicCueName;
 
     private void Start()
     {
@@ -13,6 +14,7 @@ public class WwiseCallBack : MonoBehaviour
         AkSoundEngine.SetState("Music", "Metronome");
         AkSoundEngine.SetState("PotionCount", "Left_0");   // Nombre de potions restantes que le joueur doit lancer pour corriger la famille
         AkSoundEngine.SetSwitch("SW_Family_Solist", "Woods", gameObject);  //Famille soliste qui devra être recaller
+        soundEngineTuner.SetTempo(SoundEngineTuner.START_TEMPO);
     }
 
     public void StopMusic()
@@ -27,19 +29,15 @@ public class WwiseCallBack : MonoBehaviour
         if (in_type == AkCallbackType.AK_MusicSyncUserCue)                                       // Se déclenche a chaque custom cue placé dans manuellement dans la musique sur Wwise.
         {
             AkMusicSyncCallbackInfo musicInfo = in_info as AkMusicSyncCallbackInfo;
-            musicCueName = musicInfo.userCueName;
-            Debug.Log(musicCueName);                                                               // Permet de déclencher des actions selon le noms du cue placé dans la musique sur Wwise.
+            m_MusicCueName = musicInfo.userCueName;
+            Debug.Log(m_MusicCueName);                                                               // Permet de déclencher des actions selon le noms du cue placé dans la musique sur Wwise.
 
             if (in_type == AkCallbackType.AK_MusicSyncBeat)                                                // Permet de déclencher des actions a chaque battements
             {
                 Debug.Log("BEAT - WWise");
             }
             
-            switch (musicCueName) {
-                case "Start":
-                    OnStartBlocBegin?.Invoke();
-                    break;
-            }
+            OnCue?.Invoke(m_MusicCueName);
         }
     }
     private void Update()
@@ -50,5 +48,5 @@ public class WwiseCallBack : MonoBehaviour
         }
     }
 
-public event Action OnStartBlocBegin;
+    public event Action<string> OnCue;
 }

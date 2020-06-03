@@ -9,7 +9,7 @@ using UnityEngine.XR;
 [RequireComponent(typeof(XRCustomController))]
 public class XRConductor : MonoBehaviour
 {
-    public ConductManager conductorManager;
+    public ConductingEventsManager conductingEventsManager;
 
     private XRCustomController m_Controller;
     private bool m_IsUsingConductInput = false;
@@ -25,19 +25,19 @@ public class XRConductor : MonoBehaviour
         if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out triggerPressed)) {
             if (triggerPressed) {
                 if (!m_IsUsingConductInput) {
-                    conductorManager.PostOnBeginConducting();
+                    conductingEventsManager.PostOnBeginConducting();
                 }
-                conductorManager.PostOnConducting();
+                conductingEventsManager.PostOnConducting();
                 m_IsUsingConductInput = true;
             }
             else {
                 if (m_IsUsingConductInput) {
-                    conductorManager.PostOnEndConducting();
+                    conductingEventsManager.PostOnEndConducting();
                 }
                 m_IsUsingConductInput = false;
             }
 
-            conductorManager.isUsingConductInput = m_IsUsingConductInput;
+            conductingEventsManager.isUsingConductInput = m_IsUsingConductInput;
         }
     }
 }
