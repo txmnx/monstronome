@@ -68,10 +68,15 @@ public class BreakableObject : MonoBehaviour
             Destroy(this.gameObject, 4.0f);
         }
         else {
-            SFXOnObjectCollision.Post(gameObject);
+            OnCollisionSFX(other);
         }
     }
 
     protected virtual void OnBreak(Collision other)
     {}
+
+    protected virtual void OnCollisionSFX(Collision other)
+    {
+        SFXOnObjectCollision.Post(gameObject);
+    }
 }

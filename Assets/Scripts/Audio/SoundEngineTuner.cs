@@ -137,6 +137,9 @@ public class SoundEngineTuner : MonoBehaviour
         AkSoundEngine.SetSwitch("SW_Potion_Type", type, referenceObject);
     }
     
+    //TODO : SetPotionSpeed
+    //public void SetPotionSpeed()
+    
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {
