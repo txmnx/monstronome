@@ -213,7 +213,7 @@ public abstract class InstrumentFamily : MonoBehaviour
         int entryID = Animator.StringToHash("Idle");
         foreach (Animator animator in familyAnimators) {
             animator.Play(entryID, 0);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
     
@@ -221,7 +221,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         foreach (Animator animator in familyAnimators) {
             animator.SetTrigger(triggerID);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }
