@@ -515,6 +515,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 33647684}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &42311927 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2089489768, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &88860938 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 1971820067, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &106940603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1388,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  lightsToDisable: []
+  lightsToDisable:
+  - {fileID: 1543886621}
+  - {fileID: 2044161812}
+  - {fileID: 12116179}
+  - {fileID: 939768409}
+  - {fileID: 490084315}
+  - {fileID: 42311927}
+  - {fileID: 88860938}
   selector: {fileID: 224941993}
 --- !u!114 &348619493
 MonoBehaviour:
@@ -1690,6 +1709,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22f7855d04ff2d438d7b2a6cfe59677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!108 &490084315 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 503611279, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &540415013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2454,12 @@ Transform:
   m_Father: {fileID: 191826161}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 117.729004, y: -320.714, z: -196.597}
+--- !u!108 &939768409 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 1377526393, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1031486160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3076,6 +3107,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c3d888d8c05a13c4b89b59fd3b316dfc, type: 2}
+    - target: {fileID: 8353485314969670931, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8938378829094342207, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
         type: 3}
       propertyPath: m_Mesh

@@ -51,7 +51,6 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     private void Awake()
     {
-        spotlight.enabled = false;
         m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
         
         //TODO : DEBUG
