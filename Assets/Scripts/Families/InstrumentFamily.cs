@@ -51,7 +51,6 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     private void Awake()
     {
-        spotlight.enabled = false;
         m_BlendArticulationID = Animator.StringToHash("BlendArticulation");
         
         //TODO : DEBUG
@@ -147,14 +146,12 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     public void OnEnterHighlight()
     {
-        spotlight.enabled = true;
         highlightHintRenderer.enabled = false;
         drawableReframingRules.gameObject.SetActive(true);
     }
     
     public void OnExitHighlight()
     {
-        spotlight.enabled = false;
         drawableReframingRules.gameObject.SetActive(false);
     }
 
