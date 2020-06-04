@@ -232,6 +232,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID RTPC_DUCKING_PERCUSSIONS_THEME = 2353645817U;
         static const AkUniqueID RTPC_GETVOLUME_BRASS = 959410393U;
         static const AkUniqueID RTPC_GETVOLUME_PERCUSSIONS = 2898731032U;
         static const AkUniqueID RTPC_GETVOLUME_STRINGS = 3691157920U;
@@ -255,6 +256,7 @@ namespace AK
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID SNB_MUSIC_BASEORCHESTRAL = 3881725531U;
         static const AkUniqueID SNB_MUSIC_SECONDARYORCHESTRAL = 3806678136U;
+        static const AkUniqueID SNB_MUSIC_THIRDORCHESTRAL = 4217645217U;
         static const AkUniqueID SNB_SFX = 3710691832U;
         static const AkUniqueID SNB_STRUCTURE = 1080929334U;
         static const AkUniqueID SNB_UI = 2467341413U;
@@ -274,6 +276,10 @@ namespace AK
         static const AkUniqueID SFX = 393239870U;
         static const AkUniqueID STRINGS_ORCHESTRAL = 1192927207U;
         static const AkUniqueID THEME = 1319017392U;
+        static const AkUniqueID THEME_BRASS = 1189259686U;
+        static const AkUniqueID THEME_PERCUSSIONS = 4182257339U;
+        static const AkUniqueID THEME_STRINGS = 2720451971U;
+        static const AkUniqueID THEME_WOODS = 4063904115U;
         static const AkUniqueID UI = 1551306167U;
         static const AkUniqueID VOICE = 3170124113U;
         static const AkUniqueID WOODS_ORCHESTRAL = 1033152923U;
