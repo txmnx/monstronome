@@ -9,39 +9,48 @@ using UnityEngine;
 public class SelectedFamilyHighlighter : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
-
-    public Camera mainCamera;
-    public Light mainLight;
+    
+    public Light[] lightsToDisable;
+    private float[] m_CachedIntensities;
     public InstrumentFamilySelector selector;
 
-    private Color m_defaultBackgroundColor;
+    private float m_CachedSpotlightIntensity;
 
     private void Start()
     {
         selector.OnSelectFamily += OnSelectFamily;
         selector.OnDeselectFamily += OnDeselectFamily;
+        
+        m_CachedIntensities = new float[lightsToDisable.Length];
     }
 
     private void OnSelectFamily(InstrumentFamily family)
     {
-        RenderSettings.ambientIntensity = 0.1f;
-        RenderSettings.reflectionIntensity = 0;
-        mainLight.enabled = false;
-        family.spotlight.enabled = true;
-        m_defaultBackgroundColor = mainCamera.backgroundColor;
-        mainCamera.backgroundColor = Color.black;
+        for (int i = 0; i < lightsToDisable.Length; ++i) {
+            if (family.spotlight != lightsToDisable[i]) {
+                m_CachedIntensities[i] = lightsToDisable[i].intensity;
+                lightsToDisable[i].intensity = 0;
+            }
+        }
 
+        m_CachedSpotlightIntensity = family.spotlight.intensity;
+        family.spotlight.intensity = 100;
+        family.OnEnterHighlight();
+        
         soundEngineTuner.FocusFamily(family);
     }
 
     private void OnDeselectFamily(InstrumentFamily family)
     {
-        RenderSettings.ambientIntensity = 1;
-        RenderSettings.reflectionIntensity = 1;
-        mainLight.enabled = true;
-        family.spotlight.enabled = false;
-        mainCamera.backgroundColor = m_defaultBackgroundColor;
+        for (int i = 0; i < lightsToDisable.Length; ++i) {
+            if (family.spotlight != lightsToDisable[i]) {
+                lightsToDisable[i].intensity = m_CachedIntensities[i];
+            }
+        }
 
+        family.spotlight.intensity = m_CachedSpotlightIntensity;
+        family.OnExitHighlight();
+        
         soundEngineTuner.UnfocusFamily();
     }
 }

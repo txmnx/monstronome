@@ -9,11 +9,14 @@ public class InstrumentFamilySelector : MonoBehaviour
 {
     public XRCustomController controller;
     public InstrumentFamilyLooker instrumentFamilyLooker;
-    public ConductManager conductManager;
+    public ConductingEventsManager conductingEventsManager;
 
     [HideInInspector]
     public InstrumentFamily selectedFamily;
 
+    [HideInInspector]
+    public bool hasSelected = false;
+    
     //Treshold at which we consider a click to be on a particular direction
     private float m_buttonTreshold = 0.5f;
 
@@ -38,20 +41,22 @@ public class InstrumentFamilySelector : MonoBehaviour
     private void OnSelectButtonPressed()
     {
         if (instrumentFamilyLooker.lookedFamily != null) {
-            if (selectedFamily == null) {
+            if (!hasSelected) {
                 selectedFamily = instrumentFamilyLooker.lookedFamily;
+                hasSelected = true;
                 OnSelectFamily?.Invoke(selectedFamily);
-                conductManager.enableConducting = false;
+                conductingEventsManager.enableConducting = false;
             }
         }
     }
 
     private void OnDeselectButtonPressed()
     {
-        if (selectedFamily != null) {
+        if (hasSelected) {
             OnDeselectFamily?.Invoke(selectedFamily);
             selectedFamily = null;
-            conductManager.enableConducting = true;
+            hasSelected = false;
+            conductingEventsManager.enableConducting = true;
         }
     }
 

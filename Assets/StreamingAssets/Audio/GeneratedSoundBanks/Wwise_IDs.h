@@ -13,7 +13,50 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID LEGATO = 1422035515U;
+        static const AkUniqueID MUSIC_END_BEAT = 2368806795U;
+        static const AkUniqueID MUSIC_INTRODUCTION_BEAT = 2768496808U;
+        static const AkUniqueID MUSIC_MENU = 1598298728U;
+        static const AkUniqueID MUSIC_TUNING = 2546653270U;
+        static const AkUniqueID PAUSE_ALL = 3864097025U;
+        static const AkUniqueID PIZZICATO = 2077337834U;
+        static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
+        static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
+        static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
+        static const AkUniqueID RESUME_ALL = 3679762312U;
+        static const AkUniqueID SETWOODS = 3271167387U;
+        static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
+        static const AkUniqueID SFX_FEEDBACK_REFRAMINGSUCCESS = 247346967U;
+        static const AkUniqueID SFX_POTION_BROKEN = 1231703344U;
+        static const AkUniqueID SFX_POTION_COLLISION = 345071173U;
+        static const AkUniqueID SFX_POTION_PICKUP = 3668990679U;
+        static const AkUniqueID SFX_POTION_RIGHT = 3758674935U;
+        static const AkUniqueID SFX_POTION_SHAKE = 3591561671U;
+        static const AkUniqueID SFX_POTION_SPAWN = 2242916472U;
+        static const AkUniqueID SFX_POTION_THROW = 3606142437U;
+        static const AkUniqueID SFX_POTION_WRONG = 3427361090U;
+        static const AkUniqueID SFX_WAND_ENTER = 3420964884U;
+        static const AkUniqueID SFX_WAND_EXIT = 1368847222U;
+        static const AkUniqueID SFX_WAND_IDDLE = 3638337738U;
+        static const AkUniqueID STACCATO = 56434811U;
+        static const AkUniqueID STOPALL = 3086540886U;
+        static const AkUniqueID UI_MENU_BACK = 922786755U;
+        static const AkUniqueID UI_MENU_MAIN_HOVERED = 2814570109U;
+        static const AkUniqueID UI_MENU_MAIN_SELECT = 3019098628U;
+        static const AkUniqueID UI_MENU_MAIN_STARTGAME = 741796782U;
+        static const AkUniqueID UI_MENU_OPTION_HOVERED = 722522513U;
+        static const AkUniqueID UI_MENU_OPTION_SELECT = 589115224U;
+        static const AkUniqueID UI_MENU_PAUSE_ENTER = 1341029731U;
+        static const AkUniqueID UI_MENU_PAUSE_HOVERED = 4170617512U;
+        static const AkUniqueID UI_MENU_PAUSE_RESUME = 2269109418U;
+        static const AkUniqueID UI_MENU_PAUSE_RESUME_COUNTDOWN = 1722761166U;
+        static const AkUniqueID UI_MENU_PAUSE_SELECT = 795989787U;
+        static const AkUniqueID UI_SETTINGS_SLIDER_VOLUME = 2153411292U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MASTER = 4055031953U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_METRONOME = 1834445417U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MUSIC = 1936030412U;
+        static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_SFXVOICE = 2219910546U;
     } // namespace EVENTS
 
     namespace STATES
@@ -33,19 +76,31 @@ namespace AK
             } // namespace STATE
         } // namespace FOCUS
 
-        namespace GAME_STATE
+        namespace MUSIC
         {
-            static const AkUniqueID GROUP = 766723505U;
+            static const AkUniqueID GROUP = 3991942870U;
 
             namespace STATE
             {
-                static const AkUniqueID END = 529726532U;
-                static const AkUniqueID MIDDLE = 1026627430U;
+                static const AkUniqueID METRONOME = 3537469747U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID START = 1281810935U;
-                static const AkUniqueID TENSE = 391998042U;
             } // namespace STATE
-        } // namespace GAME_STATE
+        } // namespace MUSIC
+
+        namespace POTIONCOUNT
+        {
+            static const AkUniqueID GROUP = 1090964253U;
+
+            namespace STATE
+            {
+                static const AkUniqueID LEFT_0 = 50072827U;
+                static const AkUniqueID LEFT_1 = 50072826U;
+                static const AkUniqueID LEFT_2 = 50072825U;
+                static const AkUniqueID LEFT_3 = 50072824U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace POTIONCOUNT
 
     } // namespace STATES
 
@@ -57,12 +112,23 @@ namespace AK
 
             namespace SWITCH
             {
-                static const AkUniqueID FLUTTERMUTE = 4028101794U;
-                static const AkUniqueID HARMONMUTE = 3644683267U;
                 static const AkUniqueID LEGATO = 1422035515U;
-                static const AkUniqueID STACCATORIPS = 3432601699U;
+                static const AkUniqueID PIZZICATO = 2077337834U;
+                static const AkUniqueID STACCATO = 56434811U;
             } // namespace SWITCH
         } // namespace SW_ARTICULATION_BRASS
+
+        namespace SW_ARTICULATION_PERCUSSIONS
+        {
+            static const AkUniqueID GROUP = 2383379086U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID LEGATO = 1422035515U;
+                static const AkUniqueID PIZZICATO = 2077337834U;
+                static const AkUniqueID STACCATO = 56434811U;
+            } // namespace SWITCH
+        } // namespace SW_ARTICULATION_PERCUSSIONS
 
         namespace SW_ARTICULATION_STRINGS
         {
@@ -73,7 +139,6 @@ namespace AK
                 static const AkUniqueID LEGATO = 1422035515U;
                 static const AkUniqueID PIZZICATO = 2077337834U;
                 static const AkUniqueID STACCATO = 56434811U;
-                static const AkUniqueID TREMOLO = 4056223263U;
             } // namespace SWITCH
         } // namespace SW_ARTICULATION_STRINGS
 
@@ -83,12 +148,25 @@ namespace AK
 
             namespace SWITCH
             {
-                static const AkUniqueID FLUTTER = 3466625877U;
                 static const AkUniqueID LEGATO = 1422035515U;
+                static const AkUniqueID PIZZICATO = 2077337834U;
                 static const AkUniqueID STACCATO = 56434811U;
-                static const AkUniqueID TRILL = 3997891192U;
             } // namespace SWITCH
         } // namespace SW_ARTICULATION_WOODS
+
+        namespace SW_FAMILY_SOLIST
+        {
+            static const AkUniqueID GROUP = 2599669371U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BRASS = 505915784U;
+                static const AkUniqueID NOBODY = 1182451328U;
+                static const AkUniqueID PERCUSSIONS = 3762497105U;
+                static const AkUniqueID STRINGS = 3363523641U;
+                static const AkUniqueID WOODS = 2780586317U;
+            } // namespace SWITCH
+        } // namespace SW_FAMILY_SOLIST
 
         namespace SW_INTENSITY_BRASS
         {
@@ -96,10 +174,9 @@ namespace AK
 
             namespace SWITCH
             {
-                static const AkUniqueID HIGHT = 2915956327U;
-                static const AkUniqueID HUGE = 3009393504U;
-                static const AkUniqueID LOW = 545371365U;
-                static const AkUniqueID MIDDLE = 1026627430U;
+                static const AkUniqueID FORTE = 297596479U;
+                static const AkUniqueID MEZZOFORTE = 3831224266U;
+                static const AkUniqueID PIANISSIMO = 2665367761U;
             } // namespace SWITCH
         } // namespace SW_INTENSITY_BRASS
 
@@ -109,10 +186,9 @@ namespace AK
 
             namespace SWITCH
             {
-                static const AkUniqueID HIGHT = 2915956327U;
-                static const AkUniqueID HUGE = 3009393504U;
-                static const AkUniqueID LOW = 545371365U;
-                static const AkUniqueID MIDDLE = 1026627430U;
+                static const AkUniqueID FORTE = 297596479U;
+                static const AkUniqueID MEZZOFORTE = 3831224266U;
+                static const AkUniqueID PIANISSIMO = 2665367761U;
             } // namespace SWITCH
         } // namespace SW_INTENSITY_PERCUSSIONS
 
@@ -122,10 +198,9 @@ namespace AK
 
             namespace SWITCH
             {
-                static const AkUniqueID HIGHT = 2915956327U;
-                static const AkUniqueID HUGE = 3009393504U;
-                static const AkUniqueID LOW = 545371365U;
-                static const AkUniqueID MIDDLE = 1026627430U;
+                static const AkUniqueID FORTE = 297596479U;
+                static const AkUniqueID MEZZOFORTE = 3831224266U;
+                static const AkUniqueID PIANISSIMO = 2665367761U;
             } // namespace SWITCH
         } // namespace SW_INTENSITY_STRINGS
 
@@ -135,20 +210,29 @@ namespace AK
 
             namespace SWITCH
             {
-                static const AkUniqueID HIGHT = 2915956327U;
-                static const AkUniqueID HUGE = 3009393504U;
-                static const AkUniqueID LOW = 545371365U;
-                static const AkUniqueID MIDDLE = 1026627430U;
+                static const AkUniqueID FORTE = 297596479U;
+                static const AkUniqueID MEZZOFORTE = 3831224266U;
+                static const AkUniqueID PIANISSIMO = 2665367761U;
             } // namespace SWITCH
         } // namespace SW_INTENSITY_WOODS
+
+        namespace SW_POTION_TYPE
+        {
+            static const AkUniqueID GROUP = 371597594U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID ARTICULATION = 1762926010U;
+                static const AkUniqueID BONUS = 2356001030U;
+                static const AkUniqueID MALUS = 1680241497U;
+            } // namespace SWITCH
+        } // namespace SW_POTION_TYPE
 
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID RTPC_ARTICULATION_BRASS = 2436025794U;
-        static const AkUniqueID RTPC_ARTICULATION_STRINGS = 2116129127U;
-        static const AkUniqueID RTPC_ARTICULATION_WOODS = 1437958447U;
+        static const AkUniqueID RTPC_DUCKING_PERCUSSIONS_THEME = 2353645817U;
         static const AkUniqueID RTPC_GETVOLUME_BRASS = 959410393U;
         static const AkUniqueID RTPC_GETVOLUME_PERCUSSIONS = 2898731032U;
         static const AkUniqueID RTPC_GETVOLUME_STRINGS = 3691157920U;
@@ -157,32 +241,54 @@ namespace AK
         static const AkUniqueID RTPC_INTENSITY_PERCUSSIONS = 2676178657U;
         static const AkUniqueID RTPC_INTENSITY_STRINGS = 234013449U;
         static const AkUniqueID RTPC_INTENSITY_WOODS = 1164038749U;
+        static const AkUniqueID RTPC_POTION_SPEED = 2031370766U;
+        static const AkUniqueID RTPC_SETVOLUME_MASTER = 1866890756U;
+        static const AkUniqueID RTPC_SETVOLUME_METRONOME = 1832739962U;
+        static const AkUniqueID RTPC_SETVOLUME_MUSIC = 1728933839U;
+        static const AkUniqueID RTPC_SETVOLUME_VOICESFX = 250876189U;
         static const AkUniqueID RTPC_TEMPO = 3945680200U;
-        static const AkUniqueID RTPC_TIME_DELAY_BRASS = 666250906U;
-        static const AkUniqueID RTPC_TIME_DELAY_PERCUSSIONS = 4041181711U;
-        static const AkUniqueID RTPC_TIME_DELAY_STRINGS = 3714523071U;
-        static const AkUniqueID RTPC_TIME_DELAY_WOODS = 3650061639U;
+        static const AkUniqueID SIDECHAIN_SFX_MUSIC = 3190805563U;
+        static const AkUniqueID SIDECHAIN_THEME_BASEMUSIC = 2701297324U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID MONSTRONOME_SNB = 3550178992U;
+        static const AkUniqueID SNB_MUSIC_BASEORCHESTRAL = 3881725531U;
+        static const AkUniqueID SNB_MUSIC_SECONDARYORCHESTRAL = 3806678136U;
+        static const AkUniqueID SNB_MUSIC_THIRDORCHESTRAL = 4217645217U;
+        static const AkUniqueID SNB_SFX = 3710691832U;
+        static const AkUniqueID SNB_STRUCTURE = 1080929334U;
+        static const AkUniqueID SNB_UI = 2467341413U;
     } // namespace BANKS
 
     namespace BUSSES
     {
         static const AkUniqueID AMBISONICS_BUS = 3539010900U;
-        static const AkUniqueID BRASS = 505915784U;
+        static const AkUniqueID BRASS_ORCHESTRAL = 1346697092U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
-        static const AkUniqueID PERCUSSIONS = 3762497105U;
-        static const AkUniqueID STRINGS = 3363523641U;
-        static const AkUniqueID WOOD = 2058049674U;
+        static const AkUniqueID MENU = 2607556080U;
+        static const AkUniqueID METRONOME = 3537469747U;
+        static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID MUSIC_MENU = 1598298728U;
+        static const AkUniqueID ORCHESTRAL = 2542362038U;
+        static const AkUniqueID PERCUSSIONS_ORCHESTRAL = 4206581327U;
+        static const AkUniqueID SFX = 393239870U;
+        static const AkUniqueID STRINGS_ORCHESTRAL = 1192927207U;
+        static const AkUniqueID THEME = 1319017392U;
+        static const AkUniqueID THEME_BRASS = 1189259686U;
+        static const AkUniqueID THEME_PERCUSSIONS = 4182257339U;
+        static const AkUniqueID THEME_STRINGS = 2720451971U;
+        static const AkUniqueID THEME_WOODS = 4063904115U;
+        static const AkUniqueID UI = 1551306167U;
+        static const AkUniqueID VOICE = 3170124113U;
+        static const AkUniqueID WOODS_ORCHESTRAL = 1033152923U;
     } // namespace BUSSES
 
     namespace AUX_BUSSES
     {
         static const AkUniqueID REVERB_CONCERTHALL = 44205819U;
+        static const AkUniqueID REVERB_MENU = 1031316333U;
     } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES

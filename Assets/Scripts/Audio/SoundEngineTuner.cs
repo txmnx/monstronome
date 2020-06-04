@@ -9,15 +9,24 @@ using UnityEngine;
 public class SoundEngineTuner : MonoBehaviour
 {
     public WwiseCallBack soundReference;
-    
-    public const float BASE_TEMPO = 120;
+
+    public const float BASE_TEMPO = 120.0f;
+    public const float START_TEMPO = 90.0f;
     public const float MAX_DELAY = 0.5f;
+    //Track length (in beats)
+    public const float TRACK_LENGTH = 480.0f;
 
     private Dictionary<System.Type, string> m_KeywordFamily;
     //Used to retrieve tempo range from a tempo type
     private Dictionary<InstrumentFamily.TempoType, RTPCRange<InstrumentFamily.TempoType>> m_TempoRanges;
     //Used to retrieve intensity ranges from an intensity type
     private Dictionary<InstrumentFamily.IntensityType, RTPCRange<InstrumentFamily.IntensityType>> m_IntensityRanges;
+
+    public float volumestrings;
+    public float volumewoods;
+    public float volumepercussions;
+    public float volumebrass;
+
 
     private void Awake()
     {
@@ -46,7 +55,18 @@ public class SoundEngineTuner : MonoBehaviour
     }
 
 
-    /* FOCUS */
+    /* REFRAMING */
+    public void SetSolistFamily(InstrumentFamily family)
+    {
+        AkSoundEngine.SetSwitch("SW_Family_Solist", m_KeywordFamily[family.GetType()], family.gameObject);
+        AkSoundEngine.SetSwitch("SW_Family_Solist", m_KeywordFamily[family.GetType()], soundReference.gameObject);
+    }
+    
+    public void SetDegradation(ReframingManager.DegradationState degradationState)
+    {
+        AkSoundEngine.SetState("PotionCount", degradationState.ToString());
+    }
+    
     //Highlight a family with a volume offset
     public void FocusFamily(InstrumentFamily family)
     {
@@ -112,6 +132,15 @@ public class SoundEngineTuner : MonoBehaviour
         */
     }
 
+    /* POTIONS */
+    public void SetSwitchPotionType(string type, GameObject referenceObject)
+    {
+        AkSoundEngine.SetSwitch("SW_Potion_Type", type, referenceObject);
+    }
+    
+    //TODO : SetPotionSpeed
+    //public void SetPotionSpeed()
+    
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {
@@ -176,4 +205,24 @@ public class SoundEngineTuner : MonoBehaviour
     {
         return "Focus_" + familyKeyword;
     }
+
+    private void Start()
+    {
+        AkSoundEngine.SetSwitch("SW_Articulation_Brass", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Woods", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Strings", "Pizzicato", soundReference.gameObject);
+        AkSoundEngine.SetSwitch("SW_Articulation_Percussions", "Pizzicato", soundReference.gameObject);
+    }
+
+    private void Update()
+    {
+        
+        int type = 1;
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Strings", gameObject, 0, out volumestrings, ref type);
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Woods", gameObject, 0, out volumewoods, ref type);
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Percussions", gameObject, 0, out volumepercussions, ref type);
+        AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Brass", gameObject, 0, out volumebrass, ref type);
+        
+    }
 }
+
