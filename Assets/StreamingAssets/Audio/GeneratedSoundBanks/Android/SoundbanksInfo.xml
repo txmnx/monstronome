@@ -5893,8 +5893,12 @@
 				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3679762312" Name="Resume_All" ObjectPath="\Events\Setup_Event\Resume_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3271167387" Name="SetWoods" ObjectPath="\Events\Music_Event\Debug\SetWoods" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2012101007" Name="SFX_Family_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Family_Broken" DurationType="OneShot" DurationMin="0.500000" DurationMax="4.601083">
+				<Event Id="2012101007" Name="SFX_Family_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Family_Broken" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.867052" DurationMax="5.117279">
 					<ExcludedMemoryFiles>
+						<File Id="35653780" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family_Woods.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family_Woods_755F56E2.wem</Path>
+						</File>
 						<File Id="95194890" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken_755F56E2.wem</Path>
@@ -5903,6 +5907,10 @@
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Brass_Broken_755F56E2.wem</Path>
 						</File>
+						<File Id="452975890" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family-02.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family-02_755F56E2.wem</Path>
+						</File>
 						<File Id="541550513" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-01.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-01_755F56E2.wem</Path>
@@ -5910,6 +5918,18 @@
 						<File Id="587110190" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken-01.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Brass_Broken-01_755F56E2.wem</Path>
+						</File>
+						<File Id="871995611" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family_755F56E2.wem</Path>
+						</File>
+						<File Id="920900239" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family-01.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family-01_755F56E2.wem</Path>
+						</File>
+						<File Id="932452046" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family_Woods-01.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family_Woods-01_755F56E2.wem</Path>
 						</File>
 						<File Id="974507644" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken-02.wav</ShortName>
@@ -5928,6 +5948,19 @@
 								<File Id="95194890"/>
 							</Media>
 						</SwitchContainer>
+						<SwitchContainer SwitchValue="{60DFFE4C-EB6E-4956-9964-4965DF4C357C}">
+							<Media>
+								<File Id="920900239"/>
+								<File Id="452975890"/>
+								<File Id="871995611"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{11CB2E04-8E7F-47B5-B217-07E5180EA277}">
+							<Media>
+								<File Id="932452046"/>
+								<File Id="35653780"/>
+							</Media>
+						</SwitchContainer>
 						<SwitchContainer SwitchValue="{3064128F-1C3F-4FC8-B6DB-4282EC01EDC0}">
 							<Media>
 								<File Id="587110190"/>
@@ -5937,7 +5970,36 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="247346967" Name="SFX_Feedback_ReframingSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="247346967" Name="SFX_Feedback_ReframingSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess" DurationType="OneShot" DurationMin="2.923742" DurationMax="2.923742">
+					<ExcludedMemoryFiles>
+						<File Id="671802977" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Success-02.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Success-02_755F56E2.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{3064128F-1C3F-4FC8-B6DB-4282EC01EDC0}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{11CB2E04-8E7F-47B5-B217-07E5180EA277}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{60DFFE4C-EB6E-4956-9964-4965DF4C357C}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{DC200334-F48E-4ED4-9C0B-6752C5EF87DD}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="1231703344" Name="SFX_Potion_Broken" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Broken" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.147086" DurationMax="3.117456">
 					<ExcludedMemoryFiles>
 						<File Id="95828565" Language="SFX">
@@ -6465,10 +6527,86 @@
 					</ExcludedMemoryFiles>
 				</Event>
 				<Event Id="2153411292" Name="UI_Settings_Slider_Volume" ObjectPath="\Events\UI_Event\UI\UI_Settings_Slider_Volume" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4055031953" Name="UI_SoundBoard_Slider_Step_Master" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Master" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
-				<Event Id="1834445417" Name="UI_SoundBoard_Slider_Step_Metronome" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Metronome" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
-				<Event Id="1936030412" Name="UI_SoundBoard_Slider_Step_Music" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Music" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
-				<Event Id="2219910546" Name="UI_SoundBoard_Slider_Step_SFXVoice" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_SFXVoice" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
+				<Event Id="4055031953" Name="UI_SoundBoard_Slider_Step_Master" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Master" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<ExcludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
+				<Event Id="1834445417" Name="UI_SoundBoard_Slider_Step_Metronome" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Metronome" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<ExcludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
+				<Event Id="1936030412" Name="UI_SoundBoard_Slider_Step_Music" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Music" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<ExcludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
+				<Event Id="2219910546" Name="UI_SoundBoard_Slider_Step_SFXVoice" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_SFXVoice" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<ExcludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<ReferencedStreamedFiles>
 				<File Id="986933918"/>
@@ -10632,10 +10770,86 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2153411292" Name="UI_Settings_Slider_Volume" ObjectPath="\Events\UI_Event\UI\UI_Settings_Slider_Volume" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4055031953" Name="UI_SoundBoard_Slider_Step_Master" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Master" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
-				<Event Id="1834445417" Name="UI_SoundBoard_Slider_Step_Metronome" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Metronome" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
-				<Event Id="1936030412" Name="UI_SoundBoard_Slider_Step_Music" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Music" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
-				<Event Id="2219910546" Name="UI_SoundBoard_Slider_Step_SFXVoice" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_SFXVoice" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.020000" DurationMax="0.020000"/>
+				<Event Id="4055031953" Name="UI_SoundBoard_Slider_Step_Master" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Master" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<IncludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1834445417" Name="UI_SoundBoard_Slider_Step_Metronome" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Metronome" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<IncludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1936030412" Name="UI_SoundBoard_Slider_Step_Music" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_Music" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<IncludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2219910546" Name="UI_SoundBoard_Slider_Step_SFXVoice" ObjectPath="\Events\UI_Event\UI\UI_SoundBoard_Slider_Step_SFXVoice" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.177778" DurationMax="0.301134">
+					<IncludedMemoryFiles>
+						<File Id="285395948" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-02.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-02_755F56E2.wem</Path>
+						</File>
+						<File Id="646392979" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-03.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-03_755F56E2.wem</Path>
+						</File>
+						<File Id="753684732" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch_755F56E2.wem</Path>
+						</File>
+						<File Id="949470330" Language="SFX">
+							<ShortName>SFX\UI\SoundBoard\Notch\SFX_Notch-01.wav</ShortName>
+							<Path>SFX\SFX\UI\SoundBoard\Notch\SFX_Notch-01_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="250876189" Name="RTPC_SetVolume_VoiceSFX" ObjectPath="\Game Parameters\Game_Parameters\SetVolume\RTPC_SetVolume_VoiceSFX"/>
@@ -10651,8 +10865,12 @@
 			<IncludedEvents>
 				<Event Id="121937159" Name="Public_ApplauseEnd" ObjectPath="\Events\Ambience_Event\Public_ApplauseEnd" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2012101007" Name="SFX_Family_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Family_Broken" DurationType="OneShot" DurationMin="0.500000" DurationMax="4.601083">
+				<Event Id="2012101007" Name="SFX_Family_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Family_Broken" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.867052" DurationMax="5.117279">
 					<IncludedMemoryFiles>
+						<File Id="35653780" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family_Woods.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family_Woods_755F56E2.wem</Path>
+						</File>
 						<File Id="95194890" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken_755F56E2.wem</Path>
@@ -10661,6 +10879,10 @@
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Brass_Broken_755F56E2.wem</Path>
 						</File>
+						<File Id="452975890" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family-02.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family-02_755F56E2.wem</Path>
+						</File>
 						<File Id="541550513" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Strings_Broken-01.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-01_755F56E2.wem</Path>
@@ -10668,6 +10890,18 @@
 						<File Id="587110190" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken-01.wav</ShortName>
 							<Path>SFX\SFX\FamilyFeedback\SFX_Family_Brass_Broken-01_755F56E2.wem</Path>
+						</File>
+						<File Id="871995611" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family_755F56E2.wem</Path>
+						</File>
+						<File Id="920900239" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family-01.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family-01_755F56E2.wem</Path>
+						</File>
+						<File Id="932452046" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Family_Woods-01.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Family_Woods-01_755F56E2.wem</Path>
 						</File>
 						<File Id="974507644" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Family_Brass_Broken-02.wav</ShortName>
@@ -10686,6 +10920,19 @@
 								<File Id="95194890"/>
 							</Media>
 						</SwitchContainer>
+						<SwitchContainer SwitchValue="{60DFFE4C-EB6E-4956-9964-4965DF4C357C}">
+							<Media>
+								<File Id="920900239"/>
+								<File Id="452975890"/>
+								<File Id="871995611"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{11CB2E04-8E7F-47B5-B217-07E5180EA277}">
+							<Media>
+								<File Id="932452046"/>
+								<File Id="35653780"/>
+							</Media>
+						</SwitchContainer>
 						<SwitchContainer SwitchValue="{3064128F-1C3F-4FC8-B6DB-4282EC01EDC0}">
 							<Media>
 								<File Id="587110190"/>
@@ -10695,7 +10942,36 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="247346967" Name="SFX_Feedback_ReframingSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="247346967" Name="SFX_Feedback_ReframingSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess" DurationType="OneShot" DurationMin="2.923742" DurationMax="2.923742">
+					<IncludedMemoryFiles>
+						<File Id="671802977" Language="SFX">
+							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Success-02.wav</ShortName>
+							<Path>SFX\SFX\FamilyFeedback\SFX_Feedback_Success-02_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{3064128F-1C3F-4FC8-B6DB-4282EC01EDC0}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{11CB2E04-8E7F-47B5-B217-07E5180EA277}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{60DFFE4C-EB6E-4956-9964-4965DF4C357C}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{DC200334-F48E-4ED4-9C0B-6752C5EF87DD}">
+							<Media>
+								<File Id="671802977"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="1231703344" Name="SFX_Potion_Broken" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Broken" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.147086" DurationMax="3.117456">
 					<IncludedMemoryFiles>
 						<File Id="95828565" Language="SFX">
