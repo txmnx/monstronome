@@ -147,14 +147,12 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     public void OnEnterHighlight()
     {
-        spotlight.enabled = true;
         highlightHintRenderer.enabled = false;
         drawableReframingRules.gameObject.SetActive(true);
     }
     
     public void OnExitHighlight()
     {
-        spotlight.enabled = false;
         drawableReframingRules.gameObject.SetActive(false);
     }
 

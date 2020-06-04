@@ -10,29 +10,28 @@ public class SelectedFamilyHighlighter : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
     
-    public Light mainLight;
-    public Light ambientLight;
+    public Light[] lightsToDisable;
+    private float[] m_CachedIntensities;
     public InstrumentFamilySelector selector;
 
-    private float m_CachedMainLightIntensity;
-    private float m_CachedAmbientLightIntensity;
+    private float m_CachedSpotlightIntensity;
 
     private void Start()
     {
         selector.OnSelectFamily += OnSelectFamily;
         selector.OnDeselectFamily += OnDeselectFamily;
+        
+        m_CachedIntensities = new float[lightsToDisable.Length];
     }
 
     private void OnSelectFamily(InstrumentFamily family)
     {
-        RenderSettings.ambientIntensity = 0.4f;
-        RenderSettings.reflectionIntensity = 0.4f;
-        
-        m_CachedMainLightIntensity = mainLight.intensity;
-        mainLight.intensity = 0;
-        m_CachedAmbientLightIntensity = ambientLight.intensity;
-        ambientLight.intensity = 0;
+        for (int i = 0; i < lightsToDisable.Length; ++i) {
+            m_CachedIntensities[i] = lightsToDisable[i].intensity;
+            lightsToDisable[i].intensity = 0;
+        }
 
+        m_CachedSpotlightIntensity = family.spotlight.intensity;
         family.OnEnterHighlight();
         
         soundEngineTuner.FocusFamily(family);
@@ -40,12 +39,11 @@ public class SelectedFamilyHighlighter : MonoBehaviour
 
     private void OnDeselectFamily(InstrumentFamily family)
     {
-        RenderSettings.ambientIntensity = 1;
-        RenderSettings.reflectionIntensity = 1;
-        
-        mainLight.intensity = m_CachedMainLightIntensity;
-        ambientLight.intensity = m_CachedAmbientLightIntensity;
+        for (int i = 0; i < lightsToDisable.Length; ++i) {
+            lightsToDisable[i].intensity = m_CachedIntensities[i];
+        }
 
+        family.spotlight.intensity = m_CachedSpotlightIntensity;
         family.OnExitHighlight();
         
         soundEngineTuner.UnfocusFamily();
