@@ -103,35 +103,37 @@ public class ReframingManager : MonoBehaviour
 
     public void CheckReframingPotionType(ReframingPotion potion, Collision other)
     {
-        if (m_ReframingFamily.gameObject == other.gameObject) {
-            if (m_IsDegrading && m_CanCheckPotionType) {
-                if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
-                    m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
+        if (m_IsDegrading) {
+            if (m_ReframingFamily.gameObject == other.gameObject) {
+                if (m_CanCheckPotionType) {
+                    if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
+                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
 
-                    SFXOnPotionRight.Post(potion.gameObject);
-                    soundEngineTuner.SetSwitchPotionType("Bonus", potion.gameObject);
-                    
-                    if ((int) m_CurrentDegradationState > 1) {
-                        //There are still rules to process
-                        m_CurrentDegradationState -= 1;
-                        m_ReframingPotionIndex += 1;
-                        UpdateDegradation(m_CurrentDegradationState);
+                        SFXOnPotionRight.Post(potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionType("Bonus", potion.gameObject);
+
+                        if ((int) m_CurrentDegradationState > 1) {
+                            //There are still rules to process
+                            m_CurrentDegradationState -= 1;
+                            m_ReframingPotionIndex += 1;
+                            UpdateDegradation(m_CurrentDegradationState);
+                        }
+                        else {
+                            //Success
+                            m_ReframingPotionIndex = 0;
+                            UpdateDegradation(DegradationState.Left_0);
+                            StartCoroutine(OnSuccess());
+                        }
                     }
                     else {
-                        //Success
+                        //Failure
+                        SFXOnPotionWrong.Post(potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionType("Malus", potion.gameObject);
+
                         m_ReframingPotionIndex = 0;
-                        UpdateDegradation(DegradationState.Left_0);
-                        StartCoroutine(OnSuccess());
+                        UpdateDegradation(DegradationState.Left_3);
+                        StartCoroutine(OnFailure());
                     }
-                }
-                else {
-                    //Failure
-                    SFXOnPotionWrong.Post(potion.gameObject);
-                    soundEngineTuner.SetSwitchPotionType("Malus", potion.gameObject);
-                    
-                    m_ReframingPotionIndex = 0;
-                    UpdateDegradation(DegradationState.Left_3);
-                    StartCoroutine(OnFailure());
                 }
             }
         }
