@@ -27,4 +27,10 @@ public class ReframingPotion : BreakableObject
     {
         reframingManager.CheckReframingPotionType(this, other);
     }
+    
+    override protected void OnCollisionSFX(Collision other) 
+    {
+        //TODO : set potion speed
+        base.OnCollisionSFX(other);
+    }
 }

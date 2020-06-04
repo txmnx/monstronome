@@ -23,9 +23,18 @@ public class ReframingManager : MonoBehaviour
     public ScoringParametersScriptableObject scoringParameters;
     public InstrumentFamilySelector instrumentFamilySelector;
 
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnFamilyDegradation;
+    public AK.Wwise.Event SFXOnReframingSuccess;
+    public AK.Wwise.Event SFXOnPotionRight;
+    public AK.Wwise.Event SFXOnPotionWrong;
+    public AK.Wwise.Event SFXOnTransitionBeforeReframing;
+    
     private InstrumentFamily[] m_InstrumentFamilies;
     private InstrumentFamily m_ReframingFamily;
     
+    
+    private bool m_CanPickNewFamily = false;
     private bool m_CanCheckPotionType = false;
     private bool m_IsDegrading = false;
     private bool m_CanDegrade = false;
@@ -59,6 +68,11 @@ public class ReframingManager : MonoBehaviour
         m_InstrumentFamilies = families;
     }
 
+    public void InitStart()
+    {
+        PickNewReframingFamily(true);
+    }
+
     public void Check(bool isBlock)
     {
         CheckLaunchFail(isBlock);
@@ -89,33 +103,37 @@ public class ReframingManager : MonoBehaviour
 
     public void CheckReframingPotionType(ReframingPotion potion, Collision other)
     {
-        if (m_ReframingFamily.gameObject == other.gameObject) {
-            if (m_IsDegrading && m_CanCheckPotionType) {
-                if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
-                    m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
+        if (m_IsDegrading) {
+            if (m_ReframingFamily.gameObject == other.gameObject) {
+                if (m_CanCheckPotionType) {
+                    if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
+                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
 
-                    soundEngineTuner.SetSwitchPotionType("Bonus", potion.gameObject);
-                    
-                    if ((int) m_CurrentDegradationState > 1) {
-                        //There are still rules to process
-                        m_CurrentDegradationState -= 1;
-                        m_ReframingPotionIndex += 1;
-                        UpdateDegradation(m_CurrentDegradationState);
+                        SFXOnPotionRight.Post(potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionType("Bonus", potion.gameObject);
+
+                        if ((int) m_CurrentDegradationState > 1) {
+                            //There are still rules to process
+                            m_CurrentDegradationState -= 1;
+                            m_ReframingPotionIndex += 1;
+                            UpdateDegradation(m_CurrentDegradationState);
+                        }
+                        else {
+                            //Success
+                            m_ReframingPotionIndex = 0;
+                            UpdateDegradation(DegradationState.Left_0);
+                            StartCoroutine(OnSuccess());
+                        }
                     }
                     else {
-                        //Success
+                        //Failure
+                        SFXOnPotionWrong.Post(potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionType("Malus", potion.gameObject);
+
                         m_ReframingPotionIndex = 0;
-                        UpdateDegradation(DegradationState.Left_0);
-                        StartCoroutine(OnSuccess());
+                        UpdateDegradation(DegradationState.Left_3);
+                        StartCoroutine(OnFailure());
                     }
-                }
-                else {
-                    //Failure
-                    soundEngineTuner.SetSwitchPotionType("Malus", potion.gameObject);
-                    
-                    m_ReframingPotionIndex = 0;
-                    UpdateDegradation(DegradationState.Left_3);
-                    StartCoroutine(OnFailure());
                 }
             }
         }
@@ -139,6 +157,7 @@ public class ReframingManager : MonoBehaviour
     private IEnumerator OnSuccess()
     {
         scoreManager.AddScore(scoringParameters.reframingSuccess);
+        SFXOnReframingSuccess.Post(m_ReframingFamily.gameObject);
         
         m_CanCheckPotionType = false;
         yield return BlinkAnimation(Color.green, Color.yellow);
@@ -163,6 +182,7 @@ public class ReframingManager : MonoBehaviour
     private void OnEndReframing()
     {
         m_IsDegrading = false;
+        m_ReframingFamily.OnExitDegradation();
         m_ReframingFamily.drawableReframingRules.Show(false);
         PickNewReframingFamily();
         StartCoroutine(WaitCanDegrade(reframingParameters.timeBetweenFails));
@@ -199,6 +219,7 @@ public class ReframingManager : MonoBehaviour
         soundEngineTuner.SetDegradation(m_CurrentDegradationState);
         m_ReframingFamily.SetBrokenAnimation(m_CurrentDegradationState);
     }
+    
     
     /* LAUNCH FAILS */
     
@@ -240,20 +261,28 @@ public class ReframingManager : MonoBehaviour
         m_CanCheckPotionType = true;
         
         //We start the reframing family degradation
+        m_ReframingFamily.OnEnterDegradation();
+        SFXOnFamilyDegradation.Post(m_ReframingFamily.gameObject);
         UpdateDegradation(DegradationState.Left_3);
-        
+
         m_CurrentReframingRules = GenerateRandomReframingRules();
         m_ReframingFamily.drawableReframingRules.Show(true);
         m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
     }
 
-    private void PickNewReframingFamily()
+    private void PickNewReframingFamily(bool force = false)
     {
-        //We pick the family which will fail
-        int pick = Random.Range(0, m_InstrumentFamilies.Length);
-        m_ReframingFamily = m_InstrumentFamilies[pick];
-        soundEngineTuner.SetSolistFamily(m_ReframingFamily);
-        Debug.Log("Solist family : " + m_ReframingFamily);
+        if (m_CanPickNewFamily || force) {
+            //We pick the family which will fail
+            int pick = Random.Range(0, m_InstrumentFamilies.Length);
+            m_ReframingFamily = m_InstrumentFamilies[pick];
+            soundEngineTuner.SetSolistFamily(m_ReframingFamily);
+            Debug.Log("Solist family : " + m_ReframingFamily);
+        }
+        else {
+            //We can't pick a random family when we enter the first block - it should be set before
+            m_CanPickNewFamily = true;
+        }
     }
     
     private void OnEnterBlock()
@@ -264,8 +293,14 @@ public class ReframingManager : MonoBehaviour
 
     private void OnExitBlock()
     {
+        if (m_IsDegrading) {
+            //If there was still a degradation when the block ended
+            SFXOnTransitionBeforeReframing.Post(m_ReframingFamily.gameObject);
+        }
+        
         m_CanDegrade = false;
         m_IsDegrading = false;
+        m_ReframingFamily.OnExitDegradation();
         m_ReframingPotionIndex = 0;
         m_CanCheckPotionType = true;
         

@@ -40,13 +40,6 @@ public class WwiseCallBack : MonoBehaviour
             OnCue?.Invoke(m_MusicCueName);
         }
     }
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            AkSoundEngine.SetState("Music", "Start");
-        }
-    }
 
     public event Action<string> OnCue;
 }

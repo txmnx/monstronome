@@ -6,25 +6,42 @@ Event	ID	Name			Wwise Object Path	Notes
 	922786755	UI_Menu_Back			\UI_Event\UI\UI_Menu_Back	
 	1341029731	UI_Menu_Pause_Enter			\UI_Event\UI\UI_Menu_Pause_Enter	
 	1722761166	UI_Menu_Pause_Resume_Countdown			\UI_Event\UI\UI_Menu_Pause_Resume_Countdown	
+	1834445417	UI_SoundBoard_Slider_Step_Metronome			\UI_Event\UI\UI_SoundBoard_Slider_Step_Metronome	
+	1936030412	UI_SoundBoard_Slider_Step_Music			\UI_Event\UI\UI_SoundBoard_Slider_Step_Music	
+	2153411292	UI_Settings_Slider_Volume			\UI_Event\UI\UI_Settings_Slider_Volume	
+	2219910546	UI_SoundBoard_Slider_Step_SFXVoice			\UI_Event\UI\UI_SoundBoard_Slider_Step_SFXVoice	
 	2269109418	UI_Menu_Pause_Resume			\UI_Event\UI\UI_Menu_Pause_Resume	
 	2814570109	UI_Menu_Main_Hovered			\UI_Event\UI\UI_Menu_Main_Hovered	
 	3019098628	UI_Menu_Main_Select			\UI_Event\UI\UI_Menu_Main_Select	
 	3086540886	StopAll			\Setup_Event\StopAll	
 	3679762312	Resume_All			\Setup_Event\Resume_All	
 	3864097025	Pause_All			\Setup_Event\Pause_All	
+	4055031953	UI_SoundBoard_Slider_Step_Master			\UI_Event\UI\UI_SoundBoard_Slider_Step_Master	
 	4170617512	UI_Menu_Pause_Hovered			\UI_Event\UI\UI_Menu_Pause_Hovered	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	250876189	RTPC_SetVolume_VoiceSFX			\Game_Parameters\SetVolume\RTPC_SetVolume_VoiceSFX	
+	1728933839	RTPC_SetVolume_Music			\Game_Parameters\SetVolume\RTPC_SetVolume_Music	
+	1832739962	RTPC_SetVolume_Metronome			\Game_Parameters\SetVolume\RTPC_SetVolume_Metronome	
+	1866890756	RTPC_SetVolume_Master			\Game_Parameters\SetVolume\RTPC_SetVolume_Master	
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	373129885	Wwise Sine	Wwise Sine		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\Soundboard\UI_SoundBoard_Slider_Step_Master\New Sound SFX\Wwise Sine	
+	486202436	Wwise Sine	Wwise Sine		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\Soundboard\UI_SoundBoard_Slider_Step_Metronome\New Sound SFX\Wwise Sine	
+	533976988	Wwise Sine	Wwise Sine		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\Soundboard\UI_SoundBoard_Slider_Step_Music\New Sound SFX\Wwise Sine	
+	592429560	Wwise Sine	Wwise Sine		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\Soundboard\UI_SoundBoard_Slider_Step_SFXVoice\New Sound SFX\Wwise Sine	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	23677375	SFX_UI_Menu_Hovered-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-06_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-06		49734
-	153656289	SFX_UI_Menu_Hovered-10	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-10_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-10		49148
-	275522558	SFX_UI_Menu_Hovered-05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-05_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-05		51307
-	379526165	SFX_UI_Menu_Hovered-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-03_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-03		49562
-	386699688	SFX_UI_Menu_Hovered-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-02_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-02		50117
-	428677748	SFX_UI_Menu_Hovered-04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-04_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-04		49602
-	474891516	SFX_UI_Menu_Hovered-08	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-08_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-08		49916
-	480309009	SFX_UI_Menu_BackandEnter-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_BackandEnter-01_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Pause_Select\SFX_UI_Menu_BackandEnter-01		40342
-	543816539	SFX_UI_Menu_Hovered-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-01_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-01		49260
-	761205902	SFX_UI_Menu_Hovered-09	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-09_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-09		50764
-	769844504	SFX_UI_Menu_BackandEnter-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_BackandEnter-02_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Pause_Resume\SFX_UI_Menu_BackandEnter-02		39056
-	1012939074	SFX_UI_Menu_Hovered-07	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-07_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Main_Menu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-07		51126
+	23677375	SFX_UI_Menu_Hovered-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-06_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-06		49734
+	153656289	SFX_UI_Menu_Hovered-10	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-10_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-10		49148
+	275522558	SFX_UI_Menu_Hovered-05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-05_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-05		51307
+	379526165	SFX_UI_Menu_Hovered-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-03_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-03		49562
+	386699688	SFX_UI_Menu_Hovered-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-02_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-02		50117
+	428677748	SFX_UI_Menu_Hovered-04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-04_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-04		49602
+	474891516	SFX_UI_Menu_Hovered-08	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-08_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-08		49916
+	480309009	SFX_UI_Menu_BackandEnter-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_BackandEnter-01_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Select\SFX_UI_Menu_BackandEnter-01		40342
+	543816539	SFX_UI_Menu_Hovered-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-01_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-01		49260
+	761205902	SFX_UI_Menu_Hovered-09	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-09_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-09		50764
+	769844504	SFX_UI_Menu_BackandEnter-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_BackandEnter-02_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Pause_Resume\SFX_UI_Menu_BackandEnter-02		39056
+	1012939074	SFX_UI_Menu_Hovered-07	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\UI\Menu\SFX_UI_Menu_Hovered-07_755F56E2.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\Menu\2dMenu\UI_Menu_Option_Hovered\SFX_UI_Menu_Hovered-07		51126
 
