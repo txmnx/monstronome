@@ -58,6 +58,7 @@ public class SoundEngineTuner : MonoBehaviour
     /* REFRAMING */
     public void SetSolistFamily(InstrumentFamily family)
     {
+        AkSoundEngine.SetSwitch("SW_Family_Solist", m_KeywordFamily[family.GetType()], family.gameObject);
         AkSoundEngine.SetSwitch("SW_Family_Solist", m_KeywordFamily[family.GetType()], soundReference.gameObject);
     }
     

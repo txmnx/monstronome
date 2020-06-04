@@ -25,7 +25,10 @@ public class XRGrabbable : MonoBehaviour
     {}
 
     public virtual void OnUpdateGrab(XRGrabber xrGrabber)
-    {}
+    {
+        Debug.Log("GRABBED - base");
+
+    }
     
     public virtual void OnExitGrab(XRGrabber xrGrabber)
     {}
