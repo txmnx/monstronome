@@ -29,7 +29,7 @@ public class XRThrowable : XRGrabbable
         m_CollisionDetectionMode = rb.collisionDetectionMode;
     }
     
-    public override void OnEnterGrab()
+    public override void OnEnterGrab(XRGrabber xrGrabber)
     {
         m_UseGravity = rb.useGravity;
         m_IsKinematic = rb.isKinematic;
@@ -37,9 +37,15 @@ public class XRThrowable : XRGrabbable
         m_Parent = transform.parent;
 
         SFXOnPickup.Post(gameObject);
+        
+        rb.useGravity = false;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        rb.isKinematic = true;
+
+        rb.transform.parent = xrGrabber.transform;
     }
 
-    public override void OnExitGrab()
+    public override void OnExitGrab(XRGrabber xrGrabber)
     {
         rb.useGravity = m_UseGravity;
         rb.isKinematic = m_IsKinematic;
@@ -47,5 +53,8 @@ public class XRThrowable : XRGrabbable
         transform.parent = m_Parent;
 
         SFXOnThrow.Post(gameObject);
+        
+        rb.velocity = xrGrabber.velocity * xrGrabber.throwPower;
+        rb.angularVelocity = xrGrabber.angularVelocity * xrGrabber.throwPower;
     }
 }

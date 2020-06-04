@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Item that can be grabbed by a XRGrabber
+ */
 public class XRGrabbable : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
@@ -18,13 +21,16 @@ public class XRGrabbable : MonoBehaviour
         meshRenderer.SetPropertyBlock(m_Block);
     }
 
-    public virtual void OnEnterGrab()
+    public virtual void OnEnterGrab(XRGrabber xrGrabber)
     {}
+
+    public virtual void OnUpdateGrab(XRGrabber xrGrabber)
+    {
+        Debug.Log("GRABBED - base");
+
+    }
     
-    public virtual void OnUpdateGrab()
-    {}
-    
-    public virtual void OnExitGrab()
+    public virtual void OnExitGrab(XRGrabber xrGrabber)
     {}
     
     public virtual void Highlight()
