@@ -18,8 +18,9 @@ public abstract class InstrumentFamily : MonoBehaviour
     
     [Header("Highlight")]
     public Light spotlight;
-    public Renderer highlightHintRenderer;
+    public SpriteRenderer highlightHintRenderer;
     public DrawableReframingRules drawableReframingRules;
+    private bool m_CanDisableHighlightHint = true;
     
     public enum ArticulationType
     {
@@ -131,6 +132,24 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     /* Events */
 
+    public void OnEnterDegradation()
+    {
+        //TODO : Refactor
+        highlightHintRenderer.color = Color.red;
+        highlightHintRenderer.transform.localScale = new Vector3(1.25f, 1.25f, 0);
+        highlightHintRenderer.enabled = true;
+        m_CanDisableHighlightHint = false;
+    }
+    
+    public void OnExitDegradation()
+    {
+        //TODO : Refactor
+        highlightHintRenderer.color = Color.yellow;
+        highlightHintRenderer.transform.localScale = new Vector3(0.75f, 0.75f, 0);
+        highlightHintRenderer.enabled = false;
+        m_CanDisableHighlightHint = true;
+    }
+    
     virtual public void OnBeginLookedAt() 
     {
         highlightHintRenderer.enabled = true;
@@ -141,7 +160,9 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     virtual public void OnEndLookedAt()
     {
-        highlightHintRenderer.enabled = false;
+        if (m_CanDisableHighlightHint) {
+            highlightHintRenderer.enabled = false;
+        }
     }
 
     public void OnEnterHighlight()
