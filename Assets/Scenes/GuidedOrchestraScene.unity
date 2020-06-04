@@ -147,7 +147,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12116178}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -2366,7 +2366,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.58964604, b: 0.3254717, a: 1}
-  m_Intensity: 30
+  m_Intensity: 20
   m_Range: 10
   m_SpotAngle: 62.085167
   m_InnerSpotAngle: 0
@@ -3006,11 +3006,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6071609324364871849, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c3d888d8c05a13c4b89b59fd3b316dfc, type: 2}
     - target: {fileID: 6542878219813311480, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
         type: 3}
       propertyPath: m_Mesh
@@ -3066,16 +3061,6 @@ PrefabInstance:
       propertyPath: articulationManager
       value: 
       objectReference: {fileID: 348619495}
-    - target: {fileID: 7790251455873993490, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c3d888d8c05a13c4b89b59fd3b316dfc, type: 2}
-    - target: {fileID: 7790251456181214568, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c3d888d8c05a13c4b89b59fd3b316dfc, type: 2}
     - target: {fileID: 8938378829094342207, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
         type: 3}
       propertyPath: m_Mesh
@@ -3091,11 +3076,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 9038602181031365952, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c3d888d8c05a13c4b89b59fd3b316dfc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
 --- !u!1 &1084374022
@@ -5353,7 +5333,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044161811}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
