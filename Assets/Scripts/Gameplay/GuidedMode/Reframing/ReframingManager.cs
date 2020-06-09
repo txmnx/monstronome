@@ -182,6 +182,7 @@ public class ReframingManager : MonoBehaviour
     private void OnEndReframing()
     {
         m_IsDegrading = false;
+        m_ReframingFamily.OnExitDegradation();
         m_ReframingFamily.drawableReframingRules.Show(false);
         PickNewReframingFamily();
         StartCoroutine(WaitCanDegrade(reframingParameters.timeBetweenFails));
@@ -260,10 +261,13 @@ public class ReframingManager : MonoBehaviour
         m_CanCheckPotionType = true;
         
         //We start the reframing family degradation
+        m_ReframingFamily.OnEnterDegradation();
         SFXOnFamilyDegradation.Post(m_ReframingFamily.gameObject);
         UpdateDegradation(DegradationState.Left_3);
 
         m_CurrentReframingRules = GenerateRandomReframingRules();
+        
+        m_ReframingFamily.drawableReframingRules.ResetColors();
         m_ReframingFamily.drawableReframingRules.Show(true);
         m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
     }
@@ -286,6 +290,7 @@ public class ReframingManager : MonoBehaviour
     private void OnEnterBlock()
     {
         PickNewReframingFamily();
+        m_CanDegrade = false;
         StartCoroutine(WaitCanDegrade(Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail)));
     }
 
@@ -298,6 +303,7 @@ public class ReframingManager : MonoBehaviour
         
         m_CanDegrade = false;
         m_IsDegrading = false;
+        m_ReframingFamily.OnExitDegradation();
         m_ReframingPotionIndex = 0;
         m_CanCheckPotionType = true;
         
