@@ -35,15 +35,16 @@ public class XRSlider : XRGrabbable
     
     public override void OnUpdateGrab(XRGrabber xrGrabber)
     {
-        Vector3 nextPos = transform.InverseTransformPoint(xrGrabber.transform.position);
-        Debug.Log(nextPos.x);
-        
+        Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.transform.position);
+
+        /*
         if (nextPos.x > m_CachedMax.x) {
             nextPos = m_CachedMax;
         }
         else if (nextPos.x < m_CachedMin.x){
             nextPos = m_CachedMin;
         }
+        */
         
         transform.localPosition = new Vector3(nextPos.x, transform.localPosition.y, transform.localPosition.z);
         m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);

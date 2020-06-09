@@ -83,10 +83,8 @@ public class XRGrabber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter " + other.name);
         XRGrabbable obj = other.GetComponent<XRGrabbable>();
         if (obj) {
-            Debug.Log("XRGrabbable onTrigger");
             m_HighlightedObjects.Add(obj);
             obj.Highlight();
         }
