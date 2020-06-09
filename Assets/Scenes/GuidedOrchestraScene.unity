@@ -1457,12 +1457,6 @@ MonoBehaviour:
   soundEngineTuner: {fileID: 348619491}
   lightsToDisable:
   - {fileID: 1543886621}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1031486164}
-  - {fileID: 1031486163}
-  - {fileID: 1031486162}
-  - {fileID: 1031486161}
   selector: {fileID: 224941993}
 --- !u!114 &348619493
 MonoBehaviour:
@@ -2593,7 +2587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503611279, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_Intensity
-      value: 40
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 854011154, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: familyAnimators.Array.size
@@ -2641,7 +2635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1377526393, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_Intensity
-      value: 50
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1915118170, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: soundEngineTuner
@@ -2657,7 +2651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1971820067, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_Intensity
-      value: 50
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1971820067, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_SpotAngle
@@ -2673,7 +2667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2089489768, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_Intensity
-      value: 50
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2089489768, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_SpotAngle
@@ -4116,30 +4110,6 @@ PrefabInstance:
       objectReference: {fileID: 348619491}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
---- !u!108 &1031486161 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1971820067, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-    type: 3}
-  m_PrefabInstance: {fileID: 1031486160}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1031486162 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 2089489768, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-    type: 3}
-  m_PrefabInstance: {fileID: 1031486160}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1031486163 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 503611279, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-    type: 3}
-  m_PrefabInstance: {fileID: 1031486160}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1031486164 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 1377526393, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-    type: 3}
-  m_PrefabInstance: {fileID: 1031486160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1078656019
 PrefabInstance:
   m_ObjectHideFlags: 0
