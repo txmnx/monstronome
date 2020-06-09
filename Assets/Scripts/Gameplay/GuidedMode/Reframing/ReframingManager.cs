@@ -266,6 +266,8 @@ public class ReframingManager : MonoBehaviour
         UpdateDegradation(DegradationState.Left_3);
 
         m_CurrentReframingRules = GenerateRandomReframingRules();
+        
+        m_ReframingFamily.drawableReframingRules.ResetColors();
         m_ReframingFamily.drawableReframingRules.Show(true);
         m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
     }
@@ -288,6 +290,7 @@ public class ReframingManager : MonoBehaviour
     private void OnEnterBlock()
     {
         PickNewReframingFamily();
+        m_CanDegrade = false;
         StartCoroutine(WaitCanDegrade(Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail)));
     }
 
