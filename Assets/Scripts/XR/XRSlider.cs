@@ -37,6 +37,7 @@ public class XRSlider : XRGrabbable
         if (m_CachedMax.x < m_CachedMin.x) {
             m_CachedMin = max.localPosition;
             m_CachedMax = min.localPosition;
+            m_LeftToRight = false;
         }
     }
     
@@ -52,6 +53,12 @@ public class XRSlider : XRGrabbable
         }
 
         transform.localPosition = new Vector3(nextPos.x, transform.localPosition.y, transform.localPosition.z);
-        m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);
+        
+        if (m_LeftToRight) {
+            m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);
+        }
+        else {
+            m_Value = Mathf.InverseLerp(m_CachedMax.x, m_CachedMin.x, transform.localPosition.x);
+        }
     }
 }
