@@ -14,8 +14,6 @@ public class SelectedFamilyHighlighter : MonoBehaviour
     private float[] m_CachedIntensities;
     public InstrumentFamilySelector selector;
 
-    private float m_CachedSpotlightIntensity;
-
     private void Start()
     {
         selector.OnSelectFamily += OnSelectFamily;
@@ -27,14 +25,11 @@ public class SelectedFamilyHighlighter : MonoBehaviour
     private void OnSelectFamily(InstrumentFamily family)
     {
         for (int i = 0; i < lightsToDisable.Length; ++i) {
-            if (family.spotlight != lightsToDisable[i]) {
-                m_CachedIntensities[i] = lightsToDisable[i].intensity;
-                lightsToDisable[i].intensity = 0;
-            }
+            m_CachedIntensities[i] = lightsToDisable[i].intensity;
+            lightsToDisable[i].intensity = 0;
         }
-
-        m_CachedSpotlightIntensity = family.spotlight.intensity;
-        family.spotlight.intensity = 100;
+        
+        family.spotlight.enabled = true;
         family.OnEnterHighlight();
         
         soundEngineTuner.FocusFamily(family);
@@ -43,12 +38,10 @@ public class SelectedFamilyHighlighter : MonoBehaviour
     private void OnDeselectFamily(InstrumentFamily family)
     {
         for (int i = 0; i < lightsToDisable.Length; ++i) {
-            if (family.spotlight != lightsToDisable[i]) {
-                lightsToDisable[i].intensity = m_CachedIntensities[i];
-            }
+            lightsToDisable[i].intensity = m_CachedIntensities[i];
         }
 
-        family.spotlight.intensity = m_CachedSpotlightIntensity;
+        family.spotlight.enabled = false;
         family.OnExitHighlight();
         
         soundEngineTuner.UnfocusFamily();
