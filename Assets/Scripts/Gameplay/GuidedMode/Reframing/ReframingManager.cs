@@ -288,6 +288,7 @@ public class ReframingManager : MonoBehaviour
     private void OnEnterBlock()
     {
         PickNewReframingFamily();
+        m_CanDegrade = false;
         StartCoroutine(WaitCanDegrade(Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail)));
     }
 
