@@ -4,31 +4,47 @@ using UnityEngine;
 
 public class SoundSlider : XRSlider
 {
-    [Header("SFX")]
-    public AK.Wwise.Event SFXOnStep;
+    [Header("RTPC")]
+    public SoundEngineTuner soundEngineTuner;
+    public string rtpcID;
     
+    [Header("Feedback")]
+    public AK.Wwise.Event SFXOnStep;
+
     private int m_PrevIntValue;
     
     protected override void Start()
     {
         base.Start();
-        m_PrevIntValue = (int)value;
+        m_PrevIntValue = (int)(value * 10);
     }
 
     public override void OnUpdateGrab(XRGrabber xrGrabber)
     {
         base.OnUpdateGrab(xrGrabber);
 
-        if (m_PrevIntValue != (int)value) {
-            m_PrevIntValue = (int)value;
-            OnStep(xrGrabber);
+        int roundValue = (int)(value * 10);
+        if (value < 0.00001f) {
+            if (m_PrevIntValue != -1) {
+                m_PrevIntValue = -1;
+                OnStep(xrGrabber, roundValue);
+            }
+        }
+        else if (m_PrevIntValue != roundValue) {
+            m_PrevIntValue = roundValue;
+            OnStep(xrGrabber, roundValue);
         }
     }
 
-    private void OnStep(XRGrabber xrGrabber)
+    private void OnStep(XRGrabber xrGrabber, int roundValue)
     {
         SFXOnStep.Post(gameObject);
-        xrGrabber.HapticImpulse(0.5f, 0.1f);
-        //TODO : call SoundEngineTuner to modify volume using value
+        if (value < 0.01f || value > 0.98f) {
+            xrGrabber.HapticImpulse(0.5f, 0.01f);   
+        }
+        else {
+            xrGrabber.HapticImpulse(0.15f, 0.01f);   
+        }
+        soundEngineTuner.SetVolume(rtpcID, ((float)roundValue) / 10.0f);
     }
 }
