@@ -98,4 +98,14 @@ public class XRGrabber : MonoBehaviour
             obj.RemoveHighlight();
         }
     }
+
+    public void HapticImpulse(float amplitude, float duration)
+    {
+        if (m_Controller.inputDevice.TryGetHapticCapabilities(out UnityEngine.XR.HapticCapabilities capabilities)) {
+            if (capabilities.supportsImpulse) {
+                uint channel = 0;
+                m_Controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
+            }
+        }
+    }
 }

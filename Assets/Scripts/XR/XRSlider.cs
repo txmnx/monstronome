@@ -26,6 +26,7 @@ public class XRSlider : XRGrabbable
     private Vector3 m_CachedMax;
 
     private bool m_LeftToRight = true;
+    private bool m_TriggerHaptic = false;
 
     protected override void Start()
     {
@@ -46,10 +47,21 @@ public class XRSlider : XRGrabbable
         Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.transform.position);
         
         if (nextPos.x > m_CachedMax.x) {
+            if (m_TriggerHaptic) {
+                xrGrabber.HapticImpulse(1.0f, 0.1f);
+                m_TriggerHaptic = false;
+            }
             nextPos = m_CachedMax;
         }
         else if (nextPos.x < m_CachedMin.x){
+            if (m_TriggerHaptic) {
+                xrGrabber.HapticImpulse(1.0f, 0.1f);
+                m_TriggerHaptic = false;
+            }
             nextPos = m_CachedMin;
+        }
+        else {
+            m_TriggerHaptic = true;
         }
 
         transform.localPosition = new Vector3(nextPos.x, transform.localPosition.y, transform.localPosition.z);
