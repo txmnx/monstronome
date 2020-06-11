@@ -20,7 +20,7 @@ public class UITempoToast : UIToast
     
     private MeshRenderer m_CurrentHighlightStepRenderer;
     private MaterialPropertyBlock m_Block;
-    private int m_EmissionForcePropertyId;
+    private int m_EmissionFactorPropertyId;
 
     
     protected override void Awake()
@@ -28,7 +28,7 @@ public class UITempoToast : UIToast
         base.Awake();
         
         m_Block = new MaterialPropertyBlock();
-        m_EmissionForcePropertyId = Shader.PropertyToID("EmissionForce");
+        m_EmissionFactorPropertyId = Shader.PropertyToID("_EmissionFactor");
         
         m_CurrentHighlightStepRenderer = stepRenderers[0];
 
@@ -82,7 +82,7 @@ public class UITempoToast : UIToast
     
     private void SetStepEmissionForce(MeshRenderer step, float emissionForce)
     {
-        m_Block.SetFloat(m_EmissionForcePropertyId, emissionForce);
+        m_Block.SetFloat(m_EmissionFactorPropertyId, emissionForce);
         step.SetPropertyBlock(m_Block);
     }
 }
