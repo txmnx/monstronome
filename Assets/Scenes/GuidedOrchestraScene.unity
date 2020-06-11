@@ -1283,6 +1283,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2691426641486456968, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2853106037342886740, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1549,6 +1554,31 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5365888082649604532, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510008125953866825, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510008125953866825, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510008125953866825, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510008125953866825, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510008125953866825, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
@@ -2081,8 +2111,6 @@ MonoBehaviour:
   - {fileID: 1247558651}
   - {fileID: 854011154}
   bpm: 0
-  minBPM: 45
-  maxBPM: 165
   bpmGraph: {fileID: 277658482}
 --- !u!114 &348619490
 MonoBehaviour:
@@ -2237,6 +2265,7 @@ MonoBehaviour:
   intensityManager: {fileID: 348619490}
   tempoManager: {fileID: 348619489}
   UIArticulationToast: {fileID: 1961430515}
+  UITempoToast: {fileID: 633918920}
   scoreManager: {fileID: 348619499}
   scoringParameters: {fileID: 11400000, guid: 7d0944172770d0941852cf6545b61d7d, type: 2}
 --- !u!114 &348619499
@@ -3042,6 +3071,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a73caeef8208ce64f98c6eab7683d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &633918920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2190965105377587759, guid: aacb927a69a8ea048a67ca9449873dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 303602565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31009608dd5343c479616f75d028e486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &720096121
