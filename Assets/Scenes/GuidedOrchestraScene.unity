@@ -515,18 +515,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 39.33, y: -321.468, z: 365.766}
---- !u!114 &111859411 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 111859411, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-    type: 3}
-  m_PrefabInstance: {fileID: 1031486160}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b521d48b1cb558449f4b4abff53803e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &191826160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1597,6 @@ MonoBehaviour:
   intensityManager: {fileID: 348619490}
   tempoManager: {fileID: 348619489}
   UIArticulationToast: {fileID: 859598849}
-  drawableOrchestaState: {fileID: 111859411}
   scoreManager: {fileID: 348619499}
   scoringParameters: {fileID: 11400000, guid: 7d0944172770d0941852cf6545b61d7d, type: 2}
 --- !u!114 &348619499
@@ -2964,7 +2951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111859410, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.524
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: 111859410, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3587,7 +3574,7 @@ PrefabInstance:
     - target: {fileID: 1681971816813097333, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1681971816813097333, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
         type: 3}

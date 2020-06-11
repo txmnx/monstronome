@@ -16,9 +16,8 @@ public class ConductingRulesManager : MonoBehaviour
     public IntensityManager intensityManager;
     public TempoManager tempoManager;
 
-    [Header("Drawables")]
+    [Header("UI")]
     public UIArticulationToast UIArticulationToast;
-    public DrawableOrchestraState drawableOrchestaState;
 
     [Header("Score")]
     public ScoreManager scoreManager;
@@ -62,8 +61,6 @@ public class ConductingRulesManager : MonoBehaviour
         articulationManager.OnArticulationChange += OnArticulationChange;
         intensityManager.OnIntensityChange += OnIntensityChange;
         tempoManager.OnTempoChange += OnTempoChange;
-        
-        drawableOrchestaState.Show(true);
     }
 
     public void GetNewRules(string stateName)
@@ -125,13 +122,11 @@ public class ConductingRulesManager : MonoBehaviour
     public void OnIntensityChange(InstrumentFamily.IntensityType type)
     {
         m_CurrentOrchestraState.intensityType = type;
-        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
     }
     
     public void OnTempoChange(InstrumentFamily.TempoType type)
     {
         m_CurrentOrchestraState.tempoType = type;
-        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
     }
 
     public void DrawRules()
