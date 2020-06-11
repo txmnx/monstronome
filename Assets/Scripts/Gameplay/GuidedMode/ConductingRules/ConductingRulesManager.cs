@@ -75,6 +75,7 @@ public class ConductingRulesManager : MonoBehaviour
     }
 
     //Called at each frame by the GuidedModeManager
+    //TODO : call it each time articulation/tempo/intensity is changed
     public void Check(bool setScore)
     {
         int mistakes = 0;
