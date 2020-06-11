@@ -10,14 +10,14 @@ using UnityEngine;
 public class ConductingRulesManager : MonoBehaviour
 {
     [Header("Callbacks")] 
+    public GuidedModeManager guidedModeManager;
     public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
     public IntensityManager intensityManager;
     public TempoManager tempoManager;
 
-    [Header("Drawables")]
-    public DrawableOrchestraState drawableRules;
-    public DrawableOrchestraState drawableOrchestaState;
+    [Header("UI")]
+    public UIArticulationToast UIArticulationToast;
 
     [Header("Score")]
     public ScoreManager scoreManager;
@@ -61,32 +61,28 @@ public class ConductingRulesManager : MonoBehaviour
         articulationManager.OnArticulationChange += OnArticulationChange;
         intensityManager.OnIntensityChange += OnIntensityChange;
         tempoManager.OnTempoChange += OnTempoChange;
-        
-        drawableOrchestaState.Show(true);
     }
 
     public void GetNewRules(string stateName)
     {
         if (m_Rules.TryGetValue(stateName, out OrchestraState rules)) {
             m_CurrentRules = rules;
-            drawableRules.Show(true);
-            drawableRules.DrawOrchestraState(m_CurrentRules);
+            UIArticulationToast.Show(true);
+            UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
         }
     }
 
-    //Called at each frame by the GuidedModeManager
-    public void Check(bool setScore)
+    //Updates the score
+    //TODO : call it each time articulation/tempo/intensity is changed
+    public void Check()
     {
         int mistakes = 0;
-        
-        if (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType) {
-            drawableRules.HighlightArticulation(Color.green);
-        }
-        else {
+
+        if (m_CurrentOrchestraState.articulationType != m_CurrentRules.articulationType) {
             mistakes += 1;
-            drawableRules.HighlightArticulation(Color.red);
         }
 
+        /*
         if (m_CurrentOrchestraState.intensityType == m_CurrentRules.intensityType) {
             drawableRules.HighlightIntensity(Color.green);
         }
@@ -102,16 +98,15 @@ public class ConductingRulesManager : MonoBehaviour
             mistakes += 1;
             drawableRules.HighlightTempo(Color.red);
         }    
+        */
         
         m_TimeSinceLastScore += Time.deltaTime;
         if (m_TimeSinceLastScore > scoringParameters.checkPerSeconds) {
-            if (setScore) {
-                if (mistakes == 0) {
-                    scoreManager.AddScore(scoringParameters.noMistake);
-                }
-                else {
-                    scoreManager.AddScore(scoringParameters.perMistake * (float) mistakes);
-                }
+            if (mistakes == 0) {
+                scoreManager.AddScore(scoringParameters.noMistake);
+            }
+            else {
+                scoreManager.AddScore(scoringParameters.perMistake * (float) mistakes);
             }
             m_TimeSinceLastScore %= scoringParameters.checkPerSeconds;
         }
@@ -121,18 +116,21 @@ public class ConductingRulesManager : MonoBehaviour
     public void OnArticulationChange(InstrumentFamily.ArticulationType type)
     {
         m_CurrentOrchestraState.articulationType = type;
-        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
+        UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
     }
     
     public void OnIntensityChange(InstrumentFamily.IntensityType type)
     {
         m_CurrentOrchestraState.intensityType = type;
-        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
     }
     
     public void OnTempoChange(InstrumentFamily.TempoType type)
     {
         m_CurrentOrchestraState.tempoType = type;
-        drawableOrchestaState.DrawOrchestraState(m_CurrentOrchestraState);
     }
+
+    public void DrawRules()
+    {
+        UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+    } 
 }

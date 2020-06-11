@@ -83,10 +83,8 @@ public class XRGrabber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter " + other.name);
         XRGrabbable obj = other.GetComponent<XRGrabbable>();
         if (obj) {
-            Debug.Log("XRGrabbable onTrigger");
             m_HighlightedObjects.Add(obj);
             obj.Highlight();
         }
@@ -98,6 +96,16 @@ public class XRGrabber : MonoBehaviour
         if (obj) {
             m_HighlightedObjects.Remove(obj);
             obj.RemoveHighlight();
+        }
+    }
+
+    public void HapticImpulse(float amplitude, float duration)
+    {
+        if (m_Controller.inputDevice.TryGetHapticCapabilities(out UnityEngine.XR.HapticCapabilities capabilities)) {
+            if (capabilities.supportsImpulse) {
+                uint channel = 0;
+                m_Controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
+            }
         }
     }
 }
