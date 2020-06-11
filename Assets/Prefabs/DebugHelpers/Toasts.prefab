@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1989344058
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748175474315526856}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18278cd2c028b6a419f31c83b48c6803, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &1043540278
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748175474986826803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ea01f73708bdbe4ca4172dfb4116acc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &127972360
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748175476179621529}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56b47190eb87c6f439fcefce7bf89d15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7474109552153471403
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,7 +80,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7474109552153471403}
-  m_LocalRotation: {x: -0, y: 0.4156456, z: -0, w: 0.9095266}
+  m_LocalRotation: {x: 0, y: 0.41564596, z: 0, w: 0.9095265}
   m_LocalPosition: {x: 2.265, y: 4.519, z: 1.306}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
@@ -157,6 +214,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c13ad146c2401499c86c7f9f98d0c3, type: 3}
+--- !u!1 &2748175476179621529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4727130347331144029, guid: 36c13ad146c2401499c86c7f9f98d0c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7474109551432966084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2748175476179621510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4727130347331144002, guid: 36c13ad146c2401499c86c7f9f98d0c3,
@@ -372,6 +435,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 5ea01f73708bdbe4ca4172dfb4116acc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c13ad146c2401499c86c7f9f98d0c3, type: 3}
+--- !u!1 &2748175474986826803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4727130347331144029, guid: 36c13ad146c2401499c86c7f9f98d0c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7474109552357799278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2748175474986826796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4727130347331144002, guid: 36c13ad146c2401499c86c7f9f98d0c3,
@@ -582,6 +651,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c13ad146c2401499c86c7f9f98d0c3, type: 3}
+--- !u!1 &2748175474315526856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4727130347331144029, guid: 36c13ad146c2401499c86c7f9f98d0c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7474109552760245141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2748175474315526871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4727130347331144002, guid: 36c13ad146c2401499c86c7f9f98d0c3,
