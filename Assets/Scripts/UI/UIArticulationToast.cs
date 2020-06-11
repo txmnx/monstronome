@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Manages UIToast for articulation
+ */
 public class UIArticulationToast : UIToast
 {
     [Header("Check")]
@@ -19,30 +22,36 @@ public class UIArticulationToast : UIToast
     {
         base.Awake();
         m_CurrentUIPotion = UILegatoPotion;
+        UILegatoPotion.SetActive(true);
+        UIPizzicatoPotion.SetActive(false);
+        UIStaccatoPotion.SetActive(false);
+        
         UIChangeTag.SetActive(true);
         UIOkTag.SetActive(false);
     }
 
     public void Draw(InstrumentFamily.ArticulationType currentType, InstrumentFamily.ArticulationType ruleType, bool isTransition = false)
     {
-        if (isTransition) {
-            UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
-            UIChangeTag.SetActive(true);
-            UIOkTag.SetActive(false);
-            DisplayPotion(ruleType);
+        if (currentType == ruleType) {
+            if (isTransition) {
+                UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
+            }
+            else {
+                UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Good);
+            }
+            UIChangeTag.SetActive(false);
+            UIOkTag.SetActive(true);
         }
         else {
-            if (currentType == ruleType) {
-                UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Good);
-                UIChangeTag.SetActive(false);
-                UIOkTag.SetActive(true);
+            if (isTransition) {
+                UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Wrong);
-                UIOkTag.SetActive(false);
-                UIChangeTag.SetActive(true);
-                DisplayPotion(ruleType);
             }
+            UIOkTag.SetActive(false);
+            UIChangeTag.SetActive(true);
+            DisplayPotion(ruleType);
         }
     }
 
@@ -52,14 +61,17 @@ public class UIArticulationToast : UIToast
             case InstrumentFamily.ArticulationType.Legato:
                 m_CurrentUIPotion.SetActive(false);
                 UILegatoPotion.SetActive(true);
+                m_CurrentUIPotion = UILegatoPotion;
                 break;
             case InstrumentFamily.ArticulationType.Pizzicato:
                 m_CurrentUIPotion.SetActive(false);
                 UIPizzicatoPotion.SetActive(true);
+                m_CurrentUIPotion = UIPizzicatoPotion;
                 break;
             case InstrumentFamily.ArticulationType.Staccato:
                 m_CurrentUIPotion.SetActive(false);
                 UIStaccatoPotion.SetActive(true);
+                m_CurrentUIPotion = UIStaccatoPotion;
                 break;
         }
     }
