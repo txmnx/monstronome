@@ -141,9 +141,9 @@ Transform:
   m_LocalPosition: {x: -0.23716205, y: 0, z: -0.024999999}
   m_LocalScale: {x: 0.08, y: 0.08, z: 1}
   m_Children:
-  - {fileID: 6289849233837273501}
   - {fileID: 6498710011112345570}
   - {fileID: 1242983554354249701}
+  - {fileID: 6289849233837273501}
   m_Father: {fileID: 3721864537270159147}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -368,7 +368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1242983554354249701
 Transform:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4327311206738669655}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &3219437526821271416
 MeshFilter:
@@ -460,7 +460,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4327311206738669655}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &4862608865808150357
 MeshFilter:
@@ -559,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6498710011112345570
 Transform:
   m_ObjectHideFlags: 0
@@ -572,7 +572,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4327311206738669655}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2439093059492364183
 MeshFilter:
@@ -870,9 +870,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ca520756e02ae4ab3346a0f6718912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionBackground: {fileID: 4940771182799718804}
-  okBackground: {fileID: 5831690946404910947}
-  wrongBackground: {fileID: 4530566817635503139}
+  UIBackgroundToast: {fileID: 7069209469860787581}
+  UIOkTag: {fileID: 10962871560597886}
+  UIChangeTag: {fileID: 4066943802481902250}
+  UILegatoPotion: {fileID: 4272907050575174552}
+  UIPizzicatoPotion: {fileID: 3834140246676861991}
+  UIStaccatoPotion: {fileID: 4002363105041302623}
 --- !u!1 &8448453905313624585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,21 +1160,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3464287690604771427}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4940771182799718804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8395477690349711863, guid: 15c986ef7eaf3c2428428c24d63f8a74,
+--- !u!114 &7069209469860787581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5911396457967013150, guid: 15c986ef7eaf3c2428428c24d63f8a74,
     type: 3}
   m_PrefabInstance: {fileID: 3464287690604771427}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5831690946404910947 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6988965708626591488, guid: 15c986ef7eaf3c2428428c24d63f8a74,
-    type: 3}
-  m_PrefabInstance: {fileID: 3464287690604771427}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4530566817635503139 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1066317133532066880, guid: 15c986ef7eaf3c2428428c24d63f8a74,
-    type: 3}
-  m_PrefabInstance: {fileID: 3464287690604771427}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e94925250d9e624297ce96e5578974d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

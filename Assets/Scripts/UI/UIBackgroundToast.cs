@@ -27,16 +27,16 @@ public class UIBackgroundToast : MonoBehaviour
     {
         switch (type) {
             case ToastBackgroundType.Transition :
-                transitionBackground.SetActive(true);
                 m_CurrentBackground.SetActive(false);
+                transitionBackground.SetActive(true);
                 break;
             case ToastBackgroundType.Good :
-                goodBackground.SetActive(true);
                 m_CurrentBackground.SetActive(false);
+                goodBackground.SetActive(true);
                 break;
             case ToastBackgroundType.Wrong :
-                wrongBackground.SetActive(true);
                 m_CurrentBackground.SetActive(false);
+                wrongBackground.SetActive(true);
                 break;
         }
     }
