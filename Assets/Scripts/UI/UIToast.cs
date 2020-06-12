@@ -11,6 +11,12 @@ public class UIToast : MonoBehaviour
     [Header("Parts")]
     public GameObject UIRule;
     public UIBackgroundToast UIBackgroundToast;
+
+    [Header("Light")]
+    public MeshRenderer lightRenderer;
+    public Material okMaterial;
+    public Material wrongMaterial;
+    public Material transitionMaterial;
     
     protected MaterialPropertyBlock m_Block;
     protected int m_EmissionFactorPropertyId;
@@ -31,5 +37,12 @@ public class UIToast : MonoBehaviour
     {
         m_Block.SetFloat(m_EmissionFactorPropertyId, emissionForce);
         rend.SetPropertyBlock(m_Block);
+    }
+
+    protected void SetLight(Material material)
+    {
+        Material[] newMaterials = lightRenderer.materials;
+        newMaterials[1] = material;
+        lightRenderer.materials = newMaterials;
     }
 }

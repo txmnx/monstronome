@@ -47,9 +47,11 @@ public class UITempoToast : UIToast
     {
         if (currentType == ruleType) {
             if (isTransition) {
+                SetLight(transitionMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
+                SetLight(okMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Good);
             }
             
@@ -60,9 +62,11 @@ public class UITempoToast : UIToast
         }
         else {
             if (isTransition) {
+                SetLight(transitionMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
+                SetLight(wrongMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Wrong);
             }
             

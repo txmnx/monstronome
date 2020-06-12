@@ -409,6 +409,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIRule: {fileID: 5196956196759530085}
   UIBackgroundToast: {fileID: 1489762004108714889}
+  lightRenderer: {fileID: 0}
+  okMaterial: {fileID: 2100000, guid: 7a38d2efd367c1c4b9f67d6b28b0f073, type: 2}
+  wrongMaterial: {fileID: 2100000, guid: c3adbc41239ad1242993cb804ff5be5f, type: 2}
+  transitionMaterial: {fileID: 2100000, guid: 545419ce7896664449008e31e0df5e10, type: 2}
   UIOk: {fileID: 6491582062677795466}
   UISpeedUp: {fileID: 4674215756145891090}
   UISlowDown: {fileID: 4394841314919720390}
@@ -419,6 +423,8 @@ MonoBehaviour:
   - {fileID: 6968415797720980022}
   - {fileID: 2570235433836665311}
   - {fileID: 2932721368195441120}
+  soundEngineTuner: {fileID: 0}
+  fixedPointerPosition: 0
 --- !u!1 &4045018838157592962
 GameObject:
   m_ObjectHideFlags: 0

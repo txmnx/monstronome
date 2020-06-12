@@ -34,9 +34,11 @@ public class UIArticulationToast : UIToast
     {
         if (currentType == ruleType) {
             if (isTransition) {
+                SetLight(transitionMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
+                SetLight(okMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Good);
             }
             UIWrong.SetActive(false);
@@ -44,9 +46,11 @@ public class UIArticulationToast : UIToast
         }
         else {
             if (isTransition) {
+                SetLight(transitionMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
+                SetLight(wrongMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Wrong);
             }
             UIOk.SetActive(false);
