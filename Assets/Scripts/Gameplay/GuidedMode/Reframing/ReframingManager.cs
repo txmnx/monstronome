@@ -279,7 +279,6 @@ public class ReframingManager : MonoBehaviour
             int pick = Random.Range(0, m_InstrumentFamilies.Length);
             m_ReframingFamily = m_InstrumentFamilies[pick];
             soundEngineTuner.SetSolistFamily(m_ReframingFamily);
-            Debug.Log("Solist family : " + m_ReframingFamily);
         }
         else {
             //We can't pick a random family when we enter the first block - it should be set before
