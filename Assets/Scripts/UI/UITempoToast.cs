@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ public class UITempoToast : UIToast
     
     [Header("Pointer")]
     public GameObject UIPointer;
+    public float pointerSpeed = 2.0f;
+    private float m_AimedBPM;
+    private float m_CurrentPointerRot;
+    private Coroutine m_PointerAnimationCoroutine;
 
     [Header("Step Colors")]
     public MeshRenderer[] stepRenderers = new MeshRenderer[4];
@@ -35,6 +40,8 @@ public class UITempoToast : UIToast
         foreach (MeshRenderer rend in stepRenderers) {
             SetStepEmissionForce(rend, 0.0f);
         }
+
+        m_CurrentPointerRot = -125.0f;
     }
 
     public void Draw(InstrumentFamily.TempoType currentType, InstrumentFamily.TempoType ruleType, float bpm, bool isTransition = false)
@@ -72,19 +79,41 @@ public class UITempoToast : UIToast
             }
         }
 
-        UpdatePointer(bpm);
+        if (m_PointerAnimationCoroutine != null) {
+            StopCoroutine(m_PointerAnimationCoroutine);   
+        }
+        m_PointerAnimationCoroutine = StartCoroutine(PointerAnimation(bpm));
         HighlightStep(stepRenderers[(int)ruleType]);
     }
 
-    private void UpdatePointer(float bpm)
+    private IEnumerator PointerAnimation(float aimedBPM)
     {
         //Pointer Z Rotation goes between -125 and 125
         //We need to get the lerp using the MIN_BPM and MAX_BPM consts
-        float rotZ = Mathf.InverseLerp(TempoManager.MIN_BPM, TempoManager.MAX_BPM, bpm);
-        rotZ = Mathf.Lerp(-125f, 125, rotZ);
+        float aimedRotZ = Mathf.InverseLerp(TempoManager.MIN_BPM, TempoManager.MAX_BPM, aimedBPM);
+        aimedRotZ = Mathf.Lerp(-125f, 125, aimedRotZ);
 
-        Quaternion prevRot = UIPointer.transform.localRotation;
-        UIPointer.transform.localRotation = Quaternion.Euler(prevRot.x, prevRot.y , rotZ);
+        float startRotZ = m_CurrentPointerRot;
+        float t = 0;
+        while (t < 0.999f) {
+            t += Time.deltaTime * pointerSpeed;
+
+            m_CurrentPointerRot = Mathf.Lerp(startRotZ, aimedRotZ, t);
+            
+            Quaternion prevRot = UIPointer.transform.localRotation;
+            UIPointer.transform.localRotation = Quaternion.Euler(prevRot.x, prevRot.y , m_CurrentPointerRot);
+            
+            Debug.Log("Aimed BPM : " + aimedBPM);
+            
+            yield return null;
+        }
+    }
+    
+    
+    private void UpdatePointer(float bpm)
+    {
+
+
     }
 
     private void HighlightStep(MeshRenderer step)
