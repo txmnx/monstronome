@@ -96,6 +96,11 @@ public class SoundEngineTuner : MonoBehaviour
         return m_TempoRanges[InstrumentFamily.TempoType.Allegro];
     }
 
+    public float GetTempoTypeBPM(InstrumentFamily.TempoType type)
+    {
+        return m_TempoRanges[type].value;
+    }
+    
     //Used to describe the min and max bpm ranges of a type, and the value that should be send to the RTPC
     public struct RTPCRange<T>
     {
@@ -184,7 +189,14 @@ public class SoundEngineTuner : MonoBehaviour
         return m_IntensityRanges[InstrumentFamily.IntensityType.MezzoForte];
     }
 
+    /* SETTINGS */
 
+    public void SetVolume(string volumeId, float value)
+    {
+        AkSoundEngine.SetRTPCValue("RTPC_SetVolume_" + volumeId, value);
+    } 
+    
+    
     /* REQUESTS TRANSLATOR */
     private string GetDelayRTPCRequest(string familyKeyword)
     {
@@ -204,14 +216,6 @@ public class SoundEngineTuner : MonoBehaviour
     private string GetFocusRTPCRequest(string familyKeyword)
     {
         return "Focus_" + familyKeyword;
-    }
-
-    private void Start()
-    {
-        AkSoundEngine.SetSwitch("SW_Articulation_Brass", "Pizzicato", soundReference.gameObject);
-        AkSoundEngine.SetSwitch("SW_Articulation_Woods", "Pizzicato", soundReference.gameObject);
-        AkSoundEngine.SetSwitch("SW_Articulation_Strings", "Pizzicato", soundReference.gameObject);
-        AkSoundEngine.SetSwitch("SW_Articulation_Percussions", "Pizzicato", soundReference.gameObject);
     }
 
     private void Update()

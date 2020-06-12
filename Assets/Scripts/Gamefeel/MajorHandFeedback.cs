@@ -37,7 +37,7 @@ public class MajorHandFeedback : MonoBehaviour
             if (capabilities.supportsImpulse) {
                 uint channel = 0;
                 float amplitude = 0.5f;
-                float duration = 1.0f;
+                float duration = 0.1f;
                 controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
             }
         }

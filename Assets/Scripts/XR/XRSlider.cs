@@ -25,18 +25,28 @@ public class XRSlider : XRGrabbable
     private Vector3 m_CachedMin;
     private Vector3 m_CachedMax;
 
+    private bool m_LeftToRight = true;
+
+    protected virtual void Awake()
+    {}
+
     protected override void Start()
     {
         base.Start();
         m_Value = 0.0f;
         m_CachedMin = min.localPosition;
         m_CachedMax = max.localPosition;
+        
+        if (m_CachedMax.x < m_CachedMin.x) {
+            m_CachedMin = max.localPosition;
+            m_CachedMax = min.localPosition;
+            m_LeftToRight = false;
+        }
     }
     
     public override void OnUpdateGrab(XRGrabber xrGrabber)
     {
-        Vector3 nextPos = transform.InverseTransformPoint(xrGrabber.transform.position);
-        Debug.Log(nextPos.x);
+        Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.transform.position);
         
         if (nextPos.x > m_CachedMax.x) {
             nextPos = m_CachedMax;
@@ -44,8 +54,14 @@ public class XRSlider : XRGrabbable
         else if (nextPos.x < m_CachedMin.x){
             nextPos = m_CachedMin;
         }
-        
+
         transform.localPosition = new Vector3(nextPos.x, transform.localPosition.y, transform.localPosition.z);
-        m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);
+        
+        if (m_LeftToRight) {
+            m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);
+        }
+        else {
+            m_Value = Mathf.InverseLerp(m_CachedMax.x, m_CachedMin.x, transform.localPosition.x);
+        }
     }
 }

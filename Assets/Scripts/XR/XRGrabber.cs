@@ -11,6 +11,8 @@ using UnityEngine.XR;
 [RequireComponent(typeof(Collider))]
 public class XRGrabber : MonoBehaviour
 {
+    //Used to translate the irl velocity, etc. into local transform, which can be rotated etc.
+    public Transform trackingSpace;
     public float throwPower = 1.0f;
     
     private XRCustomController m_Controller;
@@ -64,7 +66,7 @@ public class XRGrabber : MonoBehaviour
         get
         {
             if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 _velocity)) {
-                return _velocity * throwPower;
+                return trackingSpace.rotation * _velocity * throwPower;
             }
             return Vector3.zero;
         }
@@ -75,7 +77,7 @@ public class XRGrabber : MonoBehaviour
         get
         {
             if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceAngularVelocity, out Vector3 _angularVelocity)) {
-                return _angularVelocity * throwPower;
+                return trackingSpace.rotation * _angularVelocity * throwPower;
             }
             return Vector3.zero;
         }
@@ -83,10 +85,8 @@ public class XRGrabber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter " + other.name);
         XRGrabbable obj = other.GetComponent<XRGrabbable>();
         if (obj) {
-            Debug.Log("XRGrabbable onTrigger");
             m_HighlightedObjects.Add(obj);
             obj.Highlight();
         }
@@ -98,6 +98,16 @@ public class XRGrabber : MonoBehaviour
         if (obj) {
             m_HighlightedObjects.Remove(obj);
             obj.RemoveHighlight();
+        }
+    }
+
+    public void HapticImpulse(float amplitude, float duration)
+    {
+        if (m_Controller.inputDevice.TryGetHapticCapabilities(out UnityEngine.XR.HapticCapabilities capabilities)) {
+            if (capabilities.supportsImpulse) {
+                uint channel = 0;
+                m_Controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
+            }
         }
     }
 }
