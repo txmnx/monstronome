@@ -8,8 +8,18 @@ using UnityEngine;
  */
 public class UIToast : MonoBehaviour
 {
+    [Header("Parts")]
+    public GameObject UIRule;
+    public UIBackgroundToast UIBackgroundToast;
+    
+    protected MaterialPropertyBlock m_Block;
+    protected int m_EmissionFactorPropertyId;
+
     protected virtual void Awake()
-    {}
+    {
+        m_Block = new MaterialPropertyBlock();
+        m_EmissionFactorPropertyId = Shader.PropertyToID("_EmissionFactor");
+    }
 
     public void Show(bool show)
     {
@@ -17,7 +27,9 @@ public class UIToast : MonoBehaviour
         UIBackgroundToast.gameObject.SetActive(show);
     }
     
-    [Header("Parts")]
-    public GameObject UIRule;
-    public UIBackgroundToast UIBackgroundToast;
+    protected void SetEmissionForce(MeshRenderer rend, float emissionForce)
+    {
+        m_Block.SetFloat(m_EmissionFactorPropertyId, emissionForce);
+        rend.SetPropertyBlock(m_Block);
+    }
 }

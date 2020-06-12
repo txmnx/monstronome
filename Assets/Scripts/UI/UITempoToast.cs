@@ -22,10 +22,8 @@ public class UITempoToast : UIToast
 
     [Header("Step Colors")]
     public MeshRenderer[] stepRenderers = new MeshRenderer[4];
-    
     private MeshRenderer m_CurrentHighlightStepRenderer;
-    private MaterialPropertyBlock m_Block;
-    private int m_EmissionFactorPropertyId;
+
 
     [Header("DEGUG")] 
     public SoundEngineTuner soundEngineTuner;
@@ -35,14 +33,11 @@ public class UITempoToast : UIToast
     protected override void Awake()
     {
         base.Awake();
-        
-        m_Block = new MaterialPropertyBlock();
-        m_EmissionFactorPropertyId = Shader.PropertyToID("_EmissionFactor");
-        
+
         m_CurrentHighlightStepRenderer = stepRenderers[0];
 
         foreach (MeshRenderer rend in stepRenderers) {
-            SetStepEmissionForce(rend, 0.0f);
+            SetEmissionForce(rend, 0.0f);
         }
 
         m_CurrentPointerRot = -125.0f;
@@ -119,24 +114,11 @@ public class UITempoToast : UIToast
             yield return null;
         }
     }
-    
-    
-    private void UpdatePointer(float bpm)
-    {
-
-
-    }
 
     private void HighlightStep(MeshRenderer step)
     {
-        SetStepEmissionForce(m_CurrentHighlightStepRenderer, 0.0f);
-        SetStepEmissionForce(step, 0.5f);
+        SetEmissionForce(m_CurrentHighlightStepRenderer, 0.0f);
+        SetEmissionForce(step, 0.5f);
         m_CurrentHighlightStepRenderer = step;
-    }
-    
-    private void SetStepEmissionForce(MeshRenderer step, float emissionForce)
-    {
-        m_Block.SetFloat(m_EmissionFactorPropertyId, emissionForce);
-        step.SetPropertyBlock(m_Block);
     }
 }

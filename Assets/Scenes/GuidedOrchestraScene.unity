@@ -1198,6 +1198,31 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1939168025981176387, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939168025981176387, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939168025981176387, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939168025981176387, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939168025981176387, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1953714447408588862, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1788,6 +1813,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6691494092027961561, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7148450596073125615, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2306,6 +2336,7 @@ MonoBehaviour:
   tempoManager: {fileID: 348619489}
   UIArticulationToast: {fileID: 1961430515}
   UITempoToast: {fileID: 633918920}
+  UIIntensityToast: {fileID: 876840276}
   scoreManager: {fileID: 348619499}
   scoringParameters: {fileID: 11400000, guid: 7d0944172770d0941852cf6545b61d7d, type: 2}
 --- !u!114 &348619499
@@ -3397,6 +3428,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 810b2c2f8524b1642a1127665adbd223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &876840276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2928317116644452703, guid: aacb927a69a8ea048a67ca9449873dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 303602565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a3d91b92640694a8c63dd445dffd88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &987707073 stripped
