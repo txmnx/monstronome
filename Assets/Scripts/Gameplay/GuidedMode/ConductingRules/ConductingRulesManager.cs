@@ -9,7 +9,8 @@ using UnityEngine;
  */
 public class ConductingRulesManager : MonoBehaviour
 {
-    [Header("Callbacks")] 
+    [Header("Callbacks")]
+    public SoundEngineTuner soundEngineTuner;
     public GuidedModeManager guidedModeManager;
     public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
@@ -109,11 +110,15 @@ public class ConductingRulesManager : MonoBehaviour
     }
 
     /* Callbacks */
-    public void OnArticulationChange(InstrumentFamily.ArticulationType type)
+    public void OnArticulationChange(InstrumentFamily.ArticulationType type, bool usePotionReference, GameObject potion)
     {
         m_CurrentOrchestraState.articulationType = type;
         UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, 
             guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+
+        if (usePotionReference) {
+            soundEngineTuner.SetSwitchPotionBonusMalus(m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType, potion);
+        }
     }
 
     public void OnTempoChange(InstrumentFamily.TempoType type, float bpm)
