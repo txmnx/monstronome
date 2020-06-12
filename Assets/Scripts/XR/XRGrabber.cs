@@ -11,6 +11,8 @@ using UnityEngine.XR;
 [RequireComponent(typeof(Collider))]
 public class XRGrabber : MonoBehaviour
 {
+    //Used to translate the irl velocity, etc. into local transform, which can be rotated etc.
+    public Transform trackingSpace;
     public float throwPower = 1.0f;
     
     private XRCustomController m_Controller;
@@ -64,7 +66,7 @@ public class XRGrabber : MonoBehaviour
         get
         {
             if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 _velocity)) {
-                return _velocity * throwPower;
+                return trackingSpace.rotation * _velocity * throwPower;
             }
             return Vector3.zero;
         }
@@ -75,7 +77,7 @@ public class XRGrabber : MonoBehaviour
         get
         {
             if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceAngularVelocity, out Vector3 _angularVelocity)) {
-                return _angularVelocity * throwPower;
+                return trackingSpace.rotation * _angularVelocity * throwPower;
             }
             return Vector3.zero;
         }

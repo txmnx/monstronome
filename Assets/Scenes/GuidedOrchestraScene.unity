@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 224941987}
   - component: {fileID: 224941990}
   - component: {fileID: 224941989}
+  - component: {fileID: 224941991}
   - component: {fileID: 224941986}
   - component: {fileID: 224941992}
   - component: {fileID: 224941993}
@@ -834,6 +835,24 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &224941991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224941985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Device: 0
+  m_PoseSource: 2
+  m_PoseProviderComponent: {fileID: 0}
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 0
 --- !u!114 &224941992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8028,8 +8047,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504346131}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.427, z: 0}
+  m_LocalRotation: {x: 0, y: -0.9092362, z: 0, w: 0.41628075}
+  m_LocalPosition: {x: 0, y: 3.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224941988}
@@ -8038,7 +8057,7 @@ Transform:
   - {fileID: 1379438646}
   m_Father: {fileID: 1887650656}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -130.8, z: 0}
 --- !u!114 &1504346133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9172,7 +9191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887650655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.57, y: 0, z: 1.61}
+  m_LocalPosition: {x: 2.584, y: 0, z: 1.594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1504346132}
@@ -9361,6 +9380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dbc7e3aadcc764b9b39723729941a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackingSpace: {fileID: 1504346132}
   throwPower: 1.25
 --- !u!135 &1968274600
 SphereCollider:
