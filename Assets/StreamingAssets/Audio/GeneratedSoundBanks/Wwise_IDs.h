@@ -27,15 +27,23 @@ namespace AK
         static const AkUniqueID RESUME_ALL = 3679762312U;
         static const AkUniqueID SETWOODS = 3271167387U;
         static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
+        static const AkUniqueID SFX_FEEDBACK_CHANGINGPARAMETERS = 1163937302U;
+        static const AkUniqueID SFX_FEEDBACK_LIGHTOFF = 2204132664U;
+        static const AkUniqueID SFX_FEEDBACK_LIGHTON = 1636980706U;
+        static const AkUniqueID SFX_FEEDBACK_MISTAKEALERT = 3227134913U;
         static const AkUniqueID SFX_FEEDBACK_REFRAMINGSUCCESS = 247346967U;
+        static const AkUniqueID SFX_FEEDBACK_RIGHTPARAMETERS = 535791215U;
         static const AkUniqueID SFX_POTION_BROKEN = 1231703344U;
         static const AkUniqueID SFX_POTION_COLLISION = 345071173U;
         static const AkUniqueID SFX_POTION_PICKUP = 3668990679U;
+        static const AkUniqueID SFX_POTION_PICKUP_EMPTY = 3570979617U;
         static const AkUniqueID SFX_POTION_RIGHT = 3758674935U;
         static const AkUniqueID SFX_POTION_SHAKE = 3591561671U;
         static const AkUniqueID SFX_POTION_SPAWN = 2242916472U;
         static const AkUniqueID SFX_POTION_THROW = 3606142437U;
         static const AkUniqueID SFX_POTION_WRONG = 3427361090U;
+        static const AkUniqueID SFX_TOASTER_DISAPEAR = 932413975U;
+        static const AkUniqueID SFX_TOASTER_SPAWN = 3169891211U;
         static const AkUniqueID SFX_WAND_ENTER = 3420964884U;
         static const AkUniqueID SFX_WAND_EXIT = 1368847222U;
         static const AkUniqueID SFX_WAND_IDDLE = 3638337738U;
@@ -52,7 +60,6 @@ namespace AK
         static const AkUniqueID UI_MENU_PAUSE_RESUME = 2269109418U;
         static const AkUniqueID UI_MENU_PAUSE_RESUME_COUNTDOWN = 1722761166U;
         static const AkUniqueID UI_MENU_PAUSE_SELECT = 795989787U;
-        static const AkUniqueID UI_SETTINGS_SLIDER_VOLUME = 2153411292U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MASTER = 4055031953U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_METRONOME = 1834445417U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MUSIC = 1936030412U;
@@ -216,6 +223,18 @@ namespace AK
             } // namespace SWITCH
         } // namespace SW_INTENSITY_WOODS
 
+        namespace SW_POTION_EFFECT
+        {
+            static const AkUniqueID GROUP = 1829134705U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BONUS = 2356001030U;
+                static const AkUniqueID MALUS = 1680241497U;
+                static const AkUniqueID NEUTRAL = 670611050U;
+            } // namespace SWITCH
+        } // namespace SW_POTION_EFFECT
+
         namespace SW_POTION_TYPE
         {
             static const AkUniqueID GROUP = 371597594U;
@@ -223,8 +242,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID ARTICULATION = 1762926010U;
-                static const AkUniqueID BONUS = 2356001030U;
-                static const AkUniqueID MALUS = 1680241497U;
+                static const AkUniqueID REFRAMING = 4151661552U;
             } // namespace SWITCH
         } // namespace SW_POTION_TYPE
 
