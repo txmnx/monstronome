@@ -1408,6 +1408,23 @@ PrefabInstance:
       propertyPath: lightRenderer
       value: 
       objectReference: {fileID: 1662363864}
+    - target: {fileID: 3084638091900649370, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: SFXOnToasterIn.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: eba9cafcde56500478409cac118f265f,
+        type: 2}
+    - target: {fileID: 3084638091900649370, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: SFXOnToasterOut.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: e026c5e13f189cb49a36edbac444e440,
+        type: 2}
+    - target: {fileID: 3084638091900649370, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: toasterSoundReference
+      value: 
+      objectReference: {fileID: 1455996756}
     - target: {fileID: 3133998293867703780, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
       propertyPath: m_RootOrder
@@ -7880,6 +7897,12 @@ PrefabInstance:
 --- !u!4 &1436934967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6170869960932521869, guid: aacb927a69a8ea048a67ca9449873dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 303602565}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1455996756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8952775793209686855, guid: aacb927a69a8ea048a67ca9449873dfa,
     type: 3}
   m_PrefabInstance: {fileID: 303602565}
   m_PrefabAsset: {fileID: 0}
