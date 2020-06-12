@@ -46,7 +46,11 @@ public class UITempoToast : UIToast
             else {
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Good);
             }
+            
             UIOk.SetActive(true);
+            
+            UISlowDown.SetActive(false);
+            UISpeedUp.SetActive(false);
         }
         else {
             if (isTransition) {
@@ -55,7 +59,17 @@ public class UITempoToast : UIToast
             else {
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Wrong);
             }
+            
             UIOk.SetActive(false);
+
+            if (currentType < ruleType) {
+                UISlowDown.SetActive(false);
+                UISpeedUp.SetActive(true);
+            }
+            else {
+                UISlowDown.SetActive(true);
+                UISpeedUp.SetActive(false);
+            }
         }
 
         UpdatePointer(bpm);
