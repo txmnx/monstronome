@@ -27,6 +27,10 @@ public class UITempoToast : UIToast
     private MaterialPropertyBlock m_Block;
     private int m_EmissionFactorPropertyId;
 
+    [Header("DEGUG")] 
+    public SoundEngineTuner soundEngineTuner;
+    public bool fixedPointerPosition = false;
+    
     
     protected override void Awake()
     {
@@ -79,10 +83,19 @@ public class UITempoToast : UIToast
             }
         }
 
+        //TODO : DEBUG
+        float aimedBPM;
+        if (fixedPointerPosition) {
+            aimedBPM = soundEngineTuner.GetTempoTypeBPM(currentType);
+        }
+        else {
+            aimedBPM = bpm;
+        }
+        
         if (m_PointerAnimationCoroutine != null) {
             StopCoroutine(m_PointerAnimationCoroutine);   
         }
-        m_PointerAnimationCoroutine = StartCoroutine(PointerAnimation(bpm));
+        m_PointerAnimationCoroutine = StartCoroutine(PointerAnimation(aimedBPM));
         HighlightStep(stepRenderers[(int)ruleType]);
     }
 
@@ -102,9 +115,7 @@ public class UITempoToast : UIToast
             
             Quaternion prevRot = UIPointer.transform.localRotation;
             UIPointer.transform.localRotation = Quaternion.Euler(prevRot.x, prevRot.y , m_CurrentPointerRot);
-            
-            Debug.Log("Aimed BPM : " + aimedBPM);
-            
+
             yield return null;
         }
     }

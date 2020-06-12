@@ -96,6 +96,11 @@ public class SoundEngineTuner : MonoBehaviour
         return m_TempoRanges[InstrumentFamily.TempoType.Allegro];
     }
 
+    public float GetTempoTypeBPM(InstrumentFamily.TempoType type)
+    {
+        return m_TempoRanges[type].value;
+    }
+    
     //Used to describe the min and max bpm ranges of a type, and the value that should be send to the RTPC
     public struct RTPCRange<T>
     {
