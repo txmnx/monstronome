@@ -143,6 +143,16 @@ public class SoundEngineTuner : MonoBehaviour
         AkSoundEngine.SetSwitch("SW_Potion_Type", type, referenceObject);
     }
     
+    public void SetSwitchPotionBonusMalus(bool bonus, GameObject referenceObject)
+    {
+        if (bonus) {
+            AkSoundEngine.SetSwitch("SW_Potion_Effect", "Bonus", referenceObject);
+        }
+        else {
+            AkSoundEngine.SetSwitch("SW_Potion_Effect", "Malus", referenceObject);
+        }
+    }
+    
     //TODO : SetPotionSpeed
     //public void SetPotionSpeed()
     
