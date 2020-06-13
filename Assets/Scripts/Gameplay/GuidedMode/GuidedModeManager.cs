@@ -13,6 +13,7 @@ public class GuidedModeManager : MonoBehaviour
     public WwiseCallBack wwiseCallback;
     public BeatManager beatManager;
     public ArticulationManager articulationManager;
+    public OrchestraLauncher orchestraLauncher;
     
     [Header("Animations")]
     public TempoManager tempoManager;
@@ -48,12 +49,15 @@ public class GuidedModeManager : MonoBehaviour
     private void Awake()
     {
         m_CurrentGuidedModeStep = GuidedModeStep.Tuning;
-        reframingManager.LoadFamilies(families);
         currentTrackType = TrackType.Other;
     }
     
     private void Start()
     {
+        reframingManager.LoadFamilies(families);
+        orchestraLauncher.LoadFamilies(families);
+        orchestraLauncher.OnLoadOrchestra += LoadOrchestra;
+        
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
         }
@@ -123,7 +127,7 @@ public class GuidedModeManager : MonoBehaviour
         }
     }
 
-    public void InitStartOrchestra()
+    public void LoadOrchestra()
     {
         articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
         reframingManager.InitStart();
@@ -135,7 +139,7 @@ public class GuidedModeManager : MonoBehaviour
     private void OnBeat(float amplitude)
     {
         if (!m_HasOneBeat) {
-            InitStartOrchestra();
+            LoadOrchestra();
             AkSoundEngine.SetState("Music", "Start");
         }
         m_HasOneBeat = true;
@@ -145,7 +149,7 @@ public class GuidedModeManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")) {
             if (!m_HasOneBeat) {
-                InitStartOrchestra();
+                LoadOrchestra();
                 AkSoundEngine.SetState("Music", "Start");
             }
             m_HasOneBeat = true;

@@ -13,6 +13,21 @@ public class OrchestraLauncher : MonoBehaviour
     public HandsHeightChecker handsHeightChecker;
 
     private InstrumentFamily[] m_InstrumentFamilies;
+
+    private bool m_HasRaisedHands = false;
+
+    
+    public void Start()
+    {
+        //The orchestra starts by tuning
+        wwiseCallback.LoadTuning();
+
+        foreach (InstrumentFamily family in m_InstrumentFamilies) {
+            foreach (Animator animator in family.familyAnimators) {
+
+            }
+        }
+    }
     
     public void LoadFamilies(InstrumentFamily[] families)
     {
@@ -20,6 +35,24 @@ public class OrchestraLauncher : MonoBehaviour
     }
 
     /* Events */
+    public void OnEnterRaiseHand()
+    {
+        m_HasRaisedHands = true;
+    }
+    
+    public void OnExitRaiseHand()
+    {
+        if (m_HasRaisedHands) {
+            wwiseCallback.LoadOrchestra();
+            OnLoadOrchestra?.Invoke();
+            
+            //We don't need to start the orchestra anymore
+            this.enabled = false;   
+        }
+    }
+
+    public Action OnLoadOrchestra;
+    
     private void OnEnable()
     {
         handsHeightChecker.OnEnterRaiseHand += OnEnterRaiseHand;
@@ -31,24 +64,4 @@ public class OrchestraLauncher : MonoBehaviour
         handsHeightChecker.OnEnterRaiseHand -= OnEnterRaiseHand;
         handsHeightChecker.OnExitRaiseHand -= OnExitRaiseHand;
     }
-
-    public void OnEnterRaiseHand()
-    {
-        
-    }
-    
-    public void OnExitRaiseHand()
-    {
-        
-        
-        //We don't need to start the orchestra anymore
-        this.enabled = false;
-    }
-
-    public void LoadTuning()
-    {
-        wwiseCallback.LoadTuning();
-    }
-
-    public Action OnLoadOrchestra;
 }
