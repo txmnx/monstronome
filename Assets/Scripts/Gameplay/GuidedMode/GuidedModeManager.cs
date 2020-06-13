@@ -43,20 +43,23 @@ public class GuidedModeManager : MonoBehaviour
     }
     [HideInInspector]
     public TrackType currentTrackType;
-
+    
+    
     private void Awake()
     {
-        //m_CurrentStep = GuidedModeStep.Tuning;
-        m_CurrentGuidedModeStep = GuidedModeStep.Intro;
+        m_CurrentGuidedModeStep = GuidedModeStep.Tuning;
+        reframingManager.LoadFamilies(families);
+        currentTrackType = TrackType.Other;
+    }
+    
+    private void Start()
+    {
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
         }
-
-        reframingManager.LoadFamilies(families);
-        
+                
         wwiseCallback.OnCue += LaunchState;
         beatManager.OnBeatMajorHand += OnBeat;
-        currentTrackType = TrackType.Other;
     }
 
     private IEnumerator UpdatePlaying()
@@ -127,8 +130,7 @@ public class GuidedModeManager : MonoBehaviour
     }
 
     public event Action OnStartOrchestra;
-    
-    
+
     /* TODO : DEBUG */
     private void OnBeat(float amplitude)
     {

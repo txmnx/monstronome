@@ -8,7 +8,17 @@ public class WwiseCallBack : MonoBehaviour
     public SoundEngineTuner soundEngineTuner;
     private string m_MusicCueName;
 
-    private void Start()
+    public void StopMusic()
+    {
+        AkSoundEngine.StopAll();
+    }
+
+    public void LoadTuning()
+    {
+        AkSoundEngine.PostEvent("Music_Tuning", gameObject);
+    }
+    
+    public void LoadOrchestra()
     {
         AkSoundEngine.PostEvent("Play_Music", gameObject, (uint)AkCallbackType.AK_MusicSyncUserCue | (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction, this);
         AkSoundEngine.SetState("Music", "Metronome");
@@ -16,12 +26,6 @@ public class WwiseCallBack : MonoBehaviour
         AkSoundEngine.SetSwitch("SW_Family_Solist", "Woods", gameObject);  //Famille soliste qui devra être recaller
         soundEngineTuner.SetTempo(SoundEngineTuner.START_TEMPO);
     }
-
-    public void StopMusic()
-    {
-        AkSoundEngine.StopAll();
-    }
-
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
@@ -40,6 +44,6 @@ public class WwiseCallBack : MonoBehaviour
             OnCue?.Invoke(m_MusicCueName);
         }
     }
-
+    
     public event Action<string> OnCue;
 }
