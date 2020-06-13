@@ -885,18 +885,6 @@ MonoBehaviour:
   conductingEventsManager: {fileID: 348619493}
   selectedFamily: {fileID: 0}
   hasSelected: 0
---- !u!114 &277658482 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2817627219275480208, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-    type: 3}
-  m_PrefabInstance: {fileID: 1031486160}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73caeef8208ce64f98c6eab7683d8ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &303602565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1636,6 +1624,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6158530327030484932, guid: aacb927a69a8ea048a67ca9449873dfa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6158530327030484935, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
       propertyPath: m_RootOrder
@@ -2184,7 +2177,6 @@ MonoBehaviour:
   - {fileID: 1247558651}
   - {fileID: 854011154}
   bpm: 0
-  bpmGraph: {fileID: 277658482}
 --- !u!114 &348619490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,10 +2282,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wwiseCallback: {fileID: 1915118170}
-  beatManager: {fileID: 348619487}
-  articulationManager: {fileID: 348619495}
-  orchestraLauncher: {fileID: 0}
   tempoManager: {fileID: 348619489}
+  articulationManager: {fileID: 348619495}
+  intensityManager: {fileID: 348619490}
+  orchestraLauncher: {fileID: 348619494}
   timeline: {fileID: 1811084566}
   families:
   - {fileID: 413094687}

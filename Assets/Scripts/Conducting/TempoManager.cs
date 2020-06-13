@@ -13,11 +13,13 @@ public class TempoManager : MonoBehaviour
     public const float MIN_BPM = 45f;
     public const float MAX_BPM = 165f;
 
+    [Header("Callbacks")]
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
     public ConductingEventsManager conductingEventsManager;
+    
+    [Header("Animation speed")]
     public InstrumentFamily[] families = new InstrumentFamily[4];
-    public OrchestraLauncher orchestraLauncher;
 
     /* BPM */
     //The bigger the buffer size is, the smoother the bpm's evolution is
@@ -37,7 +39,6 @@ public class TempoManager : MonoBehaviour
     private void Start()
     {
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
-        orchestraLauncher.OnLoadOrchestra += OnLoadOrchestra;
             
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.START_TEMPO;
@@ -52,7 +53,8 @@ public class TempoManager : MonoBehaviour
         OnTempoChange?.Invoke(m_CurrentTempoType, bpm);
     }
 
-    public void OnLoadOrchestra()
+    //We can't change tempo if the orchestra hasn't started
+    public void OnStartOrchestra()
     {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
     }

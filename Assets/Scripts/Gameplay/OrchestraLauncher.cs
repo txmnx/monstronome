@@ -33,6 +33,9 @@ public class OrchestraLauncher : MonoBehaviour
     {
         m_HasRaisedHands = true;
         
+        wwiseCallback.LoadOrchestra();
+        OnLoadOrchestra?.Invoke();
+        
         int idleTriggerID = Animator.StringToHash("SwitchIdle");
         //We set the families on idle animation, waiting for the start
         foreach (InstrumentFamily family in m_InstrumentFamilies) {
@@ -45,9 +48,7 @@ public class OrchestraLauncher : MonoBehaviour
     public void OnExitRaiseHand()
     {
         if (m_HasRaisedHands) {
-            wwiseCallback.LoadOrchestra();
-            OnLoadOrchestra?.Invoke();
-            
+            wwiseCallback.StartOrchestra();
             //We don't need to start the orchestra anymore
             this.enabled = false;   
         }

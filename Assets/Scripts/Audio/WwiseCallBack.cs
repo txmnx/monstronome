@@ -17,6 +17,11 @@ public class WwiseCallBack : MonoBehaviour
     {
         AkSoundEngine.PostEvent("Music_Tuning", gameObject);
     }
+
+    public void StartOrchestra()
+    {
+        AkSoundEngine.SetState("Music", "Start");
+    }
     
     public void LoadOrchestra()
     {
