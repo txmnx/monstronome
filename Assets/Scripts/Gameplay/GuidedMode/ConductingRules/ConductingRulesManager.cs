@@ -70,15 +70,15 @@ public class ConductingRulesManager : MonoBehaviour
     {
         if (m_Rules.TryGetValue(stateName, out OrchestraState rules)) {
             m_CurrentRules = rules;
-            
-            UIArticulationToast.Show(true);
-            UITempoToast.Show(true);
-            UIIntensityToast.Show(true);
-            
+
             bool isTransition = guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition;
             UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
             UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
             UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, isTransition);
+            
+            UIArticulationToast.Show(true);
+            UITempoToast.Show(true);
+            UIIntensityToast.Show(true);
         }
     }
 
@@ -141,5 +141,12 @@ public class ConductingRulesManager : MonoBehaviour
         UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
         UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
         UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, isTransition);
-    } 
+    }
+
+    public void ShowRules(bool show)
+    {
+        UIArticulationToast.Show(show);
+        UITempoToast.Show(show);
+        UIIntensityToast.Show(show);
+    }
 }

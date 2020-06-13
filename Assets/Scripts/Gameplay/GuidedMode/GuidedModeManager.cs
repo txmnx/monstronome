@@ -64,6 +64,8 @@ public class GuidedModeManager : MonoBehaviour
                 
         wwiseCallback.OnCue += LaunchState;
         beatManager.OnBeatMajorHand += OnBeat;
+        
+        conductingRulesManager.ShowRules(false);
     }
 
     private IEnumerator UpdatePlaying()

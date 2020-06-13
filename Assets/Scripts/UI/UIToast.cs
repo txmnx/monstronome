@@ -30,7 +30,7 @@ public class UIToast : MonoBehaviour
     public void Show(bool show)
     {
         UIRule.SetActive(show);
-        UIBackgroundToast.gameObject.SetActive(show);
+        //UIBackgroundToast.gameObject.SetActive(show);
     }
     
     protected void SetEmissionForce(MeshRenderer rend, float emissionForce)
