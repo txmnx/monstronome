@@ -6,6 +6,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	345071173	SFX_Potion_Collision			\SFX_Event\SFX\Potion\SFX_Potion_Collision	
 	535791215	SFX_Feedback_RightParameters			\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters	
 	589115224	UI_Menu_Option_Select			\UI_Event\UI\UI_Menu_Option_Select	
+	699063162	Play_Tutorial_Voice_13_A			\Voice_Event\Play_Tutorial_Voice_13_A	
+	699210195	Play_Tutorial_Voice_12_A			\Voice_Event\Play_Tutorial_Voice_12_A	
 	722522513	UI_Menu_Option_Hovered			\UI_Event\UI\UI_Menu_Option_Hovered	
 	741796782	UI_Menu_Main_StartGame			\UI_Event\UI\UI_Menu_Main_StartGame	
 	795989787	UI_Menu_Pause_Select			\UI_Event\UI\UI_Menu_Pause_Select	
@@ -17,8 +19,24 @@ Event	ID	Name			Wwise Object Path	Notes
 	1368847222	SFX_Wand_Exit			\SFX_Event\SFX\Wand\SFX_Wand_Exit	
 	1422035515	Legato			\Music_Event\Debug\Legato	
 	1598298728	Music_Menu			\Music_Event\Music\Music_Menu	
+	1625395398	Play_Tutorial_Voice_08			\Voice_Event\Play_Tutorial_Voice_08	
+	1625395399	Play_Tutorial_Voice_09			\Voice_Event\Play_Tutorial_Voice_09	
+	1625395400	Play_Tutorial_Voice_06			\Voice_Event\Play_Tutorial_Voice_06	
+	1625395401	Play_Tutorial_Voice_07			\Voice_Event\Play_Tutorial_Voice_07	
+	1625395402	Play_Tutorial_Voice_04			\Voice_Event\Play_Tutorial_Voice_04	
+	1625395403	Play_Tutorial_Voice_05			\Voice_Event\Play_Tutorial_Voice_05	
+	1625395404	Play_Tutorial_Voice_02			\Voice_Event\Play_Tutorial_Voice_02	
+	1625395405	Play_Tutorial_Voice_03			\Voice_Event\Play_Tutorial_Voice_03	
+	1625395407	Play_Tutorial_Voice_01			\Voice_Event\Play_Tutorial_Voice_01	
 	1636980706	SFX_Feedback_LightOn			\SFX_Event\SFX\Feedback\SFX_Feedback_LightOn	
+	1642173088	Play_Tutorial_Voice_11			\Voice_Event\Play_Tutorial_Voice_11	
+	1642173089	Play_Tutorial_Voice_10			\Voice_Event\Play_Tutorial_Voice_10	
+	1642173090	Play_Tutorial_Voice_13			\Voice_Event\Play_Tutorial_Voice_13	
+	1642173091	Play_Tutorial_Voice_12			\Voice_Event\Play_Tutorial_Voice_12	
+	1642173093	Play_Tutorial_Voice_14			\Voice_Event\Play_Tutorial_Voice_14	
 	1722761166	UI_Menu_Pause_Resume_Countdown			\UI_Event\UI\UI_Menu_Pause_Resume_Countdown	
+	1772433356	Play_Tutorial_Voice_11_A			\Voice_Event\Play_Tutorial_Voice_11_A	
+	1772580389	Play_Tutorial_Voice_10_A			\Voice_Event\Play_Tutorial_Voice_10_A	
 	1834445417	UI_SoundBoard_Slider_Step_Metronome			\UI_Event\UI\UI_SoundBoard_Slider_Step_Metronome	
 	1936030412	UI_SoundBoard_Slider_Step_Music			\UI_Event\UI\UI_SoundBoard_Slider_Step_Music	
 	2012101007	SFX_Family_Broken			\SFX_Event\SFX\Family\SFX_Family_Broken	
@@ -34,6 +52,9 @@ Event	ID	Name			Wwise Object Path	Notes
 	2932040671	Play_Music			\Music_Event\Music\Play_Music	
 	3019098628	UI_Menu_Main_Select			\UI_Event\UI\UI_Menu_Main_Select	
 	3086540886	StopAll			\Setup_Event\StopAll	
+	3155227535	Play_Tutorial_Voice_09_A			\Voice_Event\Play_Tutorial_Voice_09_A	
+	3155374820	Play_Tutorial_Voice_06_A			\Voice_Event\Play_Tutorial_Voice_06_A	
+	3155919147	Play_Tutorial_Voice_05_A			\Voice_Event\Play_Tutorial_Voice_05_A	
 	3169891211	SFX_Toaster_Spawn			\SFX_Event\SFX\Toaster\SFX_Toaster_Spawn	
 	3227134913	SFX_Feedback_MistakeAlert			\SFX_Event\SFX\Feedback\SFX_Feedback_MistakeAlert	
 	3271167387	SetWoods			\Music_Event\Debug\SetWoods	
@@ -49,6 +70,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	3864097025	Pause_All			\Setup_Event\Pause_All	
 	4055031953	UI_SoundBoard_Slider_Step_Master			\UI_Event\UI\UI_SoundBoard_Slider_Step_Master	
 	4170617512	UI_Menu_Pause_Hovered			\UI_Event\UI\UI_Menu_Pause_Hovered	
+	4228848246	Play_Tutorial_Voice_08_A			\Voice_Event\Play_Tutorial_Voice_08_A	
+	4229289405	Play_Tutorial_Voice_07_A			\Voice_Event\Play_Tutorial_Voice_07_A	
+	4229436434	Play_Tutorial_Voice_04_A			\Voice_Event\Play_Tutorial_Voice_04_A	
+	4229833920	Play_Tutorial_Voice_02_A			\Voice_Event\Play_Tutorial_Voice_02_A	
+	4229981017	Play_Tutorial_Voice_03_A			\Voice_Event\Play_Tutorial_Voice_03_A	
 	4283111574	Public_ApplauseIntro			\Ambience_Event\Public_ApplauseIntro	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -58,6 +84,7 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	1829134705	SW_Potion_Effect			\Switches\SW_Potion_Effect	
 	1952059502	SW_Articulation_Strings			\Switches\SW_Articulation_Strings	
 	2383379086	SW_Articulation_Percussions			\Switches\SW_Articulation_Percussions	
+	2441027675	Language			\Switches\Language	
 	2599669371	SW_Family_Solist			\Switches\SW_Family_Solist	
 	3232210438	SW_Intensity_Percussions			\Switches\SW_Intensity_Percussions	
 
@@ -79,6 +106,8 @@ Switch	ID	Name	Switch Group			Notes
 	56434811	Staccato	SW_Articulation_Percussions			
 	1422035515	Legato	SW_Articulation_Percussions			
 	2077337834	Pizzicato	SW_Articulation_Percussions			
+	3383237639	English	Language			
+	3417400528	Francais	Language			
 	505915784	Brass	SW_Family_Solist			
 	1182451328	Nobody	SW_Family_Solist			
 	2780586317	Woods	SW_Family_Solist			
@@ -108,11 +137,14 @@ Custom State	ID	Name	State Group	Owner		Notes
 	10610090	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Three_Voices_(Custom)		
 	10999386	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Woods\Three_Voices_(Custom)		
 	29325660	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Woods\Three_Voices_(Custom)		
+	43359540	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Percussions		
+	68869052	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Percussions		
 	76159452	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Three_Voices_(Custom)		
 	114229484	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
 	145370101	Left_3	PotionCount	\Effects\Factory Effects\Wwise Flanger\Vibrato		
 	149914267	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Brass\Three_Voices_(Custom)		
-	177003597	Left_0	PotionCount	\Effects\Factory Effects\Wwise Flanger\Flanging\Standard		
+	150603734	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\SoloBrokenPercussions		
+	173140003	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Percussions		
 	183795096	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Strings\Three_Voices_(Custom)		
 	185955967	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Woods\Three_Voices_(Custom)		
 	196507653	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Strings\Three_Voices_(Custom)		
@@ -122,6 +154,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	269855194	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Strings\Three_Voices_(Custom)		
 	273105219	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Three_Voices_(Custom)		
 	285902752	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Woods\Three_Voices_(Custom)		
+	287248982	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Percussions		
 	293688100	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Brass\Three_Voices_(Custom)		
 	296340616	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
 	317292663	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
@@ -129,12 +162,14 @@ Custom State	ID	Name	State Group	Owner		Notes
 	334437377	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Woods\Three_Voices_(Custom)		
 	335472254	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
 	339802650	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Brass\Three_Voices_(Custom)		
+	350399214	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Percussions		
 	358840362	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Strings\Three_Voices_(Custom)		
 	380858809	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Woods\Three_Voices_(Custom)		
 	433165638	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Brass\Three_Voices_(Custom)		
 	434129265	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Three_Voices_(Custom)		
 	444052937	Left_2	PotionCount	\Effects\Factory Effects\Wwise Flanger\Vibrato		
 	451148475	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Brass\Three_Voices_(Custom)		
+	454996754	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Percussions		
 	465599678	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Woods\Three_Voices_(Custom)		
 	498880985	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Woods\Three_Voices_(Custom)		
 	509150252	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Woods\Three_Voices_(Custom)		
@@ -147,13 +182,16 @@ Custom State	ID	Name	State Group	Owner		Notes
 	576474801	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Woods\Three_Voices_(Custom)		
 	607293309	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Three_Voices_(Custom)		
 	611896896	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Brass\Three_Voices_(Custom)		
+	619714913	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Percussions		
 	670485893	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Woods\Three_Voices_(Custom)		
 	689827174	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Woods\Three_Voices_(Custom)		
 	712939852	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Brass\Three_Voices_(Custom)		
 	715910474	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
 	729274556	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Woods\Three_Voices_(Custom)		
+	735571666	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Percussions		
 	749379616	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
 	752097730	Left_1	PotionCount	\Effects\Factory Effects\Wwise Flanger\Vibrato		
+	764313342	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\SoloBrokenPercussions		
 	767024189	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Three_Voices_(Custom)		
 	788280944	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
 	793520594	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Strings\Three_Voices_(Custom)		
@@ -162,12 +200,14 @@ Custom State	ID	Name	State Group	Owner		Notes
 	819226924	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Woods\Three_Voices_(Custom)		
 	831211715	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Woods\Three_Voices_(Custom)		
 	841537429	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Strings\Three_Voices_(Custom)		
+	844229326	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Percussions		
 	885610438	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Brass\Three_Voices_(Custom)		
 	902212805	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Woods\Three_Voices_(Custom)		
 	930445305	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Woods\Three_Voices_(Custom)		
 	952721618	Left_2	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Woods\Three_Voices_(Custom)		
 	956528276	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Strings\Three_Voices_(Custom)		
 	956701278	Left_1	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Three_Voices_(Custom)		
+	957166707	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\SoloBrokenPercussions		
 	958130656	Left_3	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocTense\Strings\Three_Voices_(Custom)		
 	984218742	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Brass\Three_Voices_(Custom)		
 	990178143	Left_0	PotionCount	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocStart\Strings\Three_Voices_(Custom)		
@@ -188,6 +228,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	2031370766	RTPC_Potion_Speed			\Game_Parameters\Feedback\RTPC_Potion_Speed	
 	2676178657	RTPC_Intensity_Percussions			\Game_Parameters\Intensity\RTPC_Intensity_Percussions	
 	3154931128	RTPC_Intensity_Brass			\Game_Parameters\Intensity\RTPC_Intensity_Brass	
+	3288717071	RTPC_Player_Score			\Game_Parameters\RTPC_Player_Score	
 	3945680200	RTPC_Tempo			\Game_Parameters\RTPC_Tempo	
 
 Modulator Envelope	ID	Name			Wwise Object Path	Notes
@@ -239,7 +280,6 @@ Effect plug-ins	ID	Name	Type				Notes
 	921884421	Three_Voices_(Custom)	Wwise Harmonizer			
 	960958379	Three_Voices_(Custom)	Wwise Harmonizer			
 	1025639152	Three_Voices_(Custom)	Wwise Harmonizer			
-	3025917178	Standard	Wwise Flanger			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	13250845	Strings	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Midi_BlocStartA_Strings_Staccato_8482A441.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Strings		113
@@ -292,5 +332,19 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1042409501	Brass	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Midi_BlocStartA_Brass_Staccato_D8B7522C.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Brass		97
 
 Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	2581811	Play_Tutorial_Voice_14	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_14_A8D79311.wem	2581811.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_14\Play_Tutorial_Voice_14	
+	12797378	Play_Tutorial_Voice_10	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_10_A8D79311.wem	12797378.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_10\Play_Tutorial_Voice_10	
+	34746503	Play_Tutorial_Voice_02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_02_A8D79311.wem	34746503.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_02\Play_Tutorial_Voice_02	
+	68355202	Play_Tutorial_Voice_05_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_05_A_A8D79311.wem	68355202.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_05_A\Play_Tutorial_Voice_05_A	
+	110456409	Play_Tutorial_Voice_01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_01_A8D79311.wem	110456409.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_01\Play_Tutorial_Voice_01	
+	130229035	Play_Tutorial_Voice_10_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_10_A_A8D79311.wem	130229035.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_10_A\Play_Tutorial_Voice_10_A	
+	130245362	Play_Tutorial_Voice_12_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_12_A_A8D79311.wem	130245362.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_12_A\Play_Tutorial_Voice_12_A	
+	170823187	Play_Tutorial_Voice_05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_05_A8D79311.wem	170823187.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_05\Play_Tutorial_Voice_05	
+	426184329	Play_Tutorial_Voice_13_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_13_A_A8D79311.wem	426184329.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_13_A\Play_Tutorial_Voice_13_A	
+	531084856	Play_Tutorial_Voice_06_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_06_A_A8D79311.wem	531084856.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_06_A\Play_Tutorial_Voice_06_A	
+	607881076	Play_Tutorial_Voice_06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_06_A8D79311.wem	607881076.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_06\Play_Tutorial_Voice_06	
+	677409190	Play_Tutorial_Voice_13	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_13_A8D79311.wem	677409190.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_13\Play_Tutorial_Voice_13	
+	716308355	Play_Tutorial_Voice_12	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_12_A8D79311.wem	716308355.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_12\Play_Tutorial_Voice_12	
+	728413185	Play_Tutorial_Voice_02_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_02_A_A8D79311.wem	728413185.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_02_A\Play_Tutorial_Voice_02_A	
 	986933918	BrassLegato-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Theme\Brass\BrassLegato-01_A8D79311.wem	986933918.wem	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Legato\BrassLegato-01	
 
