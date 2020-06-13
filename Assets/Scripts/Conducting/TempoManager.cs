@@ -17,6 +17,7 @@ public class TempoManager : MonoBehaviour
     public BeatManager beatManager;
     public ConductingEventsManager conductingEventsManager;
     public InstrumentFamily[] families = new InstrumentFamily[4];
+    public OrchestraLauncher orchestraLauncher;
 
     /* BPM */
     //The bigger the buffer size is, the smoother the bpm's evolution is
@@ -31,16 +32,13 @@ public class TempoManager : MonoBehaviour
     
     /* Conduct */
     private int m_BeatsCountSinceBeginConducting = 0;
-    
-    /* Debug */
-    [Header("DEBUG")]
-    public DebugGraph bpmGraph;
+
 
     private void Start()
     {
-        beatManager.OnBeatMajorHand += OnBeatMajorHand;
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
-
+        orchestraLauncher.OnLoadOrchestra += OnLoadOrchestra;
+            
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.START_TEMPO;
         for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
@@ -54,6 +52,12 @@ public class TempoManager : MonoBehaviour
         OnTempoChange?.Invoke(m_CurrentTempoType, bpm);
     }
 
+    public void OnLoadOrchestra()
+    {
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
+    }
+    
+    //We register the bpm only if there have been 2 beats since beginning conducting 
     public void OnBeginConducting()
     {
         m_BeatsCountSinceBeginConducting = 0;
@@ -84,7 +88,7 @@ public class TempoManager : MonoBehaviour
         SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
         OnTempoChange?.Invoke(tempoRange.type, bpm);
         
-        //DEBUG
+        //TODO : DEBUG
         if (DebugInteractionModes.tempoInteractionModeRef == DebugInteractionModes.TempoInteractionMode.Dynamic) {
             soundEngineTuner.SetTempo(bpm);
         }
@@ -108,13 +112,7 @@ public class TempoManager : MonoBehaviour
             }
         }
     }
-    
-    private void Update()
-    {
-        //DEBUG
-        bpmGraph?.SetValue(bpm);
-    }
-    
+
     /* Events */
     public Action<InstrumentFamily.TempoType, float> OnTempoChange;
 }
