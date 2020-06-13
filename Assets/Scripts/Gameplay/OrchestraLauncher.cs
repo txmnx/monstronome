@@ -8,25 +8,19 @@ using UnityEngine;
  */
 public class OrchestraLauncher : MonoBehaviour
 {
-    [Header("Callback")]
+    [Header("Callbacks")]
     public WwiseCallBack wwiseCallback;
     public HandsHeightChecker handsHeightChecker;
 
     private InstrumentFamily[] m_InstrumentFamilies;
 
     private bool m_HasRaisedHands = false;
-
     
+
     public void Start()
     {
         //The orchestra starts by tuning
         wwiseCallback.LoadTuning();
-
-        foreach (InstrumentFamily family in m_InstrumentFamilies) {
-            foreach (Animator animator in family.familyAnimators) {
-
-            }
-        }
     }
     
     public void LoadFamilies(InstrumentFamily[] families)
@@ -38,6 +32,14 @@ public class OrchestraLauncher : MonoBehaviour
     public void OnEnterRaiseHand()
     {
         m_HasRaisedHands = true;
+        
+        int idleTriggerID = Animator.StringToHash("SwitchIdle");
+        //We set the families on idle animation, waiting for the start
+        foreach (InstrumentFamily family in m_InstrumentFamilies) {
+            foreach (Animator animator in family.familyAnimators) {
+                animator.SetTrigger(idleTriggerID);
+            }
+        }
     }
     
     public void OnExitRaiseHand()

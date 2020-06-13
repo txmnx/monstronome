@@ -2123,6 +2123,7 @@ GameObject:
   - component: {fileID: 348619490}
   - component: {fileID: 348619489}
   - component: {fileID: 348619492}
+  - component: {fileID: 348619494}
   - component: {fileID: 348619496}
   - component: {fileID: 348619498}
   - component: {fileID: 348619500}
@@ -2245,6 +2246,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUsingConductInput: 0
+--- !u!114 &348619494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fd54501519e394391f070f6d1a652c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wwiseCallback: {fileID: 1915118170}
+  handsHeightChecker: {fileID: 1504346133}
 --- !u!114 &348619495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2277,6 +2292,7 @@ MonoBehaviour:
   wwiseCallback: {fileID: 1915118170}
   beatManager: {fileID: 348619487}
   articulationManager: {fileID: 348619495}
+  orchestraLauncher: {fileID: 0}
   tempoManager: {fileID: 348619489}
   timeline: {fileID: 1811084566}
   families:

@@ -178,11 +178,8 @@ public abstract class InstrumentFamily : MonoBehaviour
 
     public void StartPlaying()
     {
-        //DEBUG
-        if (familyAnimators.Length > 0) {
-            int triggerID = Animator.StringToHash("SwitchArticulation");
-            StartCoroutine(SetAnimTriggerOffset(triggerID));
-        }
+        int triggerID = Animator.StringToHash("SwitchPlay");
+        StartCoroutine(SetAnimTriggerOffset(triggerID));
     }
 
     public void SetBrokenAnimation(ReframingManager.DegradationState degradationState)
@@ -210,7 +207,7 @@ public abstract class InstrumentFamily : MonoBehaviour
      */
     private IEnumerator LaunchAnimOffset()
     {
-        int entryID = Animator.StringToHash("Idle");
+        int entryID = Animator.StringToHash("Tuning");
         foreach (Animator animator in familyAnimators) {
             animator.Play(entryID, 0);
             yield return new WaitForSeconds(0.01f);
