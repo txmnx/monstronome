@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3650363188010646858}
   - component: {fileID: 513923547711479397}
   - component: {fileID: 7170143532497799263}
+  - component: {fileID: 3740752267649383178}
+  - component: {fileID: 6157256001988545034}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.001
   m_TagString: Untagged
@@ -79,6 +81,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3740752267649383178
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919736654106811087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6575678097325291773, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &6157256001988545034
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919736654106811087}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &959811808940876904
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +165,7 @@ GameObject:
   - component: {fileID: 7747678097318364447}
   - component: {fileID: 8040306597253924903}
   - component: {fileID: 5630949628128396868}
+  - component: {fileID: 6258141260864070303}
   m_Layer: 0
   m_Name: Staccato_POTION_Articulation
   m_TagString: Untagged
@@ -205,13 +238,13 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062916387907485919}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 65568f05f8e4392449586b1c76c65945, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 3119658582053976084, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
 --- !u!114 &5630949628128396868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +272,20 @@ MonoBehaviour:
   soundEngineTuner: {fileID: 0}
   articulationManager: {fileID: 0}
   articulationType: 2
+--- !u!136 &6258141260864070303
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062916387907485919}
+  m_Material: {fileID: 13400000, guid: 65568f05f8e4392449586b1c76c65945, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.09169142
+  m_Height: 0.49129808
+  m_Direction: 1
+  m_Center: {x: -0.0006965697, y: 0.24022335, z: 0.0012523085}
 --- !u!1 &1166943671796088220
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +376,8 @@ GameObject:
   - component: {fileID: 4743571810603202854}
   - component: {fileID: 1638059804587436253}
   - component: {fileID: 4981805847075115182}
+  - component: {fileID: 5937257554707642216}
+  - component: {fileID: 2032272773956668454}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.002
   m_TagString: Untagged
@@ -397,6 +446,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5937257554707642216
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217190487203176818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3672058821735036619, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &2032272773956668454
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217190487203176818}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2073464221683802026
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +487,8 @@ GameObject:
   - component: {fileID: 4304505597757408915}
   - component: {fileID: 6572845957032782113}
   - component: {fileID: 7247418222166614086}
+  - component: {fileID: 3076497496550526295}
+  - component: {fileID: 4161554750859471038}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.006
   m_TagString: Untagged
@@ -476,6 +557,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3076497496550526295
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073464221683802026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6169584555859241103, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &4161554750859471038
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073464221683802026}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3088591273315276064
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +598,8 @@ GameObject:
   - component: {fileID: 1611763759051557100}
   - component: {fileID: 2093409983296496210}
   - component: {fileID: 1848361254139229204}
+  - component: {fileID: 8336115432627461647}
+  - component: {fileID: 736517338679529020}
   m_Layer: 0
   m_Name: Potion_Staccato_Cassee_Bouchon
   m_TagString: Untagged
@@ -555,6 +668,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8336115432627461647
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088591273315276064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 745494683308864452, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &736517338679529020
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3088591273315276064}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3862968364079421005
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +709,8 @@ GameObject:
   - component: {fileID: 7688366086981225825}
   - component: {fileID: 5850437881795014295}
   - component: {fileID: 2891219433547167226}
+  - component: {fileID: 7929270068435269251}
+  - component: {fileID: 4321756528079294031}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.004
   m_TagString: Untagged
@@ -634,6 +779,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7929270068435269251
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862968364079421005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3747905689750533707, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &4321756528079294031
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3862968364079421005}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4568398938644399682
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +820,8 @@ GameObject:
   - component: {fileID: 612745004911221490}
   - component: {fileID: 6346110136488961910}
   - component: {fileID: 5467233810625265944}
+  - component: {fileID: 1721228098058803894}
+  - component: {fileID: 4893855891544528701}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.009
   m_TagString: Untagged
@@ -713,6 +890,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1721228098058803894
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568398938644399682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 69203261491820829, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &4893855891544528701
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568398938644399682}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4713194608583544956
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +931,8 @@ GameObject:
   - component: {fileID: 7150403748988333548}
   - component: {fileID: 265958783842462747}
   - component: {fileID: 4384780767662516471}
+  - component: {fileID: 2416423011439480649}
+  - component: {fileID: 1519917276562209884}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.005
   m_TagString: Untagged
@@ -792,6 +1001,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2416423011439480649
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713194608583544956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7295666822775196624, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &1519917276562209884
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713194608583544956}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5285833614149548072
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +1121,8 @@ GameObject:
   - component: {fileID: 8207830222802479006}
   - component: {fileID: 3649589009582280579}
   - component: {fileID: 7679984300926884771}
+  - component: {fileID: 7597661181891674142}
+  - component: {fileID: 8525308762856200744}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell
   m_TagString: Untagged
@@ -950,6 +1191,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7597661181891674142
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521169113857315726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5434690088555816735, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &8525308762856200744
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521169113857315726}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6128670580654564958
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1265,8 @@ GameObject:
   - component: {fileID: 7312559632571687133}
   - component: {fileID: 4730293083567471386}
   - component: {fileID: 2048014146093585681}
+  - component: {fileID: 9069174460683401349}
+  - component: {fileID: 5219396658703105414}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.003
   m_TagString: Untagged
@@ -1062,6 +1335,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9069174460683401349
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892092728727012248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7720978839543752755, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &5219396658703105414
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892092728727012248}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6998372484426458144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,6 +1376,8 @@ GameObject:
   - component: {fileID: 3904941439519877850}
   - component: {fileID: 8594871729722569306}
   - component: {fileID: 210524362979934335}
+  - component: {fileID: 8593877539667100381}
+  - component: {fileID: 2800797409406346906}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.008
   m_TagString: Untagged
@@ -1141,6 +1446,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8593877539667100381
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998372484426458144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3816320253752472424, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &2800797409406346906
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998372484426458144}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8365258054335550575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1566,8 @@ GameObject:
   - component: {fileID: 6086154624778728504}
   - component: {fileID: 4455258894065167873}
   - component: {fileID: 7894845532790196711}
+  - component: {fileID: 3888052618907805425}
+  - component: {fileID: 1569682303685158276}
   m_Layer: 0
   m_Name: Potions_Articulation_01.001_cell.007
   m_TagString: Untagged
@@ -1299,6 +1636,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3888052618907805425
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440012666053512407}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 30867861223854455, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+--- !u!54 &1569682303685158276
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440012666053512407}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1414280525185103046
 PrefabInstance:
   m_ObjectHideFlags: 0
