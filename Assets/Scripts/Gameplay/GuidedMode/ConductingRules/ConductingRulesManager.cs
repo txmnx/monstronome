@@ -61,11 +61,22 @@ public class ConductingRulesManager : MonoBehaviour
         };
         
         wwiseCallback.OnCue += GetNewRules;
+        
+        m_CurrentOrchestraState = new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.MezzoForte, InstrumentFamily.TempoType.Andante);
+    }
+
+    private void Start()
+    {
+        guidedModeManager.OnStartOrchestra += OnStartOrchestra;
+    }
+
+    public void OnStartOrchestra()
+    {
         articulationManager.OnArticulationChange += OnArticulationChange;
         intensityManager.OnIntensityChange += OnIntensityChange;
         tempoManager.OnTempoChange += OnTempoChange;
     }
-
+    
     public void GetNewRules(string stateName)
     {
         if (m_Rules.TryGetValue(stateName, out OrchestraState rules)) {
