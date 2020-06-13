@@ -325,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959811808940876904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1585, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7696214843030298553}
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f6e989c5954ea46b1a92d230f06035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
+  meshRenderer: {fileID: 2710950701638513966}
   SFXOnThrow:
     idInternal: 0
     valueGuidInternal: 
@@ -480,7 +480,7 @@ CapsuleCollider:
   m_Radius: 0.08018845
   m_Height: 0.3621245
   m_Direction: 1
-  m_Center: {x: -0.0006965697, y: 0.03912081, z: 0.0008262694}
+  m_Center: {x: -0.0006965697, y: 0.2, z: 0.0008262694}
 --- !u!65 &1756403381858793630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.20431542, y: 0.09505978, z: 0.08781701}
-  m_Center: {x: 0.001387015, y: -0.11094634, z: -0.0011136085}
+  m_Center: {x: 0.001387015, y: 0.05, z: -0.0011136085}
 --- !u!1 &2116004581197221483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6128670580654564958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1585, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 516653620777287186}
@@ -1816,7 +1816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203849390966504, guid: d8f0099df63275647a8bcf646df1ca00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2255
+      value: 0.384
       objectReference: {fileID: 0}
     - target: {fileID: 4203849390966504, guid: d8f0099df63275647a8bcf646df1ca00, type: 3}
       propertyPath: m_LocalPosition.z
