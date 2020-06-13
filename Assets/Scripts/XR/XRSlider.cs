@@ -27,6 +27,9 @@ public class XRSlider : XRGrabbable
 
     private bool m_LeftToRight = true;
 
+    protected virtual void Awake()
+    {}
+
     protected override void Start()
     {
         base.Start();

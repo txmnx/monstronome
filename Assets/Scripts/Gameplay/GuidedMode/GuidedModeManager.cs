@@ -20,7 +20,7 @@ public class GuidedModeManager : MonoBehaviour
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     [Header("Modes")]
-    public ConductingRulesManager directionRulesManager;
+    public ConductingRulesManager conductingRulesManager;
     public ReframingManager reframingManager;
 
     //TODO : start orchestra with the tuning and the 4 beats instead
@@ -41,7 +41,8 @@ public class GuidedModeManager : MonoBehaviour
         Transition,
         Other
     }
-    private TrackType m_CurrentTrackType;
+    [HideInInspector]
+    public TrackType currentTrackType;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class GuidedModeManager : MonoBehaviour
         
         wwiseCallback.OnCue += LaunchState;
         beatManager.OnBeatMajorHand += OnBeat;
-        m_CurrentTrackType = TrackType.Other;
+        currentTrackType = TrackType.Other;
     }
 
     private IEnumerator UpdatePlaying()
@@ -68,8 +69,8 @@ public class GuidedModeManager : MonoBehaviour
             timeline.UpdateCursor();
 
             //We can't loose or gain score outside of the track blocks
-            directionRulesManager.Check(m_CurrentTrackType == TrackType.Block);
-            reframingManager.Check(m_CurrentTrackType == TrackType.Block);
+            conductingRulesManager.Check();
+            reframingManager.Check(currentTrackType == TrackType.Block);
             
             yield return null;
         }
@@ -78,37 +79,35 @@ public class GuidedModeManager : MonoBehaviour
     /* Events */
     public void LaunchState(string stateName)
     {
-        bool updateTimelineStep = true;
+        TrackType prevTrackType = currentTrackType;
         switch (stateName) {
             case "Start":
-                m_CurrentTrackType = TrackType.Block;
+                currentTrackType = TrackType.Block;
                 StartOrchestra();
                 break;
             case "Transition1":
-                m_CurrentTrackType = TrackType.Transition;
+                currentTrackType = TrackType.Transition;
                 break;
             case "Middle":
-                m_CurrentTrackType = TrackType.Block;
+                currentTrackType = TrackType.Block;
                 break;
             case "Transition2":
-                m_CurrentTrackType = TrackType.Transition;
+                currentTrackType = TrackType.Transition;
                 break;
             case "Tense":
-                m_CurrentTrackType = TrackType.Block;
+                currentTrackType = TrackType.Block;
                 break;
             case "Transition3":
-                m_CurrentTrackType = TrackType.Transition;
+                currentTrackType = TrackType.Transition;
                 break;
             case "End":
-                m_CurrentTrackType = TrackType.Block;
-                break;
-            default:
-                updateTimelineStep = false;
+                currentTrackType = TrackType.Block;
                 break;
         }
 
-        if (updateTimelineStep) {
+        if (prevTrackType != currentTrackType) {
             timeline.SetCurrentStep(stateName);
+            conductingRulesManager.DrawRules();
         }
     }
 
