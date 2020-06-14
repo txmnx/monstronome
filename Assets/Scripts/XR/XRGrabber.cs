@@ -23,7 +23,7 @@ public class XRGrabber : MonoBehaviour
 
     private bool m_IsGrabbing = false;
 
-    private void Start()
+    protected virtual void Start()
     {
         m_Controller = GetComponent<XRCustomController>();
         m_HighlightedObjects = new List<XRGrabbable>();
