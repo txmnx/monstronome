@@ -8231,7 +8231,7 @@ GameObject:
   - component: {fileID: 1968274596}
   - component: {fileID: 1968274598}
   - component: {fileID: 1968274600}
-  - component: {fileID: 1968274599}
+  - component: {fileID: 1968274597}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -8255,6 +8255,24 @@ Transform:
   m_Father: {fileID: 1504346132}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968274597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968274595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d0d78f9117dc04eae4e09592e68e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackingSpace: {fileID: 1504346132}
+  throwPower: 1.25
+  leftArm: {fileID: 0}
+  rightArm: {fileID: 0}
+  leftAnchors: []
+  rightAnchors: []
 --- !u!114 &1968274598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8269,20 +8287,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerNode: 4
   debugGraph: {fileID: 1256031507}
---- !u!114 &1968274599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968274595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8dbc7e3aadcc764b9b39723729941a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackingSpace: {fileID: 1504346132}
-  throwPower: 1.25
 --- !u!135 &1968274600
 SphereCollider:
   m_ObjectHideFlags: 0

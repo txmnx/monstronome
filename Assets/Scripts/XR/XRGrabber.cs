@@ -15,7 +15,7 @@ public class XRGrabber : MonoBehaviour
     public Transform trackingSpace;
     public float throwPower = 1.0f;
     
-    private XRCustomController m_Controller;
+    protected XRCustomController m_Controller;
 
     private List<XRGrabbable> m_HighlightedObjects;
     private XRGrabbable m_SelectedObject;
@@ -29,7 +29,7 @@ public class XRGrabber : MonoBehaviour
         m_HighlightedObjects = new List<XRGrabbable>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed)) {
             if (triggerPressed) {
