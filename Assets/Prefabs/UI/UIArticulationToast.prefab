@@ -1077,8 +1077,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIRule: {fileID: 1123456787179877519}
   UIBackgroundToast: {fileID: 7069209469860787581}
-  UIOkTag: {fileID: 10962871560597886}
-  UIChangeTag: {fileID: 4066943802481902250}
+  lightRenderer: {fileID: 0}
+  okMaterial: {fileID: 2100000, guid: 7a38d2efd367c1c4b9f67d6b28b0f073, type: 2}
+  wrongMaterial: {fileID: 2100000, guid: c3adbc41239ad1242993cb804ff5be5f, type: 2}
+  transitionMaterial: {fileID: 2100000, guid: 545419ce7896664449008e31e0df5e10, type: 2}
+  UIOk: {fileID: 10962871560597886}
+  UIWrong: {fileID: 4066943802481902250}
   UILegatoPotion: {fileID: 4272907050575174552}
   UIPizzicatoPotion: {fileID: 3834140246676861991}
   UIStaccatoPotion: {fileID: 4002363105041302623}

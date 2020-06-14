@@ -8,16 +8,41 @@ using UnityEngine;
  */
 public class UIToast : MonoBehaviour
 {
+    [Header("Parts")]
+    public GameObject UIRule;
+    public UIBackgroundToast UIBackgroundToast;
+
+    [Header("Light")]
+    public MeshRenderer lightRenderer;
+    public Material okMaterial;
+    public Material wrongMaterial;
+    public Material transitionMaterial;
+    
+    protected MaterialPropertyBlock m_Block;
+    protected int m_EmissionFactorPropertyId;
+
     protected virtual void Awake()
-    {}
+    {
+        m_Block = new MaterialPropertyBlock();
+        m_EmissionFactorPropertyId = Shader.PropertyToID("_EmissionFactor");
+    }
 
     public void Show(bool show)
     {
         UIRule.SetActive(show);
-        UIBackgroundToast.gameObject.SetActive(show);
+        //UIBackgroundToast.gameObject.SetActive(show);
     }
     
-    [Header("Parts")]
-    public GameObject UIRule;
-    public UIBackgroundToast UIBackgroundToast;
+    protected void SetEmissionForce(MeshRenderer rend, float emissionForce)
+    {
+        m_Block.SetFloat(m_EmissionFactorPropertyId, emissionForce);
+        rend.SetPropertyBlock(m_Block);
+    }
+
+    protected void SetLight(Material material)
+    {
+        Material[] newMaterials = lightRenderer.materials;
+        newMaterials[1] = material;
+        lightRenderer.materials = newMaterials;
+    }
 }

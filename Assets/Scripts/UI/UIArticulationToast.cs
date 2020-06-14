@@ -9,8 +9,8 @@ using UnityEngine;
 public class UIArticulationToast : UIToast
 {
     [Header("Check")]
-    public GameObject UIOkTag;
-    public GameObject UIChangeTag;
+    public GameObject UIOk;
+    public GameObject UIWrong;
     
     [Header("Potions")]
     public GameObject UILegatoPotion;
@@ -26,31 +26,35 @@ public class UIArticulationToast : UIToast
         UIPizzicatoPotion.SetActive(false);
         UIStaccatoPotion.SetActive(false);
         
-        UIChangeTag.SetActive(true);
-        UIOkTag.SetActive(false);
+        UIWrong.SetActive(true);
+        UIOk.SetActive(false);
     }
 
     public void Draw(InstrumentFamily.ArticulationType currentType, InstrumentFamily.ArticulationType ruleType, bool isTransition = false)
     {
         if (currentType == ruleType) {
             if (isTransition) {
+                SetLight(transitionMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
+                SetLight(okMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Good);
             }
-            UIChangeTag.SetActive(false);
-            UIOkTag.SetActive(true);
+            UIWrong.SetActive(false);
+            UIOk.SetActive(true);
         }
         else {
             if (isTransition) {
+                SetLight(transitionMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
+                SetLight(wrongMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Wrong);
             }
-            UIOkTag.SetActive(false);
-            UIChangeTag.SetActive(true);
+            UIOk.SetActive(false);
+            UIWrong.SetActive(true);
             DisplayPotion(ruleType);
         }
     }

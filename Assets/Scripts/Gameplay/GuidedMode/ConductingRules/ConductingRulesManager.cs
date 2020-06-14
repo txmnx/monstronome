@@ -9,7 +9,8 @@ using UnityEngine;
  */
 public class ConductingRulesManager : MonoBehaviour
 {
-    [Header("Callbacks")] 
+    [Header("Callbacks")]
+    public SoundEngineTuner soundEngineTuner;
     public GuidedModeManager guidedModeManager;
     public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
@@ -18,6 +19,8 @@ public class ConductingRulesManager : MonoBehaviour
 
     [Header("UI")]
     public UIArticulationToast UIArticulationToast;
+    public UITempoToast UITempoToast;
+    public UIIntensityToast UIIntensityToast;
 
     [Header("Score")]
     public ScoreManager scoreManager;
@@ -58,22 +61,39 @@ public class ConductingRulesManager : MonoBehaviour
         };
         
         wwiseCallback.OnCue += GetNewRules;
+        
+        m_CurrentOrchestraState = new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.MezzoForte, InstrumentFamily.TempoType.Andante);
+    }
+
+    private void Start()
+    {
+        guidedModeManager.OnStartOrchestra += OnStartOrchestra;
+    }
+
+    public void OnStartOrchestra()
+    {
         articulationManager.OnArticulationChange += OnArticulationChange;
         intensityManager.OnIntensityChange += OnIntensityChange;
         tempoManager.OnTempoChange += OnTempoChange;
     }
-
+    
     public void GetNewRules(string stateName)
     {
         if (m_Rules.TryGetValue(stateName, out OrchestraState rules)) {
             m_CurrentRules = rules;
+
+            bool isTransition = guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition;
+            UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
+            UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
+            UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, isTransition);
+            
             UIArticulationToast.Show(true);
-            UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+            UITempoToast.Show(true);
+            UIIntensityToast.Show(true);
         }
     }
 
     //Updates the score
-    //TODO : call it each time articulation/tempo/intensity is changed
     public void Check()
     {
         int mistakes = 0;
@@ -81,25 +101,13 @@ public class ConductingRulesManager : MonoBehaviour
         if (m_CurrentOrchestraState.articulationType != m_CurrentRules.articulationType) {
             mistakes += 1;
         }
+        if (m_CurrentOrchestraState.tempoType != m_CurrentRules.tempoType) {
+            mistakes += 1;
+        }
+        if (m_CurrentOrchestraState.intensityType != m_CurrentRules.intensityType) {
+            mistakes += 1;
+        }
 
-        /*
-        if (m_CurrentOrchestraState.intensityType == m_CurrentRules.intensityType) {
-            drawableRules.HighlightIntensity(Color.green);
-        }
-        else {
-            mistakes += 1;
-            drawableRules.HighlightIntensity(Color.red);
-        }
-        
-        if (m_CurrentOrchestraState.tempoType == m_CurrentRules.tempoType) {
-            drawableRules.HighlightTempo(Color.green);
-        }
-        else {
-            mistakes += 1;
-            drawableRules.HighlightTempo(Color.red);
-        }    
-        */
-        
         m_TimeSinceLastScore += Time.deltaTime;
         if (m_TimeSinceLastScore > scoringParameters.checkPerSeconds) {
             if (mistakes == 0) {
@@ -113,24 +121,43 @@ public class ConductingRulesManager : MonoBehaviour
     }
 
     /* Callbacks */
-    public void OnArticulationChange(InstrumentFamily.ArticulationType type)
+    public void OnArticulationChange(InstrumentFamily.ArticulationType type, bool usePotionReference, GameObject potion)
     {
         m_CurrentOrchestraState.articulationType = type;
-        UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+        UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, 
+            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+
+        if (usePotionReference) {
+            soundEngineTuner.SetSwitchPotionBonusMalus(m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType, potion);
+        }
+    }
+
+    public void OnTempoChange(InstrumentFamily.TempoType type, float bpm)
+    {
+        m_CurrentOrchestraState.tempoType = type;
+        UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, bpm,
+            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
     }
     
     public void OnIntensityChange(InstrumentFamily.IntensityType type)
     {
         m_CurrentOrchestraState.intensityType = type;
-    }
-    
-    public void OnTempoChange(InstrumentFamily.TempoType type)
-    {
-        m_CurrentOrchestraState.tempoType = type;
+        UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, 
+            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
     }
 
     public void DrawRules()
     {
-        UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
-    } 
+        bool isTransition = guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition;
+        UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
+        UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
+        UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, isTransition);
+    }
+
+    public void ShowRules(bool show)
+    {
+        UIArticulationToast.Show(show);
+        UITempoToast.Show(show);
+        UIIntensityToast.Show(show);
+    }
 }

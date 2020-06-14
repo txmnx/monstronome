@@ -11,20 +11,18 @@ public class GuidedModeManager : MonoBehaviour
 {
     [Header("Callbacks")]
     public WwiseCallBack wwiseCallback;
-    public BeatManager beatManager;
+    public TempoManager tempoManager;
     public ArticulationManager articulationManager;
+    public IntensityManager intensityManager;
+    public OrchestraLauncher orchestraLauncher;
     
     [Header("Animations")]
-    public TempoManager tempoManager;
     public Timeline timeline;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     [Header("Modes")]
     public ConductingRulesManager conductingRulesManager;
     public ReframingManager reframingManager;
-
-    //TODO : start orchestra with the tuning and the 4 beats instead
-    private bool m_HasOneBeat = false;
 
     private enum GuidedModeStep
     {
@@ -43,20 +41,28 @@ public class GuidedModeManager : MonoBehaviour
     }
     [HideInInspector]
     public TrackType currentTrackType;
-
+    
+    
     private void Awake()
     {
-        //m_CurrentStep = GuidedModeStep.Tuning;
-        m_CurrentGuidedModeStep = GuidedModeStep.Intro;
+        m_CurrentGuidedModeStep = GuidedModeStep.Tuning;
+        currentTrackType = TrackType.Other;
+    }
+    
+    private void Start()
+    {
+        reframingManager.LoadFamilies(families);
+        orchestraLauncher.LoadFamilies(families);
+        orchestraLauncher.OnLoadOrchestra += LoadOrchestra;
+        
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
         }
-
-        reframingManager.LoadFamilies(families);
-        
+        OnStartOrchestra += tempoManager.OnStartOrchestra;
+        OnStartOrchestra += intensityManager.OnStartOrchestra;
         wwiseCallback.OnCue += LaunchState;
-        beatManager.OnBeatMajorHand += OnBeat;
-        currentTrackType = TrackType.Other;
+        
+        conductingRulesManager.ShowRules(false);
     }
 
     private IEnumerator UpdatePlaying()
@@ -116,37 +122,16 @@ public class GuidedModeManager : MonoBehaviour
         if (m_CurrentGuidedModeStep == GuidedModeStep.Intro) {
             OnStartOrchestra?.Invoke();
             m_CurrentGuidedModeStep = GuidedModeStep.Playing;
+            articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
             StartCoroutine(UpdatePlaying());
         }
     }
 
-    public void InitStartOrchestra()
+    public void LoadOrchestra()
     {
-        articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
         reframingManager.InitStart();
+        m_CurrentGuidedModeStep = GuidedModeStep.Intro;
     }
 
     public event Action OnStartOrchestra;
-    
-    
-    /* TODO : DEBUG */
-    private void OnBeat(float amplitude)
-    {
-        if (!m_HasOneBeat) {
-            InitStartOrchestra();
-            AkSoundEngine.SetState("Music", "Start");
-        }
-        m_HasOneBeat = true;
-    }
-
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire1")) {
-            if (!m_HasOneBeat) {
-                InitStartOrchestra();
-                AkSoundEngine.SetState("Music", "Start");
-            }
-            m_HasOneBeat = true;
-        }
-    }
 }

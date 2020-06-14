@@ -22,20 +22,54 @@ namespace AK
         static const AkUniqueID PIZZICATO = 2077337834U;
         static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_01 = 1625395407U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_02 = 1625395404U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_02_A = 4229833920U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_03 = 1625395405U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_03_A = 4229981017U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_04 = 1625395402U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_04_A = 4229436434U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_05 = 1625395403U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_05_A = 3155919147U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_06 = 1625395400U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_06_A = 3155374820U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_07 = 1625395401U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_07_A = 4229289405U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_08 = 1625395398U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_08_A = 4228848246U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_09 = 1625395399U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_09_A = 3155227535U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_10 = 1642173089U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_10_A = 1772580389U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_11 = 1642173088U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_11_A = 1772433356U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_12 = 1642173091U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_12_A = 699210195U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_13 = 1642173090U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_13_A = 699063162U;
+        static const AkUniqueID PLAY_TUTORIAL_VOICE_14 = 1642173093U;
         static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
         static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
         static const AkUniqueID RESUME_ALL = 3679762312U;
         static const AkUniqueID SETWOODS = 3271167387U;
         static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
+        static const AkUniqueID SFX_FEEDBACK_CHANGINGPARAMETERS = 1163937302U;
+        static const AkUniqueID SFX_FEEDBACK_LIGHTOFF = 2204132664U;
+        static const AkUniqueID SFX_FEEDBACK_LIGHTON = 1636980706U;
+        static const AkUniqueID SFX_FEEDBACK_MISTAKEALERT = 3227134913U;
         static const AkUniqueID SFX_FEEDBACK_REFRAMINGSUCCESS = 247346967U;
+        static const AkUniqueID SFX_FEEDBACK_RIGHTPARAMETERS = 535791215U;
         static const AkUniqueID SFX_POTION_BROKEN = 1231703344U;
         static const AkUniqueID SFX_POTION_COLLISION = 345071173U;
         static const AkUniqueID SFX_POTION_PICKUP = 3668990679U;
+        static const AkUniqueID SFX_POTION_PICKUP_EMPTY = 3570979617U;
         static const AkUniqueID SFX_POTION_RIGHT = 3758674935U;
         static const AkUniqueID SFX_POTION_SHAKE = 3591561671U;
         static const AkUniqueID SFX_POTION_SPAWN = 2242916472U;
         static const AkUniqueID SFX_POTION_THROW = 3606142437U;
         static const AkUniqueID SFX_POTION_WRONG = 3427361090U;
+        static const AkUniqueID SFX_TOASTER_DISAPEAR = 932413975U;
+        static const AkUniqueID SFX_TOASTER_SPAWN = 3169891211U;
         static const AkUniqueID SFX_WAND_ENTER = 3420964884U;
         static const AkUniqueID SFX_WAND_EXIT = 1368847222U;
         static const AkUniqueID SFX_WAND_IDDLE = 3638337738U;
@@ -52,7 +86,6 @@ namespace AK
         static const AkUniqueID UI_MENU_PAUSE_RESUME = 2269109418U;
         static const AkUniqueID UI_MENU_PAUSE_RESUME_COUNTDOWN = 1722761166U;
         static const AkUniqueID UI_MENU_PAUSE_SELECT = 795989787U;
-        static const AkUniqueID UI_SETTINGS_SLIDER_VOLUME = 2153411292U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MASTER = 4055031953U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_METRONOME = 1834445417U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MUSIC = 1936030412U;
@@ -106,6 +139,17 @@ namespace AK
 
     namespace SWITCHES
     {
+        namespace LANGUAGE
+        {
+            static const AkUniqueID GROUP = 2441027675U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID ENGLISH = 3383237639U;
+                static const AkUniqueID FRANCAIS = 3417400528U;
+            } // namespace SWITCH
+        } // namespace LANGUAGE
+
         namespace SW_ARTICULATION_BRASS
         {
             static const AkUniqueID GROUP = 554303915U;
@@ -216,6 +260,18 @@ namespace AK
             } // namespace SWITCH
         } // namespace SW_INTENSITY_WOODS
 
+        namespace SW_POTION_EFFECT
+        {
+            static const AkUniqueID GROUP = 1829134705U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BONUS = 2356001030U;
+                static const AkUniqueID MALUS = 1680241497U;
+                static const AkUniqueID NEUTRAL = 670611050U;
+            } // namespace SWITCH
+        } // namespace SW_POTION_EFFECT
+
         namespace SW_POTION_TYPE
         {
             static const AkUniqueID GROUP = 371597594U;
@@ -223,8 +279,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID ARTICULATION = 1762926010U;
-                static const AkUniqueID BONUS = 2356001030U;
-                static const AkUniqueID MALUS = 1680241497U;
+                static const AkUniqueID REFRAMING = 4151661552U;
             } // namespace SWITCH
         } // namespace SW_POTION_TYPE
 
@@ -241,6 +296,8 @@ namespace AK
         static const AkUniqueID RTPC_INTENSITY_PERCUSSIONS = 2676178657U;
         static const AkUniqueID RTPC_INTENSITY_STRINGS = 234013449U;
         static const AkUniqueID RTPC_INTENSITY_WOODS = 1164038749U;
+        static const AkUniqueID RTPC_MAGNITUDE_WAND = 2031172628U;
+        static const AkUniqueID RTPC_PLAYER_SCORE = 3288717071U;
         static const AkUniqueID RTPC_POTION_SPEED = 2031370766U;
         static const AkUniqueID RTPC_SETVOLUME_MASTER = 1866890756U;
         static const AkUniqueID RTPC_SETVOLUME_METRONOME = 1832739962U;
