@@ -199,8 +199,13 @@ public class SoundEngineTuner : MonoBehaviour
         return m_IntensityRanges[InstrumentFamily.IntensityType.MezzoForte];
     }
 
+    /* SCORE */
+    public void UpdateScore(float score)
+    {
+        AkSoundEngine.SetRTPCValue("RTPC_Player_Score", score);
+    }
+    
     /* SETTINGS */
-
     public void SetVolume(string volumeId, float value)
     {
         AkSoundEngine.SetRTPCValue("RTPC_SetVolume_" + volumeId, value);
