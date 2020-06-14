@@ -100,6 +100,11 @@ public class SoundEngineTuner : MonoBehaviour
     {
         return m_TempoRanges[type].value;
     }
+
+    public void SetWandSpeed(float wandSpeed)
+    {
+        AkSoundEngine.SetRTPCValue("RTPC_Magnitude_Wand", wandSpeed);
+    }
     
     //Used to describe the min and max bpm ranges of a type, and the value that should be send to the RTPC
     public struct RTPCRange<T>
