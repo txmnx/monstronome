@@ -14,6 +14,7 @@ public class ToastsSlider : XRSlider
         
     [Header("SFX")]
     public GameObject toasterSoundReference;
+    public AK.Wwise.Event SFXOnSliderExtremity;
     public AK.Wwise.Event SFXOnToasterIn;
     public AK.Wwise.Event SFXOnToasterOut;
 
@@ -34,6 +35,7 @@ public class ToastsSlider : XRSlider
                 if (!animators[0].GetBool(m_ShowPropertyID)) {
                     SFXOnToasterOut.Post(toasterSoundReference);
                 }
+                SFXOnSliderExtremity.Post(gameObject);
                 xrGrabber.HapticImpulse(0.4f, 0.01f);   
             }
             
@@ -48,6 +50,7 @@ public class ToastsSlider : XRSlider
                 if (animators[0].GetBool(m_ShowPropertyID)) {
                     SFXOnToasterIn.Post(toasterSoundReference);
                 }
+                SFXOnSliderExtremity.Post(gameObject);
                 xrGrabber.HapticImpulse(0.4f, 0.01f);   
             }
             
