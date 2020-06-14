@@ -21,6 +21,10 @@ public abstract class InstrumentFamily : MonoBehaviour
     public SpriteRenderer highlightHintRenderer;
     public DrawableReframingRules drawableReframingRules;
     private bool m_CanDisableHighlightHint = true;
+
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnEnterHighlight;
+    public AK.Wwise.Event SFXOnExitHighlight;
     
     public enum ArticulationType
     {
@@ -169,11 +173,13 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         highlightHintRenderer.enabled = false;
         drawableReframingRules.gameObject.SetActive(true);
+        SFXOnEnterHighlight.Post(gameObject);
     }
     
     public void OnExitHighlight()
     {
         drawableReframingRules.gameObject.SetActive(false);
+        SFXOnExitHighlight.Post(gameObject);
     }
 
     public void StartPlaying()
