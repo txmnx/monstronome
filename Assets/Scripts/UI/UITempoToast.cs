@@ -23,11 +23,12 @@ public class UITempoToast : UIToast
     [Header("Step Colors")]
     public MeshRenderer[] stepRenderers = new MeshRenderer[4];
     private MeshRenderer m_CurrentHighlightStepRenderer;
-
-
+    
     [Header("DEGUG")] 
     public SoundEngineTuner soundEngineTuner;
     public bool fixedPointerPosition = false;
+    
+    private InstrumentFamily.TempoType m_PrevType;
     
     
     protected override void Awake()
@@ -43,7 +44,7 @@ public class UITempoToast : UIToast
         m_CurrentPointerRot = -125.0f;
     }
 
-    public void Draw(InstrumentFamily.TempoType currentType, InstrumentFamily.TempoType ruleType, float bpm, bool isTransition = false)
+    public void Draw(InstrumentFamily.TempoType currentType, InstrumentFamily.TempoType ruleType, float bpm, bool isTransition = false, bool playSFX = false)
     {
         if (currentType == ruleType) {
             if (isTransition) {
@@ -56,9 +57,14 @@ public class UITempoToast : UIToast
             }
             
             UIOk.SetActive(true);
-            
             UISlowDown.SetActive(false);
             UISpeedUp.SetActive(false);
+            
+            if (playSFX) {
+                if (currentType != m_PrevType && m_PrevType != ruleType) {
+                    SFXOnParameterFromWrongToGood.Post(toasterSoundReference);
+                }
+            }
         }
         else {
             if (isTransition) {
@@ -72,6 +78,12 @@ public class UITempoToast : UIToast
             
             UIOk.SetActive(false);
 
+            if (playSFX) {
+                if (currentType != m_PrevType && m_PrevType == ruleType) {
+                    SFXOnParameterFromGoodToWrong.Post(toasterSoundReference);
+                }
+            }
+            
             if (currentType < ruleType) {
                 UISlowDown.SetActive(false);
                 UISpeedUp.SetActive(true);
@@ -96,6 +108,8 @@ public class UITempoToast : UIToast
         }
         m_PointerAnimationCoroutine = StartCoroutine(PointerAnimation(aimedBPM));
         HighlightStep(stepRenderers[(int)ruleType]);
+
+        m_PrevType = currentType;
     }
 
     private IEnumerator PointerAnimation(float aimedBPM)
