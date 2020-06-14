@@ -67,6 +67,11 @@ public class XRGrabber : MonoBehaviour
             }
         }
     }
+
+    public virtual Vector3 GetPivot()
+    {
+        return transform.position;
+    }
     
     public Vector3 velocity
     {

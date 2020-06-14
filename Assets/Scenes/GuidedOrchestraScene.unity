@@ -690,7 +690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193068635}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.018, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 694914531}
@@ -7479,6 +7479,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1398666017}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1411775265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411775266}
+  m_Layer: 0
+  m_Name: PivotGrab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1411775266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411775265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0583, y: 0.0102, z: 0.1103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 694914531}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1436934967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6170869960932521869, guid: aacb927a69a8ea048a67ca9449873dfa,
@@ -8437,6 +8467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackingSpace: {fileID: 1504346132}
   throwPower: 1.25
+  pivotPoint: {fileID: 1411775266}
   leftArm: {fileID: 694914534}
   rightArm: {fileID: 694914533}
   leftAnchors:
@@ -8445,6 +8476,11 @@ MonoBehaviour:
   rightAnchors:
   - {fileID: 1486326792}
   - {fileID: 3656573}
+  SFXOnEmptyGrab:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 187fda8c85bd53d41987ce4c5cb379cd,
+      type: 2}
 --- !u!114 &1968274598
 MonoBehaviour:
   m_ObjectHideFlags: 0

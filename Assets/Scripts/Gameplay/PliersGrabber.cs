@@ -8,12 +8,16 @@ using UnityEngine.XR;
  */
 public class PliersGrabber : XRGrabber
 {
+    [Header("Pivot")]
+    public Transform pivotPoint;
+    
     [Header("Animation")] public Transform leftArm;
     public Transform rightArm;
     public Transform[] leftAnchors = new Transform[2];
     public Transform[] rightAnchors = new Transform[2];
 
-    [Header("SFX")] public AK.Wwise.Event SFXOnEmptyGrab;
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnEmptyGrab;
 
     private Quaternion[] m_LeftAnchorsRot;
     private Quaternion[] m_RightAnchorsRot;
@@ -52,5 +56,10 @@ public class PliersGrabber : XRGrabber
                 }
             }
         }
+    }
+    
+    public override Vector3 GetPivot()
+    {
+        return pivotPoint.position;
     }
 }
