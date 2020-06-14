@@ -142,20 +142,28 @@ public class SoundEngineTuner : MonoBehaviour
         */
     }
 
-    /* POTIONS */
-    public void SetSwitchPotionType(string type, GameObject referenceObject)
+    public enum SFXPotionType
     {
-        AkSoundEngine.SetSwitch("SW_Potion_Type", type, referenceObject);
+        Articulation,
+        Reframing
     }
     
-    public void SetSwitchPotionBonusMalus(bool bonus, GameObject referenceObject)
+    /* POTIONS */
+    public void SetSwitchPotionType(SFXPotionType type, GameObject referenceObject)
     {
-        if (bonus) {
-            AkSoundEngine.SetSwitch("SW_Potion_Effect", "Bonus", referenceObject);
-        }
-        else {
-            AkSoundEngine.SetSwitch("SW_Potion_Effect", "Malus", referenceObject);
-        }
+        AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), referenceObject);
+    }
+
+    public enum SFXPotionScoreType
+    {
+        Bonus,
+        Malus,
+        Neutral
+    }
+    
+    public void SetSwitchPotionBonusMalus(SFXPotionScoreType sfxType, GameObject referenceObject)
+    {
+        AkSoundEngine.SetSwitch("SW_Potion_Effect", sfxType.ToString(), referenceObject);
     }
     
     //TODO : SetPotionSpeed

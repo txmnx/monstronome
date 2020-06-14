@@ -109,7 +109,7 @@ public class ReframingManager : MonoBehaviour
                     if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
                         m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
 
-                        soundEngineTuner.SetSwitchPotionBonusMalus(true, potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion.gameObject);
                         SFXOnPotionRight.Post(potion.gameObject);
 
                         if ((int) m_CurrentDegradationState > 1) {
@@ -127,7 +127,7 @@ public class ReframingManager : MonoBehaviour
                     }
                     else {
                         //Failure
-                        soundEngineTuner.SetSwitchPotionBonusMalus(false, potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Malus, potion.gameObject);
                         SFXOnPotionWrong.Post(potion.gameObject);
 
                         m_ReframingPotionIndex = 0;

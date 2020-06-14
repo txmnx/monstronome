@@ -128,7 +128,12 @@ public class ConductingRulesManager : MonoBehaviour
             guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition, fromPotion);
 
         if (fromPotion) {
-            soundEngineTuner.SetSwitchPotionBonusMalus(m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType, potion);
+            if (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType) {
+                soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion);
+            }
+            else {
+                soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Malus, potion);
+            }
         }
     }
 
