@@ -14,6 +14,9 @@ public class BreakableObject : MonoBehaviour
     public Transform defaultObject;
     public Transform breakedObject;
     public float speedUntilBreak = 4.0f;
+    public float explosionForceFactor = 1.2f;
+    public float explosionRadius = 2.0f;
+    public float upwardsModifier = 2.0f;
     
     [Header("VFX")]
     public Transform particlesAnimation;
@@ -44,9 +47,9 @@ public class BreakableObject : MonoBehaviour
         if (speed > speedUntilBreak) {
             breakedObject.gameObject.SetActive(true);
 
-            float explosionForce = speed * speed * 0.5f;
+            float explosionForce = speed * speed * explosionForceFactor;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
-                rb.AddExplosionForce(explosionForce, breakedObject.position, 2.0f, 15.0f);
+                rb.AddExplosionForce(explosionForce, breakedObject.position, explosionRadius, upwardsModifier);
             }
             m_Rigidbody.isKinematic = true;
             
