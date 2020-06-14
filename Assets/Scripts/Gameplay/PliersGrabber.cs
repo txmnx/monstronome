@@ -44,7 +44,7 @@ public class PliersGrabber : XRGrabber
             rightArm.localRotation = Quaternion.Lerp(m_RightAnchorsRot[0], m_RightAnchorsRot[1], value);
 
             if (m_IsEmptyGrabbing) {
-                if (value > 0.99999f) {
+                if (value > 0.99f) {
                     if (!m_HasEmptyGrabbed) {
                         SFXOnEmptyGrab.Post(gameObject);
                     }
