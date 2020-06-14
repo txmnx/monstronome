@@ -16,14 +16,15 @@ public class HandsHeightChecker : MonoBehaviour
     private enum RaiseHandMode
     {
         Raised,
-        Low
+        Low,
+        Other
     }
 
     private RaiseHandMode m_CurrentRaiseMode;
 
     private void Awake()
     {
-        m_CurrentRaiseMode = RaiseHandMode.Low;
+        m_CurrentRaiseMode = RaiseHandMode.Other;
     }
 
     private void Update()
@@ -34,12 +35,12 @@ public class HandsHeightChecker : MonoBehaviour
             if (m_CurrentRaiseMode == RaiseHandMode.Raised) {
                 OnRaiseHand?.Invoke();
             }
-            else {
+            else if (m_CurrentRaiseMode == RaiseHandMode.Low) {
                 m_CurrentRaiseMode = RaiseHandMode.Raised;
                 OnEnterRaiseHand?.Invoke();
             }
         }
-        else {
+        else if (leftHand.position.y < height && rightHand.position.y < height) {
             if (m_CurrentRaiseMode != RaiseHandMode.Low) {
                 OnExitRaiseHand?.Invoke();
                 m_CurrentRaiseMode = RaiseHandMode.Low;
