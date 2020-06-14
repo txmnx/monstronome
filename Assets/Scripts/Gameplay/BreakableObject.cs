@@ -49,7 +49,7 @@ public class BreakableObject : MonoBehaviour
 
             float explosionForce = speed * speed * explosionForceFactor;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
-                rb.AddExplosionForce(explosionForce, breakedObject.position, explosionRadius, upwardsModifier);
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier);
             }
             m_Rigidbody.isKinematic = true;
             
