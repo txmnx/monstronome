@@ -17,6 +17,8 @@ public class BreakableObject : MonoBehaviour
     public float explosionForceFactor = 1.2f;
     public float explosionRadius = 2.0f;
     public float upwardsModifier = 2.0f;
+    private bool m_HasBroken = false;
+    
     
     [Header("VFX")]
     public Transform particlesAnimation;
@@ -43,6 +45,8 @@ public class BreakableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (m_HasBroken) return;
+        
         float speed = other.relativeVelocity.magnitude;
         if (speed > speedUntilBreak) {
             breakedObject.gameObject.SetActive(true);
@@ -65,6 +69,7 @@ public class BreakableObject : MonoBehaviour
             OnBreak(other);
             SFXOnObjectBreak.Post(gameObject);
             
+            m_HasBroken = true;
             Destroy(defaultObject.gameObject);
             Destroy(this);
             Destroy(this.GetComponent<XRGrabbable>());
