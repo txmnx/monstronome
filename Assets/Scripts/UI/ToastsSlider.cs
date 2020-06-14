@@ -9,7 +9,7 @@ using UnityEngine;
 public class ToastsSlider : XRSlider
 {
     [Header("Toasts")]
-    public Animator[] animators = new Animator[3];
+    public UIToast[] toasts = new UIToast[3];
     private int m_ShowPropertyID;
         
     [Header("SFX")]
@@ -20,42 +20,36 @@ public class ToastsSlider : XRSlider
 
     private bool m_IsOnExtremity = false;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        m_ShowPropertyID = Animator.StringToHash("show");
-    }
-
     public override void OnUpdateGrab(XRGrabber xrGrabber)
     {
         base.OnUpdateGrab(xrGrabber);
 
         if (value > 0.99f) {
             if (!m_IsOnExtremity) {
-                if (!animators[0].GetBool(m_ShowPropertyID)) {
+                if (!toasts[0].isAnimShow) {
                     SFXOnToasterOut.Post(toasterSoundReference);
                 }
                 SFXOnSliderExtremity.Post(gameObject);
                 xrGrabber.HapticImpulse(0.4f, 0.01f);   
             }
             
-            foreach (Animator animator in animators) {
-                animator.SetBool(m_ShowPropertyID, true);
+            foreach (UIToast toast in toasts) {
+                toast.AnimShow(true);
             }
             
             m_IsOnExtremity = true;
         }
         else if (value < 0.01f) {
             if (!m_IsOnExtremity) {
-                if (animators[0].GetBool(m_ShowPropertyID)) {
+                if (toasts[0].isAnimShow) {
                     SFXOnToasterIn.Post(toasterSoundReference);
                 }
                 SFXOnSliderExtremity.Post(gameObject);
                 xrGrabber.HapticImpulse(0.4f, 0.01f);   
             }
             
-            foreach (Animator animator in animators) {
-                animator.SetBool(m_ShowPropertyID, false);
+            foreach (UIToast toast in toasts) {
+                toast.AnimShow(false);
             }
             
             m_IsOnExtremity = true;

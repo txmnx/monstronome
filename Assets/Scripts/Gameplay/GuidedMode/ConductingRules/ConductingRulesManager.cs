@@ -121,29 +121,29 @@ public class ConductingRulesManager : MonoBehaviour
     }
 
     /* Callbacks */
-    public void OnArticulationChange(InstrumentFamily.ArticulationType type, bool usePotionReference, GameObject potion)
+    public void OnArticulationChange(InstrumentFamily.ArticulationType type, bool fromPotion, GameObject potion)
     {
         m_CurrentOrchestraState.articulationType = type;
         UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, 
-            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition, fromPotion);
 
-        if (usePotionReference) {
+        if (fromPotion) {
             soundEngineTuner.SetSwitchPotionBonusMalus(m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType, potion);
         }
     }
 
-    public void OnTempoChange(InstrumentFamily.TempoType type, float bpm)
+    public void OnTempoChange(InstrumentFamily.TempoType type, float bpm, bool fromConducting)
     {
         m_CurrentOrchestraState.tempoType = type;
         UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, bpm,
-            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
     }
     
-    public void OnIntensityChange(InstrumentFamily.IntensityType type)
+    public void OnIntensityChange(InstrumentFamily.IntensityType type, bool fromConducting)
     {
         m_CurrentOrchestraState.intensityType = type;
         UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, 
-            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition);
+            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
     }
 
     public void DrawRules()

@@ -50,7 +50,7 @@ public class TempoManager : MonoBehaviour
         soundEngineTuner.SetTempo(bpm);
         UpdateAnimationSpeed();
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
-        OnTempoChange?.Invoke(m_CurrentTempoType, bpm);
+        OnTempoChange?.Invoke(m_CurrentTempoType, bpm, false);
     }
 
     //We can't change tempo if the orchestra hasn't started
@@ -88,7 +88,7 @@ public class TempoManager : MonoBehaviour
     private void UpdateTempo()
     {
         SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
-        OnTempoChange?.Invoke(tempoRange.type, bpm);
+        OnTempoChange?.Invoke(tempoRange.type, bpm, true);
         
         //TODO : DEBUG
         if (DebugInteractionModes.tempoInteractionModeRef == DebugInteractionModes.TempoInteractionMode.Dynamic) {
@@ -116,5 +116,5 @@ public class TempoManager : MonoBehaviour
     }
 
     /* Events */
-    public Action<InstrumentFamily.TempoType, float> OnTempoChange;
+    public Action<InstrumentFamily.TempoType, float, bool> OnTempoChange;
 }
