@@ -32,11 +32,11 @@ public class UICircleBeat : MonoBehaviour
     public void OnBeat()
     {
         if (currentSide == BeatPlaneSide.Left) {
-            Debug.Log("Exit Beat");
+            Debug.Log("Enter Beat");
             Impulse();
         }
         else {
-            Debug.Log("Enter Beat");
+            Debug.Log("Exit Beat");
             Impulse();
         }
     }

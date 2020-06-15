@@ -20,7 +20,7 @@ public class XRBeatDetector : MonoBehaviour
     private XRCustomController m_Controller;
 
     /* BEAT DETECTION TIMER */
-    private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
+    private float m_TimeBetweenBeatDetection = 1.0f / 90.0f;
     private float m_TimeSinceLastBeatDetection = 0.0f;
 
     /* BEAT PLANE */
