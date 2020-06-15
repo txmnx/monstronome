@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,55 +9,42 @@ using UnityEngine;
  */
 public class DrawableReframingRules : MonoBehaviour
 {
-    public GameObject[] potionDisplays;
-    public Renderer[] potionDisplayRenderers;
+    public UIReframingToast[] reframingToasts;
+    public Material greenMaterial;
+    public Material yellowMaterial;
+    public Material redMaterial;
+    public Material blackMaterial;
     
-    //TODO : draw something else than text
-    private TextMeshPro[] m_PotionRuleTexts;
+    private Material m_DefaultMaterial;
 
-    private MaterialPropertyBlock m_Block;
-    private int m_ColorPropertyId;
-    private Color m_BaseColor;
-    
-    
-    public void Init()
+    private void Awake()
     {
-        m_PotionRuleTexts = new TextMeshPro[potionDisplays.Length];
-        
-        for (int i = 0; i < potionDisplays.Length; ++i) {
-            m_PotionRuleTexts[i] = potionDisplays[i].GetComponentInChildren<TextMeshPro>();
-        }
-
-        m_Block = new MaterialPropertyBlock();
-        m_ColorPropertyId = Shader.PropertyToID("_EmissionColor");
-        m_BaseColor = potionDisplayRenderers[0].material.GetColor(m_ColorPropertyId);
+        m_DefaultMaterial = reframingToasts[0].backgroundMaterial.material;
     }
 
     public void Show(bool show)
     {
-        foreach (GameObject display in potionDisplays) {
-            display.SetActive(show);
+        foreach (UIReframingToast display in reframingToasts) {
+            display.gameObject.SetActive(show);
         }
     }
     
     public void DrawReframingRule(ReframingManager.ReframingRules reframingRules)
     {
         for (int i = 0; i < reframingRules.rules.Length; ++i) {
-            m_PotionRuleTexts[i].text = reframingRules.rules[i].ToString();
+            reframingToasts[i].ShowPotion(reframingRules.rules[i]);
         }
-    }
+    }    
 
     public void ResetColors()
     {
-        foreach (Renderer rend in potionDisplayRenderers) {
-            m_Block.SetColor(m_ColorPropertyId, m_BaseColor);
-            rend.SetPropertyBlock(m_Block);
+        foreach (UIReframingToast display in reframingToasts) {
+            display.SetMaterial(m_DefaultMaterial);
         }
     }
     
-    public void HighlightRule(int ruleID, Color color)
+    public void HighlightRule(int ruleID, Material material)
     {
-        m_Block.SetColor(m_ColorPropertyId, color);
-        potionDisplayRenderers[ruleID].SetPropertyBlock(m_Block);
+        reframingToasts[ruleID].SetMaterial(material);
     }
 }
