@@ -35,25 +35,23 @@ public class XRGrabber : MonoBehaviour
     {
         if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed)) {
             if (triggerPressed) {
-                if (!m_HasEmptyGrabbed) {
-                    if (!m_IsGrabbing) {
-                        if (m_HighlightedObjects.Count > 0) {
-                            if (m_HighlightedObjects[0] == null) {
-                                m_HighlightedObjects.RemoveAt(0);
-                            }
-                            else {
-                                m_SelectedObject = m_HighlightedObjects[0];
-                                m_SelectedObject.OnEnterGrab(this);
-                                m_IsGrabbing = true;
-                            }
+                if (!m_IsGrabbing) {
+                    if (m_HighlightedObjects.Count > 0) {
+                        if (m_HighlightedObjects[0] == null) {
+                            m_HighlightedObjects.RemoveAt(0);
                         }
                         else {
-                            m_IsEmptyGrabbing = true;
+                            m_SelectedObject = m_HighlightedObjects[0];
+                            m_SelectedObject.OnEnterGrab(this);
+                            m_IsGrabbing = true;
                         }
                     }
                     else {
-                        m_SelectedObject.OnUpdateGrab(this);
+                        m_IsEmptyGrabbing = true;
                     }
+                }
+                else {
+                    m_SelectedObject.OnUpdateGrab(this);
                 }
             }
             else {
