@@ -46,7 +46,7 @@ public class XRSlider : XRGrabbable
     
     public override void OnUpdateGrab(XRGrabber xrGrabber)
     {
-        Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.transform.position);
+        Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.GetPivot());
         
         if (nextPos.x > m_CachedMax.x) {
             nextPos = m_CachedMax;

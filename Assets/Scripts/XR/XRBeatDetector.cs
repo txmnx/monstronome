@@ -76,7 +76,7 @@ public class XRBeatDetector : MonoBehaviour
         m_CurrentSide = BeatPlaneSide.None;
     }
 
-    public void OnConducting()
+    public void OnConducting(float wandSpeed)
     {
         if (m_TimeSinceLastBeatDetection > m_TimeBetweenBeatDetection) {
             DetectBeat();

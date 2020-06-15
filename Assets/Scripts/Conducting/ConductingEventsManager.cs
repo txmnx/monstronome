@@ -10,7 +10,7 @@ public class ConductingEventsManager : MonoBehaviour
 {
     /* Events */
     public event Action OnBeginConducting;
-    public event Action OnConducting;
+    public event Action<float> OnConducting;
     public event Action OnEndConducting;
 
     [HideInInspector]
@@ -49,10 +49,10 @@ public class ConductingEventsManager : MonoBehaviour
         }
     }
 
-    public void PostOnConducting()
+    public void PostOnConducting(float magnitude)
     {
         if (m_CanDirect) {
-            OnConducting?.Invoke();
+            OnConducting?.Invoke(magnitude);
         }
     }
 
