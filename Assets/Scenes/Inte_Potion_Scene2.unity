@@ -2410,6 +2410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76a5a43c7091584ab8f5ea20d48a72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 0}
   scoreText: {fileID: 1302881281}
 --- !u!114 &348619500
 MonoBehaviour:
@@ -5448,6 +5449,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8415722397462854933, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 24.336
+      objectReference: {fileID: 0}
     - target: {fileID: 8736769903479347763, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
         type: 3}
       propertyPath: m_Mesh
@@ -6903,6 +6909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc048cfb9ce461448dc14cf89346b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 0}
   conductingEventsManager: {fileID: 348619493}
   batonTop: {fileID: 1084374022}
   beatPlane: {fileID: 987707073}
