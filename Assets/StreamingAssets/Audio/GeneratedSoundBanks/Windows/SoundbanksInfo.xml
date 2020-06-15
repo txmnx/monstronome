@@ -7789,7 +7789,7 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.086169" DurationMax="1.767584">
+				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.934705" DurationMax="1.521097">
 					<ExcludedMemoryFiles>
 						<File Id="190567203" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Toaster_Out-04.wav</ShortName>
@@ -7817,7 +7817,7 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="1636980706" Name="SFX_Feedback_LightOn" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.061361" DurationMax="1.727212">
+				<Event Id="1636980706" Name="SFX_Feedback_LightOn" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.606081" DurationMax="0.986309">
 					<ExcludedMemoryFiles>
 						<File Id="190567203" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Toaster_Out-04.wav</ShortName>
@@ -7958,7 +7958,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="345071173" Name="SFX_Potion_Collision" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Collision" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.263577" DurationMax="0.492774">
+				<Event Id="345071173" Name="SFX_Potion_Collision" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Collision" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.128537" DurationMax="0.492774">
 					<ExcludedMemoryFiles>
 						<File Id="340746061" Language="SFX">
 							<ShortName>SFX\Potion\Collision\SFX_Bottle_Collision.wav</ShortName>
@@ -8022,47 +8022,71 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.094113" DurationMax="0.245095">
+				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.076907" DurationMax="0.222525">
 					<ExcludedMemoryFiles>
-						<File Id="70839581" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-07.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-07_A8D79311.wem</Path>
+						<File Id="25064836" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-02.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-02_A8D79311.wem</Path>
 						</File>
-						<File Id="138981673" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-09.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-09_A8D79311.wem</Path>
+						<File Id="41365225" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-01.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-01_A8D79311.wem</Path>
 						</File>
-						<File Id="161931192" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-05.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-05_A8D79311.wem</Path>
+						<File Id="208745225" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-06.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-06_A8D79311.wem</Path>
 						</File>
-						<File Id="255445175" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-03.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-03_A8D79311.wem</Path>
+						<File Id="478563358" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-12.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-12_A8D79311.wem</Path>
 						</File>
-						<File Id="464737412" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty_A8D79311.wem</Path>
+						<File Id="571997984" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-07.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-07_A8D79311.wem</Path>
 						</File>
-						<File Id="502756542" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-08.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-08_A8D79311.wem</Path>
+						<File Id="640830905" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-03.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-03_A8D79311.wem</Path>
 						</File>
-						<File Id="537670738" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-06.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-06_A8D79311.wem</Path>
+						<File Id="656575172" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-04.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-04_A8D79311.wem</Path>
 						</File>
-						<File Id="769345484" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-01.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-01_A8D79311.wem</Path>
+						<File Id="728055922" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-10.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-10_A8D79311.wem</Path>
 						</File>
-						<File Id="785581916" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-04.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-04_A8D79311.wem</Path>
+						<File Id="739941147" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-14.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-14_A8D79311.wem</Path>
 						</File>
-						<File Id="869357826" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-02.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-02_A8D79311.wem</Path>
+						<File Id="767059731" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-11.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-11_A8D79311.wem</Path>
+						</File>
+						<File Id="767429482" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-08.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-08_A8D79311.wem</Path>
+						</File>
+						<File Id="851650110" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-09.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-09_A8D79311.wem</Path>
+						</File>
+						<File Id="931009963" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-15.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-15_A8D79311.wem</Path>
+						</File>
+						<File Id="974604381" Language="SFX">
+							<ShortName>SFX\Claw\Piliers.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers_A8D79311.wem</Path>
+						</File>
+						<File Id="1001457071" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-13.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-13_A8D79311.wem</Path>
+						</File>
+						<File Id="1059092829" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-05.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-05_A8D79311.wem</Path>
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
@@ -14325,7 +14349,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.086169" DurationMax="1.767584">
+				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.934705" DurationMax="1.521097">
 					<IncludedMemoryFiles>
 						<File Id="190567203" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Toaster_Out-04.wav</ShortName>
@@ -14353,7 +14377,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1636980706" Name="SFX_Feedback_LightOn" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.061361" DurationMax="1.727212">
+				<Event Id="1636980706" Name="SFX_Feedback_LightOn" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.606081" DurationMax="0.986309">
 					<IncludedMemoryFiles>
 						<File Id="190567203" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Toaster_Out-04.wav</ShortName>
@@ -14494,7 +14518,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="345071173" Name="SFX_Potion_Collision" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Collision" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.263577" DurationMax="0.492774">
+				<Event Id="345071173" Name="SFX_Potion_Collision" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Collision" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.128537" DurationMax="0.492774">
 					<IncludedMemoryFiles>
 						<File Id="340746061" Language="SFX">
 							<ShortName>SFX\Potion\Collision\SFX_Bottle_Collision.wav</ShortName>
@@ -14558,47 +14582,71 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.094113" DurationMax="0.245095">
+				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.076907" DurationMax="0.222525">
 					<IncludedMemoryFiles>
-						<File Id="70839581" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-07.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-07_A8D79311.wem</Path>
+						<File Id="25064836" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-02.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-02_A8D79311.wem</Path>
 						</File>
-						<File Id="138981673" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-09.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-09_A8D79311.wem</Path>
+						<File Id="41365225" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-01.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-01_A8D79311.wem</Path>
 						</File>
-						<File Id="161931192" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-05.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-05_A8D79311.wem</Path>
+						<File Id="208745225" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-06.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-06_A8D79311.wem</Path>
 						</File>
-						<File Id="255445175" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-03.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-03_A8D79311.wem</Path>
+						<File Id="478563358" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-12.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-12_A8D79311.wem</Path>
 						</File>
-						<File Id="464737412" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty_A8D79311.wem</Path>
+						<File Id="571997984" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-07.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-07_A8D79311.wem</Path>
 						</File>
-						<File Id="502756542" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-08.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-08_A8D79311.wem</Path>
+						<File Id="640830905" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-03.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-03_A8D79311.wem</Path>
 						</File>
-						<File Id="537670738" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-06.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-06_A8D79311.wem</Path>
+						<File Id="656575172" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-04.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-04_A8D79311.wem</Path>
 						</File>
-						<File Id="769345484" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-01.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-01_A8D79311.wem</Path>
+						<File Id="728055922" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-10.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-10_A8D79311.wem</Path>
 						</File>
-						<File Id="785581916" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-04.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-04_A8D79311.wem</Path>
+						<File Id="739941147" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-14.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-14_A8D79311.wem</Path>
 						</File>
-						<File Id="869357826" Language="SFX">
-							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-02.wav</ShortName>
-							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-02_A8D79311.wem</Path>
+						<File Id="767059731" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-11.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-11_A8D79311.wem</Path>
+						</File>
+						<File Id="767429482" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-08.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-08_A8D79311.wem</Path>
+						</File>
+						<File Id="851650110" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-09.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-09_A8D79311.wem</Path>
+						</File>
+						<File Id="931009963" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-15.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-15_A8D79311.wem</Path>
+						</File>
+						<File Id="974604381" Language="SFX">
+							<ShortName>SFX\Claw\Piliers.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers_A8D79311.wem</Path>
+						</File>
+						<File Id="1001457071" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-13.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-13_A8D79311.wem</Path>
+						</File>
+						<File Id="1059092829" Language="SFX">
+							<ShortName>SFX\Claw\Piliers-05.wav</ShortName>
+							<Path>SFX\SFX\Claw\Piliers-05_A8D79311.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
