@@ -9,47 +9,37 @@ using UnityEngine.XR;
 [RequireComponent(typeof(XRCustomController))]
 public class XRBeatDetector : MonoBehaviour
 {
+    [Header("Binding")]
     public BeatManager beatManager;
     public ConductingEventsManager conductingEventsManager;
-    public Transform beatPlaneSFX;
     public Transform mainCamera;
-    public Transform beatPositionDetection;
 
+    [Header("Tip")]
+    public Transform beatPositionDetection;
+    
     private XRCustomController m_Controller;
 
+    /* BEAT DETECTION TIMER */
     private float m_TimeBetweenBeatDetection = 1.0f / 30.0f;
     private float m_TimeSinceLastBeatDetection = 0.0f;
 
-    //DEBUG - MODES
+    /* BEAT PLANE */
     private Vector3 m_camUpAtBeginDirecting;
-    private Plane m_CurrentBeatPlane;
-    private Plane m_BeatPlane
-    {
-        //DEBUG - MODES
-        //We recompute the plane on each frame because we want to test if it works if the plane "follows" the eye
-        get {
-            if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
-                m_CurrentBeatPlane = new Plane(Vector3.Cross(mainCamera.forward, Vector3.up), beatPlaneSFX.position);
-            }
-            return m_CurrentBeatPlane;
-        }
-        set {
-            m_CurrentBeatPlane = value;
-        }
-    }
+    private Plane m_BeatPlane;
 
-    private enum BeatPlaneSide { Left, Right, None };
-    private BeatPlaneSide m_CurrentSide;
+    /* AMPLITUDE COMPUTATION */
     private Vector3[] m_MaximumGesturePoints;
     private int m_MaximumGesturePointIndex;
     private float m_Amplitude;
-
     
-    //DEBUG
-    [Header("Circles")]
-    private Color m_DefaultCircleColor;
-    public SpriteRenderer circleBeat;
-    public Color onBeatCircleColor;
+    [Header("Beat Circles")]
+    public Transform beatPlaneTransform;
+    public UICircleBeat mainCircleBeat;
+    public UICircleBeat left1CircleBeat;
+    public UICircleBeat left2CircleBeat;
+    public UICircleBeat right1CircleBeat;
+    public UICircleBeat right2CircleBeat;
+    
     
     private void Start()
     {
@@ -58,30 +48,31 @@ public class XRBeatDetector : MonoBehaviour
         conductingEventsManager.OnEndConducting += OnEndConducting;
 
         m_Controller = GetComponent<XRCustomController>();
-
-        m_CurrentSide = BeatPlaneSide.Left;
+        
         m_MaximumGesturePoints = new Vector3[2] { Vector3.zero, Vector3.zero };
         m_MaximumGesturePointIndex = 0;
         m_Amplitude = 0.0f;
-        
-        //DEBUG
-        m_DefaultCircleColor = circleBeat.color;
     }
 
     public void OnBeginConducting() {
-        m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, Vector3.up), beatPositionDetection.position);
+        Vector3 planePosition = beatPositionDetection.position;
+        m_BeatPlane = new Plane(Vector3.Cross(mainCamera.forward, Vector3.up), planePosition);
 
         //Beat Plane animation and positioning
-        beatPlaneSFX.gameObject.SetActive(true);
-        beatPlaneSFX.position = beatPositionDetection.position;
-        beatPlaneSFX.forward = m_BeatPlane.normal;
+        beatPlaneTransform.gameObject.SetActive(true);
+        beatPlaneTransform.position = planePosition;
+        beatPlaneTransform.forward = m_BeatPlane.normal;
+        
+        mainCircleBeat.InitPlane(m_BeatPlane);
+        left1CircleBeat.InitPlane();
+        left2CircleBeat.InitPlane();
+        right1CircleBeat.InitPlane();
+        right2CircleBeat.InitPlane();
 
         m_MaximumGesturePoints = new Vector3[2] {
-            beatPositionDetection.position,
-            beatPositionDetection.position
+            planePosition,
+            planePosition
         };
-
-        m_CurrentSide = BeatPlaneSide.None;
     }
 
     public void OnConducting(float wandSpeed)
@@ -91,30 +82,33 @@ public class XRBeatDetector : MonoBehaviour
             m_TimeSinceLastBeatDetection %= m_TimeBetweenBeatDetection;
         }
         m_TimeSinceLastBeatDetection += Time.deltaTime;
-
-
-        //DEBUG - MODES
-        if (DebugInteractionModes.rotationYBeatPlanRef == DebugInteractionModes.RotationYBeatPlan.FollowHeadset) {
-            beatPlaneSFX.forward = Vector3.Cross(mainCamera.forward, Vector3.up);
-        }
     }
 
     public void OnEndConducting()
     {
         //The beat plane disappears
-        beatPlaneSFX.gameObject.SetActive(false);
+        beatPlaneTransform.gameObject.SetActive(false);
     }
 
     private void DetectBeat()
     {
-        BeatPlaneSide side = GetBeatPlaneSide();
-        if (side != m_CurrentSide) {
-            if (m_CurrentSide != BeatPlaneSide.None) {
+        ProcessMainCircleBeat();
+        ProcessCircleBeat(left1CircleBeat);
+        ProcessCircleBeat(left2CircleBeat);
+        ProcessCircleBeat(right1CircleBeat);
+        ProcessCircleBeat(right2CircleBeat);
+    }
+
+    private void ProcessMainCircleBeat()
+    {
+        UICircleBeat.BeatPlaneSide side = mainCircleBeat.GetSide(beatPositionDetection.position);
+        if (side != mainCircleBeat.currentSide) {
+            if (mainCircleBeat.currentSide != UICircleBeat.BeatPlaneSide.None) {
                 OnBeat(m_Amplitude);
                 m_Amplitude = 0;
                 m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
             }
-            m_CurrentSide = side;
+            mainCircleBeat.currentSide = side;
         }
         else {
             float distanceLastMaximum = Vector3.Distance(beatPositionDetection.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
@@ -124,15 +118,12 @@ public class XRBeatDetector : MonoBehaviour
             }
         }
     }
-
-    private BeatPlaneSide GetBeatPlaneSide()
+    private void ProcessCircleBeat(UICircleBeat circleBeat)
     {
-        bool side = m_BeatPlane.GetSide(beatPositionDetection.position);
-        if (side) {
-            return BeatPlaneSide.Right;
-        }
-        else {
-            return BeatPlaneSide.Left;
+        UICircleBeat.BeatPlaneSide side = circleBeat.GetSide(beatPositionDetection.position);
+        if (side != circleBeat.currentSide) {
+            circleBeat.OnBeat();
+            circleBeat.currentSide = side;
         }
     }
 
@@ -148,16 +139,5 @@ public class XRBeatDetector : MonoBehaviour
         }
 
         beatManager.PostOnBeatEvent(amplitude);
-        
-        //DEBUG
-        circleBeat.color = onBeatCircleColor;
-        StartCoroutine(OnBeatEnd());
-    }
-    
-    //DEBUG
-    private IEnumerator OnBeatEnd()
-    {
-        yield return new WaitForSeconds(0.1f);
-        circleBeat.color = m_DefaultCircleColor;
     }
 }
