@@ -225,6 +225,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1728933839	RTPC_SetVolume_Music			\Game_Parameters\SetVolume\RTPC_SetVolume_Music	
 	1832739962	RTPC_SetVolume_Metronome			\Game_Parameters\SetVolume\RTPC_SetVolume_Metronome	
 	1866890756	RTPC_SetVolume_Master			\Game_Parameters\SetVolume\RTPC_SetVolume_Master	
+	2031172628	RTPC_Magnitude_Wand			\Game_Parameters\RTPC_Magnitude_Wand	
 	2031370766	RTPC_Potion_Speed			\Game_Parameters\Feedback\RTPC_Potion_Speed	
 	2676178657	RTPC_Intensity_Percussions			\Game_Parameters\Intensity\RTPC_Intensity_Percussions	
 	3154931128	RTPC_Intensity_Brass			\Game_Parameters\Intensity\RTPC_Intensity_Brass	
@@ -257,6 +258,7 @@ Modulator Time	ID	Name			Wwise Object Path	Notes
 	122980461	Modulator Time (Custom)				
 	202286159	Modulator Time (Custom)				
 	327446465	Modulator Time (Custom)				
+	385327948	Modulator Time (Custom)				
 	521306605	Modulator Time (Custom)				
 	571616076	Modulator Time (Custom)				
 	573953175	Modulator Time (Custom)				
@@ -284,7 +286,6 @@ Effect plug-ins	ID	Name	Type				Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	13250845	Strings	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Midi_BlocStartA_Strings_Staccato_8482A441.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Strings		113
 	14986047	Strings	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\MIDI\BlocMiddle_A\Brass\Midi_BlocMiddleA_Brass_Legato_A0EF7EA5.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Strings		68
-	41800163	MusicMenu	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Music\Menu\MusicMenu_7CB100DF.wem		\Interactive Music Hierarchy\Music\Music_Menu\Music_Menu\MusicMenu		2802975
 	45162288	Midi_BlocMiddleA_Woods_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\MIDI\BlocMiddle_A\Woods\Midi_BlocMiddleA_Woods_Staccato_8F6865AA.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Middle_A\Midi_BlocMiddleA_Woods_Legato		128
 	70839842	Percussions	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Theme_Bloc_End_Divers_B975CF02.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_End_A\Percussions		237
 	70853608	Woods	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Midi_BlocStartA_Woods_Legato_03D1B1F4.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Woods		84
@@ -297,6 +298,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	204010640	Theme	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Midi_Theme_BlocStart_Strings_D237A1A9.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Theme		260
 	215507833	Brass	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Bloc_End_MIDI_Wood_Pizzicato_6237E988.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_End_A\Brass		77
 	232645055	MIDI_Bloc_End_Woods_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Bloc_End_MIDI_Wood_Pizzicato_v_457D80F2.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_End_A\MIDI_Bloc_End_Woods_Legato		90
+	233154889	Music_Menu	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Music\Menu\Music_Menu_7CB100DF.wem		\Interactive Music Hierarchy\Music\Music_Menu\Music_Menu\Music_Menu		6366
 	244324459	Percussions	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Midi_BlocStartA_Percussions_legato_F2AFF20D.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Percussions		142
 	278073638	Woods	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\MIDI\BlocStart_A\Woods\BlocStart_A_Woods_Pizzicato_FA0A54BD.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Start_A\Woods		80
 	314409723	Bloc_Tense_MIDI_Woods_Legato	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Bloc_Tense_MIDI_Wood_Pizzicato_D1FCB593.wmid		\Interactive Music Hierarchy\Music\Music\Music_Timeline\Bloc_Tense_A\Bloc_Tense_MIDI_Woods_Legato		214
@@ -340,11 +342,13 @@ Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	
 	130229035	Play_Tutorial_Voice_10_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_10_A_A8D79311.wem	130229035.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_10_A\Play_Tutorial_Voice_10_A	
 	130245362	Play_Tutorial_Voice_12_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_12_A_A8D79311.wem	130245362.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_12_A\Play_Tutorial_Voice_12_A	
 	170823187	Play_Tutorial_Voice_05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_05_A8D79311.wem	170823187.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_05\Play_Tutorial_Voice_05	
+	233154889	Music_Menu	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Music\Menu\Music_Menu_7CB100DF.wem	233154889.wem	\Interactive Music Hierarchy\Music\Music_Menu\Music_Menu\Music_Menu	
 	426184329	Play_Tutorial_Voice_13_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_13_A_A8D79311.wem	426184329.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_13_A\Play_Tutorial_Voice_13_A	
 	531084856	Play_Tutorial_Voice_06_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_06_A_A8D79311.wem	531084856.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_06_A\Play_Tutorial_Voice_06_A	
 	607881076	Play_Tutorial_Voice_06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_06_A8D79311.wem	607881076.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_06\Play_Tutorial_Voice_06	
 	677409190	Play_Tutorial_Voice_13	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_13_A8D79311.wem	677409190.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_13\Play_Tutorial_Voice_13	
 	716308355	Play_Tutorial_Voice_12	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_12_A8D79311.wem	716308355.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_12\Play_Tutorial_Voice_12	
 	728413185	Play_Tutorial_Voice_02_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_02_A_A8D79311.wem	728413185.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_02_A\Play_Tutorial_Voice_02_A	
+	918373737	Music_Tuning	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Orchestra_Tuning_CDEEE2FF.wem	918373737.wem	\Actor-Mixer Hierarchy\Default Work Unit\Music\Introduction\Music_Tuning	
 	986933918	BrassLegato-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\Instruments\Theme\Brass\BrassLegato-01_A8D79311.wem	986933918.wem	\Actor-Mixer Hierarchy\Default Work Unit\Music\Base_Orchestral\Solist\BlocMiddle\Brass\Legato\BrassLegato-01	
 

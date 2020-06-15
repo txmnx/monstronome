@@ -62,13 +62,11 @@ public abstract class InstrumentFamily : MonoBehaviour
         if (familyAnimators.Length > 0) {
             m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
         }
-
-        drawableReframingRules.Init();
-        drawableReframingRules.gameObject.SetActive(false);
     }
 
     private void Start()
     {
+        drawableReframingRules.gameObject.SetActive(false);
         StartCoroutine(LaunchAnimOffset());
     }
 
