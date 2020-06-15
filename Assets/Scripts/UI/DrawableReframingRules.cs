@@ -20,6 +20,9 @@ public class DrawableReframingRules : MonoBehaviour
     private void Awake()
     {
         m_DefaultMaterial = reframingToasts[0].backgroundMaterial.material;
+        foreach (UIReframingToast display in reframingToasts) {
+            display.Init();
+        }
     }
 
     public void Show(bool show)

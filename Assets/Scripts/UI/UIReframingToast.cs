@@ -10,7 +10,7 @@ public class UIReframingToast : MonoBehaviour
     
     private GameObject m_CurrentPotionUI;
 
-    private void Awake()
+    public void Init()
     {
         m_CurrentPotionUI = potionsSprites[0];
     }
