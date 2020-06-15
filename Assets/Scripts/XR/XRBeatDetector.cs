@@ -13,6 +13,7 @@ public class XRBeatDetector : MonoBehaviour
     public ConductingEventsManager conductingEventsManager;
     public Transform beatPlaneSFX;
     public Transform mainCamera;
+    public Transform beatPositionDetection;
 
     private XRCustomController m_Controller;
 
@@ -43,6 +44,13 @@ public class XRBeatDetector : MonoBehaviour
     private int m_MaximumGesturePointIndex;
     private float m_Amplitude;
 
+    
+    //DEBUG
+    [Header("Circles")]
+    private Color m_DefaultCircleColor;
+    public SpriteRenderer circleBeat;
+    public Color onBeatCircleColor;
+    
     private void Start()
     {
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
@@ -152,11 +160,4 @@ public class XRBeatDetector : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         circleBeat.color = m_DefaultCircleColor;
     }
-    
-    //DEBUG
-    [Header("DEBUG")]
-    public Transform beatPositionDetection;
-    private Color m_DefaultCircleColor;
-    public SpriteRenderer circleBeat;
-    public Color onBeatCircleColor;
 }
