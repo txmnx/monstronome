@@ -46,12 +46,12 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -4822,6 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4527088074206349788}
   - component: {fileID: 3866494026889868261}
+  - component: {fileID: 6776332250861472064}
   m_Layer: 0
   m_Name: Fortissimo Circle 1
   m_TagString: Untagged
@@ -4884,7 +4885,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e0f473a66b39db4c8d3c7564c0bd3ac, type: 3}
-  m_Color: {r: 1, g: 0.09019607, b: 0.13330646, a: 0.5882353}
+  m_Color: {r: 1, g: 0.09019607, b: 0.13330646, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4894,6 +4895,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6776332250861472064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829219669326081313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 1127276386227441805}
+  circleRenderer: {fileID: 3866494026889868261}
+  highlightColor: {r: 1, g: 0.09019607, b: 0.13330646, a: 0.5882353}
+  currentSide: 0
 --- !u!1 &1091580209544980755
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +4921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091580209544980754}
   - component: {fileID: 1091580209544980757}
+  - component: {fileID: 5111108929221759736}
   m_Layer: 0
   m_Name: Pianissimo Circle
   m_TagString: Untagged
@@ -4966,7 +4984,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e0f473a66b39db4c8d3c7564c0bd3ac, type: 3}
-  m_Color: {r: 0.09019607, g: 1, b: 0.23152173, a: 0.5882353}
+  m_Color: {r: 0.09019607, g: 1, b: 0.23152173, a: 0.69803923}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4976,6 +4994,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5111108929221759736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091580209544980755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 1248672030794138032}
+  circleRenderer: {fileID: 1091580209544980757}
+  highlightColor: {r: 0.3504361, g: 0.990566, b: 0.44976655, a: 0.7529412}
+  currentSide: 0
 --- !u!1 &1091580209696264683
 GameObject:
   m_ObjectHideFlags: 0
@@ -5052,6 +5086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091580210290471627}
   - component: {fileID: 1091580210290471626}
+  - component: {fileID: 2124549829970705237}
   m_Layer: 0
   m_Name: MF Circle 2
   m_TagString: Untagged
@@ -5066,14 +5101,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091580210290471624}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 2045975784483089185}
   m_Father: {fileID: 1091580210088668088}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &1091580210290471626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5114,7 +5149,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e0f473a66b39db4c8d3c7564c0bd3ac, type: 3}
-  m_Color: {r: 1, g: 0.886834, b: 0.09019607, a: 0.5882353}
+  m_Color: {r: 1, g: 0.886834, b: 0.09019607, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5124,6 +5159,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2124549829970705237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091580210290471624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 6255039027821371633}
+  circleRenderer: {fileID: 1091580210290471626}
+  highlightColor: {r: 1, g: 0.886834, b: 0.09019607, a: 0.5882353}
+  currentSide: 0
 --- !u!1 &1091580210364986063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5134,6 +5185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091580210364986062}
   - component: {fileID: 1091580210364986065}
+  - component: {fileID: 1061102002237527089}
   m_Layer: 0
   m_Name: MF Circle 1
   m_TagString: Untagged
@@ -5196,7 +5248,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e0f473a66b39db4c8d3c7564c0bd3ac, type: 3}
-  m_Color: {r: 1, g: 0.886834, b: 0.09019607, a: 0.5882353}
+  m_Color: {r: 1, g: 0.886834, b: 0.09019607, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5206,6 +5258,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1061102002237527089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091580210364986063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 4424848549133861990}
+  circleRenderer: {fileID: 1091580210364986065}
+  highlightColor: {r: 1, g: 0.886834, b: 0.09019607, a: 0.5882353}
+  currentSide: 0
 --- !u!1 &2465484469057637582
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,12 +5320,12 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -10028,6 +10096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2935295411210329333}
   - component: {fileID: 8234306378026305157}
+  - component: {fileID: 2533593000712673889}
   m_Layer: 0
   m_Name: Fortissimo Circle 2
   m_TagString: Untagged
@@ -10042,14 +10111,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3140743466088604385}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.2}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
   - {fileID: 8208700804488761866}
   m_Father: {fileID: 1091580210088668088}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &8234306378026305157
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10090,7 +10159,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1e0f473a66b39db4c8d3c7564c0bd3ac, type: 3}
-  m_Color: {r: 1, g: 0.09019607, b: 0.13330646, a: 0.5882353}
+  m_Color: {r: 1, g: 0.09019607, b: 0.13330646, a: 0.2}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10100,6 +10169,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2533593000712673889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140743466088604385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 4283522847762481718}
+  circleRenderer: {fileID: 8234306378026305157}
+  highlightColor: {r: 1, g: 0.09019607, b: 0.13330646, a: 0.5882353}
+  currentSide: 0
 --- !u!1 &6090575910891594263
 GameObject:
   m_ObjectHideFlags: 0
@@ -10146,12 +10231,12 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -14958,12 +15043,12 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -19770,12 +19855,12 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0

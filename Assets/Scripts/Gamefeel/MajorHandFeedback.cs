@@ -14,7 +14,6 @@ public class MajorHandFeedback : MonoBehaviour
 
     private void Start()
     {
-        beatManager.OnBeatMajorHand += OnBeatMajorHand;
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
         conductingEventsManager.OnEndConducting += OnEndConducting;
     }
@@ -28,18 +27,4 @@ public class MajorHandFeedback : MonoBehaviour
     {
         trail.Stop();
     }
-
-    public void OnBeatMajorHand(float amplitudeMove)
-    {
-        UnityEngine.XR.HapticCapabilities capabilities;
-        if (controller.inputDevice.TryGetHapticCapabilities(out capabilities)) {
-            if (capabilities.supportsImpulse) {
-                uint channel = 0;
-                float amplitude = 0.5f;
-                float duration = 0.1f;
-                controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
-            }
-        }
-    }
-
 }

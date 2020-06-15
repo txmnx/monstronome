@@ -3064,6 +3064,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783744659}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &832497850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2533593000712673889, guid: ee9c02dc7f6bb834dbce8ba6f4112fab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379438645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &854011154 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 854011154, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
@@ -4581,12 +4593,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1379438645}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1379438647 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1091580209544980757, guid: ee9c02dc7f6bb834dbce8ba6f4112fab,
+--- !u!114 &1379438647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6776332250861472064, guid: ee9c02dc7f6bb834dbce8ba6f4112fab,
     type: 3}
   m_PrefabInstance: {fileID: 1379438645}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1379438648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2124549829970705237, guid: ee9c02dc7f6bb834dbce8ba6f4112fab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379438645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1379438649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1061102002237527089, guid: ee9c02dc7f6bb834dbce8ba6f4112fab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379438645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1379438650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5111108929221759736, guid: ee9c02dc7f6bb834dbce8ba6f4112fab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379438645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28b1304aee164847b4079f9a44dfa83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1398666017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4794,11 +4848,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatManager: {fileID: 348619487}
   conductingEventsManager: {fileID: 348619493}
-  beatPlaneSFX: {fileID: 1379438646}
   mainCamera: {fileID: 224941988}
   beatPositionDetection: {fileID: 1218920007}
-  circleBeat: {fileID: 1379438647}
-  onBeatCircleColor: {r: 1, g: 0.95370364, b: 0, a: 0.6862745}
+  beatPlaneTransform: {fileID: 1379438646}
+  mainCircleBeat: {fileID: 1379438650}
+  left1CircleBeat: {fileID: 1379438649}
+  left2CircleBeat: {fileID: 1379438647}
+  right1CircleBeat: {fileID: 1379438648}
+  right2CircleBeat: {fileID: 832497850}
 --- !u!114 &1484290210
 MonoBehaviour:
   m_ObjectHideFlags: 0
