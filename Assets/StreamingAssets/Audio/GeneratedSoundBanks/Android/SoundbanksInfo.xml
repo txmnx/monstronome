@@ -41,6 +41,10 @@
 			<ShortName>VO\EN\Play_Tutorial_Voice_05.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_05_A8D79311.wem</Path>
 		</File>
+		<File Id="233154889" Language="SFX">
+			<ShortName>Music\Menu\Music_Menu.wav</ShortName>
+			<Path>SFX\Music\Menu\Music_Menu_7CB100DF.wem</Path>
+		</File>
 		<File Id="426184329" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_13_A.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_13_A_A8D79311.wem</Path>
@@ -64,6 +68,10 @@
 		<File Id="728413185" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_02_A.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_02_A_A8D79311.wem</Path>
+		</File>
+		<File Id="918373737" Language="SFX">
+			<ShortName>Orchestra_Tuning.wav</ShortName>
+			<Path>SFX\Orchestra_Tuning_CDEEE2FF.wem</Path>
 		</File>
 		<File Id="986933918" Language="SFX">
 			<ShortName>Instruments\Theme\Brass\BrassLegato-01.wav</ShortName>
@@ -119,18 +127,52 @@
 					</ExcludedMemoryFiles>
 				</Event>
 				<Event Id="1598298728" Name="Music_Menu" ObjectPath="\Events\Music_Event\Music\Music_Menu" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="233154889" Language="SFX">
+							<ShortName>Music\Menu\Music_Menu.wav</ShortName>
+							<Path>SFX\Music\Menu\Music_Menu_7CB100DF.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
 					<ExcludedMemoryFiles>
-						<File Id="41800163" Language="SFX">
-							<ShortName>Music\Menu\MusicMenu.wav</ShortName>
-							<Path>SFX\Music\Menu\MusicMenu_7CB100DF.wem</Path>
+						<File Id="233154889" Language="SFX">
+							<ShortName>Music\Menu\Music_Menu.wav</ShortName>
+							<Path>SFX\Music\Menu\Music_Menu_7CB100DF.wem</Path>
+							<PrefetchSize>6366</PrefetchSize>
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
 				<Event Id="2546653270" Name="Music_Tuning" ObjectPath="\Events\Music_Event\Music\Music_Tuning" MaxAttenuation="50.000000" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="918373737" Language="SFX">
+							<ShortName>Orchestra_Tuning.wav</ShortName>
+							<Path>SFX\Orchestra_Tuning_CDEEE2FF.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
 					<ExcludedMemoryFiles>
-						<File Id="656548368" Language="SFX">
-							<ShortName>Introduction\Music_Tuning.wav</ShortName>
-							<Path>SFX\Introduction\Music_Tuning_4081EA7B.wem</Path>
+						<File Id="374943670" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public_A8D79311.wem</Path>
+						</File>
+						<File Id="389960133" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-04.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-04_A8D79311.wem</Path>
+						</File>
+						<File Id="406093743" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-03.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-03_A8D79311.wem</Path>
+						</File>
+						<File Id="918373737" Language="SFX">
+							<ShortName>Orchestra_Tuning.wav</ShortName>
+							<Path>SFX\Orchestra_Tuning_CDEEE2FF.wem</Path>
+							<PrefetchSize>8273</PrefetchSize>
+						</File>
+						<File Id="1017612957" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-01_A8D79311.wem</Path>
+						</File>
+						<File Id="1030348302" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-02.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-02_A8D79311.wem</Path>
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
@@ -7636,7 +7678,30 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="9.258662" DurationMax="9.258662">
+					<ExcludedMemoryFiles>
+						<File Id="374943670" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public_A8D79311.wem</Path>
+						</File>
+						<File Id="389960133" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-04.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-04_A8D79311.wem</Path>
+						</File>
+						<File Id="406093743" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-03.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-03_A8D79311.wem</Path>
+						</File>
+						<File Id="1017612957" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-01_A8D79311.wem</Path>
+						</File>
+						<File Id="1030348302" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-02.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-02_A8D79311.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
 				<Event Id="3679762312" Name="Resume_All" ObjectPath="\Events\Setup_Event\Resume_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3271167387" Name="SetWoods" ObjectPath="\Events\Music_Event\Debug\SetWoods" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2012101007" Name="SFX_Family_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Family_Broken" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.867052" DurationMax="4.601083">
@@ -7716,8 +7781,15 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="1163937302" Name="SFX_Feedback_ChangingParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ChangingParameters" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.254909" DurationMax="2.042183">
+				<Event Id="1163937302" Name="SFX_Feedback_ChangingParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ChangingParameters" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="2.815667" DurationMax="2.815667">
+					<ExcludedMemoryFiles>
+						<File Id="80947438" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_ChangingParameters.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_ChangingParameters_A8D79311.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
+				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.086169" DurationMax="1.767584">
 					<ExcludedMemoryFiles>
 						<File Id="190567203" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Toaster_Out-04.wav</ShortName>
@@ -7773,7 +7845,14 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="3227134913" Name="SFX_Feedback_MistakeAlert" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_MistakeAlert" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3227134913" Name="SFX_Feedback_MistakeAlert" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_MistakeAlert" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="5.208130" DurationMax="5.208130">
+					<ExcludedMemoryFiles>
+						<File Id="332499063" Language="SFX">
+							<ShortName>SFX\Toaster\Greentored\SFX_Claw_Empty-01.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Greentored\SFX_Claw_Empty-01_A8D79311.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
 				<Event Id="247346967" Name="SFX_Feedback_ReframingSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="2.923742" DurationMax="2.923742">
 					<ExcludedMemoryFiles>
 						<File Id="671802977" Language="SFX">
@@ -7804,7 +7883,14 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="535791215" Name="SFX_Feedback_RightParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="535791215" Name="SFX_Feedback_RightParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="4.588140" DurationMax="4.588140">
+					<ExcludedMemoryFiles>
+						<File Id="163168289" Language="SFX">
+							<ShortName>SFX\Toaster\Redtogreen\SFX_Claw_Empty.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Redtogreen\SFX_Claw_Empty_A8D79311.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
 				<Event Id="1231703344" Name="SFX_Potion_Broken" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Broken" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.147086" DurationMax="3.117456">
 					<ExcludedMemoryFiles>
 						<File Id="95828565" Language="SFX">
@@ -7856,6 +7942,17 @@
 								<File Id="178995129"/>
 								<File Id="612772428"/>
 								<File Id="847035281"/>
+								<File Id="95828565"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{2494317A-9AF3-46FB-8619-A51A3513A3FA}">
+							<Media>
+								<File Id="792566179"/>
+								<File Id="827724873"/>
+								<File Id="245555650"/>
+								<File Id="178995129"/>
+								<File Id="847035281"/>
+								<File Id="612772428"/>
 								<File Id="95828565"/>
 							</Media>
 						</SwitchContainer>
@@ -7925,7 +8022,50 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.094113" DurationMax="0.245095">
+					<ExcludedMemoryFiles>
+						<File Id="70839581" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-07.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-07_A8D79311.wem</Path>
+						</File>
+						<File Id="138981673" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-09.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-09_A8D79311.wem</Path>
+						</File>
+						<File Id="161931192" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-05.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-05_A8D79311.wem</Path>
+						</File>
+						<File Id="255445175" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-03.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-03_A8D79311.wem</Path>
+						</File>
+						<File Id="464737412" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty_A8D79311.wem</Path>
+						</File>
+						<File Id="502756542" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-08.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-08_A8D79311.wem</Path>
+						</File>
+						<File Id="537670738" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-06.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-06_A8D79311.wem</Path>
+						</File>
+						<File Id="769345484" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-01.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-01_A8D79311.wem</Path>
+						</File>
+						<File Id="785581916" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-04.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-04_A8D79311.wem</Path>
+						</File>
+						<File Id="869357826" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-02.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-02_A8D79311.wem</Path>
+						</File>
+					</ExcludedMemoryFiles>
+				</Event>
 				<Event Id="3758674935" Name="SFX_Potion_Right" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Right" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="3.608938" DurationMax="3.622500">
 					<ExcludedMemoryFiles>
 						<File Id="86616013" Language="SFX">
@@ -8054,35 +8194,35 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="932413975" Name="SFX_Toaster_Disapear" ObjectPath="\Events\SFX_Event\SFX\Toaster\SFX_Toaster_Disapear" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.448167" DurationMax="0.585375">
+				<Event Id="932413975" Name="SFX_Toaster_Disapear" ObjectPath="\Events\SFX_Event\SFX\Toaster\SFX_Toaster_Disapear" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.195298" DurationMax="0.369522">
 					<ExcludedMemoryFiles>
-						<File Id="142640219" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02_A8D79311.wem</Path>
-						</File>
-						<File Id="330963942" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03_A8D79311.wem</Path>
-						</File>
-						<File Id="500780424" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06_A8D79311.wem</Path>
-						</File>
-						<File Id="564936145" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01_A8D79311.wem</Path>
-						</File>
-						<File Id="625324779" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out_A8D79311.wem</Path>
-						</File>
-						<File Id="825550029" Language="SFX">
+						<File Id="14252697" Language="SFX">
 							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-04.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-04_A8D79311.wem</Path>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-04_53FFDB63.wem</Path>
 						</File>
-						<File Id="889208302" Language="SFX">
+						<File Id="80078314" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02_E4AF7255.wem</Path>
+						</File>
+						<File Id="89743526" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06_9103296C.wem</Path>
+						</File>
+						<File Id="265288182" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03_6A170F23.wem</Path>
+						</File>
+						<File Id="593802258" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01_5FBD2EAF.wem</Path>
+						</File>
+						<File Id="644096868" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out_584CA2A1.wem</Path>
+						</File>
+						<File Id="736483163" Language="SFX">
 							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-05.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-05_A8D79311.wem</Path>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-05_7D71DF97.wem</Path>
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
@@ -8467,6 +8607,7 @@
 				</Event>
 			</IncludedEvents>
 			<ReferencedStreamedFiles>
+				<File Id="233154889"/>
 				<File Id="986933918"/>
 			</ReferencedStreamedFiles>
 			<IncludedMemoryFiles>
@@ -8477,10 +8618,6 @@
 				<File Id="14986047" Language="SFX">
 					<ShortName>MIDI\BlocMiddle_A\Brass\Midi_BlocMiddleA_Brass_Legato.mid</ShortName>
 					<Path>SFX\MIDI\BlocMiddle_A\Brass\Midi_BlocMiddleA_Brass_Legato_A0EF7EA5.wmid</Path>
-				</File>
-				<File Id="41800163" Language="SFX">
-					<ShortName>Music\Menu\MusicMenu.wav</ShortName>
-					<Path>SFX\Music\Menu\MusicMenu_7CB100DF.wem</Path>
 				</File>
 				<File Id="45162288" Language="SFX">
 					<ShortName>MIDI\BlocMiddle_A\Woods\Midi_BlocMiddleA_Woods_Staccato.mid</ShortName>
@@ -8529,6 +8666,11 @@
 				<File Id="232645055" Language="SFX">
 					<ShortName>Bloc_End_MIDI_Wood_Pizzicato_v.mid</ShortName>
 					<Path>SFX\Bloc_End_MIDI_Wood_Pizzicato_v_457D80F2.wmid</Path>
+				</File>
+				<File Id="233154889" Language="SFX">
+					<ShortName>Music\Menu\Music_Menu.wav</ShortName>
+					<Path>SFX\Music\Menu\Music_Menu_7CB100DF.wem</Path>
+					<PrefetchSize>6366</PrefetchSize>
 				</File>
 				<File Id="244324459" Language="SFX">
 					<ShortName>Midi_BlocStartA_Percussions_legato.mid</ShortName>
@@ -13138,6 +13280,7 @@
 				<GameParameter Id="1728933839" Name="RTPC_SetVolume_Music" ObjectPath="\Game Parameters\Game_Parameters\SetVolume\RTPC_SetVolume_Music"/>
 				<GameParameter Id="1832739962" Name="RTPC_SetVolume_Metronome" ObjectPath="\Game Parameters\Game_Parameters\SetVolume\RTPC_SetVolume_Metronome"/>
 				<GameParameter Id="1866890756" Name="RTPC_SetVolume_Master" ObjectPath="\Game Parameters\Game_Parameters\SetVolume\RTPC_SetVolume_Master"/>
+				<GameParameter Id="2031172628" Name="RTPC_Magnitude_Wand" ObjectPath="\Game Parameters\Game_Parameters\RTPC_Magnitude_Wand"/>
 				<GameParameter Id="2031370766" Name="RTPC_Potion_Speed" ObjectPath="\Game Parameters\Game_Parameters\Feedback\RTPC_Potion_Speed"/>
 				<GameParameter Id="2676178657" Name="RTPC_Intensity_Percussions" ObjectPath="\Game Parameters\Game_Parameters\Intensity\RTPC_Intensity_Percussions"/>
 				<GameParameter Id="3154931128" Name="RTPC_Intensity_Brass" ObjectPath="\Game Parameters\Game_Parameters\Intensity\RTPC_Intensity_Brass"/>
@@ -14073,7 +14216,30 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="9.258662" DurationMax="9.258662">
+					<IncludedMemoryFiles>
+						<File Id="374943670" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public_A8D79311.wem</Path>
+						</File>
+						<File Id="389960133" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-04.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-04_A8D79311.wem</Path>
+						</File>
+						<File Id="406093743" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-03.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-03_A8D79311.wem</Path>
+						</File>
+						<File Id="1017612957" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-01_A8D79311.wem</Path>
+						</File>
+						<File Id="1030348302" Language="SFX">
+							<ShortName>Ambiance\Public\Intro\Public-02.wav</ShortName>
+							<Path>SFX\Ambiance\Public\Intro\Public-02_A8D79311.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2012101007" Name="SFX_Family_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Family_Broken" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.867052" DurationMax="4.601083">
 					<IncludedMemoryFiles>
 						<File Id="35653780" Language="SFX">
@@ -14151,8 +14317,15 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="1163937302" Name="SFX_Feedback_ChangingParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ChangingParameters" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.254909" DurationMax="2.042183">
+				<Event Id="1163937302" Name="SFX_Feedback_ChangingParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ChangingParameters" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="2.815667" DurationMax="2.815667">
+					<IncludedMemoryFiles>
+						<File Id="80947438" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_ChangingParameters.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_ChangingParameters_A8D79311.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2204132664" Name="SFX_Feedback_LightOff" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.086169" DurationMax="1.767584">
 					<IncludedMemoryFiles>
 						<File Id="190567203" Language="SFX">
 							<ShortName>SFX\FamilyFeedback\SFX_Feedback_Toaster_Out-04.wav</ShortName>
@@ -14208,7 +14381,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3227134913" Name="SFX_Feedback_MistakeAlert" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_MistakeAlert" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3227134913" Name="SFX_Feedback_MistakeAlert" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_MistakeAlert" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="5.208130" DurationMax="5.208130">
+					<IncludedMemoryFiles>
+						<File Id="332499063" Language="SFX">
+							<ShortName>SFX\Toaster\Greentored\SFX_Claw_Empty-01.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Greentored\SFX_Claw_Empty-01_A8D79311.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="247346967" Name="SFX_Feedback_ReframingSuccess" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="2.923742" DurationMax="2.923742">
 					<IncludedMemoryFiles>
 						<File Id="671802977" Language="SFX">
@@ -14239,7 +14419,14 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="535791215" Name="SFX_Feedback_RightParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="535791215" Name="SFX_Feedback_RightParameters" ObjectPath="\Events\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="4.588140" DurationMax="4.588140">
+					<IncludedMemoryFiles>
+						<File Id="163168289" Language="SFX">
+							<ShortName>SFX\Toaster\Redtogreen\SFX_Claw_Empty.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Redtogreen\SFX_Claw_Empty_A8D79311.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1231703344" Name="SFX_Potion_Broken" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Broken" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.147086" DurationMax="3.117456">
 					<IncludedMemoryFiles>
 						<File Id="95828565" Language="SFX">
@@ -14291,6 +14478,17 @@
 								<File Id="178995129"/>
 								<File Id="612772428"/>
 								<File Id="847035281"/>
+								<File Id="95828565"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{2494317A-9AF3-46FB-8619-A51A3513A3FA}">
+							<Media>
+								<File Id="792566179"/>
+								<File Id="827724873"/>
+								<File Id="245555650"/>
+								<File Id="178995129"/>
+								<File Id="847035281"/>
+								<File Id="612772428"/>
 								<File Id="95828565"/>
 							</Media>
 						</SwitchContainer>
@@ -14360,7 +14558,50 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3570979617" Name="SFX_Potion_Pickup_Empty" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Pickup_Empty" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.094113" DurationMax="0.245095">
+					<IncludedMemoryFiles>
+						<File Id="70839581" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-07.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-07_A8D79311.wem</Path>
+						</File>
+						<File Id="138981673" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-09.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-09_A8D79311.wem</Path>
+						</File>
+						<File Id="161931192" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-05.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-05_A8D79311.wem</Path>
+						</File>
+						<File Id="255445175" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-03.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-03_A8D79311.wem</Path>
+						</File>
+						<File Id="464737412" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty_A8D79311.wem</Path>
+						</File>
+						<File Id="502756542" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-08.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-08_A8D79311.wem</Path>
+						</File>
+						<File Id="537670738" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-06.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-06_A8D79311.wem</Path>
+						</File>
+						<File Id="769345484" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-01.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-01_A8D79311.wem</Path>
+						</File>
+						<File Id="785581916" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-04.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-04_A8D79311.wem</Path>
+						</File>
+						<File Id="869357826" Language="SFX">
+							<ShortName>SFX\Potion\ClawEmpty\SFX_Claw_Empty-02.wav</ShortName>
+							<Path>SFX\SFX\Potion\ClawEmpty\SFX_Claw_Empty-02_A8D79311.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3758674935" Name="SFX_Potion_Right" ObjectPath="\Events\SFX_Event\SFX\Potion\SFX_Potion_Right" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="3.608938" DurationMax="3.622500">
 					<IncludedMemoryFiles>
 						<File Id="86616013" Language="SFX">
@@ -14489,35 +14730,35 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="932413975" Name="SFX_Toaster_Disapear" ObjectPath="\Events\SFX_Event\SFX\Toaster\SFX_Toaster_Disapear" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.448167" DurationMax="0.585375">
+				<Event Id="932413975" Name="SFX_Toaster_Disapear" ObjectPath="\Events\SFX_Event\SFX\Toaster\SFX_Toaster_Disapear" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.195298" DurationMax="0.369522">
 					<IncludedMemoryFiles>
-						<File Id="142640219" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02_A8D79311.wem</Path>
-						</File>
-						<File Id="330963942" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03_A8D79311.wem</Path>
-						</File>
-						<File Id="500780424" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06_A8D79311.wem</Path>
-						</File>
-						<File Id="564936145" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01_A8D79311.wem</Path>
-						</File>
-						<File Id="625324779" Language="SFX">
-							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out_A8D79311.wem</Path>
-						</File>
-						<File Id="825550029" Language="SFX">
+						<File Id="14252697" Language="SFX">
 							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-04.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-04_A8D79311.wem</Path>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-04_53FFDB63.wem</Path>
 						</File>
-						<File Id="889208302" Language="SFX">
+						<File Id="80078314" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-02_E4AF7255.wem</Path>
+						</File>
+						<File Id="89743526" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06_9103296C.wem</Path>
+						</File>
+						<File Id="265288182" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-03_6A170F23.wem</Path>
+						</File>
+						<File Id="593802258" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01_5FBD2EAF.wem</Path>
+						</File>
+						<File Id="644096868" Language="SFX">
+							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out.wav</ShortName>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out_584CA2A1.wem</Path>
+						</File>
+						<File Id="736483163" Language="SFX">
 							<ShortName>SFX\Toaster\Out\SFX_Feedback_Toaster_Out-05.wav</ShortName>
-							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-05_A8D79311.wem</Path>
+							<Path>SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-05_7D71DF97.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -14595,6 +14836,7 @@
 				</Event>
 			</IncludedEvents>
 			<GameParameters>
+				<GameParameter Id="2031172628" Name="RTPC_Magnitude_Wand" ObjectPath="\Game Parameters\Game_Parameters\RTPC_Magnitude_Wand"/>
 				<GameParameter Id="2031370766" Name="RTPC_Potion_Speed" ObjectPath="\Game Parameters\Game_Parameters\Feedback\RTPC_Potion_Speed"/>
 				<GameParameter Id="3288717071" Name="RTPC_Player_Score" ObjectPath="\Game Parameters\Game_Parameters\RTPC_Player_Score"/>
 			</GameParameters>
@@ -15354,10 +15596,6 @@
 					<ShortName>Instruments\Theme\BlocMiddle\Percussions\Music_Sample_Theme_Percussions_Middle-13.wav</ShortName>
 					<Path>SFX\Instruments\Theme\BlocMiddle\Percussions\Music_Sample_Theme_Percussions_Middle-13_A8D79311.wem</Path>
 				</File>
-				<File Id="656548368" Language="SFX">
-					<ShortName>Introduction\Music_Tuning.wav</ShortName>
-					<Path>SFX\Introduction\Music_Tuning_4081EA7B.wem</Path>
-				</File>
 				<File Id="661098712" Language="SFX">
 					<ShortName>Instruments\Theme\BlocStart\Percussions\Music_Sample_Theme_Percussions-09.wav</ShortName>
 					<Path>SFX\Instruments\Theme\BlocStart\Percussions\Music_Sample_Theme_Percussions-09_A8D79311.wem</Path>
@@ -15657,6 +15895,11 @@
 				<File Id="903849822" Language="SFX">
 					<ShortName>Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-09.wav</ShortName>
 					<Path>SFX\Instruments\Theme\BlocStart\Brass\Brass_Theme_BlocStart-09_A8D79311.wem</Path>
+				</File>
+				<File Id="918373737" Language="SFX">
+					<ShortName>Orchestra_Tuning.wav</ShortName>
+					<Path>SFX\Orchestra_Tuning_CDEEE2FF.wem</Path>
+					<PrefetchSize>8273</PrefetchSize>
 				</File>
 				<File Id="929701868" Language="SFX">
 					<ShortName>Instruments\Theme\Woods\Woods_Theme_BlocStart-13.wav</ShortName>
