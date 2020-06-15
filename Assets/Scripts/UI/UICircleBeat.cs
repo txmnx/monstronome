@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Animate a Circle Beat
+ */
 public class UICircleBeat : MonoBehaviour
 {
     public ParticleSystem particles;
+
+    public SpriteRenderer circleRenderer;
+    public Color highlightColor;
+    private Color m_DefaultColor;
+    
     public enum BeatPlaneSide { Left, Right, None };
     [HideInInspector]
     public BeatPlaneSide currentSide;
@@ -19,6 +27,7 @@ public class UICircleBeat : MonoBehaviour
         m_Controller = controller;
         currentSide = BeatPlaneSide.None;
         m_ImpulsePower = impulsePower;
+        m_DefaultColor = circleRenderer.color;
     }
     
     public void InitPlane(XRCustomController controller, float impulsePower = 0.1f)
@@ -27,16 +36,29 @@ public class UICircleBeat : MonoBehaviour
         m_Controller = controller;
         currentSide = BeatPlaneSide.None;
         m_ImpulsePower = impulsePower;
+        m_DefaultColor = circleRenderer.color;
     }
 
-    public void OnBeat()
+    public void OnBeat(bool impulseHighlight = false)
     {
         if (currentSide == BeatPlaneSide.Left) {
-            Debug.Log("Enter Beat");
+            //Enter
+            if (impulseHighlight) {
+                StartCoroutine(ImpulseHighlight());
+            }
+            else {
+                circleRenderer.color = highlightColor;
+            }
             Impulse();
         }
         else {
-            Debug.Log("Exit Beat");
+            //Exit
+            if (impulseHighlight) {
+                StartCoroutine(ImpulseHighlight());
+            }
+            else {
+                circleRenderer.color = m_DefaultColor;
+            }
             Impulse();
         }
     }
@@ -52,6 +74,13 @@ public class UICircleBeat : MonoBehaviour
                 m_Controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
             }
         }
+    }
+
+    public IEnumerator ImpulseHighlight()
+    {
+        circleRenderer.color = highlightColor;
+        yield return new WaitForSeconds(0.1f);
+        circleRenderer.color = m_DefaultColor;
     }
     
     public BeatPlaneSide GetSide(Vector3 position)

@@ -63,11 +63,11 @@ public class XRBeatDetector : MonoBehaviour
         beatPlaneTransform.position = planePosition;
         beatPlaneTransform.forward = m_BeatPlane.normal;
         
-        mainCircleBeat.InitPlane(m_BeatPlane, m_Controller, 0.75f);
-        left1CircleBeat.InitPlane(m_Controller);
-        left2CircleBeat.InitPlane(m_Controller);
-        right1CircleBeat.InitPlane(m_Controller);
-        right2CircleBeat.InitPlane(m_Controller);
+        mainCircleBeat.InitPlane(m_BeatPlane, m_Controller, 0.5f);
+        left1CircleBeat.InitPlane(m_Controller, 0.1f);
+        left2CircleBeat.InitPlane(m_Controller, 0.05f);
+        right1CircleBeat.InitPlane(m_Controller, 0.1f);
+        right2CircleBeat.InitPlane(m_Controller, 0.05f);
 
         m_MaximumGesturePoints = new Vector3[2] {
             planePosition,
@@ -105,7 +105,7 @@ public class XRBeatDetector : MonoBehaviour
         if (side != mainCircleBeat.currentSide) {
             if (mainCircleBeat.currentSide != UICircleBeat.BeatPlaneSide.None) {
                 OnBeat(m_Amplitude);
-                mainCircleBeat.OnBeat();
+                mainCircleBeat.OnBeat(true);
                 m_Amplitude = 0;
                 m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
             }
