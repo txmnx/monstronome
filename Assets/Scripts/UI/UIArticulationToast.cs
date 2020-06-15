@@ -18,6 +18,8 @@ public class UIArticulationToast : UIToast
     public GameObject UIStaccatoPotion;
     private GameObject m_CurrentUIPotion;
 
+    private InstrumentFamily.ArticulationType m_PrevType;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -29,8 +31,8 @@ public class UIArticulationToast : UIToast
         UIWrong.SetActive(true);
         UIOk.SetActive(false);
     }
-
-    public void Draw(InstrumentFamily.ArticulationType currentType, InstrumentFamily.ArticulationType ruleType, bool isTransition = false)
+    
+    public void Draw(InstrumentFamily.ArticulationType currentType, InstrumentFamily.ArticulationType ruleType, bool isTransition = false, bool playSFX = false)
     {
         if (currentType == ruleType) {
             if (isTransition) {
@@ -43,6 +45,12 @@ public class UIArticulationToast : UIToast
             }
             UIWrong.SetActive(false);
             UIOk.SetActive(true);
+            
+            if (playSFX) {
+                if (currentType != m_PrevType && m_PrevType != ruleType) {
+                    SFXOnParameterFromWrongToGood.Post(toasterSoundReference);
+                }
+            }
         }
         else {
             if (isTransition) {
@@ -56,7 +64,15 @@ public class UIArticulationToast : UIToast
             UIOk.SetActive(false);
             UIWrong.SetActive(true);
             DisplayPotion(ruleType);
+            
+            if (playSFX) {
+                if (currentType != m_PrevType && m_PrevType == ruleType) {
+                    SFXOnParameterFromGoodToWrong.Post(toasterSoundReference);
+                }
+            }
         }
+
+        m_PrevType = currentType;
     }
 
     private void DisplayPotion(InstrumentFamily.ArticulationType potionType)

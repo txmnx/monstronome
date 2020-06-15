@@ -17,7 +17,7 @@ public class ReframingPotion : BreakableObject
         Reframing5,
         Reframing6,
     }
-
+    
     [Header("Reframing")] 
     public ReframingManager reframingManager;
     public SoundEngineTuner soundEngineTuner;
@@ -26,7 +26,8 @@ public class ReframingPotion : BreakableObject
     override protected void Start()
     {
         base.Start();
-        soundEngineTuner.SetSwitchPotionType("Reframing", gameObject);
+        soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.SFXPotionType.Reframing, gameObject);
+        soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Neutral, gameObject);
     }
     
     override protected void OnBreak(Collision other)
