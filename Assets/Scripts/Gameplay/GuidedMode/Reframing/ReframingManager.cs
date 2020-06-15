@@ -107,7 +107,7 @@ public class ReframingManager : MonoBehaviour
             if (m_ReframingFamily.gameObject == other.gameObject) {
                 if (m_CanCheckPotionType) {
                     if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
-                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
+                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, m_ReframingFamily.drawableReframingRules.greenMaterial);
 
                         soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion.gameObject);
                         SFXOnPotionRight.Post(potion.gameObject);
@@ -139,16 +139,16 @@ public class ReframingManager : MonoBehaviour
         }
     }
 
-    private IEnumerator BlinkAnimation(Color color1, Color color2)
+    private IEnumerator BlinkAnimation(Material mat1, Material mat2)
     {
         for (int repeat = 0; repeat < 4; ++repeat) {
             for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
-                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color1);
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, mat1);
             }
             yield return new WaitForSeconds(0.2f);
         
             for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
-                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color2);
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, mat2);
             }
             yield return new WaitForSeconds(0.2f);
         }
@@ -160,7 +160,7 @@ public class ReframingManager : MonoBehaviour
         SFXOnReframingSuccess.Post(m_ReframingFamily.gameObject);
         
         m_CanCheckPotionType = false;
-        yield return BlinkAnimation(Color.green, Color.yellow);
+        yield return BlinkAnimation(m_ReframingFamily.drawableReframingRules.greenMaterial, m_ReframingFamily.drawableReframingRules.yellowMaterial);
         
         m_ReframingFamily.drawableReframingRules.ResetColors();
         m_CanCheckPotionType = true;
@@ -170,7 +170,7 @@ public class ReframingManager : MonoBehaviour
     private IEnumerator OnFailure()
     {
         m_CanCheckPotionType = false;
-        yield return BlinkAnimation(Color.red, Color.black);
+        yield return BlinkAnimation(m_ReframingFamily.drawableReframingRules.redMaterial, m_ReframingFamily.drawableReframingRules.blackMaterial);
 
         m_ReframingFamily.drawableReframingRules.ResetColors();
         
