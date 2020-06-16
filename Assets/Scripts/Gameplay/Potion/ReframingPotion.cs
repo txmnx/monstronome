@@ -22,17 +22,19 @@ public class ReframingPotion : BreakableObject
     public ReframingManager reframingManager;
     public SoundEngineTuner soundEngineTuner;
     public ReframingPotionType type;
+    public SpawnerPotion spawnerPotion;
 
     override protected void Start()
     {
         base.Start();
-        soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.SFXPotionType.Reframing, gameObject);
+        soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.PotionType.Reframing, gameObject);
         soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Neutral, gameObject);
     }
     
     override protected void OnBreak(Collision other)
     {
         reframingManager.CheckReframingPotionType(this, other);
+        spawnerPotion.SpawnPotion(type);
     }
     
     override protected void OnCollisionSFX(Collision other) 

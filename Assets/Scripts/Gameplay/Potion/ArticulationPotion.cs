@@ -11,17 +11,19 @@ public class ArticulationPotion : BreakableObject
     public SoundEngineTuner soundEngineTuner;
     public ArticulationManager articulationManager;
     public InstrumentFamily.ArticulationType articulationType;
+    public SpawnerPotion spawnerPotion;
 
     override protected void Start()
     {
         base.Start();
-        soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.SFXPotionType.Articulation, gameObject);
+        soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.PotionType.Articulation, gameObject);
         soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Neutral, gameObject);
     }
     
     override protected void OnBreak(Collision other) 
     {
         articulationManager.SetArticulation(articulationType, true, gameObject);
+        spawnerPotion.SpawnPotion(articulationType);
     }
     
     override protected void OnCollisionSFX(Collision other) 
