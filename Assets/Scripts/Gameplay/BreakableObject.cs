@@ -14,6 +14,11 @@ public class BreakableObject : MonoBehaviour
     public Transform defaultObject;
     public Transform breakedObject;
     public float speedUntilBreak = 4.0f;
+    public float explosionForceFactor = 1.2f;
+    public float explosionRadius = 2.0f;
+    public float upwardsModifier = 2.0f;
+    private bool m_HasBroken = false;
+    
     
     [Header("VFX")]
     public Transform particlesAnimation;
@@ -40,13 +45,15 @@ public class BreakableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (m_HasBroken) return;
+        
         float speed = other.relativeVelocity.magnitude;
         if (speed > speedUntilBreak) {
             breakedObject.gameObject.SetActive(true);
 
-            float explosionForce = speed * speed * 0.5f;
+            float explosionForce = speed * speed * explosionForceFactor;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
-                rb.AddExplosionForce(explosionForce, breakedObject.position, 2.0f, 15.0f);
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier);
             }
             m_Rigidbody.isKinematic = true;
             
@@ -62,6 +69,7 @@ public class BreakableObject : MonoBehaviour
             OnBreak(other);
             SFXOnObjectBreak.Post(gameObject);
             
+            m_HasBroken = true;
             Destroy(defaultObject.gameObject);
             Destroy(this);
             Destroy(this.GetComponent<XRGrabbable>());

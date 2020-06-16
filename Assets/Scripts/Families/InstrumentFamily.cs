@@ -21,6 +21,10 @@ public abstract class InstrumentFamily : MonoBehaviour
     public SpriteRenderer highlightHintRenderer;
     public DrawableReframingRules drawableReframingRules;
     private bool m_CanDisableHighlightHint = true;
+
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnEnterHighlight;
+    public AK.Wwise.Event SFXOnExitHighlight;
     
     public enum ArticulationType
     {
@@ -58,13 +62,11 @@ public abstract class InstrumentFamily : MonoBehaviour
         if (familyAnimators.Length > 0) {
             m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
         }
-
-        drawableReframingRules.Init();
-        drawableReframingRules.gameObject.SetActive(false);
     }
 
     private void Start()
     {
+        drawableReframingRules.gameObject.SetActive(false);
         StartCoroutine(LaunchAnimOffset());
     }
 
@@ -169,20 +171,19 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         highlightHintRenderer.enabled = false;
         drawableReframingRules.gameObject.SetActive(true);
+        SFXOnEnterHighlight.Post(gameObject);
     }
     
     public void OnExitHighlight()
     {
         drawableReframingRules.gameObject.SetActive(false);
+        SFXOnExitHighlight.Post(gameObject);
     }
 
     public void StartPlaying()
     {
-        //DEBUG
-        if (familyAnimators.Length > 0) {
-            int triggerID = Animator.StringToHash("SwitchArticulation");
-            StartCoroutine(SetAnimTriggerOffset(triggerID));
-        }
+        int triggerID = Animator.StringToHash("SwitchPlay");
+        StartCoroutine(SetAnimTriggerOffset(triggerID));
     }
 
     public void SetBrokenAnimation(ReframingManager.DegradationState degradationState)
@@ -210,10 +211,10 @@ public abstract class InstrumentFamily : MonoBehaviour
      */
     private IEnumerator LaunchAnimOffset()
     {
-        int entryID = Animator.StringToHash("Idle");
+        int entryID = Animator.StringToHash("Tuning");
         foreach (Animator animator in familyAnimators) {
             animator.Play(entryID, 0);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
     
@@ -221,7 +222,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         foreach (Animator animator in familyAnimators) {
             animator.SetTrigger(triggerID);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }
