@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 1298614299099352030}
   m_Layer: 0
   m_Name: Legato_POTION_Articulation
-  m_TagString: Untagged
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,15 +399,18 @@ MonoBehaviour:
   SFXOnThrow:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: d3a5942e2d67b9746a68bb5d3d51a889,
+      type: 2}
   SFXOnPickup:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 5ff2ea815eedd3243b86a2c2a731e4bc,
+      type: 2}
   SFXOnShake:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 7eb978ab33013fd4f8ae0398a1a3223c,
+      type: 2}
 --- !u!54 &7747678097318364447
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -460,14 +463,17 @@ MonoBehaviour:
   SFXOnObjectBreak:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: ac4efd0d877e34848a92fa5fdaeb98e4,
+      type: 2}
   SFXOnObjectCollision:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: a17058b129526474eb62c63355277295,
+      type: 2}
   soundEngineTuner: {fileID: 0}
   articulationManager: {fileID: 0}
   articulationType: 0
+  spawnerPotion: {fileID: 0}
 --- !u!136 &6258141260864070303
 CapsuleCollider:
   m_ObjectHideFlags: 0
