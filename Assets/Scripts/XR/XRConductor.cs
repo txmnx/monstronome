@@ -27,7 +27,13 @@ public class XRConductor : MonoBehaviour
                 if (!m_IsUsingConductInput) {
                     conductingEventsManager.PostOnBeginConducting();
                 }
-                conductingEventsManager.PostOnConducting();
+
+                float wandMagnitude = 1;
+                if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity)) {
+                    wandMagnitude = velocity.magnitude;
+                }
+                conductingEventsManager.PostOnConducting(wandMagnitude);
+
                 m_IsUsingConductInput = true;
             }
             else {

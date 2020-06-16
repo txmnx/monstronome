@@ -11,20 +11,18 @@ public class GuidedModeManager : MonoBehaviour
 {
     [Header("Callbacks")]
     public WwiseCallBack wwiseCallback;
-    public BeatManager beatManager;
+    public TempoManager tempoManager;
     public ArticulationManager articulationManager;
+    public IntensityManager intensityManager;
+    public OrchestraLauncher orchestraLauncher;
     
     [Header("Animations")]
-    public TempoManager tempoManager;
     public Timeline timeline;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     [Header("Modes")]
-    public ConductingRulesManager directionRulesManager;
+    public ConductingRulesManager conductingRulesManager;
     public ReframingManager reframingManager;
-
-    //TODO : start orchestra with the tuning and the 4 beats instead
-    private bool m_HasOneBeat = false;
 
     private enum GuidedModeStep
     {
@@ -41,21 +39,30 @@ public class GuidedModeManager : MonoBehaviour
         Transition,
         Other
     }
-    private TrackType m_CurrentTrackType;
-
+    [HideInInspector]
+    public TrackType currentTrackType;
+    
+    
     private void Awake()
     {
-        //m_CurrentStep = GuidedModeStep.Tuning;
-        m_CurrentGuidedModeStep = GuidedModeStep.Intro;
+        m_CurrentGuidedModeStep = GuidedModeStep.Tuning;
+        currentTrackType = TrackType.Other;
+    }
+    
+    private void Start()
+    {
+        reframingManager.LoadFamilies(families);
+        orchestraLauncher.LoadFamilies(families);
+        orchestraLauncher.OnLoadOrchestra += LoadOrchestra;
+        
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
         }
-
-        reframingManager.LoadFamilies(families);
-        
+        OnStartOrchestra += tempoManager.OnStartOrchestra;
+        OnStartOrchestra += intensityManager.OnStartOrchestra;
         wwiseCallback.OnCue += LaunchState;
-        beatManager.OnBeatMajorHand += OnBeat;
-        m_CurrentTrackType = TrackType.Other;
+        
+        conductingRulesManager.ShowRules(false);
     }
 
     private IEnumerator UpdatePlaying()
@@ -68,8 +75,8 @@ public class GuidedModeManager : MonoBehaviour
             timeline.UpdateCursor();
 
             //We can't loose or gain score outside of the track blocks
-            directionRulesManager.Check(m_CurrentTrackType == TrackType.Block);
-            reframingManager.Check(m_CurrentTrackType == TrackType.Block);
+            conductingRulesManager.Check();
+            reframingManager.Check(currentTrackType == TrackType.Block);
             
             yield return null;
         }
@@ -78,37 +85,35 @@ public class GuidedModeManager : MonoBehaviour
     /* Events */
     public void LaunchState(string stateName)
     {
-        bool updateTimelineStep = true;
+        TrackType prevTrackType = currentTrackType;
         switch (stateName) {
             case "Start":
-                m_CurrentTrackType = TrackType.Block;
+                currentTrackType = TrackType.Block;
                 StartOrchestra();
                 break;
             case "Transition1":
-                m_CurrentTrackType = TrackType.Transition;
+                currentTrackType = TrackType.Transition;
                 break;
             case "Middle":
-                m_CurrentTrackType = TrackType.Block;
+                currentTrackType = TrackType.Block;
                 break;
             case "Transition2":
-                m_CurrentTrackType = TrackType.Transition;
+                currentTrackType = TrackType.Transition;
                 break;
             case "Tense":
-                m_CurrentTrackType = TrackType.Block;
+                currentTrackType = TrackType.Block;
                 break;
             case "Transition3":
-                m_CurrentTrackType = TrackType.Transition;
+                currentTrackType = TrackType.Transition;
                 break;
             case "End":
-                m_CurrentTrackType = TrackType.Block;
-                break;
-            default:
-                updateTimelineStep = false;
+                currentTrackType = TrackType.Block;
                 break;
         }
 
-        if (updateTimelineStep) {
+        if (prevTrackType != currentTrackType) {
             timeline.SetCurrentStep(stateName);
+            conductingRulesManager.DrawRules();
         }
     }
 
@@ -117,37 +122,16 @@ public class GuidedModeManager : MonoBehaviour
         if (m_CurrentGuidedModeStep == GuidedModeStep.Intro) {
             OnStartOrchestra?.Invoke();
             m_CurrentGuidedModeStep = GuidedModeStep.Playing;
+            articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
             StartCoroutine(UpdatePlaying());
         }
     }
 
-    public void InitStartOrchestra()
+    public void LoadOrchestra()
     {
-        articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
         reframingManager.InitStart();
+        m_CurrentGuidedModeStep = GuidedModeStep.Intro;
     }
 
     public event Action OnStartOrchestra;
-    
-    
-    /* TODO : DEBUG */
-    private void OnBeat(float amplitude)
-    {
-        if (!m_HasOneBeat) {
-            InitStartOrchestra();
-            AkSoundEngine.SetState("Music", "Start");
-        }
-        m_HasOneBeat = true;
-    }
-
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire1")) {
-            if (!m_HasOneBeat) {
-                InitStartOrchestra();
-                AkSoundEngine.SetState("Music", "Start");
-            }
-            m_HasOneBeat = true;
-        }
-    }
 }

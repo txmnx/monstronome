@@ -65,7 +65,9 @@ Material:
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _DitherStep: 0.63
+    - _DirLightAngleOffset: 1
+    - _DirLightMultiplier: 1
+    - _DitherStep: 0.735
     - _DstBlend: 0
     - _EnvironmentReflections: 0
     - _GlossMapScale: 0
@@ -73,30 +75,31 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Outline: 0.02
+    - _Outline: 0.0346
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimPower: 0.4
-    - _ShaderBlend: 0.86
+    - _RimPower: 2
+    - _ShaderBlend: 0.925
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Steps: 3
+    - _Steps: 2.97
     - _Surface: 0
-    - _ToonEffect: 0.5
-    - _ToonRimStep: 3
+    - _ToonEffect: 0.69
+    - _ToonRimStep: 1.89
     - _UseTexture: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 0.53726333, b: 0.019607842, a: 1}
+    - _AlbedoColor: {r: 0.9339623, g: 0.55661225, b: 0.09251513, a: 1}
     - _BaseColor: {r: 1, g: 0.3961781, b: 0.018999994, a: 1}
     - _Color: {r: 1, g: 0.39617813, b: 0.018999994, a: 1}
-    - _Color1: {r: 0.5566038, g: 0.21373586, b: 0, a: 1}
-    - _Color2: {r: 1, g: 0.7355849, b: 0.5707547, a: 1}
+    - _Color1: {r: 0.8490566, g: 0.57931477, b: 0.028034903, a: 1}
+    - _Color2: {r: 1, g: 0.7456916, b: 0.21226418, a: 1}
+    - _DirLightAngleOffset: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.65199995, g: 0.2582431, b: 0.012784312, a: 1}
+    - _OutlineColor: {r: 0.7924528, g: 0.4844722, b: 0.078497685, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
 --- !u!114 &2175481706513244919
 MonoBehaviour:

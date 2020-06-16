@@ -107,10 +107,10 @@ public class ReframingManager : MonoBehaviour
             if (m_ReframingFamily.gameObject == other.gameObject) {
                 if (m_CanCheckPotionType) {
                     if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
-                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
+                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, m_ReframingFamily.drawableReframingRules.greenMaterial);
 
+                        soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion.gameObject);
                         SFXOnPotionRight.Post(potion.gameObject);
-                        soundEngineTuner.SetSwitchPotionType("Bonus", potion.gameObject);
 
                         if ((int) m_CurrentDegradationState > 1) {
                             //There are still rules to process
@@ -127,8 +127,8 @@ public class ReframingManager : MonoBehaviour
                     }
                     else {
                         //Failure
+                        soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Malus, potion.gameObject);
                         SFXOnPotionWrong.Post(potion.gameObject);
-                        soundEngineTuner.SetSwitchPotionType("Malus", potion.gameObject);
 
                         m_ReframingPotionIndex = 0;
                         UpdateDegradation(DegradationState.Left_3);
@@ -139,16 +139,16 @@ public class ReframingManager : MonoBehaviour
         }
     }
 
-    private IEnumerator BlinkAnimation(Color color1, Color color2)
+    private IEnumerator BlinkAnimation(Material mat1, Material mat2)
     {
         for (int repeat = 0; repeat < 4; ++repeat) {
             for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
-                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color1);
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, mat1);
             }
             yield return new WaitForSeconds(0.2f);
         
             for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
-                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color2);
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, mat2);
             }
             yield return new WaitForSeconds(0.2f);
         }
@@ -160,7 +160,7 @@ public class ReframingManager : MonoBehaviour
         SFXOnReframingSuccess.Post(m_ReframingFamily.gameObject);
         
         m_CanCheckPotionType = false;
-        yield return BlinkAnimation(Color.green, Color.yellow);
+        yield return BlinkAnimation(m_ReframingFamily.drawableReframingRules.greenMaterial, m_ReframingFamily.drawableReframingRules.yellowMaterial);
         
         m_ReframingFamily.drawableReframingRules.ResetColors();
         m_CanCheckPotionType = true;
@@ -170,7 +170,7 @@ public class ReframingManager : MonoBehaviour
     private IEnumerator OnFailure()
     {
         m_CanCheckPotionType = false;
-        yield return BlinkAnimation(Color.red, Color.black);
+        yield return BlinkAnimation(m_ReframingFamily.drawableReframingRules.redMaterial, m_ReframingFamily.drawableReframingRules.blackMaterial);
 
         m_ReframingFamily.drawableReframingRules.ResetColors();
         
@@ -182,6 +182,7 @@ public class ReframingManager : MonoBehaviour
     private void OnEndReframing()
     {
         m_IsDegrading = false;
+        m_ReframingFamily.OnExitDegradation();
         m_ReframingFamily.drawableReframingRules.Show(false);
         PickNewReframingFamily();
         StartCoroutine(WaitCanDegrade(reframingParameters.timeBetweenFails));
@@ -260,10 +261,13 @@ public class ReframingManager : MonoBehaviour
         m_CanCheckPotionType = true;
         
         //We start the reframing family degradation
+        m_ReframingFamily.OnEnterDegradation();
         SFXOnFamilyDegradation.Post(m_ReframingFamily.gameObject);
         UpdateDegradation(DegradationState.Left_3);
 
         m_CurrentReframingRules = GenerateRandomReframingRules();
+        
+        m_ReframingFamily.drawableReframingRules.ResetColors();
         m_ReframingFamily.drawableReframingRules.Show(true);
         m_ReframingFamily.drawableReframingRules.DrawReframingRule(m_CurrentReframingRules);
     }
@@ -275,7 +279,6 @@ public class ReframingManager : MonoBehaviour
             int pick = Random.Range(0, m_InstrumentFamilies.Length);
             m_ReframingFamily = m_InstrumentFamilies[pick];
             soundEngineTuner.SetSolistFamily(m_ReframingFamily);
-            Debug.Log("Solist family : " + m_ReframingFamily);
         }
         else {
             //We can't pick a random family when we enter the first block - it should be set before
@@ -286,6 +289,7 @@ public class ReframingManager : MonoBehaviour
     private void OnEnterBlock()
     {
         PickNewReframingFamily();
+        m_CanDegrade = false;
         StartCoroutine(WaitCanDegrade(Random.Range(reframingParameters.minTimeFirstFail, reframingParameters.maxTimeFirstFail)));
     }
 
@@ -298,6 +302,7 @@ public class ReframingManager : MonoBehaviour
         
         m_CanDegrade = false;
         m_IsDegrading = false;
+        m_ReframingFamily.OnExitDegradation();
         m_ReframingPotionIndex = 0;
         m_CanCheckPotionType = true;
         

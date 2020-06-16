@@ -11,62 +11,85 @@ using UnityEngine.XR;
 [RequireComponent(typeof(Collider))]
 public class XRGrabber : MonoBehaviour
 {
+    //Used to translate the irl velocity, etc. into local transform, which can be rotated etc.
+    public Transform trackingSpace;
     public float throwPower = 1.0f;
-    
-    private XRCustomController m_Controller;
+
+    protected XRCustomController m_Controller;
 
     private List<XRGrabbable> m_HighlightedObjects;
     private XRGrabbable m_SelectedObject;
     private Rigidbody m_RbGrabbedObject;
 
+    protected bool m_IsEmptyGrabbing = false;
+    protected bool m_HasEmptyGrabbed = false;
     private bool m_IsGrabbing = false;
 
-    private void Start()
+    protected virtual void Start()
     {
         m_Controller = GetComponent<XRCustomController>();
         m_HighlightedObjects = new List<XRGrabbable>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed)) {
             if (triggerPressed) {
-                //TODO : grab animation
-                if (!m_IsGrabbing && m_HighlightedObjects.Count > 0) {
-                    if (m_HighlightedObjects[0] == null) {
-                        m_HighlightedObjects.RemoveAt(0);
+                if (!m_IsGrabbing) {
+                    if (m_HighlightedObjects.Count > 0) {
+                        if (m_HighlightedObjects[0] == null) {
+                            m_HighlightedObjects.RemoveAt(0);
+                        }
+                        else {
+                            m_SelectedObject = m_HighlightedObjects[0];
+                            m_SelectedObject.OnEnterGrab(this);
+                            m_IsGrabbing = true;
+                        }
                     }
                     else {
-                        m_SelectedObject = m_HighlightedObjects[0];
-                        m_SelectedObject.OnEnterGrab();
-
-                        m_RbGrabbedObject = m_SelectedObject.GetComponent<Rigidbody>();
-                        m_RbGrabbedObject.useGravity = false;
-                        m_RbGrabbedObject.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
-                        m_RbGrabbedObject.isKinematic = true;
-
-                        m_SelectedObject.transform.parent = transform;
-
-                        m_IsGrabbing = true;
+                        m_IsEmptyGrabbing = true;
                     }
+                }
+                else {
+                    m_SelectedObject.OnUpdateGrab(this);
                 }
             }
             else {
-                //TODO : ungrab animation
                 if (m_IsGrabbing && m_SelectedObject) {
-                    m_SelectedObject.OnExitGrab();
+                    m_SelectedObject.OnExitGrab(this);
                     m_SelectedObject = null;
-                    
-                    if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity)) {
-                        m_RbGrabbedObject.velocity = velocity * throwPower;
-                    }
-                    if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceAngularVelocity, out Vector3 angularVelocity)) {
-                        m_RbGrabbedObject.angularVelocity = angularVelocity * throwPower;
-                    }
-
                     m_IsGrabbing = false;
                 }
+                m_IsEmptyGrabbing = false;
+                m_HasEmptyGrabbed = false;
             }
+        }
+    }
+
+    public virtual Vector3 GetPivot()
+    {
+        return transform.position;
+    }
+    
+    public Vector3 velocity
+    {
+        get
+        {
+            if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 _velocity)) {
+                return trackingSpace.rotation * _velocity * throwPower;
+            }
+            return Vector3.zero;
+        }
+    }
+    
+    public Vector3 angularVelocity
+    {
+        get
+        {
+            if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.deviceAngularVelocity, out Vector3 _angularVelocity)) {
+                return trackingSpace.rotation * _angularVelocity * throwPower;
+            }
+            return Vector3.zero;
         }
     }
 
@@ -85,6 +108,16 @@ public class XRGrabber : MonoBehaviour
         if (obj) {
             m_HighlightedObjects.Remove(obj);
             obj.RemoveHighlight();
+        }
+    }
+
+    public void HapticImpulse(float amplitude, float duration)
+    {
+        if (m_Controller.inputDevice.TryGetHapticCapabilities(out UnityEngine.XR.HapticCapabilities capabilities)) {
+            if (capabilities.supportsImpulse) {
+                uint channel = 0;
+                m_Controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
+            }
         }
     }
 }
