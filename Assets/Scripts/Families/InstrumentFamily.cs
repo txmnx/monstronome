@@ -30,8 +30,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     {
         Legato,
         Pizzicato,
-        Staccato,
-        Default
+        Staccato
     }
     public ArticulationType[] articulationTypes;
     private int m_CurrentArticulationIndex = 0;
