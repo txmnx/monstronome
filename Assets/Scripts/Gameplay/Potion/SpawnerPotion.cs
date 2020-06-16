@@ -21,7 +21,9 @@ public class SpawnerPotion : MonoBehaviour
     [Header("Spawn")]
     public float timeBetweenSpawn = 2.0f;
     public Vector3 windForce;
-
+    public AK.Wwise.Event SFXOnSpawn;
+    
+    
     private Queue<(Transform, SoundEngineTuner.PotionType)> m_SpawnQueue;
     private bool m_IsSpawning = false;
     
@@ -77,14 +79,18 @@ public class SpawnerPotion : MonoBehaviour
             articulation.soundEngineTuner = soundEngineTuner;
             articulation.articulationManager = articulationManager;
             articulation.spawnerPotion = this;
+            articulation.OnSpawn();
         }
         else {
             ReframingPotion reframing = potion.GetComponent<ReframingPotion>();
             reframing.soundEngineTuner = soundEngineTuner;
             reframing.reframingManager = reframingManager;
             reframing.spawnerPotion = this;
+            reframing.OnSpawn();
         }
-        
+
+        SFXOnSpawn.Post(gameObject);
+
         if (m_SpawnQueue.Count > 0) {
             StartCoroutine(DelaySpawn());
         }
