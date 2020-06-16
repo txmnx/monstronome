@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID MUSIC_TUNING = 2546653270U;
         static const AkUniqueID PAUSE_ALL = 3864097025U;
         static const AkUniqueID PIZZICATO = 2077337834U;
+        static const AkUniqueID PLAY_FREEMODE = 3484671981U;
         static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAY_TUTORIAL_VOICE_01 = 1625395407U;
