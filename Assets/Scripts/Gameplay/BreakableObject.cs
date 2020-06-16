@@ -87,4 +87,26 @@ public class BreakableObject : MonoBehaviour
     {
         SFXOnObjectCollision.Post(gameObject);
     }
+
+    /* WIND FORCE */
+    private bool m_FlagWind;
+    public void ApplyWind(Vector3 windDirection)
+    {
+        m_FlagWind = true;
+        StartCoroutine(ApplyWindCoroutine(windDirection));
+    }
+
+    public void DisableWind()
+    {
+        m_FlagWind = false;
+    }
+    
+    private IEnumerator ApplyWindCoroutine(Vector3 windDirection)
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        while (m_FlagWind) {
+            rb.velocity = windDirection;
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+    } 
 }

@@ -142,14 +142,14 @@ public class SoundEngineTuner : MonoBehaviour
         */
     }
 
-    public enum SFXPotionType
+    public enum PotionType
     {
         Articulation,
         Reframing
     }
     
     /* POTIONS */
-    public void SetSwitchPotionType(SFXPotionType type, GameObject referenceObject)
+    public void SetSwitchPotionType(PotionType type, GameObject referenceObject)
     {
         AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), referenceObject);
     }

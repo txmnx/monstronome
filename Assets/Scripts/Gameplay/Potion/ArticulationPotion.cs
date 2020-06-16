@@ -16,7 +16,7 @@ public class ArticulationPotion : BreakableObject
     override protected void Start()
     {
         base.Start();
-        soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.SFXPotionType.Articulation, gameObject);
+        soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.PotionType.Articulation, gameObject);
         soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Neutral, gameObject);
     }
     
