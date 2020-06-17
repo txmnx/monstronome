@@ -22,7 +22,8 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshPro scoreText;
 
-    private float m_TransitionScore;
+    private int m_GlobalSkillScore;
+    private int m_TransitionScore;
     
     private void Awake()
     {
@@ -38,9 +39,15 @@ public class ScoreManager : MonoBehaviour
         soundEngineTuner.UpdateScore(m_Score);
     }
 
-    public void AddTransitionScore(float points)
+    private void SetGlobalSkillScore()
+    {
+        if (m_Score < 20) {
+            m_GlobalSkillScore = -1;
+        }
+    }
+    
+    public void AddTransitionScore(int points)
     {
         m_TransitionScore += points;
-        Debug.Log("TRANSITION SCORE : " + m_TransitionScore);
     }
 }
