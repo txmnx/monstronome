@@ -21,6 +21,8 @@ public class ScoreManager : MonoBehaviour
     }
 
     public TextMeshPro scoreText;
+
+    private float m_TransitionScore;
     
     private void Awake()
     {
@@ -34,5 +36,11 @@ public class ScoreManager : MonoBehaviour
         m_Score = Mathf.Clamp(m_Score + points, 0, 100);
         scoreText.text = m_Score.ToString("0.0") + "%";
         soundEngineTuner.UpdateScore(m_Score);
+    }
+
+    public void AddTransitionScore(float points)
+    {
+        m_TransitionScore += points;
+        Debug.Log("TRANSITION SCORE : " + m_TransitionScore);
     }
 }

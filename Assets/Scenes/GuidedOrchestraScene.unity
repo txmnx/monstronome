@@ -2231,6 +2231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19b1256d01e6d040b544342ba23caf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 348619499}
+  tempoManager: {fileID: 348619489}
   fireworks:
   - {fileID: 1107363486}
   - {fileID: 1557302545}
@@ -7327,6 +7329,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3188775495724427823, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4145285711152185306, guid: 15194f8621297e345b7d264ea89a1457,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7382,10 +7389,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4150987681942707670, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4372814984124856603, guid: 15194f8621297e345b7d264ea89a1457,
         type: 3}
       propertyPath: m_Name
       value: Artifices
+      objectReference: {fileID: 0}
+    - target: {fileID: 5936713864623021907, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049749556027228260, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6470201765813629963, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966780140091288758, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014984187808400060, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130531097014367007, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228208407895860617, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942824729165179575, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132121300476489929, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296069359975234373, guid: 15194f8621297e345b7d264ea89a1457,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15194f8621297e345b7d264ea89a1457, type: 3}

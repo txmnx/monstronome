@@ -95,23 +95,25 @@ public class GuidedModeManager : MonoBehaviour
                 StartOrchestra();
                 break;
             case "Transition1":
-                //currentTrackType = TrackType.Transition;
-                LaunchFinal();
+                currentTrackType = TrackType.Transition;
                 break;
             case "Middle":
                 currentTrackType = TrackType.Block;
+                conductingRulesManager.ProfileTransition();
                 break;
             case "Transition2":
                 currentTrackType = TrackType.Transition;
                 break;
             case "Tense":
                 currentTrackType = TrackType.Block;
+                conductingRulesManager.ProfileTransition();
                 break;
             case "Transition3":
                 currentTrackType = TrackType.Transition;
                 break;
             case "End":
                 currentTrackType = TrackType.Block;
+                conductingRulesManager.ProfileTransition();
                 break;
             case "Final":
                 currentTrackType = TrackType.Other;
