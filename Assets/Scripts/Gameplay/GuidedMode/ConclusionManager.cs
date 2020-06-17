@@ -24,6 +24,7 @@ public class ConclusionManager : MonoBehaviour
     {
         tempoManager.SetTempo(SoundEngineTuner.START_TEMPO);
         tempoManager.StopTempo();
+        
         foreach (InstrumentFamily family in m_Families) {
             family.StopPlaying();
         }
@@ -37,5 +38,6 @@ public class ConclusionManager : MonoBehaviour
     {
         Debug.Log("TRANSITION SCORE : " + scoreManager.GetTransitionScore());
         Debug.Log("GLOBAL SKILL SCORE : " + scoreManager.GetGlobalSkillScore());
+        Debug.Log("GLOBAL SKILL SCORE : " + scoreManager.GetReframingScore());
     }
 }

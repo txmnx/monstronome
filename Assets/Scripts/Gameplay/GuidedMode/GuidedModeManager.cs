@@ -131,6 +131,7 @@ public class GuidedModeManager : MonoBehaviour
     //DEBUG
     private void LaunchFinal()
     {
+        conductingRulesManager.ShowRules(false);
         currentTrackType = TrackType.Other;
         m_CurrentGuidedModeStep = GuidedModeStep.Final;
         conclusionManager.Final();

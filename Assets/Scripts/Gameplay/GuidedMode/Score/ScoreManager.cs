@@ -30,7 +30,8 @@ public class ScoreManager : MonoBehaviour
     }
     private PerfectRunState m_PerfectRun;
     private int m_GlobalSkillScore = 0;
-    private int m_TransitionScore;
+    private int m_TransitionScore = 0;
+    private int m_ReframingScore = 0;
     
     private void Awake()
     {
@@ -47,6 +48,21 @@ public class ScoreManager : MonoBehaviour
         SetGlobalSkillScore();
     }
 
+    public void SuccessReframing(float time)
+    {
+        if (time > 15f) {
+            m_ReframingScore += 1;
+        }
+        else {
+            m_ReframingScore += 2;
+        }
+    }
+    
+    public void FailReframing()
+    {
+        m_ReframingScore -= 1;
+    }
+    
     private void SetGlobalSkillScore()
     {
         if (m_Score > 75) {
@@ -92,5 +108,10 @@ public class ScoreManager : MonoBehaviour
     {
         ComputeGlobalSkillScore();
         return Mathf.Clamp(m_GlobalSkillScore, 0, 2);
+    }
+
+    public int GetReframingScore()
+    {
+        return m_ReframingScore;
     }
 }
