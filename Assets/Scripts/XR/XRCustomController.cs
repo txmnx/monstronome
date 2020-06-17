@@ -47,17 +47,5 @@ public class XRCustomController : MonoBehaviour
         if (inputDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out Quaternion deviceRotation)) {
             transform.localRotation = deviceRotation;
         }
-
-        /* DEBUG */
-        if (inputDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 deviceVelocity)) {
-            debugGraph.SetValue(deviceVelocity.magnitude);
-        }
     }
-
-
-    /**
-     * DEBUG
-     */
-    [Header("DEBUG")]
-    public DebugGraph debugGraph;
 }

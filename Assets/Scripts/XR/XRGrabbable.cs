@@ -11,6 +11,11 @@ public class XRGrabbable : MonoBehaviour
     public MeshRenderer meshRenderer;
     private int m_HighlightSettingID;
     private MaterialPropertyBlock m_Block;
+
+    protected virtual void Awake()
+    {
+        
+    }
     
     protected virtual void Start()
     {

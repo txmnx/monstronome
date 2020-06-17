@@ -10,6 +10,7 @@ using UnityEngine;
 public class DrawableReframingRules : MonoBehaviour
 {
     public UIReframingToast[] reframingToasts;
+    public Material defaultMaterial;
     public Material greenMaterial;
     public Material yellowMaterial;
     public Material redMaterial;
@@ -19,7 +20,6 @@ public class DrawableReframingRules : MonoBehaviour
 
     private void Awake()
     {
-        m_DefaultMaterial = reframingToasts[0].backgroundMaterial.material;
         foreach (UIReframingToast display in reframingToasts) {
             display.Init();
         }
@@ -42,7 +42,7 @@ public class DrawableReframingRules : MonoBehaviour
     public void ResetColors()
     {
         foreach (UIReframingToast display in reframingToasts) {
-            display.SetMaterial(m_DefaultMaterial);
+            display.SetMaterial(defaultMaterial);
         }
     }
     

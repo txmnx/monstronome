@@ -142,14 +142,14 @@ public class SoundEngineTuner : MonoBehaviour
         */
     }
 
-    public enum SFXPotionType
+    public enum PotionType
     {
         Articulation,
         Reframing
     }
     
     /* POTIONS */
-    public void SetSwitchPotionType(SFXPotionType type, GameObject referenceObject)
+    public void SetSwitchPotionType(PotionType type, GameObject referenceObject)
     {
         AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), referenceObject);
     }
@@ -172,13 +172,11 @@ public class SoundEngineTuner : MonoBehaviour
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {
-        if (type != InstrumentFamily.ArticulationType.Default) {
-            try {
-                AkSoundEngine.SetSwitch(GetArticulationSwitchRequest(m_KeywordFamily[family.GetType()]), type.ToString(), soundReference.gameObject);
-            }
-            catch (KeyNotFoundException) {
-                Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
-            }
+        try {
+            AkSoundEngine.SetSwitch(GetArticulationSwitchRequest(m_KeywordFamily[family.GetType()]), type.ToString(), soundReference.gameObject);
+        }
+        catch (KeyNotFoundException) {
+            Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
         }
     }
 
@@ -249,12 +247,14 @@ public class SoundEngineTuner : MonoBehaviour
     private void Update()
     {
         
-        int type = 1;
+        //int type = 1;
+        /*
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Strings", gameObject, 0, out volumestrings, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Woods", gameObject, 0, out volumewoods, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Percussions", gameObject, 0, out volumepercussions, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Brass", gameObject, 0, out volumebrass, ref type);
-        
+    
+        */
     }
 }
 

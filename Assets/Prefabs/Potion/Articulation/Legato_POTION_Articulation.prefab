@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 1298614299099352030}
   m_Layer: 0
   m_Name: Legato_POTION_Articulation
-  m_TagString: Untagged
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,15 +399,18 @@ MonoBehaviour:
   SFXOnThrow:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: d3a5942e2d67b9746a68bb5d3d51a889,
+      type: 2}
   SFXOnPickup:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 5ff2ea815eedd3243b86a2c2a731e4bc,
+      type: 2}
   SFXOnShake:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 7eb978ab33013fd4f8ae0398a1a3223c,
+      type: 2}
 --- !u!54 &7747678097318364447
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -460,14 +463,17 @@ MonoBehaviour:
   SFXOnObjectBreak:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: ac4efd0d877e34848a92fa5fdaeb98e4,
+      type: 2}
   SFXOnObjectCollision:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: a17058b129526474eb62c63355277295,
+      type: 2}
   soundEngineTuner: {fileID: 0}
   articulationManager: {fileID: 0}
   articulationType: 0
+  spawnerPotion: {fileID: 0}
 --- !u!136 &6258141260864070303
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1057,8 +1063,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4262788909207775808}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.006, y: -0.0495, z: -0.0004}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 822267834101187594}
   m_RootOrder: 2
@@ -1070,7 +1076,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4262788909207775808}
-  m_Mesh: {fileID: 7077080844440589504, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
+  m_Mesh: {fileID: 7077080844440589504, guid: eb45f939b8230224996ee54d00a078e7, type: 3}
 --- !u!23 &8943591726300065815
 MeshRenderer:
   m_ObjectHideFlags: 0

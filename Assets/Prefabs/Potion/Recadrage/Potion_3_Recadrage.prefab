@@ -878,8 +878,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3664842183041337938}
   m_LocalRotation: {x: 0.000000081460335, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.16338356, y: -0.0068785623, z: -0.085055344}
-  m_LocalScale: {x: 1.2508625, y: 1.2508625, z: 1.2508625}
+  m_LocalPosition: {x: 1.3229, y: 0.105, z: 0.349}
+  m_LocalScale: {x: 18.399, y: 18.399, z: 18.399}
   m_Children: []
   m_Father: {fileID: 2412264469590895439}
   m_RootOrder: 2
@@ -891,7 +891,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3664842183041337938}
-  m_Mesh: {fileID: 1813302574434487071, guid: 48847041a29c61349a168d3821252627, type: 3}
+  m_Mesh: {fileID: 1813302574434487071, guid: b2d615696ab4b68419cc311111bf6dae, type: 3}
 --- !u!23 &8487265586002817982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1361,7 +1361,7 @@ GameObject:
   - component: {fileID: 4733608829811337066}
   m_Layer: 0
   m_Name: Potion_3_Recadrage
-  m_TagString: Untagged
+  m_TagString: Potion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1413,15 +1413,18 @@ MonoBehaviour:
   SFXOnThrow:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: d3a5942e2d67b9746a68bb5d3d51a889,
+      type: 2}
   SFXOnPickup:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 5ff2ea815eedd3243b86a2c2a731e4bc,
+      type: 2}
   SFXOnShake:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 7eb978ab33013fd4f8ae0398a1a3223c,
+      type: 2}
 --- !u!114 &824697651991883566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,14 +1447,17 @@ MonoBehaviour:
   SFXOnObjectBreak:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: ac4efd0d877e34848a92fa5fdaeb98e4,
+      type: 2}
   SFXOnObjectCollision:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: a17058b129526474eb62c63355277295,
+      type: 2}
   reframingManager: {fileID: 0}
   soundEngineTuner: {fileID: 0}
   type: 2
+  spawnerPotion: {fileID: 0}
 --- !u!65 &3628108176344476975
 BoxCollider:
   m_ObjectHideFlags: 0
