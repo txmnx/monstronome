@@ -25,6 +25,9 @@ public class ConductingRulesManager : MonoBehaviour
     [Header("Score")]
     public ScoreManager scoreManager;
     public ScoringParametersScriptableObject scoringParameters;
+    private bool m_IsProfilingTransition;
+    private int m_TransitionProfilerScore;
+    
     
     /* Rules */
     private Dictionary<string, OrchestraState> m_Rules;
@@ -81,7 +84,7 @@ public class ConductingRulesManager : MonoBehaviour
     {
         if (m_Rules.TryGetValue(stateName, out OrchestraState rules)) {
             m_CurrentRules = rules;
-
+            
             bool isTransition = guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition;
             UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
             UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
@@ -93,6 +96,22 @@ public class ConductingRulesManager : MonoBehaviour
         }
     }
 
+    public void ProfileTransition()
+    {
+    
+        if (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType &&
+            m_CurrentOrchestraState.tempoType == m_CurrentRules.tempoType &&
+            m_CurrentOrchestraState.intensityType == m_CurrentRules.intensityType) {
+
+            m_TransitionProfilerScore = 1;
+        }
+        else {
+            m_TransitionProfilerScore = 0;
+        }
+
+        scoreManager.AddTransitionScore(m_TransitionProfilerScore);
+    }
+    
     //Updates the score
     public void Check()
     {

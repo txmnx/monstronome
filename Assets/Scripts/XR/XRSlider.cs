@@ -49,7 +49,7 @@ public class XRSlider : XRGrabbable
 
     protected override void Start()
     {
-        
+        base.Start();
     }
     
     public override void OnUpdateGrab(XRGrabber xrGrabber)
