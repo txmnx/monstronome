@@ -33,13 +33,9 @@ public class ConclusionManager : MonoBehaviour
         }
     }
 
-    private void ComputeScore()
-    {
-        
-    }
-
     private void DisplayResults()
     {
-        
+        Debug.Log("TRANSITION SCORE : " + scoreManager.GetTransitionScore());
+        Debug.Log("GLOBAL SKILL SCORE : " + scoreManager.GetGlobalSkillScore());
     }
 }
