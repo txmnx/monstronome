@@ -10,6 +10,8 @@ using UnityEngine;
 public class DrawableReframingRules : MonoBehaviour
 {
     public UIReframingToast[] reframingToasts;
+    public GameObject arrowHint;
+    public GameObject backHint;
     public Material defaultMaterial;
     public Material greenMaterial;
     public Material yellowMaterial;
@@ -30,6 +32,8 @@ public class DrawableReframingRules : MonoBehaviour
         foreach (UIReframingToast display in reframingToasts) {
             display.gameObject.SetActive(show);
         }
+        backHint.SetActive(!show);
+        arrowHint.SetActive(!show);
     }
     
     public void DrawReframingRule(ReframingManager.ReframingRules reframingRules)

@@ -52,6 +52,8 @@ MonoBehaviour:
   - {fileID: 9130238283110405695}
   - {fileID: 8268020506732935228}
   - {fileID: 3481589578582906543}
+  arrowHint: {fileID: 4627861886946557917}
+  backHint: {fileID: 3326684357174499555}
   defaultMaterial: {fileID: 2100000, guid: 3cd6a6d4915db9e41b871834596f65b9, type: 2}
   greenMaterial: {fileID: 2100000, guid: decefd68f269d564980d33feb49f0d9b, type: 2}
   yellowMaterial: {fileID: 2100000, guid: 5c3e9dc65bb5aae4aad2eb920865070f, type: 2}
@@ -82,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 3326684357174499555}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0.112, y: 0.249, z: 0.099}
-  m_LocalScale: {x: 0.078428514, y: 0.078428514, z: 0.078428514}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 5404479259085309396}
   m_Father: {fileID: 392512354829341429}
@@ -209,17 +211,16 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255585
-  m_fontColor: {r: 0.88375807, g: 1, b: 0, a: 1}
+    rgba: 4284153836
+  m_fontColor: {r: 0.9239734, g: 1, b: 0.3537736, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 0
   m_fontColorGradient:
-    topLeft: {r: 1, g: 0, b: 0, a: 1}
-    topRight: {r: 1, g: 0, b: 0, a: 1}
-    bottomLeft: {r: 1, g: 0, b: 0, a: 1}
-    bottomRight: {r: 1, g: 0, b: 0, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: 69a525efa7e6472eab268f6ea605f06e,
-    type: 2}
+    topLeft: {r: 1, g: 0.8254717, b: 0.8254717, a: 1}
+    topRight: {r: 1, g: 0.8254717, b: 0.8254717, a: 1}
+    bottomLeft: {r: 1, g: 0.8254717, b: 0.8254717, a: 1}
+    bottomRight: {r: 1, g: 0.8254717, b: 0.8254717, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -634,17 +635,17 @@ PrefabInstance:
     - target: {fileID: 3147859984310895797, guid: 380a48cae47f1a14b8c17eb7f00eecfe,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 13
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3147859984310895797, guid: 380a48cae47f1a14b8c17eb7f00eecfe,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 13
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3147859984310895797, guid: 380a48cae47f1a14b8c17eb7f00eecfe,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 13
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3147859984310895802, guid: 380a48cae47f1a14b8c17eb7f00eecfe,
         type: 3}
@@ -663,6 +664,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 380a48cae47f1a14b8c17eb7f00eecfe, type: 3}
+--- !u!1 &4627861886946557917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3147859984310895802, guid: 380a48cae47f1a14b8c17eb7f00eecfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 7752390575931800423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4627861886946557906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3147859984310895797, guid: 380a48cae47f1a14b8c17eb7f00eecfe,
