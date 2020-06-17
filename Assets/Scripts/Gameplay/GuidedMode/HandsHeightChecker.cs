@@ -27,7 +27,22 @@ public class HandsHeightChecker : MonoBehaviour
         m_CurrentRaiseMode = RaiseHandMode.Other;
     }
 
-    private void Update()
+    private void Start()
+    {
+        StartCoroutine(LaunchCheckDelay(2f));
+    }
+
+    private IEnumerator LaunchCheckDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        while(enabled) {
+            CheckHeight();
+            yield return null;
+        }
+    }
+    
+    private void CheckHeight()
     {
         float height = raisedHandsOffset + cameraTransform.position.y;
 
@@ -46,15 +61,8 @@ public class HandsHeightChecker : MonoBehaviour
                 m_CurrentRaiseMode = RaiseHandMode.Low;
             }
         }
-        
-        //TODO : DEBUG
-        debugHeight.transform.position = new Vector3(debugHeight.transform.position.x, height, debugHeight.transform.position.z);
     }
 
-    /* TODO : DEBUG */
-    [Header("DEBUG")] 
-    public Transform debugHeight;
-    
     /* Events */
     public Action OnRaiseHand;
     public Action OnEnterRaiseHand;
