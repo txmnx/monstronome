@@ -19,6 +19,8 @@ public abstract class InstrumentFamily : MonoBehaviour
     [Header("Highlight")]
     public Light spotlight;
     public Renderer highlightHintRenderer;
+    public Renderer specialHighlightHintRenderer;
+    private Renderer m_CurrentHighlightRenderer;
     public DrawableReframingRules drawableReframingRules;
     private bool m_CanDisableHighlightHint = true;
 
@@ -61,6 +63,8 @@ public abstract class InstrumentFamily : MonoBehaviour
         if (familyAnimators.Length > 0) {
             m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
         }
+
+        m_CurrentHighlightRenderer = highlightHintRenderer;
     }
 
     private void Start()
@@ -136,22 +140,24 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void OnEnterDegradation()
     {
         //TODO : Refactor
-        highlightHintRenderer.transform.localScale = new Vector3(1.5f, 1.5f, 0);
-        highlightHintRenderer.enabled = true;
+        m_CurrentHighlightRenderer.enabled = false;
+        m_CurrentHighlightRenderer = specialHighlightHintRenderer;
+        m_CurrentHighlightRenderer.enabled = true;
         m_CanDisableHighlightHint = false;
     }
     
     public void OnExitDegradation()
     {
         //TODO : Refactor
-        highlightHintRenderer.transform.localScale = new Vector3(1f, 1f, 0);
+        m_CurrentHighlightRenderer.enabled = false;
+        m_CurrentHighlightRenderer = highlightHintRenderer;
         highlightHintRenderer.enabled = false;
         m_CanDisableHighlightHint = true;
     }
     
     virtual public void OnBeginLookedAt() 
     {
-        highlightHintRenderer.enabled = true;
+        m_CurrentHighlightRenderer.enabled = true;
     }
 
     virtual public void OnLookedAt()
@@ -160,13 +166,13 @@ public abstract class InstrumentFamily : MonoBehaviour
     virtual public void OnEndLookedAt()
     {
         if (m_CanDisableHighlightHint) {
-            highlightHintRenderer.enabled = false;
+            m_CurrentHighlightRenderer.enabled = false;
         }
     }
 
     public void OnEnterHighlight()
     {
-        highlightHintRenderer.enabled = false;
+        m_CurrentHighlightRenderer.enabled = false;
         drawableReframingRules.gameObject.SetActive(true);
         SFXOnEnterHighlight.Post(gameObject);
     }
