@@ -112,6 +112,19 @@ public class ScoreManager : MonoBehaviour
 
     public int GetReframingScore()
     {
-        return m_ReframingScore;
+        int result = 0;
+        if (m_ReframingScore < 0) {
+            result = 0;
+        }
+        else if (m_ReframingScore < 4) {
+            result = 1;
+        }
+        else if (m_ReframingScore < 8) {
+            result = 2;
+        }
+        else {
+            result = 3;
+        }
+        return result;
     }
 }
