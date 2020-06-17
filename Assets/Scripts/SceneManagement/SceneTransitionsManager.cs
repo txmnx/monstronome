@@ -30,6 +30,7 @@ public class SceneTransitionsManager : MonoBehaviour
         StartCoroutine(LoadAsyncScene(scene));
     }
 
+    /* TRANSITION */
     private IEnumerator TransitionFade(float from, float to, float duration)
     {
         float t = 0;
