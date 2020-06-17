@@ -55,6 +55,7 @@ namespace AK
         static const AkUniqueID SETWOODS = 3271167387U;
         static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
         static const AkUniqueID SFX_FEEDBACK_CHANGINGPARAMETERS = 1163937302U;
+        static const AkUniqueID SFX_FEEDBACK_FIREWORKS = 2452274067U;
         static const AkUniqueID SFX_FEEDBACK_LIGHTOFF = 2204132664U;
         static const AkUniqueID SFX_FEEDBACK_LIGHTON = 1636980706U;
         static const AkUniqueID SFX_FEEDBACK_MISTAKEALERT = 3227134913U;
@@ -87,6 +88,8 @@ namespace AK
         static const AkUniqueID UI_MENU_PAUSE_RESUME = 2269109418U;
         static const AkUniqueID UI_MENU_PAUSE_RESUME_COUNTDOWN = 1722761166U;
         static const AkUniqueID UI_MENU_PAUSE_SELECT = 795989787U;
+        static const AkUniqueID UI_MENU_TV_OFF = 1266119938U;
+        static const AkUniqueID UI_MENU_TV_ON = 2842862468U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MASTER = 4055031953U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_METRONOME = 1834445417U;
         static const AkUniqueID UI_SOUNDBOARD_SLIDER_STEP_MUSIC = 1936030412U;
