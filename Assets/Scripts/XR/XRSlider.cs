@@ -20,6 +20,12 @@ public class XRSlider : XRGrabbable
         {
             return m_Value;
         }
+
+        set
+        {
+            m_Value = value;
+            UpdatePos();
+        }
     }
 
     private Vector3 m_CachedMin;
@@ -27,12 +33,9 @@ public class XRSlider : XRGrabbable
 
     private bool m_LeftToRight = true;
 
-    protected virtual void Awake()
-    {}
-
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         m_Value = 0.0f;
         m_CachedMin = min.localPosition;
         m_CachedMax = max.localPosition;
@@ -42,6 +45,11 @@ public class XRSlider : XRGrabbable
             m_CachedMax = min.localPosition;
             m_LeftToRight = false;
         }
+    }
+
+    protected override void Start()
+    {
+        
     }
     
     public override void OnUpdateGrab(XRGrabber xrGrabber)
@@ -63,5 +71,12 @@ public class XRSlider : XRGrabbable
         else {
             m_Value = Mathf.InverseLerp(m_CachedMax.x, m_CachedMin.x, transform.localPosition.x);
         }
+    }
+
+    private void UpdatePos()
+    {
+        Vector3 localPos = transform.localPosition;
+        localPos.x = Mathf.Lerp(m_CachedMin.x, m_CachedMax.x, m_Value);
+        transform.localPosition = localPos;
     }
 }
