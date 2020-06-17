@@ -1,21 +1,31 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 /**
  * Used to control a TV with raycast + trigger
  */
+[RequireComponent(typeof(XRCustomController))]
 public class XRTVController : MonoBehaviour
 {
     public Transform controllerTop;
     public LineRenderer rayRenderer;
 
+    private XRCustomController m_Controller;
+    
     private Collider m_CachedCollider;
     private TVChoice m_PrevChoice;
     private bool m_HasChoice;
     
     private const int LAYER_MASK_TV = 1 << 9;
-    
+
+    private void Awake()
+    {
+        m_Controller = GetComponent<XRCustomController>();
+    }
+
     private void Update()
     {
         if (Physics.Raycast(controllerTop.position, controllerTop.forward, out RaycastHit hit, 10, LAYER_MASK_TV)) {
@@ -27,6 +37,7 @@ public class XRTVController : MonoBehaviour
                     TVChoice choice = hit.collider.GetComponent<TVChoice>();
                     if (m_HasChoice) {
                         m_PrevChoice.Highlight(false);
+                        m_PrevChoice.ResetSelect();
                     }
                     choice.Highlight(true);
 
@@ -36,6 +47,7 @@ public class XRTVController : MonoBehaviour
                 else {
                     if (m_HasChoice) {
                         m_PrevChoice.Highlight(false);
+                        m_PrevChoice.ResetSelect();
                         m_PrevChoice = null;
                     }
                     m_HasChoice = false;
@@ -43,12 +55,25 @@ public class XRTVController : MonoBehaviour
                 
                 m_CachedCollider = hit.collider;
             }
+            else {
+                if (m_HasChoice) {
+                    if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool trigger)) {
+                        if (trigger) {
+                            m_PrevChoice.AddSelect(Time.deltaTime);
+                        }
+                        else {
+                            m_PrevChoice.ResetSelect();
+                        }
+                    }
+                }
+            }
         }
         else {
             rayRenderer.enabled = false;
             
             if (m_HasChoice) {
                 m_PrevChoice.Highlight(false);
+                m_PrevChoice.ResetSelect();
                 m_PrevChoice = null;
             }
             m_HasChoice = false;
