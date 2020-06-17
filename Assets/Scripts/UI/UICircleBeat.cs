@@ -11,7 +11,7 @@ public class UICircleBeat : MonoBehaviour
 
     public SpriteRenderer circleRenderer;
     public Color highlightColor;
-    private Color m_DefaultColor;
+    public Color defaultColor;
     
     public enum BeatPlaneSide { Left, Right, None };
     [HideInInspector]
@@ -27,7 +27,7 @@ public class UICircleBeat : MonoBehaviour
         m_Controller = controller;
         currentSide = BeatPlaneSide.None;
         m_ImpulsePower = impulsePower;
-        m_DefaultColor = circleRenderer.color;
+        circleRenderer.color = defaultColor;
     }
     
     public void InitPlane(XRCustomController controller, float impulsePower = 0.1f)
@@ -36,7 +36,7 @@ public class UICircleBeat : MonoBehaviour
         m_Controller = controller;
         currentSide = BeatPlaneSide.None;
         m_ImpulsePower = impulsePower;
-        m_DefaultColor = circleRenderer.color;
+        circleRenderer.color = defaultColor;
     }
 
     public void OnBeat(bool impulseHighlight = false)
@@ -57,7 +57,7 @@ public class UICircleBeat : MonoBehaviour
                 StartCoroutine(ImpulseHighlight());
             }
             else {
-                circleRenderer.color = m_DefaultColor;
+                circleRenderer.color = defaultColor;
             }
             Impulse();
         }
@@ -80,7 +80,7 @@ public class UICircleBeat : MonoBehaviour
     {
         circleRenderer.color = highlightColor;
         yield return new WaitForSeconds(0.1f);
-        circleRenderer.color = m_DefaultColor;
+        circleRenderer.color = defaultColor;
     }
     
     public BeatPlaneSide GetSide(Vector3 position)
