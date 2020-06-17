@@ -115,6 +115,22 @@ public class TempoManager : MonoBehaviour
         }
     }
 
+    public void SetTempo(float tempo)
+    {
+        m_BufferLastBPMs.Clear();
+        for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
+            m_BufferLastBPMs.Enqueue(tempo);
+        }
+
+        bpm = tempo;
+        UpdateTempo();
+    }
+
+    public void StopTempo()
+    {
+        beatManager.OnBeatMajorHand -= OnBeatMajorHand;
+    }
+
     /* Events */
     public Action<InstrumentFamily.TempoType, float, bool> OnTempoChange;
 }

@@ -23,6 +23,7 @@ public class GuidedModeManager : MonoBehaviour
     [Header("Modes")]
     public ConductingRulesManager conductingRulesManager;
     public ReframingManager reframingManager;
+    public ConclusionManager conclusionManager;
 
     private enum GuidedModeStep
     {
@@ -53,6 +54,8 @@ public class GuidedModeManager : MonoBehaviour
     {
         reframingManager.LoadFamilies(families);
         orchestraLauncher.LoadFamilies(families);
+        conclusionManager.LoadFamilies(families);
+        
         orchestraLauncher.OnLoadOrchestra += LoadOrchestra;
         
         foreach (InstrumentFamily family in families) {
@@ -96,18 +99,26 @@ public class GuidedModeManager : MonoBehaviour
                 break;
             case "Middle":
                 currentTrackType = TrackType.Block;
+                conductingRulesManager.ProfileTransition();
                 break;
             case "Transition2":
                 currentTrackType = TrackType.Transition;
                 break;
             case "Tense":
                 currentTrackType = TrackType.Block;
+                conductingRulesManager.ProfileTransition();
                 break;
             case "Transition3":
                 currentTrackType = TrackType.Transition;
                 break;
             case "End":
                 currentTrackType = TrackType.Block;
+                conductingRulesManager.ProfileTransition();
+                break;
+            case "Final":
+                currentTrackType = TrackType.Other;
+                m_CurrentGuidedModeStep = GuidedModeStep.Final;
+                conclusionManager.Final();
                 break;
         }
 
@@ -115,6 +126,15 @@ public class GuidedModeManager : MonoBehaviour
             timeline.SetCurrentStep(stateName);
             conductingRulesManager.DrawRules();
         }
+    }
+    
+    //DEBUG
+    private void LaunchFinal()
+    {
+        conductingRulesManager.ShowRules(false);
+        currentTrackType = TrackType.Other;
+        m_CurrentGuidedModeStep = GuidedModeStep.Final;
+        conclusionManager.Final();
     }
 
     public void StartOrchestra()

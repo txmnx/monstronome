@@ -22,6 +22,7 @@ public class ReframingManager : MonoBehaviour
     public ScoreManager scoreManager;
     public ScoringParametersScriptableObject scoringParameters;
     public InstrumentFamilySelector instrumentFamilySelector;
+    private float m_ScoreTimer;
 
     [Header("SFX")]
     public AK.Wwise.Event SFXOnFamilyDegradation;
@@ -157,6 +158,7 @@ public class ReframingManager : MonoBehaviour
     private IEnumerator OnSuccess()
     {
         scoreManager.AddScore(scoringParameters.reframingSuccess);
+        scoreManager.SuccessReframing(Time.time - m_ScoreTimer);
         SFXOnReframingSuccess.Post(m_ReframingFamily.gameObject);
         
         m_CanCheckPotionType = false;
@@ -265,6 +267,8 @@ public class ReframingManager : MonoBehaviour
         SFXOnFamilyDegradation.Post(m_ReframingFamily.gameObject);
         UpdateDegradation(DegradationState.Left_3);
 
+        m_ScoreTimer = Time.time;
+
         m_CurrentReframingRules = GenerateRandomReframingRules();
         
         m_ReframingFamily.drawableReframingRules.ResetColors();
@@ -298,6 +302,8 @@ public class ReframingManager : MonoBehaviour
         if (m_IsDegrading) {
             //If there was still a degradation when the block ended
             SFXOnTransitionBeforeReframing.Post(m_ReframingFamily.gameObject);
+
+            scoreManager.FailReframing();
         }
         
         m_CanDegrade = false;
