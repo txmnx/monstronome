@@ -1,18 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TVDisplayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private SceneTransitionsManager m_SceneLoader;
+    
+    private void Start()
     {
-        
+        m_SceneLoader = GameObject.FindWithTag("SceneLoader").GetComponent<SceneTransitionsManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadScene(string scene)
     {
-        
+        m_SceneLoader.LoadScene(scene);
+    }
+    
+    public void Quit()
+    {
+        m_SceneLoader.Quit();
     }
 }

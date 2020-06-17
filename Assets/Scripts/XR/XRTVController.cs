@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR;
 
 /**
@@ -12,12 +13,16 @@ public class XRTVController : MonoBehaviour
 {
     public Transform controllerTop;
     public LineRenderer rayRenderer;
-
+    public UnityEvent OnEnterTV;
+    public UnityEvent OnExitTV;
+    
     private XRCustomController m_Controller;
     
     private Collider m_CachedCollider;
     private TVChoice m_PrevChoice;
     private bool m_HasChoice;
+
+    private bool m_IsPointing;
     
     private const int LAYER_MASK_TV = 1 << 9;
 
@@ -31,6 +36,11 @@ public class XRTVController : MonoBehaviour
         if (Physics.Raycast(controllerTop.position, controllerTop.forward, out RaycastHit hit, 10, LAYER_MASK_TV)) {
             rayRenderer.enabled = true;
             rayRenderer.SetPosition(1, rayRenderer.transform.InverseTransformPoint(hit.point));
+            
+            if (!m_IsPointing) {
+                OnEnterTV.Invoke();
+            }
+            m_IsPointing = true;
             
             if (hit.collider != m_CachedCollider) {
                 if (hit.collider.CompareTag("TVChoice")) {
@@ -69,6 +79,10 @@ public class XRTVController : MonoBehaviour
             }
         }
         else {
+            if (m_IsPointing) {
+                OnExitTV.Invoke();
+            }
+            m_IsPointing = false;
             rayRenderer.enabled = false;
             
             if (m_HasChoice) {
@@ -77,6 +91,8 @@ public class XRTVController : MonoBehaviour
                 m_PrevChoice = null;
             }
             m_HasChoice = false;
+            
+            
         }
     }
 }
