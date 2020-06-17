@@ -17,6 +17,11 @@ public class XRTVController : MonoBehaviour
         if (Physics.Raycast(controllerTop.position, controllerTop.forward, out RaycastHit hit, 10, LAYER_MASK_TV)) {
             rayRenderer.enabled = true;
             rayRenderer.SetPosition(1, rayRenderer.transform.InverseTransformPoint(hit.point));
+
+            if (hit.collider.CompareTag("TVChoice")) {
+                
+            }
+            
         }
         else {
             rayRenderer.enabled = false;
