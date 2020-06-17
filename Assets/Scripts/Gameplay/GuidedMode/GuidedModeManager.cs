@@ -23,6 +23,7 @@ public class GuidedModeManager : MonoBehaviour
     [Header("Modes")]
     public ConductingRulesManager conductingRulesManager;
     public ReframingManager reframingManager;
+    public ConclusionManager conclusionManager;
 
     private enum GuidedModeStep
     {
@@ -53,6 +54,8 @@ public class GuidedModeManager : MonoBehaviour
     {
         reframingManager.LoadFamilies(families);
         orchestraLauncher.LoadFamilies(families);
+        conclusionManager.LoadFamilies(families);
+        
         orchestraLauncher.OnLoadOrchestra += LoadOrchestra;
         
         foreach (InstrumentFamily family in families) {
@@ -92,7 +95,8 @@ public class GuidedModeManager : MonoBehaviour
                 StartOrchestra();
                 break;
             case "Transition1":
-                currentTrackType = TrackType.Transition;
+                //currentTrackType = TrackType.Transition;
+                LaunchFinal();
                 break;
             case "Middle":
                 currentTrackType = TrackType.Block;
@@ -109,12 +113,25 @@ public class GuidedModeManager : MonoBehaviour
             case "End":
                 currentTrackType = TrackType.Block;
                 break;
+            case "Final":
+                currentTrackType = TrackType.Other;
+                m_CurrentGuidedModeStep = GuidedModeStep.Final;
+                conclusionManager.Final();
+                break;
         }
 
         if (prevTrackType != currentTrackType) {
             timeline.SetCurrentStep(stateName);
             conductingRulesManager.DrawRules();
         }
+    }
+    
+    //DEBUG
+    private void LaunchFinal()
+    {
+        currentTrackType = TrackType.Other;
+        m_CurrentGuidedModeStep = GuidedModeStep.Final;
+        conclusionManager.Final();
     }
 
     public void StartOrchestra()

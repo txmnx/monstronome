@@ -185,6 +185,14 @@ public abstract class InstrumentFamily : MonoBehaviour
         StartCoroutine(SetAnimTriggerOffset(triggerID));
     }
 
+    public void StopPlaying()
+    {
+        int triggerID = Animator.StringToHash("SwitchIdle");
+        foreach (Animator animator in familyAnimators) {
+            animator.SetTrigger(triggerID);
+        }
+    }
+
     public void SetBrokenAnimation(ReframingManager.DegradationState degradationState)
     {
         float degradationStateLength = Enum.GetValues(typeof(ReframingManager.DegradationState)).Length;
