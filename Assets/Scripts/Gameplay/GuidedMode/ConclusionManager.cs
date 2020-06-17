@@ -13,7 +13,7 @@ public class ConclusionManager : MonoBehaviour
     private InstrumentFamily[] m_Families;
 
     [Header("Display")]
-    public GameObject display;
+    public Animator displayAnimator;
     public TextMeshPro transitionText;
     public TextMeshPro reframingText;
     public TextMeshPro globalText;
@@ -71,6 +71,6 @@ public class ConclusionManager : MonoBehaviour
         reframingText.text = reframingSentences[scoreManager.GetReframingScore()];
         globalText.text = globalSentences[scoreManager.GetGlobalSkillScore()];
         
-        display.SetActive(true);
+        displayAnimator.SetTrigger("show");
     }
 }
