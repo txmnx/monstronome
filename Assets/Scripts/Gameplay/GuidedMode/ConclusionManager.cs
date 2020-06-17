@@ -44,6 +44,7 @@ public class ConclusionManager : MonoBehaviour
 
     private void DisplayResults()
     {
+        displayAnimator.gameObject.SetActive(true);
         string[] transitionSentences = new string[]
         {
             "You didn’t manage to conduct your orchestra quickly enough!",
