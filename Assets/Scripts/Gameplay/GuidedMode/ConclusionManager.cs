@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 /**
@@ -20,6 +21,7 @@ public class ConclusionManager : MonoBehaviour
     
     [Header("Feedback")]
     public ParticleSystem[] fireworks;
+    public AK.Wwise.Event SFXOnFirework;
     
     public void LoadFamilies(InstrumentFamily[] families)
     {
@@ -36,10 +38,8 @@ public class ConclusionManager : MonoBehaviour
         foreach (InstrumentFamily family in m_Families) {
             family.StopPlaying();
         }
-        
-        foreach (ParticleSystem firework in fireworks) {
-            firework.Play();
-        }
+
+        StartCoroutine(LoopFirework());
     }
 
     private void DisplayResults()
@@ -73,5 +73,19 @@ public class ConclusionManager : MonoBehaviour
         globalText.text = globalSentences[scoreManager.GetGlobalSkillScore()];
         
         displayAnimator.SetTrigger("show");
+    }
+
+    private IEnumerator LoopFirework()
+    {
+        for (int i = 0; i < 25; ++i) {
+            foreach (ParticleSystem firework in fireworks) {
+                firework.Stop();
+                firework.Play();
+                SFXOnFirework.Post(firework.gameObject);
+                yield return new WaitForSeconds(Random.Range(0.2f, 0.4f));
+            }
+            
+            yield return new WaitForSeconds(Random.Range(1f, 1.5f));
+        }
     }
 }
