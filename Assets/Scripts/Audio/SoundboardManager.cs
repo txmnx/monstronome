@@ -17,9 +17,9 @@ public class SoundboardManager : MonoBehaviour
     
     public void SetSliders(float master, float sfx, float music, float metronome)
     {
-        masterSlider.value = 1 - master;
-        sfxSlider.value = 1 - sfx;
-        musicSlider.value = 1 - music;
-        metronomeSlider.value = 1 - metronome;
+        masterSlider.value = master;
+        sfxSlider.value = sfx;
+        musicSlider.value = music;
+        metronomeSlider.value = metronome;
     }
 }
