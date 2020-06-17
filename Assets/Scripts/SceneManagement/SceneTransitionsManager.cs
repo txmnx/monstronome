@@ -7,6 +7,9 @@ public class SceneTransitionsManager : MonoBehaviour
     [Header("Persistent Items")]
     public GameObject wwiseBank;
 
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnQuitScene;
+        
     private MeshRenderer m_BackgroundRenderer;
     private MaterialPropertyBlock m_Block;
     private float m_Fade;
@@ -60,15 +63,19 @@ public class SceneTransitionsManager : MonoBehaviour
     {
         UpdateFadeBackground();
         m_BackgroundRenderer.enabled = true;
+
         yield return StartCoroutine(TransitionFade(0, 1, 0.5f));
 
+        SFXOnQuitScene.Post(gameObject);
         ShowObjects(false);
-        
+
+        (float, float, float, float) soundSettings = LoadSoundboard();
+
         TeleportToTransitionChamber();
         m_BackgroundRenderer.enabled = false;
 
         yield return new WaitForSeconds(1f);
-        
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
         while (!asyncLoad.isDone) {
             yield return null;
@@ -77,6 +84,8 @@ public class SceneTransitionsManager : MonoBehaviour
         ShowObjects(false);
         TeleportToTransitionChamber();
 
+        SetSoundBoard(soundSettings);
+        
         yield return new WaitForSeconds(1f);
         
         Teleport(m_CachedSpawnPosition);
@@ -88,6 +97,18 @@ public class SceneTransitionsManager : MonoBehaviour
         m_BackgroundRenderer.enabled = false;
     }
 
+    private (float, float, float, float) LoadSoundboard()
+    {
+        GameObject soundboard = GameObject.FindWithTag("Soundboard");
+        return soundboard.GetComponent<SoundboardManager>().GetSliders();
+    }
+
+    private void SetSoundBoard((float, float, float, float) settings)
+    {
+        GameObject soundboard = GameObject.FindWithTag("Soundboard");
+        soundboard.GetComponent<SoundboardManager>().SetSliders(settings.Item1,settings.Item2, settings.Item3, settings.Item4);
+    }
+    
     private void UpdateFadeBackground()
     {
         GameObject background = GameObject.FindWithTag("TransitionBackground");

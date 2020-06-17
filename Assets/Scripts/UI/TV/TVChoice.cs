@@ -11,6 +11,10 @@ public class TVChoice : MonoBehaviour
     public GameObject highlightChoice;
     public Transform selectBar;
     public bool canSelect;
+
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnHighlight; 
+    public AK.Wwise.Event SFXOnSelect; 
     
     private float m_Select;
     private bool m_IsHighlighted;
@@ -20,6 +24,7 @@ public class TVChoice : MonoBehaviour
     {
         if (canSelect) {
             if (highlight) {
+                SFXOnHighlight.Post((gameObject));
                 defaultChoice.SetActive(false);
                 highlightChoice.SetActive(true);
             }
@@ -38,6 +43,7 @@ public class TVChoice : MonoBehaviour
             if (!m_HasLaunchSelected) {
                 m_Select = m_Select + select;
                 if (m_Select > 1) {
+                    SFXOnSelect.Post(gameObject);
                     OnSelect.Invoke();
                     m_HasLaunchSelected = true;
                     ResetSelect();

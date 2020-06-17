@@ -642,9 +642,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9132013561552583388}
+  - component: {fileID: 3330856690187996374}
   m_Layer: 0
   m_Name: Leviers
-  m_TagString: Untagged
+  m_TagString: Soundboard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,6 +668,22 @@ Transform:
   m_Father: {fileID: 5167347826860983367}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3330856690187996374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234678084214939879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5343df0171b65624e92cd28ee9a626c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterSlider: {fileID: 5877706348174468577}
+  sfxSlider: {fileID: 1209797441228839557}
+  musicSlider: {fileID: 3577949446296360360}
+  metronomeSlider: {fileID: 5387567796816780466}
 --- !u!1 &4263625768203441149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,15 +2263,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56591c5784d807d41935cb9440df960e, type: 3}
---- !u!4 &5780238112447271309 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 56591c5784d807d41935cb9440df960e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1534939392337099415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7380518156458976158 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 56591c5784d807d41935cb9440df960e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1534939392337099415}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5780238112447271309 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 56591c5784d807d41935cb9440df960e,
     type: 3}
   m_PrefabInstance: {fileID: 1534939392337099415}
   m_PrefabAsset: {fileID: 0}
