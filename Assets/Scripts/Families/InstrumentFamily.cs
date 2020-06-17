@@ -18,16 +18,21 @@ public abstract class InstrumentFamily : MonoBehaviour
     
     [Header("Highlight")]
     public Light spotlight;
-    public SpriteRenderer highlightHintRenderer;
+    public Renderer highlightHintRenderer;
+    public Renderer specialHighlightHintRenderer;
+    private Renderer m_CurrentHighlightRenderer;
     public DrawableReframingRules drawableReframingRules;
     private bool m_CanDisableHighlightHint = true;
+
+    [Header("SFX")]
+    public AK.Wwise.Event SFXOnEnterHighlight;
+    public AK.Wwise.Event SFXOnExitHighlight;
     
     public enum ArticulationType
     {
         Legato,
         Pizzicato,
-        Staccato,
-        Default
+        Staccato
     }
     public ArticulationType[] articulationTypes;
     private int m_CurrentArticulationIndex = 0;
@@ -59,12 +64,12 @@ public abstract class InstrumentFamily : MonoBehaviour
             m_BrokenLayerID = familyAnimators[0].GetLayerIndex("Broken");
         }
 
-        drawableReframingRules.Init();
-        drawableReframingRules.gameObject.SetActive(false);
+        m_CurrentHighlightRenderer = highlightHintRenderer;
     }
 
     private void Start()
     {
+        drawableReframingRules.gameObject.SetActive(false);
         StartCoroutine(LaunchAnimOffset());
     }
 
@@ -135,24 +140,24 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void OnEnterDegradation()
     {
         //TODO : Refactor
-        highlightHintRenderer.color = Color.red;
-        highlightHintRenderer.transform.localScale = new Vector3(1.25f, 1.25f, 0);
-        highlightHintRenderer.enabled = true;
+        m_CurrentHighlightRenderer.enabled = false;
+        m_CurrentHighlightRenderer = specialHighlightHintRenderer;
+        m_CurrentHighlightRenderer.enabled = true;
         m_CanDisableHighlightHint = false;
     }
     
     public void OnExitDegradation()
     {
         //TODO : Refactor
-        highlightHintRenderer.color = Color.yellow;
-        highlightHintRenderer.transform.localScale = new Vector3(0.75f, 0.75f, 0);
+        m_CurrentHighlightRenderer.enabled = false;
+        m_CurrentHighlightRenderer = highlightHintRenderer;
         highlightHintRenderer.enabled = false;
         m_CanDisableHighlightHint = true;
     }
     
     virtual public void OnBeginLookedAt() 
     {
-        highlightHintRenderer.enabled = true;
+        m_CurrentHighlightRenderer.enabled = true;
     }
 
     virtual public void OnLookedAt()
@@ -161,27 +166,34 @@ public abstract class InstrumentFamily : MonoBehaviour
     virtual public void OnEndLookedAt()
     {
         if (m_CanDisableHighlightHint) {
-            highlightHintRenderer.enabled = false;
+            m_CurrentHighlightRenderer.enabled = false;
         }
     }
 
     public void OnEnterHighlight()
     {
-        highlightHintRenderer.enabled = false;
+        m_CurrentHighlightRenderer.enabled = false;
         drawableReframingRules.gameObject.SetActive(true);
+        SFXOnEnterHighlight.Post(gameObject);
     }
     
     public void OnExitHighlight()
     {
         drawableReframingRules.gameObject.SetActive(false);
+        SFXOnExitHighlight.Post(gameObject);
     }
 
     public void StartPlaying()
     {
-        //DEBUG
-        if (familyAnimators.Length > 0) {
-            int triggerID = Animator.StringToHash("SwitchArticulation");
-            StartCoroutine(SetAnimTriggerOffset(triggerID));
+        int triggerID = Animator.StringToHash("SwitchPlay");
+        StartCoroutine(SetAnimTriggerOffset(triggerID));
+    }
+
+    public void StopPlaying()
+    {
+        int triggerID = Animator.StringToHash("SwitchIdle");
+        foreach (Animator animator in familyAnimators) {
+            animator.SetTrigger(triggerID);
         }
     }
 
@@ -210,7 +222,7 @@ public abstract class InstrumentFamily : MonoBehaviour
      */
     private IEnumerator LaunchAnimOffset()
     {
-        int entryID = Animator.StringToHash("Idle");
+        int entryID = Animator.StringToHash("Tuning");
         foreach (Animator animator in familyAnimators) {
             animator.Play(entryID, 0);
             yield return new WaitForSeconds(0.01f);

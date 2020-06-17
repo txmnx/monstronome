@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 1726498582578663916}
   - component: {fileID: 8623319363344713631}
   - component: {fileID: 3392200664729312661}
+  - component: {fileID: 8307165649958467467}
   m_Layer: 0
   m_Name: Voyant Tempo
   m_TagString: Untagged
@@ -160,6 +161,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &8307165649958467467
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335126837261815978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.000979494
+  m_Center: {x: 0, y: 0, z: -0.0002811717}
 --- !u!1 &1832116835789541439
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +469,7 @@ GameObject:
   - component: {fileID: 5131960295843658295}
   - component: {fileID: 7744211353910832545}
   - component: {fileID: 6314693990156703452}
+  - component: {fileID: 7221965066405335110}
   m_Layer: 0
   m_Name: Corps
   m_TagString: Untagged
@@ -524,6 +539,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7221965066405335110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7596410349096668442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0019951789, y: 0.001996521, z: 0.0021414412}
+  m_Center: {x: -4.4703483e-10, y: -4.401248e-10, z: 0.000071280345}
 --- !u!1 &7945022570623021070
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +563,7 @@ GameObject:
   - component: {fileID: 4598081760361432345}
   - component: {fileID: 7808967755369914922}
   - component: {fileID: 3369171767754463568}
+  - component: {fileID: 669637432795798719}
   m_Layer: 0
   m_Name: Voyant Articulation
   m_TagString: Untagged
@@ -604,6 +633,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &669637432795798719
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7945022570623021070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.000979494
+  m_Center: {x: 0, y: 0, z: -0.0002811717}
 --- !u!1 &8102427560904178585
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,10 +724,23 @@ MonoBehaviour:
   meshRenderer: {fileID: 5593127089608843032}
   min: {fileID: 7429552158026063363}
   max: {fileID: 1982260877103588515}
-  animators:
-  - {fileID: 8687083588195226443}
-  - {fileID: 5006057133098264960}
-  - {fileID: 5428370410681252566}
+  toasts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  toasterSoundReference: {fileID: 0}
+  SFXOnSliderExtremity:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  SFXOnToasterIn:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  SFXOnToasterOut:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!1 &8658762065493768078
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +785,7 @@ GameObject:
   - component: {fileID: 6104236758831474347}
   - component: {fileID: 6299500395431538824}
   - component: {fileID: 5657794268102730381}
+  - component: {fileID: 1161783966650225401}
   m_Layer: 0
   m_Name: Voyant Power
   m_TagString: Untagged
@@ -799,6 +855,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &1161783966650225401
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716354243726758872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.000979494
+  m_Center: {x: 0, y: 0, z: -0.0002811717}
 --- !u!1 &8796684796688880229
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +993,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 974964647279455375}
     m_Modifications:
+    - target: {fileID: -5178661895559278292, guid: 6f9f41f85e10ebd4197d061176b280dd,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6692290496178104961, guid: 85da0c2ec913e234385a78006cf7981a,
+        type: 3}
     - target: {fileID: -4216859302048453862, guid: 6f9f41f85e10ebd4197d061176b280dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1452,24 +1527,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bcbb4223b4e3fb46b391e24cd75ec1e, type: 3}
---- !u!95 &8687083588195226443 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5350445418333992228, guid: 3bcbb4223b4e3fb46b391e24cd75ec1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3660900646043346543}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5428370410681252566 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8762689435642682553, guid: 3bcbb4223b4e3fb46b391e24cd75ec1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3660900646043346543}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5006057133098264960 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8626424967858786287, guid: 3bcbb4223b4e3fb46b391e24cd75ec1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3660900646043346543}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6158530327030484935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7474109552153471400, guid: 3bcbb4223b4e3fb46b391e24cd75ec1e,

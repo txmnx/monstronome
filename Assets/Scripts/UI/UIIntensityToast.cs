@@ -23,7 +23,8 @@ public class UIIntensityToast : UIToast
     public GameObject[] arrows = new GameObject[3];
     private GameObject m_CurrentArrows;
     
-    
+    private InstrumentFamily.IntensityType m_PrevType;
+
     protected override void Awake()
     {
         base.Awake();
@@ -46,7 +47,7 @@ public class UIIntensityToast : UIToast
         m_CurrentArrows = arrows[0];
     }
 
-    public void Draw(InstrumentFamily.IntensityType currentType, InstrumentFamily.IntensityType ruleType, bool isTransition = false)
+    public void Draw(InstrumentFamily.IntensityType currentType, InstrumentFamily.IntensityType ruleType, bool isTransition = false, bool playSFX = false)
     {
         if (currentType == ruleType) {
             if (isTransition) {
@@ -59,9 +60,14 @@ public class UIIntensityToast : UIToast
             }
             
             UIOk.SetActive(true);
-            
             UIWider.SetActive(false);
             UITighter.SetActive(false);
+            
+            if (playSFX) {
+                if (currentType != m_PrevType && m_PrevType != ruleType) {
+                    SFXOnParameterFromWrongToGood.Post(toasterSoundReference);
+                }
+            }
         }
         else {
             if (isTransition) {
@@ -75,6 +81,12 @@ public class UIIntensityToast : UIToast
             
             UIOk.SetActive(false);
 
+            if (playSFX) {
+                if (currentType != m_PrevType && m_PrevType == ruleType) {
+                    SFXOnParameterFromGoodToWrong.Post(toasterSoundReference);
+                }
+            }
+            
             if (currentType < ruleType) {
                 UITighter.SetActive(false);
                 UIWider.SetActive(true);
@@ -98,5 +110,7 @@ public class UIIntensityToast : UIToast
         foreach (MeshRenderer rend in m_CurrentCircleRenderer) {
             SetEmissionForce(rend, 0.5f);
         }
+
+        m_PrevType = currentType;
     }
 }

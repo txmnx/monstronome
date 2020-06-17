@@ -6,24 +6,65 @@ using UnityEngine;
 /**
  * Tells whether the player is raising hands
  */
-[ExecuteInEditMode]
 public class HandsHeightChecker : MonoBehaviour
 {
-    public float raisedHandsHeight;
-    public float loweredHandsHeight;
-    
-    public Action OnRaiseHands;
-    public Action OnLowerHands;
-    
-    #if UNITY_EDITOR
-    void OnDrawGizmos()
+    public Transform cameraTransform;
+    public Transform leftHand;
+    public Transform rightHand;
+    public float raisedHandsOffset;
+
+    private enum RaiseHandMode
     {
-        Vector3 posRaised = transform.TransformPoint(new Vector3(transform.localPosition.x, raisedHandsHeight, transform.localPosition.z));
-        Vector3 posLowered = transform.TransformPoint(new Vector3(transform.localPosition.x, loweredHandsHeight, transform.localPosition.z));
-        Gizmos.color = new Color(0.84f, 0.22f, 0.01f, 0.8f);
-        Gizmos.DrawCube(posRaised, new Vector3(1, 0.1f, 0.1f));
-        Gizmos.color = new Color(0.84f, 0.22f, 0.54f, 0.8f);
-        Gizmos.DrawCube(posLowered, new Vector3(1, 0.1f, 0.1f));
+        Raised,
+        Low,
+        Other
     }
-    #endif
+
+    private RaiseHandMode m_CurrentRaiseMode;
+
+    private void Awake()
+    {
+        m_CurrentRaiseMode = RaiseHandMode.Other;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(LaunchCheckDelay(2f));
+    }
+
+    private IEnumerator LaunchCheckDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        while(enabled) {
+            CheckHeight();
+            yield return null;
+        }
+    }
+    
+    private void CheckHeight()
+    {
+        float height = raisedHandsOffset + cameraTransform.position.y;
+
+        if (leftHand.position.y > height && rightHand.position.y > height) {
+            if (m_CurrentRaiseMode == RaiseHandMode.Raised) {
+                OnRaiseHand?.Invoke();
+            }
+            else if (m_CurrentRaiseMode == RaiseHandMode.Low) {
+                m_CurrentRaiseMode = RaiseHandMode.Raised;
+                OnEnterRaiseHand?.Invoke();
+            }
+        }
+        else if (leftHand.position.y < height && rightHand.position.y < height) {
+            if (m_CurrentRaiseMode != RaiseHandMode.Low) {
+                OnExitRaiseHand?.Invoke();
+                m_CurrentRaiseMode = RaiseHandMode.Low;
+            }
+        }
+    }
+
+    /* Events */
+    public Action OnRaiseHand;
+    public Action OnEnterRaiseHand;
+    public Action OnExitRaiseHand;
 }

@@ -20,6 +20,12 @@ public class XRSlider : XRGrabbable
         {
             return m_Value;
         }
+
+        set
+        {
+            m_Value = value;
+            UpdatePos();
+        }
     }
 
     private Vector3 m_CachedMin;
@@ -27,12 +33,9 @@ public class XRSlider : XRGrabbable
 
     private bool m_LeftToRight = true;
 
-    protected virtual void Awake()
-    {}
-
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         m_Value = 0.0f;
         m_CachedMin = min.localPosition;
         m_CachedMax = max.localPosition;
@@ -42,11 +45,23 @@ public class XRSlider : XRGrabbable
             m_CachedMax = min.localPosition;
             m_LeftToRight = false;
         }
+        
+        if (m_LeftToRight) {
+            m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);
+        }
+        else {
+            m_Value = Mathf.InverseLerp(m_CachedMax.x, m_CachedMin.x, transform.localPosition.x);
+        }
+    }
+
+    protected override void Start()
+    {
+        base.Start();
     }
     
     public override void OnUpdateGrab(XRGrabber xrGrabber)
     {
-        Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.transform.position);
+        Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.GetPivot());
         
         if (nextPos.x > m_CachedMax.x) {
             nextPos = m_CachedMax;
@@ -62,6 +77,20 @@ public class XRSlider : XRGrabbable
         }
         else {
             m_Value = Mathf.InverseLerp(m_CachedMax.x, m_CachedMin.x, transform.localPosition.x);
+        }
+    }
+
+    private void UpdatePos()
+    {
+        if (m_LeftToRight) {
+            Vector3 localPos = transform.localPosition;
+            localPos.x = Mathf.Lerp(m_CachedMin.x, m_CachedMax.x, m_Value);
+            transform.localPosition = localPos;
+        }
+        else {
+            Vector3 localPos = transform.localPosition;
+            localPos.x = Mathf.Lerp(m_CachedMax.x, m_CachedMin.x, m_Value);
+            transform.localPosition = localPos;
         }
     }
 }

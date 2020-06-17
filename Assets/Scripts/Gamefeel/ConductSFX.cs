@@ -9,6 +9,7 @@ using UnityEngine;
  */
 public class ConductSFX : MonoBehaviour
 {
+    public SoundEngineTuner soundEngineTuner;
     public ConductingEventsManager conductingEventsManager;
     public GameObject batonTop;
     public GameObject beatPlane;
@@ -20,6 +21,7 @@ public class ConductSFX : MonoBehaviour
     private void Start()
     {
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
+        conductingEventsManager.OnConducting += OnConducting;
         conductingEventsManager.OnEndConducting += OnEndConducting;
     }
 
@@ -27,6 +29,11 @@ public class ConductSFX : MonoBehaviour
     {
         SFXWandIdleConducting.Post(batonTop);
         SFXWandBeginConducting.Post(beatPlane);
+    }
+    
+    public void OnConducting(float wandSpeed)
+    {
+        soundEngineTuner.SetWandSpeed(wandSpeed);
     }
     
     public void OnEndConducting()

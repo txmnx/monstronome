@@ -13,9 +13,12 @@ public class TempoManager : MonoBehaviour
     public const float MIN_BPM = 45f;
     public const float MAX_BPM = 165f;
 
+    [Header("Callbacks")]
     public SoundEngineTuner soundEngineTuner;
     public BeatManager beatManager;
     public ConductingEventsManager conductingEventsManager;
+    
+    [Header("Animation speed")]
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     /* BPM */
@@ -31,16 +34,12 @@ public class TempoManager : MonoBehaviour
     
     /* Conduct */
     private int m_BeatsCountSinceBeginConducting = 0;
-    
-    /* Debug */
-    [Header("DEBUG")]
-    public DebugGraph bpmGraph;
+
 
     private void Start()
     {
-        beatManager.OnBeatMajorHand += OnBeatMajorHand;
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
-
+            
         m_BufferLastBPMs = new Queue<float>();
         float baseTempo = SoundEngineTuner.START_TEMPO;
         for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
@@ -51,9 +50,16 @@ public class TempoManager : MonoBehaviour
         soundEngineTuner.SetTempo(bpm);
         UpdateAnimationSpeed();
         m_CurrentTempoType = soundEngineTuner.GetTempoRange(bpm).type;
-        OnTempoChange?.Invoke(m_CurrentTempoType, bpm);
+        OnTempoChange?.Invoke(m_CurrentTempoType, bpm, false);
     }
 
+    //We can't change tempo if the orchestra hasn't started
+    public void OnStartOrchestra()
+    {
+        beatManager.OnBeatMajorHand += OnBeatMajorHand;
+    }
+    
+    //We register the bpm only if there have been 2 beats since beginning conducting 
     public void OnBeginConducting()
     {
         m_BeatsCountSinceBeginConducting = 0;
@@ -82,9 +88,9 @@ public class TempoManager : MonoBehaviour
     private void UpdateTempo()
     {
         SoundEngineTuner.RTPCRange<InstrumentFamily.TempoType> tempoRange = soundEngineTuner.GetTempoRange(bpm);
-        OnTempoChange?.Invoke(tempoRange.type, bpm);
+        OnTempoChange?.Invoke(tempoRange.type, bpm, true);
         
-        //DEBUG
+        //TODO : DEBUG
         if (DebugInteractionModes.tempoInteractionModeRef == DebugInteractionModes.TempoInteractionMode.Dynamic) {
             soundEngineTuner.SetTempo(bpm);
         }
@@ -108,13 +114,23 @@ public class TempoManager : MonoBehaviour
             }
         }
     }
-    
-    private void Update()
+
+    public void SetTempo(float tempo)
     {
-        //DEBUG
-        bpmGraph?.SetValue(bpm);
+        m_BufferLastBPMs.Clear();
+        for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
+            m_BufferLastBPMs.Enqueue(tempo);
+        }
+
+        bpm = tempo;
+        UpdateTempo();
     }
-    
+
+    public void StopTempo()
+    {
+        beatManager.OnBeatMajorHand -= OnBeatMajorHand;
+    }
+
     /* Events */
-    public Action<InstrumentFamily.TempoType, float> OnTempoChange;
+    public Action<InstrumentFamily.TempoType, float, bool> OnTempoChange;
 }

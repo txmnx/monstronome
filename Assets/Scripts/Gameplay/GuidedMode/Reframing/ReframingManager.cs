@@ -22,6 +22,7 @@ public class ReframingManager : MonoBehaviour
     public ScoreManager scoreManager;
     public ScoringParametersScriptableObject scoringParameters;
     public InstrumentFamilySelector instrumentFamilySelector;
+    private float m_ScoreTimer;
 
     [Header("SFX")]
     public AK.Wwise.Event SFXOnFamilyDegradation;
@@ -107,9 +108,9 @@ public class ReframingManager : MonoBehaviour
             if (m_ReframingFamily.gameObject == other.gameObject) {
                 if (m_CanCheckPotionType) {
                     if (m_CurrentReframingRules.rules[m_ReframingPotionIndex] == potion.type) {
-                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, Color.green);
+                        m_ReframingFamily.drawableReframingRules.HighlightRule(m_ReframingPotionIndex, m_ReframingFamily.drawableReframingRules.greenMaterial);
 
-                        soundEngineTuner.SetSwitchPotionBonusMalus(true, potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion.gameObject);
                         SFXOnPotionRight.Post(potion.gameObject);
 
                         if ((int) m_CurrentDegradationState > 1) {
@@ -127,7 +128,7 @@ public class ReframingManager : MonoBehaviour
                     }
                     else {
                         //Failure
-                        soundEngineTuner.SetSwitchPotionBonusMalus(false, potion.gameObject);
+                        soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Malus, potion.gameObject);
                         SFXOnPotionWrong.Post(potion.gameObject);
 
                         m_ReframingPotionIndex = 0;
@@ -139,16 +140,16 @@ public class ReframingManager : MonoBehaviour
         }
     }
 
-    private IEnumerator BlinkAnimation(Color color1, Color color2)
+    private IEnumerator BlinkAnimation(Material mat1, Material mat2)
     {
         for (int repeat = 0; repeat < 4; ++repeat) {
             for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
-                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color1);
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, mat1);
             }
             yield return new WaitForSeconds(0.2f);
         
             for (int i = 0; i < m_CurrentReframingRules.rules.Length; ++i) {
-                m_ReframingFamily.drawableReframingRules.HighlightRule(i, color2);
+                m_ReframingFamily.drawableReframingRules.HighlightRule(i, mat2);
             }
             yield return new WaitForSeconds(0.2f);
         }
@@ -157,10 +158,11 @@ public class ReframingManager : MonoBehaviour
     private IEnumerator OnSuccess()
     {
         scoreManager.AddScore(scoringParameters.reframingSuccess);
+        scoreManager.SuccessReframing(Time.time - m_ScoreTimer);
         SFXOnReframingSuccess.Post(m_ReframingFamily.gameObject);
         
         m_CanCheckPotionType = false;
-        yield return BlinkAnimation(Color.green, Color.yellow);
+        yield return BlinkAnimation(m_ReframingFamily.drawableReframingRules.greenMaterial, m_ReframingFamily.drawableReframingRules.yellowMaterial);
         
         m_ReframingFamily.drawableReframingRules.ResetColors();
         m_CanCheckPotionType = true;
@@ -170,7 +172,7 @@ public class ReframingManager : MonoBehaviour
     private IEnumerator OnFailure()
     {
         m_CanCheckPotionType = false;
-        yield return BlinkAnimation(Color.red, Color.black);
+        yield return BlinkAnimation(m_ReframingFamily.drawableReframingRules.redMaterial, m_ReframingFamily.drawableReframingRules.blackMaterial);
 
         m_ReframingFamily.drawableReframingRules.ResetColors();
         
@@ -265,6 +267,8 @@ public class ReframingManager : MonoBehaviour
         SFXOnFamilyDegradation.Post(m_ReframingFamily.gameObject);
         UpdateDegradation(DegradationState.Left_3);
 
+        m_ScoreTimer = Time.time;
+
         m_CurrentReframingRules = GenerateRandomReframingRules();
         
         m_ReframingFamily.drawableReframingRules.ResetColors();
@@ -298,6 +302,8 @@ public class ReframingManager : MonoBehaviour
         if (m_IsDegrading) {
             //If there was still a degradation when the block ended
             SFXOnTransitionBeforeReframing.Post(m_ReframingFamily.gameObject);
+
+            scoreManager.FailReframing();
         }
         
         m_CanDegrade = false;

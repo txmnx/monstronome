@@ -4,6 +4,8 @@
 
 Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 	Properties {
+		_DirLightMultiplier("Directional Light Multiplier",range(0,50)) = 10
+		//_DirLightAngleOffset("Directional Light Angle Offset",Vector) = (0,0,0,0)
 		
 		_Outline("Thick of Outline",range(0,0.1)) = 0.02	
 		_OutlineColor ("Outline Color", Color) = (0, 0, 0, 1)
@@ -125,6 +127,10 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
             //Dither colors
             float4 _Color1;
             float4 _Color2;
+                  
+            //Directional Lights Modifiers
+            float _DirLightMultiplier;
+            //float4 _DirLightAngleOffset;
             
             fixed3 Hatching(float2 _uv, half _intensity)
 			{
@@ -150,6 +156,14 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 
 				return hatching;
 			}
+			
+			struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 texcoord : TEXCOORD0;
+                float3 normal : TEXCOORD1;
+                //UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
             
 			struct v2f {
 				float4 pos:SV_POSITION;
@@ -161,6 +175,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				
 				float4 screenPosition : TEXCOORD4;              
                 float3 vertexLighting : TEXCOORD5;
+                //UNITY_VERTEX_OUTPUT_STEREO
 			};
 			
 			float4 GetColor(v2f i) {
@@ -172,6 +187,11 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 			// initialize variables like position, normal, light direction and view direction based on basic vertex information and shader api
 			v2f vert(appdata_full v, float4 tangent : TANGENT) {
 				v2f o;
+				
+				/*UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_INITIALIZE_OUTPUT(v2f, o);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);*/
+				
 				// world coordination
 				o.pos = UnityObjectToClipPos(v.vertex);
                 
@@ -186,7 +206,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
                 
                 // Diffuse reflection by four "vertex lights"      
                 o.vertexLighting = float3(0.0, 0.0, 0.0);
-                //#ifdef VERTEXLIGHT_ON
+                #ifdef VERTEXLIGHT_ON
                 for (int index = 0; index < 4; index++)
                 {  
                   float4 lightPosition = float4(unity_4LightPosX0[index], 
@@ -196,6 +216,10 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
                   float3 vertexToLightSource = 
                   lightPosition.xyz - o.pos.xyz;    
                   float3 lightDirection = normalize(vertexToLightSource);
+                  
+                  //angle offset
+                  lightDirection += _DirLightAngleOffset;
+                  
                   float squaredDistance = 
                    dot(vertexToLightSource, vertexToLightSource);
                   float attenuation = 1.0 / (1.0 + 
@@ -205,7 +229,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
                    * max(0.0, dot(o.normal, lightDirection));     
                   o.vertexLighting =  o.vertexLighting + diffuseReflection;
                   }
-                //#endif
+                #endif
 
 				return o;
 			}
@@ -229,6 +253,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				float toon = floor(diffuse*_Steps) / _Steps;
 				// lerp bthe toon effect
 				diffuse = lerp(diffuse,toon,_ToonEffect);
+				diffuse *= _DirLightMultiplier;
 
 				// rim light, saturate same as clamp
 				float rim = 1.0 - saturate(dot(N, normalize(viewDir)));
@@ -239,8 +264,8 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				rim = lerp(rim, toonRim, _ToonEffect);
 				// mix the color
 				c = c*_LightColor0*diffuse*rim;
-
-
+				
+				//_WorldSpaceLightPos0 += _DirLightAngleOffset;
 		
 			  float attenuation;
               if (0.0 == _WorldSpaceLightPos0.w) // directional light?
@@ -256,6 +281,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
                 attenuation = 1.0 / distance; // linear attenuation 
                 lightDir = normalize(vertexToLightSource);
               }
+
          
               float3 ambientLighting = 
                 UNITY_LIGHTMODEL_AMBIENT.rgb * _AlbedoColor.rgb;
@@ -305,6 +331,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				ENDCG
 		}
 		
+	
 		pass {
 			Tags{ "LightMode" = "UniversalForward" }
 			Blend One One
@@ -338,6 +365,10 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
             float4 _Color1;
             float4 _Color2;
             
+            //Directional Lights Modifiers
+            float _DirLightMultiplier;
+            float3 _DirLightAngleOffset;
+            
             fixed3 Hatching(float2 _uv, half _intensity)
 			{
 				half3 hatch0 = tex2D(_Hatch0, _uv).rgb;
@@ -362,6 +393,14 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 
 				return hatching;
 			}
+			
+			struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 texcoord : TEXCOORD0;
+                float3 normal : TEXCOORD1;
+                //UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
 		
 			struct v2f {
 				float4 pos:SV_POSITION;
@@ -373,6 +412,7 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				
 				float4 screenPosition : TEXCOORD4;              
                 float3 vertexLighting : TEXCOORD5;
+                //UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 			
 			float4 GetColor(v2f i) {
@@ -383,6 +423,11 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 			
 			v2f vert(appdata_full v, float4 tangent : TANGENT) {
 				v2f o;
+				
+				/*UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_INITIALIZE_OUTPUT(v2f, o);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);*/
+				
 				o.pos = UnityObjectToClipPos(v.vertex);
 				
 				o.normal = v.normal;
@@ -391,6 +436,9 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 				
                 o.screenPosition = ComputeScreenPos(o.pos);
+                
+                //main light Modifiers
+                o.lightDir += _DirLightAngleOffset;
                 
                 // Diffuse reflection by four "vertex lights"      
                 o.vertexLighting = float3(0.0, 0.0, 0.0);
@@ -404,6 +452,10 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
                   float3 vertexToLightSource = 
                   lightPosition.xyz - o.pos.xyz;    
                   float3 lightDirection = normalize(vertexToLightSource);
+                  
+                  //main light Modifiers
+                  lightDirection += _DirLightAngleOffset;
+                  
                   float squaredDistance = 
                    dot(vertexToLightSource, vertexToLightSource);
                   float attenuation = 1.0 / (1.0 + 
@@ -433,6 +485,8 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 				float atten = 1 / (dist);
 				float toon = floor(diffuse*atten*_Steps) / _Steps;
 				diffuse = lerp(diffuse,toon,_ToonEffect);
+				diffuse *= _DirLightMultiplier;
+				
 
 				half3 h = normalize(lightDir + viewDir);
 				// half vector
@@ -507,7 +561,8 @@ Shader "Universal Render Pipeline/Custom/CelHatchingDitherShader" {
 			}
 				ENDCG
 		}
-
+       
+        
 		// shadow
 		Pass{	
 		Tags{ "LightMode" = "ShadowCaster" }

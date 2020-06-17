@@ -13,9 +13,9 @@ public class ArticulationManager : MonoBehaviour
         OnArticulationChange?.Invoke(InstrumentFamily.ArticulationType.Legato, false, null);
     }
 
-    public void SetArticulation(InstrumentFamily.ArticulationType type, bool usePotionReference = false, GameObject potion = null)
+    public void SetArticulation(InstrumentFamily.ArticulationType type, bool fromPotion = false, GameObject potion = null)
     {
-        OnArticulationChange?.Invoke(type, usePotionReference, potion);
+        OnArticulationChange?.Invoke(type, fromPotion, potion);
 
         foreach (InstrumentFamily family in families) {
             family.SetArticulation((int)type);

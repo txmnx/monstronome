@@ -100,6 +100,11 @@ public class SoundEngineTuner : MonoBehaviour
     {
         return m_TempoRanges[type].value;
     }
+
+    public void SetWandSpeed(float wandSpeed)
+    {
+        AkSoundEngine.SetRTPCValue("RTPC_Magnitude_Wand", wandSpeed);
+    }
     
     //Used to describe the min and max bpm ranges of a type, and the value that should be send to the RTPC
     public struct RTPCRange<T>
@@ -137,20 +142,28 @@ public class SoundEngineTuner : MonoBehaviour
         */
     }
 
-    /* POTIONS */
-    public void SetSwitchPotionType(string type, GameObject referenceObject)
+    public enum PotionType
     {
-        AkSoundEngine.SetSwitch("SW_Potion_Type", type, referenceObject);
+        Articulation,
+        Reframing
     }
     
-    public void SetSwitchPotionBonusMalus(bool bonus, GameObject referenceObject)
+    /* POTIONS */
+    public void SetSwitchPotionType(PotionType type, GameObject referenceObject)
     {
-        if (bonus) {
-            AkSoundEngine.SetSwitch("SW_Potion_Effect", "Bonus", referenceObject);
-        }
-        else {
-            AkSoundEngine.SetSwitch("SW_Potion_Effect", "Malus", referenceObject);
-        }
+        AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), referenceObject);
+    }
+
+    public enum SFXPotionScoreType
+    {
+        Bonus,
+        Malus,
+        Neutral
+    }
+    
+    public void SetSwitchPotionBonusMalus(SFXPotionScoreType sfxType, GameObject referenceObject)
+    {
+        AkSoundEngine.SetSwitch("SW_Potion_Effect", sfxType.ToString(), referenceObject);
     }
     
     //TODO : SetPotionSpeed
@@ -159,13 +172,11 @@ public class SoundEngineTuner : MonoBehaviour
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {
-        if (type != InstrumentFamily.ArticulationType.Default) {
-            try {
-                AkSoundEngine.SetSwitch(GetArticulationSwitchRequest(m_KeywordFamily[family.GetType()]), type.ToString(), soundReference.gameObject);
-            }
-            catch (KeyNotFoundException) {
-                Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
-            }
+        try {
+            AkSoundEngine.SetSwitch(GetArticulationSwitchRequest(m_KeywordFamily[family.GetType()]), type.ToString(), soundReference.gameObject);
+        }
+        catch (KeyNotFoundException) {
+            Debug.LogError("Error : " + family.GetType() + " family doesn't exist in the RTPC keyword dictionnary");
         }
     }
 
@@ -199,8 +210,13 @@ public class SoundEngineTuner : MonoBehaviour
         return m_IntensityRanges[InstrumentFamily.IntensityType.MezzoForte];
     }
 
+    /* SCORE */
+    public void UpdateScore(float score)
+    {
+        AkSoundEngine.SetRTPCValue("RTPC_Player_Score", score);
+    }
+    
     /* SETTINGS */
-
     public void SetVolume(string volumeId, float value)
     {
         AkSoundEngine.SetRTPCValue("RTPC_SetVolume_" + volumeId, value);
@@ -231,12 +247,14 @@ public class SoundEngineTuner : MonoBehaviour
     private void Update()
     {
         
-        int type = 1;
+        //int type = 1;
+        /*
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Strings", gameObject, 0, out volumestrings, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Woods", gameObject, 0, out volumewoods, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Percussions", gameObject, 0, out volumepercussions, ref type);
         AkSoundEngine.GetRTPCValue("RTPC_GetVolume_Brass", gameObject, 0, out volumebrass, ref type);
-        
+    
+        */
     }
 }
 
