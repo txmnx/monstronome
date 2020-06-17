@@ -18,7 +18,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     
     [Header("Highlight")]
     public Light spotlight;
-    public SpriteRenderer highlightHintRenderer;
+    public Renderer highlightHintRenderer;
     public DrawableReframingRules drawableReframingRules;
     private bool m_CanDisableHighlightHint = true;
 
@@ -136,8 +136,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void OnEnterDegradation()
     {
         //TODO : Refactor
-        highlightHintRenderer.color = Color.red;
-        highlightHintRenderer.transform.localScale = new Vector3(1.25f, 1.25f, 0);
+        highlightHintRenderer.transform.localScale = new Vector3(1.5f, 1.5f, 0);
         highlightHintRenderer.enabled = true;
         m_CanDisableHighlightHint = false;
     }
@@ -145,8 +144,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     public void OnExitDegradation()
     {
         //TODO : Refactor
-        highlightHintRenderer.color = Color.yellow;
-        highlightHintRenderer.transform.localScale = new Vector3(0.75f, 0.75f, 0);
+        highlightHintRenderer.transform.localScale = new Vector3(1f, 1f, 0);
         highlightHintRenderer.enabled = false;
         m_CanDisableHighlightHint = true;
     }
