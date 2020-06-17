@@ -95,6 +95,7 @@ public class GuidedModeManager : MonoBehaviour
                 StartOrchestra();
                 break;
             case "Transition1":
+                LaunchFinal();
                 currentTrackType = TrackType.Transition;
                 break;
             case "Middle":

@@ -507,12 +507,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f314b4bbf220fd14d8cae0d5495bde4e, type: 3}
---- !u!1 &36402651 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 113617231007018247, guid: f314b4bbf220fd14d8cae0d5495bde4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 36402650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &36402652 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4482884356482409352, guid: f314b4bbf220fd14d8cae0d5495bde4e,
@@ -549,6 +543,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &36402656 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1282545809735539823, guid: f314b4bbf220fd14d8cae0d5495bde4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 36402650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &50697470 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6049749556027228260, guid: 15194f8621297e345b7d264ea89a1457,
@@ -2454,7 +2454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 348619499}
   tempoManager: {fileID: 348619489}
-  display: {fileID: 36402651}
+  displayAnimator: {fileID: 36402656}
   transitionText: {fileID: 36402654}
   reframingText: {fileID: 36402653}
   globalText: {fileID: 36402652}
@@ -5785,6 +5785,11 @@ PrefabInstance:
       propertyPath: soundEngineTuner
       value: 
       objectReference: {fileID: 348619491}
+    - target: {fileID: 4522826732010809617, guid: d3d9e3ad350fdf446b4dc1be8449901d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4541183776473514055, guid: d3d9e3ad350fdf446b4dc1be8449901d,
         type: 3}
       propertyPath: m_text
@@ -6005,6 +6010,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6847701398218015205, guid: d3d9e3ad350fdf446b4dc1be8449901d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730424058647619637, guid: d3d9e3ad350fdf446b4dc1be8449901d,
         type: 3}
       propertyPath: m_Mesh
       value: 
