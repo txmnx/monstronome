@@ -67,6 +67,8 @@ public class SceneTransitionsManager : MonoBehaviour
         TeleportToTransitionChamber();
         m_BackgroundRenderer.enabled = false;
 
+        yield return new WaitForSeconds(1f);
+        
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
         while (!asyncLoad.isDone) {
             yield return null;
@@ -75,6 +77,8 @@ public class SceneTransitionsManager : MonoBehaviour
         ShowObjects(false);
         TeleportToTransitionChamber();
 
+        yield return new WaitForSeconds(1f);
+        
         Teleport(m_CachedSpawnPosition);
         
         UpdateFadeBackground();
