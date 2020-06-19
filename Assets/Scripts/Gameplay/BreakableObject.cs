@@ -89,8 +89,9 @@ public class BreakableObject : MonoBehaviour
 
     protected virtual void OnCollisionSFX(Collision other)
     {
-        SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
-        SFXOnObjectCollision.Post(gameObject);
+        if (m_Rigidbody.velocity.magnitude > 0.25f) {
+            SFXOnObjectCollision.Post(gameObject);
+        }
     }
 
     /* WIND FORCE */
