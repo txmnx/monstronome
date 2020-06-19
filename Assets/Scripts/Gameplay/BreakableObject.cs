@@ -50,7 +50,10 @@ public class BreakableObject : MonoBehaviour
         float speed = other.relativeVelocity.magnitude;
         if (speed > speedUntilBreak) {
             breakedObject.gameObject.SetActive(true);
-
+            
+            //Used to set wwise switches and rtpcs on potion break
+            OnBreak(other);
+            
             float explosionForce = speed * speed * explosionForceFactor;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
                 rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier);
@@ -66,7 +69,6 @@ public class BreakableObject : MonoBehaviour
                 co.enabled = false;
             }
             
-            OnBreak(other);
             SFXOnObjectBreak.Post(gameObject);
             
             m_HasBroken = true;
@@ -81,10 +83,13 @@ public class BreakableObject : MonoBehaviour
     }
 
     protected virtual void OnBreak(Collision other)
-    {}
+    {
+        SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
+    }
 
     protected virtual void OnCollisionSFX(Collision other)
     {
+        SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
         SFXOnObjectCollision.Post(gameObject);
     }
 

@@ -48,13 +48,8 @@ public class ReframingPotion : BreakableObject
     
     override protected void OnBreak(Collision other)
     {
+        base.OnBreak(other);
         reframingManager.CheckReframingPotionType(this, other);
         spawnerPotion.SpawnPotion(type);
-    }
-    
-    override protected void OnCollisionSFX(Collision other) 
-    {
-        //TODO : set potion speed
-        base.OnCollisionSFX(other);
     }
 }

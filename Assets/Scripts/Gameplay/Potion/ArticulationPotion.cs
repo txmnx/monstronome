@@ -37,13 +37,8 @@ public class ArticulationPotion : BreakableObject
     
     override protected void OnBreak(Collision other) 
     {
+        base.OnBreak(other);
         articulationManager.SetArticulation(articulationType, true, gameObject);
         spawnerPotion.SpawnPotion(articulationType);
-    }
-    
-    override protected void OnCollisionSFX(Collision other) 
-    {
-        //TODO : set potion speed
-        base.OnCollisionSFX(other);
     }
 }
