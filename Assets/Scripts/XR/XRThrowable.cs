@@ -52,9 +52,12 @@ public class XRThrowable : XRGrabbable
         rb.collisionDetectionMode = m_CollisionDetectionMode;
         transform.parent = m_Parent;
 
-        SFXOnThrow.Post(gameObject);
+        Vector3 vel = xrGrabber.velocity * xrGrabber.throwPower;
         
-        rb.velocity = xrGrabber.velocity * xrGrabber.throwPower;
+        SoundEngineTuner.SetPotionSpeed(vel.magnitude, gameObject);
+        SFXOnThrow.Post(gameObject);
+
+        rb.velocity = vel;
         rb.angularVelocity = xrGrabber.angularVelocity * xrGrabber.throwPower;
     }
 }

@@ -32,9 +32,10 @@ public class XRGrabbable : MonoBehaviour
     public virtual void OnUpdateGrab(XRGrabber xrGrabber)
     {
     }
-    
+
     public virtual void OnExitGrab(XRGrabber xrGrabber)
-    {}
+    {
+    }
     
     public virtual void Highlight()
     {

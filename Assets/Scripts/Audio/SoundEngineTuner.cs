@@ -166,8 +166,10 @@ public class SoundEngineTuner : MonoBehaviour
         AkSoundEngine.SetSwitch("SW_Potion_Effect", sfxType.ToString(), referenceObject);
     }
     
-    //TODO : SetPotionSpeed
-    //public void SetPotionSpeed()
+    public static void SetPotionSpeed(float speed, GameObject potion)
+    {
+        AkSoundEngine.SetRTPCValue("RTPC_Potion_Speed", speed, potion);
+    }
     
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
