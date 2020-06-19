@@ -11,7 +11,8 @@ public class OrchestraLauncher : MonoBehaviour
     [Header("Callbacks")]
     public WwiseCallBack wwiseCallback;
     public HandsHeightChecker handsHeightChecker;
-
+    public VignetteAnimation vignetteAnimation;
+    
     private InstrumentFamily[] m_InstrumentFamilies;
 
     private bool m_HasRaisedHands = false;
@@ -43,12 +44,15 @@ public class OrchestraLauncher : MonoBehaviour
                 animator.SetTrigger(idleTriggerID);
             }
         }
+        
+        vignetteAnimation.Show(true);
     }
     
     public void OnExitRaiseHand()
     {
         if (m_HasRaisedHands) {
             wwiseCallback.StartOrchestra();
+            vignetteAnimation.Show(false);
             //We don't need to start the orchestra anymore
             this.enabled = false;   
         }

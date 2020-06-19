@@ -2285,6 +2285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wwiseCallback: {fileID: 1915118170}
   handsHeightChecker: {fileID: 1504346133}
+  vignetteAnimation: {fileID: 1031486163}
 --- !u!114 &348619495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6619,6 +6620,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 51.783703
       objectReference: {fileID: 0}
+    - target: {fileID: 6712167073454029041, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+        type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6849251849460770007, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7206,6 +7212,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+--- !u!1 &1031486161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6712167073454029040, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1031486162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6712167073454029041, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031486161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1031486163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031486161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58799497e4da8964fa7339a02d4749ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 1031486162}
+  maxIntensity: 0.5
 --- !u!108 &1037845743 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 8353485314868337293, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
