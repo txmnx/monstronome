@@ -54,9 +54,9 @@ public class BreakableObject : MonoBehaviour
             //Used to set wwise switches and rtpcs on potion break
             OnBreak(other);
             
-            float explosionForce = speed * speed * explosionForceFactor;
+            float explosionForce = speed * 20f;
             foreach (Rigidbody rb in m_RigidbodyPieces) {
-                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier);
+                rb.AddForce(((rb.position - transform.position) * explosionForce) + m_Rigidbody.velocity * 5f);
             }
             m_Rigidbody.isKinematic = true;
             
