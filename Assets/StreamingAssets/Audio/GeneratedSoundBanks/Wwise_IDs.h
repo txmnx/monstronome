@@ -51,6 +51,7 @@ namespace AK
         static const AkUniqueID PLAY_TUTORIAL_VOICE_14 = 1642173093U;
         static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
         static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
+        static const AkUniqueID RESETSTATEPOTIONCOUNT = 3564748305U;
         static const AkUniqueID RESUME_ALL = 3679762312U;
         static const AkUniqueID SETWOODS = 3271167387U;
         static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;

@@ -20,7 +20,6 @@ public class ReframingPotion : BreakableObject
     
     [Header("Reframing")] 
     public ReframingManager reframingManager;
-    public SoundEngineTuner soundEngineTuner;
     public ReframingPotionType type;
     public SpawnerPotion spawnerPotion;
 
@@ -40,21 +39,16 @@ public class ReframingPotion : BreakableObject
     private void SetSwitchSFX()
     {
         if (!m_HasSwitchSFX) {
-            soundEngineTuner.SetSwitchPotionType(SoundEngineTuner.PotionType.Reframing, gameObject);
-            soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Neutral, gameObject);
+            SoundEngineTuner.SetSwitchPotionType(SoundEngineTuner.PotionType.Reframing, gameObject);
+            SoundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Neutral, gameObject);
             m_HasSwitchSFX = true;
         }
     }
     
     override protected void OnBreak(Collision other)
     {
+        base.OnBreak(other);
         reframingManager.CheckReframingPotionType(this, other);
         spawnerPotion.SpawnPotion(type);
-    }
-    
-    override protected void OnCollisionSFX(Collision other) 
-    {
-        //TODO : set potion speed
-        base.OnCollisionSFX(other);
     }
 }

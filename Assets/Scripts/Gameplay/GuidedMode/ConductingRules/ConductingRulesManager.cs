@@ -148,10 +148,10 @@ public class ConductingRulesManager : MonoBehaviour
 
         if (fromPotion) {
             if (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType) {
-                soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion);
+                SoundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion);
             }
             else {
-                soundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Malus, potion);
+                SoundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Malus, potion);
             }
         }
     }
