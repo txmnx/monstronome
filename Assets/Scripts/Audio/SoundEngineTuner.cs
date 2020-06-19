@@ -27,8 +27,6 @@ public class SoundEngineTuner : MonoBehaviour
     public float volumepercussions;
     public float volumebrass;
 
-    public GameObject fabrique;
-
     private void Awake()
     {
         m_KeywordFamily = new Dictionary<System.Type, string>()
@@ -150,10 +148,9 @@ public class SoundEngineTuner : MonoBehaviour
     }
     
     /* POTIONS */
-    public void SetSwitchPotionType(PotionType type, GameObject referenceObject)
+    public static void SetSwitchPotionType(PotionType type, GameObject referenceObject)
     {
         AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), referenceObject);
-        AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), fabrique);
     }
 
     public enum SFXPotionScoreType
@@ -163,7 +160,7 @@ public class SoundEngineTuner : MonoBehaviour
         Neutral
     }
     
-    public void SetSwitchPotionBonusMalus(SFXPotionScoreType sfxType, GameObject referenceObject)
+    public static void SetSwitchPotionBonusMalus(SFXPotionScoreType sfxType, GameObject referenceObject)
     {
         AkSoundEngine.SetSwitch("SW_Potion_Effect", sfxType.ToString(), referenceObject);
     }

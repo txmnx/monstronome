@@ -76,19 +76,18 @@ public class SpawnerPotion : MonoBehaviour
         Transform potion = Instantiate(prefab.Item1, spawnerTransform.position, spawnerTransform.rotation);
         if (prefab.Item2 == SoundEngineTuner.PotionType.Articulation) {
             ArticulationPotion articulation = potion.GetComponent<ArticulationPotion>();
-            articulation.soundEngineTuner = soundEngineTuner;
             articulation.articulationManager = articulationManager;
             articulation.spawnerPotion = this;
             articulation.OnSpawn();
         }
         else {
             ReframingPotion reframing = potion.GetComponent<ReframingPotion>();
-            reframing.soundEngineTuner = soundEngineTuner;
             reframing.reframingManager = reframingManager;
             reframing.spawnerPotion = this;
             reframing.OnSpawn();
         }
 
+        SoundEngineTuner.SetSwitchPotionType(prefab.Item2, gameObject);
         SFXOnSpawn.Post(gameObject);
 
         if (m_SpawnQueue.Count > 0) {
