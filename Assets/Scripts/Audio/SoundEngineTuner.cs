@@ -27,6 +27,7 @@ public class SoundEngineTuner : MonoBehaviour
     public float volumepercussions;
     public float volumebrass;
 
+    public GameObject fabrique;
 
     private void Awake()
     {
@@ -152,6 +153,7 @@ public class SoundEngineTuner : MonoBehaviour
     public void SetSwitchPotionType(PotionType type, GameObject referenceObject)
     {
         AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), referenceObject);
+        AkSoundEngine.SetSwitch("SW_Potion_Type", type.ToString(), fabrique);
     }
 
     public enum SFXPotionScoreType

@@ -2241,6 +2241,7 @@ MonoBehaviour:
   volumewoods: 0
   volumepercussions: 0
   volumebrass: 0
+  fabrique: {fileID: 1031486161}
 --- !u!114 &348619492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,7 +2286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wwiseCallback: {fileID: 1915118170}
   handsHeightChecker: {fileID: 1504346133}
-  vignetteAnimation: {fileID: 0}
+  vignetteAnimation: {fileID: 1031486162}
 --- !u!114 &348619495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4310,7 +4311,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1031486160}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1031486161}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aacff3b84a5aed418593f76268f8fee, type: 3}
@@ -7212,6 +7213,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+--- !u!1 &1031486161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5816524874520308088, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1031486162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4961585346698756779, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58799497e4da8964fa7339a02d4749ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &1037845743 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 8353485314868337293, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
