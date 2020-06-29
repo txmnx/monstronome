@@ -24,6 +24,10 @@ public class ConductingEventsManager : MonoBehaviour
         }
 
         set {
+            /*
+             * TODO : add a system of points ; each set false adds a token ; each set true retrieve a token ; m_CanDirect is true only when there are 0 tokens
+             * Multiple elements can disable conducting ; it is for the moment possible to re-enable conducting even if we are in a state where conducting is forbidden
+             */
             if (m_CanDirect != value) {
                 if (value == false) {
                     if (isUsingConductInput) {
