@@ -2136,7 +2136,6 @@ GameObject:
   - component: {fileID: 348619489}
   - component: {fileID: 348619492}
   - component: {fileID: 348619494}
-  - component: {fileID: 348619496}
   - component: {fileID: 348619498}
   - component: {fileID: 348619500}
   m_Layer: 0
@@ -2281,30 +2280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   families:
   - {fileID: 1247558651}
---- !u!114 &348619496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348619486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e5d2630d2db0d4faf9328e75a4c64d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wwiseCallback: {fileID: 1915118170}
-  tempoManager: {fileID: 348619489}
-  articulationManager: {fileID: 348619495}
-  intensityManager: {fileID: 348619490}
-  orchestraLauncher: {fileID: 348619494}
-  timeline: {fileID: 1811084566}
-  families:
-  - {fileID: 1247558651}
-  conductingRulesManager: {fileID: 348619498}
-  reframingManager: {fileID: 348619500}
-  conclusionManager: {fileID: 0}
-  currentTrackType: 0
 --- !u!114 &348619498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2318,7 +2293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  guidedModeManager: {fileID: 348619496}
+  guidedModeManager: {fileID: 0}
   wwiseCallback: {fileID: 1915118170}
   articulationManager: {fileID: 348619495}
   intensityManager: {fileID: 348619490}
@@ -2508,6 +2483,200 @@ Transform:
   - {fileID: 1234423977}
   m_Father: {fileID: 3024211782903415754}
   m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &404288342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404288344}
+  - component: {fileID: 404288343}
+  m_Layer: 0
+  m_Name: Tutorial Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &404288343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404288342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eea9c6faf877b7489ff8fd0f8d0b1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factory: {fileID: 0}
+  potions: {fileID: 0}
+  metronomicon: {fileID: 0}
+  m_Instructions:
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 'Welcome, Monstronome. You are the luckiest conductor of the year;
+        we chose you to lead the Commemorative Concert of the Monstronomic War. I,
+        the Great Maestronome, am at your disposal to teach you how to use the ceremonial
+        relics: The Magic Baton, the Metronomicon and the Magic Potions Factory.'
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: qs
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: 
+--- !u!4 &404288344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404288342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &440306632
 PrefabInstance:
@@ -4657,7 +4826,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954924320
 GameObject:
@@ -10964,74 +11133,6 @@ Transform:
   m_Father: {fileID: 694914532}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -180, y: -25, z: 0}
---- !u!1 &2138151528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2138151530}
-  - component: {fileID: 2138151529}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2138151529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138151528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d34f3be723b7d574b88248c5ed72fdaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  list:
-  - cam: {fileID: 0}
-    deleteQuestion: 0
-    hotkey: 290
-  settings:
-    signatureColor: {r: 1, g: 0, b: 0.5, a: 1}
-    customFileName: 
-    includeProject: 1
-    includeCamera: 1
-    includeDate: 1
-    includeResolution: 0
-    includeCounter: 0
-    counter: 0
-    fileType: 0
-    applicationPath: 0
-    customDirectoryName: 
-    captureMethod: 1
-    singleCamera: 1
-    renderSizeMultiplier: 10
-    captureSizeMultiplier: 4
-    cutoutPosition: {x: 0, y: 0}
-    cutoutSize: {x: 0, y: 0}
-  foldoutSettings: 1
-  lastCamID: 0
-  lastCam: {fileID: 0}
---- !u!4 &2138151530
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138151528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.195743, y: -13.184482, z: -14.955872}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &56784902117202404
 GameObject:
   m_ObjectHideFlags: 0
