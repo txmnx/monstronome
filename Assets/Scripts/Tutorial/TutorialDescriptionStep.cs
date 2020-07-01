@@ -31,6 +31,7 @@ public class TutorialDescriptionStep : TutorialStep
     private GameObject[] m_NeededObjects;
 
     public TutorialDescriptionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay, GameObject voiceReference, GameObject[] neededObjects = null)
+        : base(sequence)
     {
         m_Sequence = sequence;
         m_Instruction = instruction;
@@ -46,6 +47,8 @@ public class TutorialDescriptionStep : TutorialStep
 
     public override void Launch()
     {
+        base.Launch();
+        
         //TODO : here we can start displaying Text
         m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference);
         m_SubtitlesDisplay.text = m_Instruction.mainInstruction.subtitles;
@@ -53,7 +56,7 @@ public class TutorialDescriptionStep : TutorialStep
 
     protected override void OnSuccess()
     {
+        base.OnSuccess();
         //Here we can "stop" some processes that were only necessary during this tutorial step
-        m_Sequence.MoveToNextStep();
     }
 }
