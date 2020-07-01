@@ -18,6 +18,7 @@ public class TutorialStep
     private TutorialSequence m_Sequence;
     private TutorialInstruction m_MainInstruction;
     private TutorialInstruction m_SecondInstruction;
+    private Action m_SuccessEvent;
     private GameObject[] m_NeededObjects;
 
     public TutorialStep(TutorialSequence sequence, TutorialInstruction mainInstruction, TutorialInstruction secondInstruction, Action successEvent, GameObject[] neededObjects = null)
@@ -25,13 +26,20 @@ public class TutorialStep
         m_Sequence = sequence;
         m_MainInstruction = mainInstruction;
         m_SecondInstruction = secondInstruction;
-        successEvent += OnSuccess;
+        m_SuccessEvent = successEvent;
 
         if (neededObjects != null) {
             foreach (GameObject obj in neededObjects) {
                 obj.SetActive(true);
             }
         }
+    }
+
+    public void Launch()
+    {
+        m_SuccessEvent += OnSuccess;
+        
+        //TODO : here we can start displaying Text
     }
 
     private void OnSuccess()
