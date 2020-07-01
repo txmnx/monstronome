@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /**
  * A step in a TutorialSequence with an audio + subtitles description which await an extern to event to be validated
  */
-public class TutorialActionStep : TutorialStep
+public class TutorialActionStep : TutorialDescriptionStep
 {
     private Action m_SuccessEvent;
     
-    public TutorialActionStep(TutorialSequence sequence, Instruction instruction, Action successEvent, GameObject[] neededObjects = null)
-        : base(sequence, instruction, neededObjects)
+    public TutorialActionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay, GameObject voiceReference, Action successEvent, GameObject[] neededObjects = null)
+        : base(sequence, instruction, subtitlesDisplay, voiceReference, neededObjects)
     {
         m_SuccessEvent = successEvent;
     }

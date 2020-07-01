@@ -35,7 +35,7 @@ public class TutorialSequence
     private void Process()
     {
         if (m_Steps.Count > 0) {
-            m_Steps.Peek().Launch();   
+            m_Steps.Peek().Launch();
         }
         else {
             //The sequence has ended

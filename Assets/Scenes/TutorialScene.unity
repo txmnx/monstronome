@@ -757,7 +757,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 39.33, y: -321.468, z: 365.766}
 --- !u!1 &126833911 stripped
 GameObject:
@@ -794,7 +794,7 @@ Transform:
   m_Children:
   - {fileID: 1543886622}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &193068635
 GameObject:
@@ -1151,7 +1151,7 @@ PrefabInstance:
     - target: {fileID: 974964647279455375, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 974964647279455375, guid: aacb927a69a8ea048a67ca9449873dfa,
         type: 3}
@@ -2176,7 +2176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348619489
 MonoBehaviour:
@@ -2519,9 +2519,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eea9c6faf877b7489ff8fd0f8d0b1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orchestraLauncher: {fileID: 348619494}
   factory: {fileID: 7150378530800536322}
   potions: {fileID: 789459069}
   metronomicon: {fileID: 303602566}
+  m_VoiceReference: {fileID: 451920519}
+  m_SubtitlesDisplay: {fileID: 451920518}
   m_Instructions:
   - mainInstruction:
       SFXVoice:
@@ -2529,10 +2532,13 @@ MonoBehaviour:
         valueGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: 071ce42e2d825b9468b63913cd2f8b55,
           type: 2}
-      subtitles: 'Welcome, Monstronome. You are the luckiest conductor of the year;
-        we chose you to lead the Commemorative Concert of the Monstronomic War. I,
-        the Great Maestronome, am at your disposal to teach you how to use the ceremonial
-        relics: The Magic Baton, the Metronomicon and the Magic Potions Factory.'
+      subtitles: 'Welcome, Monstronome.
+
+        You are the luckiest conductor of
+        the year; we chose you to lead the Commemorative Concert of the Monstronomic
+        War. I, the Great Maestronome, am at your disposal to teach you how to use
+        the ceremonial relics: The Magic Baton, the Metronomicon and the Magic Potions
+        Factory.'
     secondInstruction:
       SFXVoice:
         idInternal: 0
@@ -2545,8 +2551,10 @@ MonoBehaviour:
         valueGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: dbdf5a8df6d1b89499f3ce9a60dc135b,
           type: 2}
-      subtitles: Well, to start the concert, you must warn your Instrumonsters. To
-        do so, raise both hands up in the air, then down to beat the time.
+      subtitles: 'Well, to start the concert, you must warn your Instrumonsters.
+
+        To
+        do so, raise both hands up in the air, then down to beat the time.'
     secondInstruction:
       SFXVoice:
         idInternal: 0
@@ -2561,7 +2569,7 @@ MonoBehaviour:
         WwiseObjectReference: {fileID: 11400000, guid: 609dcf094c598c44ba5517a4bfc9d9ce,
           type: 2}
       subtitles: "Perfect! Now, you need to activate the Metronomicon to display
-        the current state of your orchestra. To do so, grab the Metronomicon\u2019s
+        the current state of your orchestra.\nTo do so, grab the Metronomicon\u2019s
         handle with your Left claw, then it up."
     secondInstruction:
       SFXVoice:
@@ -2594,7 +2602,9 @@ MonoBehaviour:
         valueGuidInternal: 
         WwiseObjectReference: {fileID: 11400000, guid: a277ffe728d617d4b898b25f9dcab1ea,
           type: 2}
-      subtitles: 'This time, you need to lower the Power of your orchestra. Still
+      subtitles: 'This time, you need to lower the Power of your orchestra.
+
+        Still
         using your Magic Baton, beat the time by applying the right amplitude to
         your movements: activate yellow circles, but not red ones.'
     secondInstruction:
@@ -2610,7 +2620,7 @@ MonoBehaviour:
         idInternal: 0
         valueGuidInternal: 
         WwiseObjectReference: {fileID: 0}
-      subtitles: qs
+      subtitles: 
     secondInstruction:
       SFXVoice:
         idInternal: 0
@@ -2701,7 +2711,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &440306632
 PrefabInstance:
@@ -2837,6 +2847,166 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7274225864259162335, guid: 51d545dc1d0230347928923cf9709425,
     type: 3}
   m_PrefabInstance: {fileID: 440306632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &451920517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 296
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_text
+      value: "Welcome, Monstronome. \nYou are the luckiest conductor of the year;
+        we chose you to lead the Commemorative Concert of the Monstronomic War. I,
+        the Great Maestronome, am at your disposal to teach you how to use the ceremonial
+        relics: The Magic Baton, the Metronomicon and the Magic Potions Factory."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 513
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440203, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347009440206, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.681
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.438
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.43355635
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.12334171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9923643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -14.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144002, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727130347331144029, guid: a0638626e36c4074ba868d31ff00c4b8,
+        type: 3}
+      propertyPath: m_Name
+      value: TutorialTextDebug
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0638626e36c4074ba868d31ff00c4b8, type: 3}
+--- !u!114 &451920518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4727130347009440200, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 451920517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &451920519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4727130347331144029, guid: a0638626e36c4074ba868d31ff00c4b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 451920517}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &472603225
 Animator:
@@ -2999,7 +3169,7 @@ PrefabInstance:
     - target: {fileID: 2269328945395862179, guid: 61dcd174b5844ec4e9e63ae60d6caf30,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2269328945395862179, guid: 61dcd174b5844ec4e9e63ae60d6caf30,
         type: 3}
@@ -4737,7 +4907,7 @@ Transform:
   - {fileID: 4651081032264959830}
   - {fileID: 6277931702670573157}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &832497850 stripped
 MonoBehaviour:
@@ -4851,7 +5021,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954924320
 GameObject:
@@ -5634,7 +5804,7 @@ PrefabInstance:
     - target: {fileID: 5167347826860983367, guid: d3d9e3ad350fdf446b4dc1be8449901d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5167347826860983367, guid: d3d9e3ad350fdf446b4dc1be8449901d,
         type: 3}
@@ -9366,7 +9536,7 @@ Transform:
   m_Children:
   - {fileID: 1504346132}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1887650657
 MonoBehaviour:
@@ -20627,7 +20797,7 @@ PrefabInstance:
     - target: {fileID: 1571015920537531501, guid: 4799456d20864ec4aaeeb92d80a82f03,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1571015920537531501, guid: 4799456d20864ec4aaeeb92d80a82f03,
         type: 3}

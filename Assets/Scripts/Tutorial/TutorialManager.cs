@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /*
@@ -15,29 +16,29 @@ public class TutorialManager : MonoBehaviour
     public GameObject potions;
     public GameObject metronomicon;
 
-    private TutorialSequence m_Sequence;
-
-    [Header("Voice instructions")] 
+    [Header("Voice instructions")]
     [SerializeField]
-    private TutorialStep.Instruction[] m_Instructions;
-    
+    private GameObject m_VoiceReference;
+    [SerializeField]
+    private TextMeshPro m_SubtitlesDisplay;
+    [SerializeField]
+    private TutorialDescriptionStep.Instruction[] m_Instructions;
+
+
+    private TutorialSequence m_Sequence;
     
     // Start is called before the first frame update
     void Start()
     {
         m_Sequence = new TutorialSequence(new TutorialStep[] {
-            new TutorialStep(m_Sequence, m_Instructions[0]),
+            new TutorialDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference), 
             //new TutorialActionStep(m_Sequence, m_Instructions[1], orchestraLauncher.OnLoadOrchestra),
-            new TutorialStep(m_Sequence, m_Instructions[1]),
-            new TutorialStep(m_Sequence, m_Instructions[2]),
-            new TutorialStep(m_Sequence, m_Instructions[3]),
-            new TutorialStep(m_Sequence, m_Instructions[4])
+            new TutorialDescriptionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference),
+            new TutorialDescriptionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference),
+            new TutorialDescriptionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference),
+            new TutorialDescriptionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference)
         });
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        m_Sequence.Launch();
     }
 }
