@@ -26,6 +26,7 @@ public class TutorialActionStep : TutorialDescriptionStep
     protected override void OnSuccess()
     {
         base.OnSuccess();
+        //Here we can "stop" some processes that were only necessary during this tutorial step (but we'll need to pass a lambda)
         m_SuccessEvent -= OnSuccess;
     }
 }

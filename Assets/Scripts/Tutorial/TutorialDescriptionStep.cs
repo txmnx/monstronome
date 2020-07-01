@@ -53,10 +53,4 @@ public class TutorialDescriptionStep : TutorialStep
         m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference);
         m_SubtitlesDisplay.text = m_Instruction.mainInstruction.subtitles;
     }
-
-    protected override void OnSuccess()
-    {
-        base.OnSuccess();
-        //Here we can "stop" some processes that were only necessary during this tutorial step
-    }
 }
