@@ -13,6 +13,9 @@ public class TutorialSequence
 
     public TutorialSequence(TutorialStep[] steps)
     {
+        m_InitSteps = new Queue<TutorialStep>();
+        m_Steps = new Queue<TutorialStep>();
+        
         foreach (TutorialStep step in steps) {
             m_InitSteps.Enqueue(step);
         }

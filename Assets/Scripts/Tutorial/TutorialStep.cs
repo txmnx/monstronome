@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * A step in a TutorialSequence that awaits a success
+ * A step in a TutorialSequence with an audio + subtitles description
  */
 public class TutorialStep
 {
@@ -25,14 +25,12 @@ public class TutorialStep
 
     private TutorialSequence m_Sequence;
     private Instruction m_Instruction;
-    private Action m_SuccessEvent;
     private GameObject[] m_NeededObjects;
 
-    public TutorialStep(TutorialSequence sequence, Instruction instruction, Action successEvent, GameObject[] neededObjects = null)
+    public TutorialStep(TutorialSequence sequence, Instruction instruction, GameObject[] neededObjects = null)
     {
         m_Sequence = sequence;
         m_Instruction = instruction;
-        m_SuccessEvent = successEvent;
 
         if (neededObjects != null) {
             foreach (GameObject obj in neededObjects) {
@@ -41,17 +39,14 @@ public class TutorialStep
         }
     }
 
-    public void Launch()
+    public virtual void Launch()
     {
-        m_SuccessEvent += OnSuccess;
-        
         //TODO : here we can start displaying Text
     }
 
-    private void OnSuccess()
+    protected virtual void OnSuccess()
     {
         //Here we can "stop" some processes that were only necessary during this tutorial step
         m_Sequence.MoveToNextStep();
-        m_SuccessEvent -= OnSuccess;
     }
 }

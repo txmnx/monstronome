@@ -7,6 +7,9 @@ using UnityEngine;
  */
 public class TutorialManager : MonoBehaviour
 {
+    [Header("Callbacks")]
+    public OrchestraLauncher orchestraLauncher;
+    
     [Header("Objects to show")] 
     public GameObject factory;
     public GameObject potions;
@@ -23,7 +26,12 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         m_Sequence = new TutorialSequence(new TutorialStep[] {
-            //{ new TutorialStep(m_Sequence, ) }
+            new TutorialStep(m_Sequence, m_Instructions[0]),
+            //new TutorialActionStep(m_Sequence, m_Instructions[1], orchestraLauncher.OnLoadOrchestra),
+            new TutorialStep(m_Sequence, m_Instructions[1]),
+            new TutorialStep(m_Sequence, m_Instructions[2]),
+            new TutorialStep(m_Sequence, m_Instructions[3]),
+            new TutorialStep(m_Sequence, m_Instructions[4])
         });
     }
 
