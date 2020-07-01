@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 291a9402e75d0a643a2c2f4f62ad6c0a,
+  m_LightingDataAsset: {fileID: 112000000, guid: df4d135f0ce43ce4299575cab74e7629,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -2119,6 +2119,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aacb927a69a8ea048a67ca9449873dfa, type: 3}
+--- !u!1 &303602566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4313495126479543964, guid: aacb927a69a8ea048a67ca9449873dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 303602565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &348619486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2482,7 +2488,7 @@ Transform:
   - {fileID: 1896244707}
   - {fileID: 1234423977}
   m_Father: {fileID: 3024211782903415754}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &404288342
 GameObject:
@@ -2513,15 +2519,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eea9c6faf877b7489ff8fd0f8d0b1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factory: {fileID: 0}
-  potions: {fileID: 0}
-  metronomicon: {fileID: 0}
+  factory: {fileID: 7150378530800536322}
+  potions: {fileID: 789459069}
+  metronomicon: {fileID: 303602566}
   m_Instructions:
   - mainInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
+        WwiseObjectReference: {fileID: 11400000, guid: 071ce42e2d825b9468b63913cd2f8b55,
+          type: 2}
       subtitles: 'Welcome, Monstronome. You are the luckiest conductor of the year;
         we chose you to lead the Commemorative Concert of the Monstronomic War. I,
         the Great Maestronome, am at your disposal to teach you how to use the ceremonial
@@ -2536,50 +2543,68 @@ MonoBehaviour:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: qs
+        WwiseObjectReference: {fileID: 11400000, guid: dbdf5a8df6d1b89499f3ce9a60dc135b,
+          type: 2}
+      subtitles: Well, to start the concert, you must warn your Instrumonsters. To
+        do so, raise both hands up in the air, then down to beat the time.
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: 
+        WwiseObjectReference: {fileID: 11400000, guid: 52adac9f5e662f44c8560e5c29fc100a,
+          type: 2}
+      subtitles: Raise both hands up in the air, then down to beat the time.
   - mainInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: qs
+        WwiseObjectReference: {fileID: 11400000, guid: 609dcf094c598c44ba5517a4bfc9d9ce,
+          type: 2}
+      subtitles: "Perfect! Now, you need to activate the Metronomicon to display
+        the current state of your orchestra. To do so, grab the Metronomicon\u2019s
+        handle with your Left claw, then it up."
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: 
+        WwiseObjectReference: {fileID: 11400000, guid: 86e58b1be1d199544a348f7ddd987083,
+          type: 2}
+      subtitles: "Grab the Metronomicon\u2019s handle with your Left claw, then it
+        up."
   - mainInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: qs
+        WwiseObjectReference: {fileID: 11400000, guid: 51272249281225d48a85594a33821db3,
+          type: 2}
+      subtitles: You must raise the Speed of your orchestra, to do so, trigger your
+        Magic Baton on your right hand and beat the time by doing left and right
+        movements into the Magic Circle.
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: 
+        WwiseObjectReference: {fileID: 11400000, guid: 6193d28bf0afdaa4090940f0cad26320,
+          type: 2}
+      subtitles: Trigger your Magic Baton on your right hand and beat the time by
+        doing left and right movements into the Magic Circle.
   - mainInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: qs
+        WwiseObjectReference: {fileID: 11400000, guid: a277ffe728d617d4b898b25f9dcab1ea,
+          type: 2}
+      subtitles: 'This time, you need to lower the Power of your orchestra. Still
+        using your Magic Baton, beat the time by applying the right amplitude to
+        your movements: activate yellow circles, but not red ones.'
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: 
+        WwiseObjectReference: {fileID: 11400000, guid: 61e00e647b7188e49abff1f882b3d8a2,
+          type: 2}
+      subtitles: 'Beat the time by applying the right amplitude to your movements:
+        activate yellow circles, but not red ones.'
   - mainInstruction:
       SFXVoice:
         idInternal: 0
@@ -4530,7 +4555,7 @@ Transform:
   - {fileID: 1257033188}
   - {fileID: 1398666018}
   m_Father: {fileID: 3024211782903415754}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &777355748 stripped
 GameObject:
@@ -7242,7 +7267,7 @@ Transform:
   m_LocalScale: {x: 0.24177608, y: 0.29469, z: 0.3173377}
   m_Children: []
   m_Father: {fileID: 3024211782903415754}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 47.725002, z: 0}
 --- !u!1 &1301441858
 GameObject:
@@ -15845,7 +15870,7 @@ Transform:
   m_Children:
   - {fileID: 6457163192271087534}
   m_Father: {fileID: 3024211782903415754}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2511714542431464390
 MeshFilter:
@@ -16431,14 +16456,14 @@ Transform:
   - {fileID: 3135347703189196047}
   - {fileID: 6712167074341831202}
   - {fileID: 3432737939748231142}
-  - {fileID: 35243216}
-  - {fileID: 409129985464560562}
   - {fileID: 2434763853588659972}
-  - {fileID: 7149136121733996527}
-  - {fileID: 8958347655371416593}
+  - {fileID: 35243216}
   - {fileID: 1279059640}
+  - {fileID: 409129985464560562}
   - {fileID: 395093011}
+  - {fileID: 7149136121733996527}
   - {fileID: 720096122}
+  - {fileID: 8958347655371416593}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20666,6 +20691,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4799456d20864ec4aaeeb92d80a82f03, type: 3}
+--- !u!1 &7150378530800536322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2564245280271206014, guid: 4799456d20864ec4aaeeb92d80a82f03,
+    type: 3}
+  m_PrefabInstance: {fileID: 7150378530800536321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &7220829780399134982
 MeshRenderer:
   m_ObjectHideFlags: 0
