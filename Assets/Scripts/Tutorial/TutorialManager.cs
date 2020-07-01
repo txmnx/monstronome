@@ -7,6 +7,12 @@ using UnityEngine;
  */
 public class TutorialManager : MonoBehaviour
 {
+    [Header("Objects to show")] 
+    public GameObject factory;
+    public GameObject potions;
+    public GameObject metronomicon;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
