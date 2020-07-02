@@ -54,6 +54,7 @@ public class GuidedModeManager : MonoBehaviour
     {
         reframingManager.LoadFamilies(families);
         orchestraLauncher.LoadFamilies(families);
+        orchestraLauncher.InitLauncher();
         conclusionManager.LoadFamilies(families);
         
         orchestraLauncher.OnLoadOrchestra += LoadOrchestra;
