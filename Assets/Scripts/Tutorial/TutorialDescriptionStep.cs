@@ -7,7 +7,7 @@ using UnityEngine;
 /**
  * A step in a TutorialSequence with an audio + subtitles description
  */
-public class TutorialDescriptionStep : TutorialStep
+public abstract class TutorialDescriptionStep : TutorialStep
 {
     [Serializable]
     public struct Instruction

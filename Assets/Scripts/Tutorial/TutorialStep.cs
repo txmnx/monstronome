@@ -7,7 +7,7 @@ using UnityEngine;
 /**
  * A step in a TutorialSequence
  */
-public class TutorialStep
+public abstract class TutorialStep
 {
     private TutorialSequence m_Sequence;
     protected bool m_HasSucceeded;
