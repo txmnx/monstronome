@@ -31,6 +31,7 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         m_Sequence = new TutorialSequence(this);
+        m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference));
