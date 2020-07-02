@@ -17,9 +17,9 @@ public class TutorialActionStep : TutorialDescriptionStep
         m_SuccessEvent = successEvent;
     }
     
-    protected override IEnumerator Launch()
+    protected override IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
-        StartCoroutine(base.Launch());
+        coroutineHandler.StartCoroutine(base.Launch(coroutineHandler));
         m_SuccessEvent += OnSuccess;
 
         if (m_HasSucceeded) yield break;

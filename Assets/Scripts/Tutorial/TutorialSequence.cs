@@ -7,11 +7,12 @@ using UnityEngine;
  */
 public class TutorialSequence
 {
+    private MonoBehaviour m_CoroutineHandler;
     private Queue<TutorialStep> m_InitSteps;
     private Queue<TutorialStep> m_Steps;
     private bool m_IsProcessing;
 
-    public TutorialSequence(TutorialStep[] steps)
+    public TutorialSequence(MonoBehaviour coroutineHandler, TutorialStep[] steps)
     {
         m_InitSteps = new Queue<TutorialStep>();
         m_Steps = new Queue<TutorialStep>();
@@ -19,6 +20,8 @@ public class TutorialSequence
         foreach (TutorialStep step in steps) {
             m_InitSteps.Enqueue(step);
         }
+        
+        m_CoroutineHandler = coroutineHandler;
     }
 
     public void Launch()
@@ -35,7 +38,7 @@ public class TutorialSequence
     private void Process()
     {
         if (m_Steps.Count > 0) {
-            m_Steps.Peek().Process();
+            m_Steps.Peek().Process(m_CoroutineHandler);
         }
         else {
             //The sequence has ended

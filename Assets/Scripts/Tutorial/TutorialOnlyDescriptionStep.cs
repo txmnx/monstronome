@@ -11,9 +11,9 @@ public class TutorialOnlyDescriptionStep : TutorialDescriptionStep
         : base(sequence, instruction, subtitlesDisplay, voiceReference, neededObjects)
     { }
 
-    protected override IEnumerator Launch()
+    protected override IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
-        StartCoroutine(base.Launch());
+        coroutineHandler.StartCoroutine(base.Launch(coroutineHandler));
 
         if (m_HasSucceeded) yield break;
         m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent, EndOfInstructionVoice);

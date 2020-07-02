@@ -30,7 +30,7 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Sequence = new TutorialSequence(new TutorialStep[] {
+        m_Sequence = new TutorialSequence(this, new TutorialStep[] {
             new TutorialDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference), 
             //new TutorialActionStep(m_Sequence, m_Instructions[1], orchestraLauncher.OnLoadOrchestra),
             new TutorialDescriptionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference),

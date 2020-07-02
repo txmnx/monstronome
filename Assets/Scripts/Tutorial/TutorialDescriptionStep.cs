@@ -47,7 +47,7 @@ public class TutorialDescriptionStep : TutorialStep
         }
     }
 
-    protected override IEnumerator Launch()
+    protected override IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
         yield return null;
     }

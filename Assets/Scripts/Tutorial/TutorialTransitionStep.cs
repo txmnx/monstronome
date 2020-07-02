@@ -16,9 +16,9 @@ public class TutorialTransitionStep : TutorialStep
         m_TransitionFunction = transitionFunction;
     }
 
-    protected override IEnumerator Launch()
+    protected override IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
-        StartCoroutine(base.Launch());
+        coroutineHandler.StartCoroutine(base.Launch(coroutineHandler));
         m_TransitionFunction.Invoke();
         OnSuccess();
         yield return null;

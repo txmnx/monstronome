@@ -7,7 +7,7 @@ using UnityEngine;
 /**
  * A step in a TutorialSequence
  */
-public class TutorialStep : MonoBehaviour
+public class TutorialStep
 {
     private TutorialSequence m_Sequence;
     protected bool m_HasSucceeded;
@@ -17,12 +17,12 @@ public class TutorialStep : MonoBehaviour
         m_Sequence = sequence;
     }
 
-    public void Process()
+    public void Process(MonoBehaviour coroutineHandler)
     {
-        StartCoroutine(Launch());
+        coroutineHandler.StartCoroutine(Launch(coroutineHandler));
     }
 
-    protected virtual IEnumerator Launch()
+    protected virtual IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
         yield return null;
     }
