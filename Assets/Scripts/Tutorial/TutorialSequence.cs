@@ -12,16 +12,17 @@ public class TutorialSequence
     private Queue<TutorialStep> m_Steps;
     private bool m_IsProcessing;
 
-    public TutorialSequence(MonoBehaviour coroutineHandler, TutorialStep[] steps)
+    public TutorialSequence(MonoBehaviour coroutineHandler)
     {
         m_InitSteps = new Queue<TutorialStep>();
         m_Steps = new Queue<TutorialStep>();
-        
-        foreach (TutorialStep step in steps) {
-            m_InitSteps.Enqueue(step);
-        }
-        
+
         m_CoroutineHandler = coroutineHandler;
+    }
+
+    public void Add(TutorialStep step)
+    {
+        m_InitSteps.Enqueue(step);
     }
 
     public void Launch()

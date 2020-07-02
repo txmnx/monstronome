@@ -30,15 +30,13 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Sequence = new TutorialSequence(this, new TutorialStep[] {
-            new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference), 
-            //new TutorialActionStep(m_Sequence, m_Instructions[1], orchestraLauncher.OnLoadOrchestra),
-            new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference),
-            new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference),
-            new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference),
-            new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference)
-        });
-        
+        m_Sequence = new TutorialSequence(this);
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference));
+
         m_Sequence.Launch();
     }
 }

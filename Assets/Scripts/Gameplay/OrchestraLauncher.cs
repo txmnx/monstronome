@@ -18,18 +18,14 @@ public class OrchestraLauncher : MonoBehaviour
     private bool m_IsSubscribed;
     private bool m_HasRaisedHands;
     
-    
-    public void LoadFamilies(InstrumentFamily[] families)
-    {
-        m_InstrumentFamilies = families;
-    }
 
-    public void InitLauncher()
+    public void InitLauncher(InstrumentFamily[] families)
     {
         //The orchestra starts by tuning
         wwiseCallback.LoadTuning();
         handsHeightChecker.OnEnterRaiseHand += OnEnterRaiseHand;
         handsHeightChecker.OnExitRaiseHand += OnExitRaiseHand;
+        m_InstrumentFamilies = families;
         m_IsSubscribed = true;
     }
     
