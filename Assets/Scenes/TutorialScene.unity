@@ -2142,6 +2142,7 @@ GameObject:
   - component: {fileID: 348619489}
   - component: {fileID: 348619492}
   - component: {fileID: 348619494}
+  - component: {fileID: 348619496}
   - component: {fileID: 348619498}
   - component: {fileID: 348619500}
   m_Layer: 0
@@ -2286,6 +2287,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   families:
   - {fileID: 1247558651}
+--- !u!114 &348619496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348619486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76a5a43c7091584ab8f5ea20d48a72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEngineTuner: {fileID: 348619491}
 --- !u!114 &348619498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,7 +2321,7 @@ MonoBehaviour:
   UIArticulationToast: {fileID: 1961430515}
   UITempoToast: {fileID: 633918920}
   UIIntensityToast: {fileID: 876840276}
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 348619496}
   scoringParameters: {fileID: 11400000, guid: 7d0944172770d0941852cf6545b61d7d, type: 2}
 --- !u!114 &348619500
 MonoBehaviour:
@@ -2326,7 +2340,7 @@ MonoBehaviour:
   tempoManager: {fileID: 348619489}
   reframingParameters: {fileID: 11400000, guid: af6eea50a8288f74584b84542c6748c3,
     type: 2}
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 348619496}
   scoringParameters: {fileID: 11400000, guid: 7d0944172770d0941852cf6545b61d7d, type: 2}
   instrumentFamilySelector: {fileID: 224941993}
   SFXOnFamilyDegradation:
