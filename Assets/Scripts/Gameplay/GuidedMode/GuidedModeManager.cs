@@ -63,8 +63,11 @@ public class GuidedModeManager : MonoBehaviour
         }
         OnStartOrchestra += tempoManager.OnStartOrchestra;
         OnStartOrchestra += intensityManager.OnStartOrchestra;
-        wwiseCallback.OnCue += LaunchState;
+        OnStartOrchestra += conductingRulesManager.OnStartOrchestra;
+        conductingRulesManager.SetCurrentTrackType(currentTrackType);
         
+        wwiseCallback.OnCue += LaunchState;
+
         conductingRulesManager.ShowRules(false);
     }
 
@@ -122,6 +125,8 @@ public class GuidedModeManager : MonoBehaviour
                 break;
         }
 
+        conductingRulesManager.SetCurrentTrackType(currentTrackType);
+        
         if (prevTrackType != currentTrackType) {
             timeline.SetCurrentStep(stateName);
             conductingRulesManager.DrawRules();

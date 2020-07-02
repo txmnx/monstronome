@@ -11,7 +11,6 @@ public class ConductingRulesManager : MonoBehaviour
 {
     [Header("Callbacks")]
     public SoundEngineTuner soundEngineTuner;
-    public GuidedModeManager guidedModeManager;
     public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
     public IntensityManager intensityManager;
@@ -27,7 +26,8 @@ public class ConductingRulesManager : MonoBehaviour
     public ScoringParametersScriptableObject scoringParameters;
     private bool m_IsProfilingTransition;
     private int m_TransitionProfilerScore;
-    
+
+    private GuidedModeManager.TrackType m_CurrentTrackType; 
     
     /* Rules */
     private Dictionary<string, OrchestraState> m_Rules;
@@ -68,11 +68,6 @@ public class ConductingRulesManager : MonoBehaviour
         m_CurrentOrchestraState = new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.MezzoForte, InstrumentFamily.TempoType.Andante);
     }
 
-    private void Start()
-    {
-        guidedModeManager.OnStartOrchestra += OnStartOrchestra;
-    }
-
     public void OnStartOrchestra()
     {
         articulationManager.OnArticulationChange += OnArticulationChange;
@@ -85,7 +80,7 @@ public class ConductingRulesManager : MonoBehaviour
         if (m_Rules.TryGetValue(stateName, out OrchestraState rules)) {
             m_CurrentRules = rules;
             
-            bool isTransition = guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition;
+            bool isTransition = m_CurrentTrackType == GuidedModeManager.TrackType.Transition;
             UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
             UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
             UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, isTransition);
@@ -96,6 +91,11 @@ public class ConductingRulesManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentTrackType(GuidedModeManager.TrackType type)
+    {
+        m_CurrentTrackType = type;
+    }
+    
     public void ProfileTransition()
     {
     
@@ -144,7 +144,7 @@ public class ConductingRulesManager : MonoBehaviour
     {
         m_CurrentOrchestraState.articulationType = type;
         UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, 
-            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition, fromPotion);
+            m_CurrentTrackType == GuidedModeManager.TrackType.Transition, fromPotion);
 
         if (fromPotion) {
             if (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType) {
@@ -160,19 +160,19 @@ public class ConductingRulesManager : MonoBehaviour
     {
         m_CurrentOrchestraState.tempoType = type;
         UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, bpm,
-            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
+            m_CurrentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
     }
     
     public void OnIntensityChange(InstrumentFamily.IntensityType type, bool fromConducting)
     {
         m_CurrentOrchestraState.intensityType = type;
         UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, 
-            guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
+            m_CurrentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
     }
 
     public void DrawRules()
     {
-        bool isTransition = guidedModeManager.currentTrackType == GuidedModeManager.TrackType.Transition;
+        bool isTransition = m_CurrentTrackType == GuidedModeManager.TrackType.Transition;
         UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
         UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
         UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, isTransition);
