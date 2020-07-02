@@ -15,6 +15,7 @@ public class OrchestraLauncher : MonoBehaviour
     
     private InstrumentFamily[] m_InstrumentFamilies;
 
+    private bool m_HasInit;
     private bool m_IsSubscribed;
     private bool m_HasRaisedHands;
     
@@ -27,6 +28,7 @@ public class OrchestraLauncher : MonoBehaviour
         handsHeightChecker.OnExitRaiseHand += OnExitRaiseHand;
         m_InstrumentFamilies = families;
         m_IsSubscribed = true;
+        m_HasInit = true;
     }
     
     /* Events */
@@ -62,7 +64,7 @@ public class OrchestraLauncher : MonoBehaviour
     
     private void OnEnable()
     {
-        if (!m_IsSubscribed) {
+        if (m_HasInit && !m_IsSubscribed) {
             handsHeightChecker.OnEnterRaiseHand += OnEnterRaiseHand;
             handsHeightChecker.OnExitRaiseHand += OnExitRaiseHand;
             m_IsSubscribed = true;
@@ -71,7 +73,7 @@ public class OrchestraLauncher : MonoBehaviour
     
     private void OnDisable()
     {
-        if (m_IsSubscribed) {
+        if (m_HasInit && m_IsSubscribed) {
             handsHeightChecker.OnEnterRaiseHand -= OnEnterRaiseHand;
             handsHeightChecker.OnExitRaiseHand -= OnExitRaiseHand;
             m_IsSubscribed = false;
