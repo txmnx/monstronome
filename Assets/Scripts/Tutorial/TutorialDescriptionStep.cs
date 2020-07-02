@@ -24,11 +24,13 @@ public class TutorialDescriptionStep : TutorialStep
         public string subtitles;
     }
 
-    private TutorialSequence m_Sequence;
-    private TextMeshPro m_SubtitlesDisplay;
-    private Instruction m_Instruction;
-    private GameObject m_VoiceReference;
-    private GameObject[] m_NeededObjects;
+    protected TutorialSequence m_Sequence;
+    protected TextMeshPro m_SubtitlesDisplay;
+    protected Instruction m_Instruction;
+    protected GameObject m_VoiceReference;
+    protected GameObject[] m_NeededObjects;
+    
+    protected bool m_IsSpeaking;
 
     public TutorialDescriptionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay, GameObject voiceReference, GameObject[] neededObjects = null)
         : base(sequence)
@@ -45,12 +47,15 @@ public class TutorialDescriptionStep : TutorialStep
         }
     }
 
-    public override void Launch()
+    protected override IEnumerator Launch()
     {
-        base.Launch();
-        
-        //TODO : here we can start displaying Text
-        m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference);
-        m_SubtitlesDisplay.text = m_Instruction.mainInstruction.subtitles;
+        yield return null;
+    }
+    
+    protected void EndOfInstructionVoice(object in_cookie, AkCallbackType in_type, object in_info)
+    {
+        if (in_type == AkCallbackType.AK_EndOfEvent) {
+            m_IsSpeaking = false;
+        }
     }
 }

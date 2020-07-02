@@ -16,10 +16,11 @@ public class TutorialTransitionStep : TutorialStep
         m_TransitionFunction = transitionFunction;
     }
 
-    public override void Launch()
+    protected override IEnumerator Launch()
     {
-        base.Launch();
+        StartCoroutine(base.Launch());
         m_TransitionFunction.Invoke();
         OnSuccess();
+        yield return null;
     }
 }

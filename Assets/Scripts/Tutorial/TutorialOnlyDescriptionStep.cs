@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using AK.Wwise;
+using TMPro;
+using UnityEngine;
+
+public class TutorialOnlyDescriptionStep : TutorialDescriptionStep
+{
+    public TutorialOnlyDescriptionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay,
+        GameObject voiceReference, GameObject[] neededObjects = null)
+        : base(sequence, instruction, subtitlesDisplay, voiceReference, neededObjects)
+    { }
+
+    protected override IEnumerator Launch()
+    {
+        StartCoroutine(base.Launch());
+
+        if (m_HasSucceeded) yield break;
+        m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent, EndOfInstructionVoice);
+        m_SubtitlesDisplay.text = m_Instruction.mainInstruction.subtitles;
+        m_IsSpeaking = true;
+
+        while (m_IsSpeaking) {
+            yield return null;
+        }
+        
+        yield return new WaitForSeconds(2f);
+        
+        OnSuccess();
+    }
+}
