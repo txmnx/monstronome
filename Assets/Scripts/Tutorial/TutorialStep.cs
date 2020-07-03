@@ -29,7 +29,9 @@ public abstract class TutorialStep
 
     protected virtual void OnSuccess()
     {
-        m_HasSucceeded = true;
-        m_Sequence.MoveToNextStep();
+        if (!m_HasSucceeded) {
+            m_Sequence.MoveToNextStep();
+            m_HasSucceeded = true;
+        }
     }
 }

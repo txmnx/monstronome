@@ -13,6 +13,7 @@ public class TutorialManager : MonoBehaviour
     public InstrumentFamily[] families;
     public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
+    public TempoManager tempoManager;
     public ConductingRulesManager conductingRulesManager;
     public OrchestraLauncher orchestraLauncher;
     public ToastsSlider toasterSlider;
@@ -58,8 +59,10 @@ public class TutorialManager : MonoBehaviour
         {
             metronomicon.SetActive(true);
             conductingRulesManager.OnStartOrchestra();
+            tempoManager.OnStartOrchestra();
         }));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => conductingRulesManager.OnGoodTempoChange += act));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference));
 
         m_Sequence.Launch();

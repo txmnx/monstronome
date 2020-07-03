@@ -158,14 +158,22 @@ public class ConductingRulesManager : MonoBehaviour
         m_CurrentOrchestraState.tempoType = type;
         UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, bpm,
             m_CurrentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
+        
+        if (m_CurrentOrchestraState.tempoType == m_CurrentRules.tempoType) {
+            OnGoodTempoChange?.Invoke();
+        }
     }
-    
+
     public void OnIntensityChange(InstrumentFamily.IntensityType type, bool fromConducting)
     {
         m_CurrentOrchestraState.intensityType = type;
         UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, 
             m_CurrentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
     }
+    
+    public Action OnGoodArticulationChange;
+    public Action OnGoodTempoChange;
+    public Action OnGoodIntensityChange;
 
     public void DrawRules()
     {
