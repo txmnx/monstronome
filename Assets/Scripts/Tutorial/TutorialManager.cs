@@ -79,6 +79,7 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodTempoChange += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => tempoManager.StopBPMTrack()));
         
         // -- Change the intensity - 5
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 1f, () => intensityManager.OnStartOrchestra()));
