@@ -23,8 +23,10 @@ public class TutorialActionStep : TutorialDescriptionStep
         m_SubscribeEvent.Invoke(OnSuccess);
 
         if (m_HasSucceeded) yield break;
-        m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent, EndOfInstructionVoice);
-        m_SubtitlesDisplay.text = m_Instruction.mainInstruction.subtitles;
+        m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent | (uint)AkCallbackType.AK_Marker, InstructionVoiceCallback);
+        m_CurrentVoice = m_Instruction.mainInstruction;
+        m_SubtitleIndex = 0;
+        m_SubtitlesDisplay.text = m_CurrentVoice.subtitles[m_SubtitleIndex];
         m_IsSpeaking = true;
         
         while (m_IsSpeaking) {
@@ -33,8 +35,10 @@ public class TutorialActionStep : TutorialDescriptionStep
         yield return new WaitForSeconds(10f);
 
         while (!m_HasSucceeded) {
-            m_Instruction.secondInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent, EndOfInstructionVoice);
-            m_SubtitlesDisplay.text = m_Instruction.secondInstruction.subtitles;
+            m_Instruction.secondInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent | (uint)AkCallbackType.AK_Marker, InstructionVoiceCallback);
+            m_CurrentVoice = m_Instruction.secondInstruction;
+            m_SubtitleIndex = 0;
+            m_SubtitlesDisplay.text = m_CurrentVoice.subtitles[m_SubtitleIndex];
             m_IsSpeaking = true;
 
             while (m_IsSpeaking) {
@@ -43,11 +47,5 @@ public class TutorialActionStep : TutorialDescriptionStep
 
             yield return new WaitForSeconds(10f);
         }
-    }
-
-    protected override void OnSuccess()
-    {
-        base.OnSuccess();
-        //Here we can "stop" some processes that were only necessary during this tutorial step (but we'll need to pass a lambda)
     }
 }

@@ -19,12 +19,13 @@ public class TutorialOnlyDescriptionStep : TutorialDescriptionStep
         coroutineHandler.StartCoroutine(base.Launch(coroutineHandler));
 
         if (m_HasSucceeded) yield break;
-        m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent, EndOfInstructionVoice);
-        m_SubtitlesDisplay.text = m_Instruction.mainInstruction.subtitles;
+        m_Instruction.mainInstruction.SFXVoice.Post(m_VoiceReference, (uint)AkCallbackType.AK_EndOfEvent | (uint)AkCallbackType.AK_Marker, InstructionVoiceCallback);
+        m_CurrentVoice = m_Instruction.mainInstruction;
+        m_SubtitleIndex = 0;
+        m_SubtitlesDisplay.text = m_CurrentVoice.subtitles[m_SubtitleIndex];
         m_IsSpeaking = true;
 
         while (m_IsSpeaking) {
-            //TODO : display text according to wwise cue
             yield return null;
         }
         
