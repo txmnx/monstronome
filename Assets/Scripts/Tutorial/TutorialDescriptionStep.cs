@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 /**
- * A step in a TutorialSequence with an audio + subtitles description
+ * An abstract representation of a step in a TutorialSequence with an audio + subtitles description
  */
 public abstract class TutorialDescriptionStep : TutorialStep
 {
@@ -50,6 +50,12 @@ public abstract class TutorialDescriptionStep : TutorialStep
     protected override IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
         yield return null;
+    }
+    
+    protected override void OnSuccess()
+    {
+        base.OnSuccess();
+        m_IsSpeaking = false;
     }
     
     protected void EndOfInstructionVoice(object in_cookie, AkCallbackType in_type, object in_info)

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,36 +9,56 @@ using UnityEngine;
  */
 public class TutorialManager : MonoBehaviour
 {
-    [Header("Callbacks")]
+    [Header("Callbacks")] 
+    public InstrumentFamily[] families;
     public OrchestraLauncher orchestraLauncher;
-    
-    [Header("Objects to show")] 
-    public GameObject factory;
+    public WwiseCallBack wwiseCallback;
+    public ArticulationManager articulationManager;
+    public ConductingRulesManager conductingRulesManager;
+
+    [Header("Objects to show")] public GameObject factory;
     public GameObject potions;
     public GameObject metronomicon;
 
-    [Header("Voice instructions")]
-    [SerializeField]
+    [Header("Voice instructions")] [SerializeField]
     private GameObject m_VoiceReference;
-    [SerializeField]
-    private TextMeshPro m_SubtitlesDisplay;
-    [SerializeField]
-    private TutorialDescriptionStep.Instruction[] m_Instructions;
+
+    [SerializeField] private TextMeshPro m_SubtitlesDisplay;
+    [SerializeField] private TutorialDescriptionStep.Instruction[] m_Instructions;
 
 
     private TutorialSequence m_Sequence;
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        wwiseCallback.OnCue += LaunchState;
+        foreach (InstrumentFamily family in families) {
+            OnStartOrchestra += family.StartPlaying;
+        }
+        conductingRulesManager.ShowRules(false);
+        
         m_Sequence = new TutorialSequence(this);
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (Action act) => orchestraLauncher.OnStartOrchestra += act));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference));
 
         m_Sequence.Launch();
+    }
+
+    public Action OnStartOrchestra;
+    
+    public void LaunchState(string stateName)
+    {
+        switch (stateName) {
+            case "Start":
+                OnStartOrchestra?.Invoke();
+                articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
+                break;
+        }
     }
 }

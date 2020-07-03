@@ -53,6 +53,7 @@ public class OrchestraLauncher : MonoBehaviour
     public void OnExitRaiseHand()
     {
         if (m_HasRaisedHands) {
+            OnStartOrchestra?.Invoke();
             wwiseCallback.StartOrchestra();
             vignetteAnimation.Show(false);
             //We don't need to start the orchestra anymore
@@ -61,6 +62,7 @@ public class OrchestraLauncher : MonoBehaviour
     }
 
     public Action OnLoadOrchestra;
+    public Action OnStartOrchestra;
     
     private void OnEnable()
     {

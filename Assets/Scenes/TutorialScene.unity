@@ -2532,7 +2532,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eea9c6faf877b7489ff8fd0f8d0b1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  families:
+  - {fileID: 1247558651}
   orchestraLauncher: {fileID: 348619494}
+  wwiseCallback: {fileID: 1915118170}
+  articulationManager: {fileID: 348619495}
+  conductingRulesManager: {fileID: 348619498}
   factory: {fileID: 7150378530800536322}
   potions: {fileID: 789459069}
   metronomicon: {fileID: 303602566}
@@ -2583,7 +2588,7 @@ MonoBehaviour:
           type: 2}
       subtitles: "Perfect! Now, you need to activate the Metronomicon to display
         the current state of your orchestra.\nTo do so, grab the Metronomicon\u2019s
-        handle with your Left claw, then it up."
+        handle with your Left claw, then lift it up."
     secondInstruction:
       SFXVoice:
         idInternal: 0

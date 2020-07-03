@@ -4,6 +4,9 @@ using AK.Wwise;
 using TMPro;
 using UnityEngine;
 
+/**
+ * A step in a TutorialSequence with an audio + subtitles description
+ */
 public class TutorialOnlyDescriptionStep : TutorialDescriptionStep
 {
     public TutorialOnlyDescriptionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay,
@@ -21,6 +24,7 @@ public class TutorialOnlyDescriptionStep : TutorialDescriptionStep
         m_IsSpeaking = true;
 
         while (m_IsSpeaking) {
+            //TODO : display text according to wwise cue
             yield return null;
         }
         

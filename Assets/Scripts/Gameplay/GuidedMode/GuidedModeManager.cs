@@ -126,6 +126,7 @@ public class GuidedModeManager : MonoBehaviour
         }
 
         conductingRulesManager.SetCurrentTrackType(currentTrackType);
+        conductingRulesManager.GetNewRules(stateName);
         
         if (prevTrackType != currentTrackType) {
             timeline.SetCurrentStep(stateName);

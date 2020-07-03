@@ -11,7 +11,6 @@ public class ConductingRulesManager : MonoBehaviour
 {
     [Header("Callbacks")]
     public SoundEngineTuner soundEngineTuner;
-    public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
     public IntensityManager intensityManager;
     public TempoManager tempoManager;
@@ -62,9 +61,7 @@ public class ConductingRulesManager : MonoBehaviour
             {"Transition2", new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.Fortissimo, InstrumentFamily.TempoType.Allegro)},
             {"Transition3", new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.Pianissimo, InstrumentFamily.TempoType.Lento)}
         };
-        
-        wwiseCallback.OnCue += GetNewRules;
-        
+
         m_CurrentOrchestraState = new OrchestraState(InstrumentFamily.ArticulationType.Legato, InstrumentFamily.IntensityType.MezzoForte, InstrumentFamily.TempoType.Andante);
     }
 
