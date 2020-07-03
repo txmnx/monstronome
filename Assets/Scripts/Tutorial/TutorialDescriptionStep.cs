@@ -32,19 +32,13 @@ public abstract class TutorialDescriptionStep : TutorialStep
     
     protected bool m_IsSpeaking;
 
-    public TutorialDescriptionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay, GameObject voiceReference, GameObject[] neededObjects = null)
+    public TutorialDescriptionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay, GameObject voiceReference)
         : base(sequence)
     {
         m_Sequence = sequence;
         m_Instruction = instruction;
         m_SubtitlesDisplay = subtitlesDisplay;
         m_VoiceReference = voiceReference;
-
-        if (neededObjects != null) {
-            foreach (GameObject obj in neededObjects) {
-                obj.SetActive(true);
-            }
-        }
     }
 
     protected override IEnumerator Launch(MonoBehaviour coroutineHandler)

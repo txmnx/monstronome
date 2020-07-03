@@ -10,8 +10,8 @@ using UnityEngine;
 public class TutorialOnlyDescriptionStep : TutorialDescriptionStep
 {
     public TutorialOnlyDescriptionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay,
-        GameObject voiceReference, GameObject[] neededObjects = null)
-        : base(sequence, instruction, subtitlesDisplay, voiceReference, neededObjects)
+        GameObject voiceReference)
+        : base(sequence, instruction, subtitlesDisplay, voiceReference)
     { }
 
     protected override IEnumerator Launch(MonoBehaviour coroutineHandler)

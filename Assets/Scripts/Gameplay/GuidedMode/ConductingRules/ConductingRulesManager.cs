@@ -76,18 +76,18 @@ public class ConductingRulesManager : MonoBehaviour
     {
         if (m_Rules.TryGetValue(stateName, out OrchestraState rules)) {
             m_CurrentRules = rules;
-            
-            bool isTransition = m_CurrentTrackType == GuidedModeManager.TrackType.Transition;
-            UIArticulationToast.Draw(m_CurrentOrchestraState.articulationType, m_CurrentRules.articulationType, isTransition);
-            UITempoToast.Draw(m_CurrentOrchestraState.tempoType, m_CurrentRules.tempoType, tempoManager.bpm, isTransition);
-            UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, isTransition);
-            
-            UIArticulationToast.Show(true);
-            UITempoToast.Show(true);
-            UIIntensityToast.Show(true);
+            DrawRules();
+            ShowRules(true);
         }
     }
 
+    public void SetNewRules(OrchestraState rules)
+    {
+        m_CurrentRules = rules;
+        DrawRules();
+        ShowRules(true);
+    }
+    
     public void SetCurrentTrackType(GuidedModeManager.TrackType type)
     {
         m_CurrentTrackType = type;

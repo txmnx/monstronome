@@ -2125,6 +2125,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 303602565}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &303602567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3084638091900649370, guid: aacb927a69a8ea048a67ca9449873dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 303602565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0324c795d30c6e64f82b08c941acaffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &348619486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,10 +2545,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   families:
   - {fileID: 1247558651}
-  orchestraLauncher: {fileID: 348619494}
   wwiseCallback: {fileID: 1915118170}
   articulationManager: {fileID: 348619495}
   conductingRulesManager: {fileID: 348619498}
+  orchestraLauncher: {fileID: 348619494}
+  toasterSlider: {fileID: 303602567}
   factory: {fileID: 7150378530800536322}
   potions: {fileID: 789459069}
   metronomicon: {fileID: 303602566}

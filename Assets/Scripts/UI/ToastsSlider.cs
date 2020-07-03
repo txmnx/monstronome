@@ -28,6 +28,7 @@ public class ToastsSlider : XRSlider
             if (!m_IsOnExtremity) {
                 if (!toasts[0].isAnimShow) {
                     SFXOnToasterOut.Post(toasterSoundReference);
+                    OnToastsOut?.Invoke();
                 }
                 SFXOnSliderExtremity.Post(gameObject);
                 xrGrabber.HapticImpulse(0.4f, 0.01f);   
@@ -43,6 +44,7 @@ public class ToastsSlider : XRSlider
             if (!m_IsOnExtremity) {
                 if (toasts[0].isAnimShow) {
                     SFXOnToasterIn.Post(toasterSoundReference);
+                    OnToastsIn?.Invoke();
                 }
                 SFXOnSliderExtremity.Post(gameObject);
                 xrGrabber.HapticImpulse(0.4f, 0.01f);   
@@ -58,4 +60,7 @@ public class ToastsSlider : XRSlider
             m_IsOnExtremity = false;
         }
     }
+
+    public Action OnToastsOut;
+    public Action OnToastsIn;
 }

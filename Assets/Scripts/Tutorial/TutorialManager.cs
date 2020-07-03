@@ -11,10 +11,11 @@ public class TutorialManager : MonoBehaviour
 {
     [Header("Callbacks")] 
     public InstrumentFamily[] families;
-    public OrchestraLauncher orchestraLauncher;
     public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
     public ConductingRulesManager conductingRulesManager;
+    public OrchestraLauncher orchestraLauncher;
+    public ToastsSlider toasterSlider;
 
     [Header("Objects to show")] public GameObject factory;
     public GameObject potions;
@@ -42,8 +43,22 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (Action act) => orchestraLauncher.OnStartOrchestra += act));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        {
+            metronomicon.SetActive(true);
+            conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
+                InstrumentFamily.ArticulationType.Legato, 
+                InstrumentFamily.IntensityType.Pianissimo, 
+                InstrumentFamily.TempoType.Allegro)
+            );
+        }));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        {
+            metronomicon.SetActive(true);
+            conductingRulesManager.OnStartOrchestra();
+        }));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference));
 
