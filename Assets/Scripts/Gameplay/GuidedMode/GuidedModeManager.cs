@@ -64,7 +64,7 @@ public class GuidedModeManager : MonoBehaviour
         OnStartOrchestra += tempoManager.OnStartOrchestra;
         OnStartOrchestra += intensityManager.OnStartOrchestra;
         OnStartOrchestra += conductingRulesManager.OnStartOrchestra;
-        conductingRulesManager.SetCurrentTrackType(currentTrackType);
+        conductingRulesManager.SetCurrentTrackType(currentTrackType, false);
         
         wwiseCallback.OnCue += LaunchState;
 

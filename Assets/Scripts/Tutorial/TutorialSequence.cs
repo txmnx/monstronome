@@ -43,6 +43,7 @@ public class TutorialSequence
         }
         else {
             //The sequence has ended
+            Debug.Log("TUTORIAL IS FINISHED");
             m_IsProcessing = false;
         }
     }

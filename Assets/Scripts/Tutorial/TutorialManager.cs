@@ -14,6 +14,7 @@ public class TutorialManager : MonoBehaviour
     public WwiseCallBack wwiseCallback;
     public ArticulationManager articulationManager;
     public TempoManager tempoManager;
+    public IntensityManager intensityManager;
     public ConductingRulesManager conductingRulesManager;
     public OrchestraLauncher orchestraLauncher;
     public ToastsSlider toasterSlider;
@@ -41,20 +42,35 @@ public class TutorialManager : MonoBehaviour
         conductingRulesManager.ShowRules(false);
         
         m_Sequence = new TutorialSequence(this);
+        
+        // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        
+        // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
+        
+        // -- Use toaster - 3
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
         {
             metronomicon.SetActive(true);
+            tempoManager.SetTempo(60);
+            intensityManager.SetAmplitude(1f);
+            conductingRulesManager.SetCurrentOrchestraState(new ConductingRulesManager.OrchestraState(
+                InstrumentFamily.ArticulationType.Pizzicato, 
+                InstrumentFamily.IntensityType.Fortissimo, 
+                InstrumentFamily.TempoType.Lento), false
+            );
             conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
                 InstrumentFamily.ArticulationType.Legato, 
-                InstrumentFamily.IntensityType.Pianissimo, 
-                InstrumentFamily.TempoType.Allegro)
+                InstrumentFamily.IntensityType.MezzoForte, 
+                InstrumentFamily.TempoType.Andante)
             );
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
+        
+        // -- Change the tempo - 4
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
         {
             metronomicon.SetActive(true);
@@ -63,7 +79,11 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodTempoChange += act));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference));
+        
+        // -- Change the intensity - 5
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 1f, () => intensityManager.OnStartOrchestra()));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => conductingRulesManager.OnGoodIntensityChange += act));
 
         m_Sequence.Launch();
     }

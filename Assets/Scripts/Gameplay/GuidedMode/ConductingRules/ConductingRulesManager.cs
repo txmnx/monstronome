@@ -81,16 +81,31 @@ public class ConductingRulesManager : MonoBehaviour
         }
     }
 
-    public void SetNewRules(OrchestraState rules)
+    public void SetNewRules(OrchestraState rules, bool draw = true)
     {
         m_CurrentRules = rules;
-        DrawRules();
-        ShowRules(true);
+        if (draw) {
+            DrawRules();
+            ShowRules(true);
+        }
     }
     
-    public void SetCurrentTrackType(GuidedModeManager.TrackType type)
+    public void SetCurrentOrchestraState(OrchestraState state, bool draw = true)
+    {
+        m_CurrentOrchestraState = state;
+        if (draw) {
+            DrawRules();
+            ShowRules(true);
+        }
+    }
+    
+    public void SetCurrentTrackType(GuidedModeManager.TrackType type, bool draw = true)
     {
         m_CurrentTrackType = type;
+        if (draw) {
+            DrawRules();
+            ShowRules(true);
+        }
     }
     
     public void ProfileTransition()
@@ -145,6 +160,7 @@ public class ConductingRulesManager : MonoBehaviour
 
         if (fromPotion) {
             if (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType) {
+                OnGoodArticulationChange?.Invoke();
                 SoundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Bonus, potion);
             }
             else {
@@ -169,6 +185,10 @@ public class ConductingRulesManager : MonoBehaviour
         m_CurrentOrchestraState.intensityType = type;
         UIIntensityToast.Draw(m_CurrentOrchestraState.intensityType, m_CurrentRules.intensityType, 
             m_CurrentTrackType == GuidedModeManager.TrackType.Transition, fromConducting);
+        
+        if (m_CurrentOrchestraState.intensityType == m_CurrentRules.intensityType) {
+            OnGoodIntensityChange?.Invoke();
+        }
     }
     
     public Action OnGoodArticulationChange;
