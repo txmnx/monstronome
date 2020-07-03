@@ -2313,7 +2313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEngineTuner: {fileID: 348619491}
-  wwiseCallback: {fileID: 1915118170}
   articulationManager: {fileID: 348619495}
   intensityManager: {fileID: 348619490}
   tempoManager: {fileID: 348619489}
@@ -11795,8 +11794,7 @@ PrefabInstance:
         type: 3}
       propertyPath: familyAnimators.Array.data[6]
       value: 
-      objectReference: {fileID: 1715753242, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
-        type: 3}
+      objectReference: {fileID: 1530883018}
     - target: {fileID: 409129984711748250, guid: f7f7f254d03981b43aaa2ae8a6d9a6df,
         type: 3}
       propertyPath: SFXOnEnterHighlight.WwiseObjectReference
@@ -11809,6 +11807,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: af80088d554bc4f4697e8de780c928bc,
         type: 2}
+    - target: {fileID: 409129984711748250, guid: f7f7f254d03981b43aaa2ae8a6d9a6df,
+        type: 3}
+      propertyPath: startAnimation
+      value: Idle
+      objectReference: {fileID: 0}
     - target: {fileID: 409129984850080536, guid: f7f7f254d03981b43aaa2ae8a6d9a6df,
         type: 3}
       propertyPath: m_Intensity

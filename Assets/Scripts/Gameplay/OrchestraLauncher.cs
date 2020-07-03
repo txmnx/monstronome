@@ -26,7 +26,12 @@ public class OrchestraLauncher : MonoBehaviour
         wwiseCallback.LoadTuning();
         handsHeightChecker.OnEnterRaiseHand += OnEnterRaiseHand;
         handsHeightChecker.OnExitRaiseHand += OnExitRaiseHand;
+        
         m_InstrumentFamilies = families;
+        foreach (InstrumentFamily family in families) {
+            family.StartTuning();
+        }
+
         m_IsSubscribed = true;
         m_HasInit = true;
     }
@@ -42,9 +47,7 @@ public class OrchestraLauncher : MonoBehaviour
         int idleTriggerID = Animator.StringToHash("SwitchIdle");
         //We set the families on idle animation, waiting for the start
         foreach (InstrumentFamily family in m_InstrumentFamilies) {
-            foreach (Animator animator in family.familyAnimators) {
-                animator.SetTrigger(idleTriggerID);
-            }
+            family.StopPlaying();
         }
         
         vignetteAnimation.Show(true);
