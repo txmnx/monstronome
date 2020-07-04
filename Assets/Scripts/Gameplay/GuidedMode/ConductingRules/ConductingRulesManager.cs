@@ -191,9 +191,24 @@ public class ConductingRulesManager : MonoBehaviour
         }
     }
     
-    public Action OnGoodArticulationChange;
-    public Action OnGoodTempoChange;
-    public Action OnGoodIntensityChange;
+    public bool IsArticulationGood()
+    {
+        return (m_CurrentOrchestraState.articulationType == m_CurrentRules.articulationType);
+    }
+    public bool IsTempoGood()
+    {
+        return (m_CurrentOrchestraState.tempoType == m_CurrentRules.tempoType);
+    }
+    
+    public bool IsIntensityGood()
+    {
+        return (m_CurrentOrchestraState.intensityType == m_CurrentRules.intensityType);
+    }
+    
+    
+    public event Action OnGoodArticulationChange;
+    public event Action OnGoodTempoChange;
+    public event Action OnGoodIntensityChange;
 
     public void DrawRules()
     {

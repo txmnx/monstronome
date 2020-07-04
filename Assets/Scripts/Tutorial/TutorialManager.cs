@@ -40,12 +40,17 @@ public class TutorialManager : MonoBehaviour
             OnStartOrchestra += family.StartPlaying;
         }
         conductingRulesManager.ShowRules(false);
+
+        conductingRulesManager.OnGoodTempoChange += CheckTempoIntensity;
+        conductingRulesManager.OnGoodIntensityChange += CheckTempoIntensity;
         
         m_Sequence = new TutorialSequence(this);
         
+        /*
         // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        */
         
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
@@ -63,7 +68,7 @@ public class TutorialManager : MonoBehaviour
                 InstrumentFamily.TempoType.Lento), false
             );
             conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
-                InstrumentFamily.ArticulationType.Legato, 
+                InstrumentFamily.ArticulationType.Pizzicato, 
                 InstrumentFamily.IntensityType.MezzoForte, 
                 InstrumentFamily.TempoType.Andante)
             );
@@ -82,14 +87,40 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => tempoManager.StopBPMTrack()));
         
         // -- Change the intensity - 5
-        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 1f, () => intensityManager.OnStartOrchestra()));
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 3f, () => intensityManager.OnStartOrchestra()));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodIntensityChange += act));
 
+        // -- Check both tempo and intensity - 6
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        {
+            tempoManager.StartBPMTrack();
+            conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
+                InstrumentFamily.ArticulationType.Pizzicato, 
+                InstrumentFamily.IntensityType.Fortissimo, 
+                InstrumentFamily.TempoType.Lento)
+            );
+        }));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[5], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => OnTempoIntensityGood += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        {
+            conductingRulesManager.OnGoodTempoChange -= CheckTempoIntensity;
+            conductingRulesManager.OnGoodIntensityChange -= CheckTempoIntensity;
+        }));
+        
         m_Sequence.Launch();
     }
 
-    public Action OnStartOrchestra;
+    private event Action OnStartOrchestra;
+    private event Action OnTempoIntensityGood;
+
+    private void CheckTempoIntensity()
+    {
+        if (conductingRulesManager.IsTempoGood() && conductingRulesManager.IsIntensityGood()) {
+            OnTempoIntensityGood?.Invoke();
+        }
+    }
     
     public void LaunchState(string stateName)
     {
@@ -100,4 +131,6 @@ public class TutorialManager : MonoBehaviour
                 break;
         }
     }
+    
+    
 }
