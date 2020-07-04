@@ -16,9 +16,11 @@ public class TutorialManager : MonoBehaviour
     public TempoManager tempoManager;
     public IntensityManager intensityManager;
     public ConductingRulesManager conductingRulesManager;
+    public ReframingManager reframingManager;
     public OrchestraLauncher orchestraLauncher;
     public ToastsSlider toasterSlider;
     public InstrumentFamilyLooker instrumentFamilyLooker;
+    public InstrumentFamilySelector instrumentFamilySelector;
 
     [Header("Objects to show")] 
     public GameObject potionFactory;
@@ -133,8 +135,15 @@ public class TutorialManager : MonoBehaviour
             (act) => toasterSlider.OnToastsIn += act));
             
         // -- Select a family - 9
-        //TODO : ici on doit degrader la famille et init le reframingmanager
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => instrumentFamilyLooker.enableLooker = true));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        {
+            instrumentFamilyLooker.enableLooker = true;
+            reframingManager.LoadFamilies(families);
+            reframingManager.SetReframingFamily(families[0]);
+            reframingManager.LaunchFail();
+        }));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[8], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => instrumentFamilySelector.OnSelectFamily += act));
 
         
         m_Sequence.Launch();

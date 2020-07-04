@@ -256,7 +256,7 @@ public class ReframingManager : MonoBehaviour
         m_CanDegrade = true;
     }
     
-    private void LaunchFail()
+    public void LaunchFail()
     {
         m_CanDegrade = false;
         m_IsDegrading = true;
@@ -288,6 +288,12 @@ public class ReframingManager : MonoBehaviour
             //We can't pick a random family when we enter the first block - it should be set before
             m_CanPickNewFamily = true;
         }
+    }
+
+    public void SetReframingFamily(InstrumentFamily family)
+    {
+        m_ReframingFamily = family;
+        soundEngineTuner.SetSolistFamily(m_ReframingFamily);
     }
     
     private void OnEnterBlock()
