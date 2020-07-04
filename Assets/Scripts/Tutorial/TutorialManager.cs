@@ -19,12 +19,12 @@ public class TutorialManager : MonoBehaviour
     public OrchestraLauncher orchestraLauncher;
     public ToastsSlider toasterSlider;
 
-    [Header("Objects to show")] public GameObject factory;
-    public GameObject potions;
+    [Header("Objects to show")] 
+    public GameObject potionFactory;
     public GameObject metronomicon;
 
-    [Header("Voice instructions")] [SerializeField]
-    private GameObject m_VoiceReference;
+    [Header("Voice instructions")]
+    [SerializeField] private GameObject m_VoiceReference;
 
     [SerializeField] private TextMeshPro m_SubtitlesDisplay;
     [SerializeField] private TutorialDescriptionStep.Instruction[] m_Instructions;
@@ -46,12 +46,11 @@ public class TutorialManager : MonoBehaviour
         
         m_Sequence = new TutorialSequence(this);
         
-        /*
-        // -- Introduction - 1
-        m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
-        */
         
+        // -- Introduction - 1
+        //m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
+        //m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
@@ -94,7 +93,12 @@ public class TutorialManager : MonoBehaviour
         // -- Check both tempo and intensity - 6
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
         {
+            intensityManager.StopIntensityTrack();
+        }));
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 8f, () =>
+        {
             tempoManager.StartBPMTrack();
+            intensityManager.StartIntensityTrack();
             conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
                 InstrumentFamily.ArticulationType.Pizzicato, 
                 InstrumentFamily.IntensityType.Fortissimo, 
@@ -109,6 +113,23 @@ public class TutorialManager : MonoBehaviour
             conductingRulesManager.OnGoodIntensityChange -= CheckTempoIntensity;
         }));
         
+        // -- Articulation potion - 7
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        {
+            potionFactory.transform.position = Vector3.zero;
+            conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
+                InstrumentFamily.ArticulationType.Legato, 
+                InstrumentFamily.IntensityType.Fortissimo,
+                InstrumentFamily.TempoType.Lento)
+            );
+        }));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[6], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => conductingRulesManager.OnGoodArticulationChange += act));
+        
+        // -- Lower toaster slider - 8
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[7], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => toasterSlider.OnToastsIn += act));
+            
         m_Sequence.Launch();
     }
 

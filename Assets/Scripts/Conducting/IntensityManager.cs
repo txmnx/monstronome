@@ -11,6 +11,7 @@ public class IntensityManager : MonoBehaviour
 {
     public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;
+    public ConductingEventsManager conductingEventsManager;
 
     //TODO : if we don't want to smoothen the intensity evolution we don't have to use a buffer
     //The bigger the buffer size is, the smoother the intensity's evolution is
@@ -18,10 +19,15 @@ public class IntensityManager : MonoBehaviour
     private const float BASE_AMPLITUDE = 0.3f;
     private Queue<float> m_BufferLastAmplitudes;
     
+    /* Conduct */
+    private int m_BeatsCountSinceBeginConducting = 0;
+    
     private InstrumentFamily.IntensityType m_CurrentIntensityType;
 
     private void Start()
     {
+        conductingEventsManager.OnBeginConducting += OnBeginConducting;
+        
         m_BufferLastAmplitudes = new Queue<float>();
 
         for (int i = 0; i < AMPLITUDE_BUFFER_SIZE; i++) {
@@ -36,15 +42,36 @@ public class IntensityManager : MonoBehaviour
     //We can't change intensity if the orchestra hasn't started
     public void OnStartOrchestra()
     {
+        StartIntensityTrack();
+    }
+    
+    public void StartIntensityTrack()
+    {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
     }
+    
+    public void StopIntensityTrack()
+    {
+        beatManager.OnBeatMajorHand -= OnBeatMajorHand;
+    }
 
+    //We register the intensity only if there have been 2 beats since beginning conducting 
+    public void OnBeginConducting()
+    {
+        m_BeatsCountSinceBeginConducting = 0;
+    }
+    
     public void OnBeatMajorHand(float amplitude)
     {
         m_BufferLastAmplitudes.Enqueue(amplitude);
         m_BufferLastAmplitudes.Dequeue();
 
-        UpdateIntensity();
+        m_BeatsCountSinceBeginConducting += 1;
+
+        //We register the intensity only if there have been 2 beats
+        if (m_BeatsCountSinceBeginConducting > 1) {
+            UpdateIntensity();
+        }
     }
 
     private void UpdateIntensity()
