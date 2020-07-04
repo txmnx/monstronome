@@ -2556,7 +2556,7 @@ MonoBehaviour:
   toasterSlider: {fileID: 303602567}
   instrumentFamilyLooker: {fileID: 224941992}
   instrumentFamilySelector: {fileID: 224941993}
-  timeline: {fileID: 0}
+  timeline: {fileID: 1811084566}
   potionFactory: {fileID: 1280015607}
   reframingPotions: {fileID: 809855243}
   metronomicon: {fileID: 303602566}
@@ -2741,7 +2741,7 @@ MonoBehaviour:
       - Sometimes Metronomagic weakens, and one of your families may turn its play
         into a cacophony.
       - To fix that, you must first target the family by looking at it and press
-        the UP button of your Left claw.
+        the UP button of your claw.
     secondInstruction:
       SFXVoice:
         idInternal: 0
@@ -2817,10 +2817,12 @@ MonoBehaviour:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
+        WwiseObjectReference: {fileID: 11400000, guid: ddc9e73fa9b070942af3ea8eecc95100,
+          type: 2}
       subtitles:
-      - 
-      - 
+      - Well. I taught you everything you needed for this concert,
+      - time is running away, you will now conduct the orchestra alone.
+      - I wish you good luck for the celebration. Everything is gonna be just fine!
     secondInstruction:
       SFXVoice:
         idInternal: 0

@@ -58,8 +58,8 @@ public class TutorialManager : MonoBehaviour
         m_Sequence = new TutorialSequence(this);
 
         // -- Introduction - 1
-        //m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        //m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
@@ -168,8 +168,13 @@ public class TutorialManager : MonoBehaviour
         // -- Transition - 12
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
         {
-            timeline.SetCursor(16.666f);
+            timeline.ResetCursor(0.16666f);
             conductingRulesManager.SetCurrentTrackType(GuidedModeManager.TrackType.Transition);
+            conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
+                InstrumentFamily.ArticulationType.Staccato, 
+                InstrumentFamily.IntensityType.MezzoForte,
+                InstrumentFamily.TempoType.Allegro)
+            );
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[11], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => OnArticulationTempoIntensityGood += act));
@@ -181,6 +186,8 @@ public class TutorialManager : MonoBehaviour
         }));
 
         // -- Tutorial conclusion - 13
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[12], m_SubtitlesDisplay, m_VoiceReference));
+        
         
         m_Sequence.Launch();
     }
