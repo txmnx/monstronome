@@ -78,6 +78,7 @@ public class TutorialManager : MonoBehaviour
             );
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => toasterSlider.enableSlider = false));
         
         // -- Change the tempo - 4
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
@@ -132,6 +133,7 @@ public class TutorialManager : MonoBehaviour
             (act) => conductingRulesManager.OnGoodArticulationChange += act));
         
         // -- Lower toaster slider - 8
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => toasterSlider.enableSlider = true));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[7], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => toasterSlider.OnToastsIn += act));
             
