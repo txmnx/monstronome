@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Objects to show")] 
     public GameObject potionFactory;
+    public GameObject reframingPotions;
     public GameObject metronomicon;
 
     [Header("Voice instructions")]
@@ -145,6 +146,17 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[8], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnSelectFamily += act));
 
+        // -- Reframing - 10
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 4f, () =>
+        {
+            reframingPotions.SetActive(true);
+        }));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[9], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => reframingManager.OnSuccess += act));
+        
+        // -- Deselect a family - 11
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[10], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => instrumentFamilySelector.OnDeselectFamily += act));
         
         m_Sequence.Launch();
     }
