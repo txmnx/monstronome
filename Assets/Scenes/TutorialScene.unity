@@ -2551,10 +2551,13 @@ MonoBehaviour:
   tempoManager: {fileID: 348619489}
   intensityManager: {fileID: 348619490}
   conductingRulesManager: {fileID: 348619498}
+  reframingManager: {fileID: 0}
   orchestraLauncher: {fileID: 348619494}
   toasterSlider: {fileID: 303602567}
   instrumentFamilyLooker: {fileID: 224941992}
+  instrumentFamilySelector: {fileID: 0}
   potionFactory: {fileID: 1280015607}
+  reframingPotions: {fileID: 809855243}
   metronomicon: {fileID: 303602566}
   m_VoiceReference: {fileID: 451920519}
   m_SubtitlesDisplay: {fileID: 451920518}
@@ -2729,44 +2732,65 @@ MonoBehaviour:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
+        WwiseObjectReference: {fileID: 11400000, guid: 436fa7c568daf854d80954bccc1ee978,
+          type: 2}
       subtitles:
-      - 
-      - 
+      - The time has come for you to learn how to manage your orchestra for each
+        family of Instrumonsters.
+      - Sometimes Metronomagic weakens, and one of your families may turn its play
+        into a cacophony.
+      - To fix that, you must first target the family by looking at it and press
+        the UP button of your Left claw.
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: []
+        WwiseObjectReference: {fileID: 11400000, guid: 01c52a5159837344fb49452a1cf454ee,
+          type: 2}
+      subtitles:
+      - To fix that, you must first target the family by looking at it
+      - and press the UP button of your claw.
   - mainInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
+        WwiseObjectReference: {fileID: 11400000, guid: fd5bead2c8bcbbc4ea79d826c12cdecc,
+          type: 2}
       subtitles:
-      - 
-      - 
+      - The Magic Potions Factory makes also smaller potions that we use to help
+        Instrumonsters families.
+      - Look carefully at the order displayed on top of the family and throw corresponding
+        potions
+      - while aiming precisely.
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: []
+        WwiseObjectReference: {fileID: 11400000, guid: b3f7250c758ec5a42b180b0c92958129,
+          type: 2}
+      subtitles:
+      - Look carefully at the order
+      - displayed on top of the family and throw corresponding potions
+      - while aiming precisely.
   - mainInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
+        WwiseObjectReference: {fileID: 11400000, guid: c32aa0d3cf84cba49b4e564cdfb32427,
+          type: 2}
       subtitles:
-      - 
-      - 
+      - Good job! You may now stop
+      - targeting the family by pressing the
+      - DOWN button of your claw.
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: []
+        WwiseObjectReference: {fileID: 11400000, guid: 3618cadfbc4895847aa71e94a4716f2f,
+          type: 2}
+      subtitles:
+      - You may now stop targeting the family by
+      - pressing the DOWN button of your claw.
   - mainInstruction:
       SFXVoice:
         idInternal: 0
