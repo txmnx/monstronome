@@ -2556,6 +2556,7 @@ MonoBehaviour:
   toasterSlider: {fileID: 303602567}
   instrumentFamilyLooker: {fileID: 224941992}
   instrumentFamilySelector: {fileID: 224941993}
+  timeline: {fileID: 0}
   potionFactory: {fileID: 1280015607}
   reframingPotions: {fileID: 809855243}
   metronomicon: {fileID: 303602566}
@@ -2795,16 +2796,23 @@ MonoBehaviour:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
+        WwiseObjectReference: {fileID: 11400000, guid: 7dbcc25ab9a17ea46bd2eff41fcb6cb2,
+          type: 2}
       subtitles:
-      - 
-      - 
+      - The concert is structured with musical units interrupted by transitions,
+      - "you can see this Timeline on the Metronomicon. During these transitions,
+        Metronomicon\u2019s headlights will turn blue,"
+      - "and you will need to find changes to apply. Let\u2019s go!"
     secondInstruction:
       SFXVoice:
         idInternal: 0
         valueGuidInternal: 
-        WwiseObjectReference: {fileID: 0}
-      subtitles: []
+        WwiseObjectReference: {fileID: 11400000, guid: 795f319eed771d1408feb6eec88d6e43,
+          type: 2}
+      subtitles:
+      - Activate the Metronomicon
+      - then use your Magic Baton
+      - and your potions to succeed.
   - mainInstruction:
       SFXVoice:
         idInternal: 0

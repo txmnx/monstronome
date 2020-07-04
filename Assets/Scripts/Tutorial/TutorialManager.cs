@@ -21,6 +21,7 @@ public class TutorialManager : MonoBehaviour
     public ToastsSlider toasterSlider;
     public InstrumentFamilyLooker instrumentFamilyLooker;
     public InstrumentFamilySelector instrumentFamilySelector;
+    public Timeline timeline;
 
     [Header("Objects to show")] 
     public GameObject potionFactory;
@@ -48,6 +49,10 @@ public class TutorialManager : MonoBehaviour
         conductingRulesManager.OnGoodTempoChange += CheckTempoIntensity;
         conductingRulesManager.OnGoodIntensityChange += CheckTempoIntensity;
         
+        conductingRulesManager.OnGoodArticulationChange += CheckArticulationTempoIntensity;
+        conductingRulesManager.OnGoodTempoChange += CheckArticulationTempoIntensity;
+        conductingRulesManager.OnGoodIntensityChange += CheckArticulationTempoIntensity;
+
         instrumentFamilyLooker.enableLooker = false;
         
         m_Sequence = new TutorialSequence(this);
@@ -160,16 +165,41 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[10], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnDeselectFamily += act));
         
+        // -- Transition - 12
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
+        {
+            timeline.SetCursor(16.666f);
+            conductingRulesManager.SetCurrentTrackType(GuidedModeManager.TrackType.Transition);
+        }));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[11], m_SubtitlesDisplay, m_VoiceReference, 
+            (act) => OnArticulationTempoIntensityGood += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        {
+            conductingRulesManager.OnGoodArticulationChange -= CheckArticulationTempoIntensity;
+            conductingRulesManager.OnGoodTempoChange -= CheckArticulationTempoIntensity;
+            conductingRulesManager.OnGoodIntensityChange -= CheckArticulationTempoIntensity;
+        }));
+
+        // -- Tutorial conclusion - 13
+        
         m_Sequence.Launch();
     }
 
     private event Action OnStartOrchestra;
     private event Action OnTempoIntensityGood;
+    private event Action OnArticulationTempoIntensityGood;
 
     private void CheckTempoIntensity()
     {
         if (conductingRulesManager.IsTempoGood() && conductingRulesManager.IsIntensityGood()) {
             OnTempoIntensityGood?.Invoke();
+        }
+    }
+    
+    private void CheckArticulationTempoIntensity()
+    {
+        if (conductingRulesManager.IsArticulationGood() && conductingRulesManager.IsTempoGood() && conductingRulesManager.IsIntensityGood()) {
+            OnArticulationTempoIntensityGood?.Invoke();
         }
     }
     
