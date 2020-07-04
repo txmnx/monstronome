@@ -138,7 +138,7 @@ public class TutorialManager : MonoBehaviour
             (act) => toasterSlider.OnToastsIn += act));
             
         // -- Select a family - 9
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
         {
             instrumentFamilyLooker.enableLooker = true;
             reframingManager.LoadFamilies(families);
