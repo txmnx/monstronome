@@ -123,7 +123,7 @@ public class ReframingManager : MonoBehaviour
                             //Success
                             m_ReframingPotionIndex = 0;
                             UpdateDegradation(DegradationState.Left_0);
-                            StartCoroutine(OnSuccess());
+                            StartCoroutine(OnSuccessCoroutine());
                         }
                     }
                     else {
@@ -133,7 +133,7 @@ public class ReframingManager : MonoBehaviour
 
                         m_ReframingPotionIndex = 0;
                         UpdateDegradation(DegradationState.Left_3);
-                        StartCoroutine(OnFailure());
+                        StartCoroutine(OnFailureCoroutine());
                     }
                 }
             }
@@ -154,9 +154,12 @@ public class ReframingManager : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
+
+    public event Action OnSuccess;
     
-    private IEnumerator OnSuccess()
+    private IEnumerator OnSuccessCoroutine()
     {
+        OnSuccess?.Invoke();
         scoreManager.AddScore(scoringParameters.reframingSuccess);
         scoreManager.SuccessReframing(Time.time - m_ScoreTimer);
         SFXOnReframingSuccess.Post(m_ReframingFamily.gameObject);
@@ -169,7 +172,7 @@ public class ReframingManager : MonoBehaviour
         OnEndReframing();
     }
     
-    private IEnumerator OnFailure()
+    private IEnumerator OnFailureCoroutine()
     {
         m_CanCheckPotionType = false;
         yield return BlinkAnimation(m_ReframingFamily.drawableReframingRules.redMaterial, m_ReframingFamily.drawableReframingRules.blackMaterial);
@@ -256,7 +259,7 @@ public class ReframingManager : MonoBehaviour
         m_CanDegrade = true;
     }
     
-    private void LaunchFail()
+    public void LaunchFail()
     {
         m_CanDegrade = false;
         m_IsDegrading = true;
@@ -288,6 +291,12 @@ public class ReframingManager : MonoBehaviour
             //We can't pick a random family when we enter the first block - it should be set before
             m_CanPickNewFamily = true;
         }
+    }
+
+    public void SetReframingFamily(InstrumentFamily family)
+    {
+        m_ReframingFamily = family;
+        soundEngineTuner.SetSolistFamily(m_ReframingFamily);
     }
     
     private void OnEnterBlock()

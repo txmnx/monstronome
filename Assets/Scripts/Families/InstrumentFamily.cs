@@ -13,6 +13,7 @@ public abstract class InstrumentFamily : MonoBehaviour
     public SoundEngineTuner soundEngineTuner;
 
     public Animator[] familyAnimators;
+    public string startAnimation;
     private int m_BlendArticulationID;
     private int m_BrokenLayerID;
     
@@ -196,6 +197,14 @@ public abstract class InstrumentFamily : MonoBehaviour
             animator.SetTrigger(triggerID);
         }
     }
+    
+    public void StartTuning()
+    {
+        int triggerID = Animator.StringToHash("SwitchTuning");
+        foreach (Animator animator in familyAnimators) {
+            animator.SetTrigger(triggerID);
+        }
+    }
 
     public void SetBrokenAnimation(ReframingManager.DegradationState degradationState)
     {
@@ -222,7 +231,7 @@ public abstract class InstrumentFamily : MonoBehaviour
      */
     private IEnumerator LaunchAnimOffset()
     {
-        int entryID = Animator.StringToHash("Tuning");
+        int entryID = Animator.StringToHash(startAnimation);
         foreach (Animator animator in familyAnimators) {
             animator.Play(entryID, 0);
             yield return new WaitForSeconds(0.01f);

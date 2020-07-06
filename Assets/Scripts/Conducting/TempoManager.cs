@@ -56,7 +56,17 @@ public class TempoManager : MonoBehaviour
     //We can't change tempo if the orchestra hasn't started
     public void OnStartOrchestra()
     {
+        StartBPMTrack();
+    }
+
+    public void StartBPMTrack()
+    {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
+    }
+    
+    public void StopBPMTrack()
+    {
+        beatManager.OnBeatMajorHand -= OnBeatMajorHand;
     }
     
     //We register the bpm only if there have been 2 beats since beginning conducting 

@@ -15,20 +15,27 @@ public class OrchestraLauncher : MonoBehaviour
     
     private InstrumentFamily[] m_InstrumentFamilies;
 
-    private bool m_HasRaisedHands = false;
+    private bool m_HasInit;
+    private bool m_IsSubscribed;
+    private bool m_HasRaisedHands;
     
 
-    public void Start()
+    public void InitLauncher(InstrumentFamily[] families)
     {
         //The orchestra starts by tuning
         wwiseCallback.LoadTuning();
+        handsHeightChecker.OnEnterRaiseHand += OnEnterRaiseHand;
+        handsHeightChecker.OnExitRaiseHand += OnExitRaiseHand;
+        
+        m_InstrumentFamilies = families;
+        foreach (InstrumentFamily family in families) {
+            family.StartTuning();
+        }
+
+        m_IsSubscribed = true;
+        m_HasInit = true;
     }
     
-    public void LoadFamilies(InstrumentFamily[] families)
-    {
-        m_InstrumentFamilies = families;
-    }
-
     /* Events */
     public void OnEnterRaiseHand()
     {
@@ -40,9 +47,7 @@ public class OrchestraLauncher : MonoBehaviour
         int idleTriggerID = Animator.StringToHash("SwitchIdle");
         //We set the families on idle animation, waiting for the start
         foreach (InstrumentFamily family in m_InstrumentFamilies) {
-            foreach (Animator animator in family.familyAnimators) {
-                animator.SetTrigger(idleTriggerID);
-            }
+            family.StopPlaying();
         }
         
         vignetteAnimation.Show(true);
@@ -51,6 +56,7 @@ public class OrchestraLauncher : MonoBehaviour
     public void OnExitRaiseHand()
     {
         if (m_HasRaisedHands) {
+            OnStartOrchestra?.Invoke();
             wwiseCallback.StartOrchestra();
             vignetteAnimation.Show(false);
             //We don't need to start the orchestra anymore
@@ -59,16 +65,23 @@ public class OrchestraLauncher : MonoBehaviour
     }
 
     public Action OnLoadOrchestra;
+    public Action OnStartOrchestra;
     
     private void OnEnable()
     {
-        handsHeightChecker.OnEnterRaiseHand += OnEnterRaiseHand;
-        handsHeightChecker.OnExitRaiseHand += OnExitRaiseHand;
+        if (m_HasInit && !m_IsSubscribed) {
+            handsHeightChecker.OnEnterRaiseHand += OnEnterRaiseHand;
+            handsHeightChecker.OnExitRaiseHand += OnExitRaiseHand;
+            m_IsSubscribed = true;
+        }
     }
     
     private void OnDisable()
     {
-        handsHeightChecker.OnEnterRaiseHand -= OnEnterRaiseHand;
-        handsHeightChecker.OnExitRaiseHand -= OnExitRaiseHand;
+        if (m_HasInit && m_IsSubscribed) {
+            handsHeightChecker.OnEnterRaiseHand -= OnEnterRaiseHand;
+            handsHeightChecker.OnExitRaiseHand -= OnExitRaiseHand;
+            m_IsSubscribed = false;
+        }
     }
 }

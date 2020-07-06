@@ -53,7 +53,7 @@ public class GuidedModeManager : MonoBehaviour
     private void Start()
     {
         reframingManager.LoadFamilies(families);
-        orchestraLauncher.LoadFamilies(families);
+        orchestraLauncher.InitLauncher(families);
         conclusionManager.LoadFamilies(families);
         
         orchestraLauncher.OnLoadOrchestra += LoadOrchestra;
@@ -63,8 +63,11 @@ public class GuidedModeManager : MonoBehaviour
         }
         OnStartOrchestra += tempoManager.OnStartOrchestra;
         OnStartOrchestra += intensityManager.OnStartOrchestra;
-        wwiseCallback.OnCue += LaunchState;
+        OnStartOrchestra += conductingRulesManager.OnStartOrchestra;
+        conductingRulesManager.SetCurrentTrackType(currentTrackType, false);
         
+        wwiseCallback.OnCue += LaunchState;
+
         conductingRulesManager.ShowRules(false);
     }
 
@@ -122,6 +125,9 @@ public class GuidedModeManager : MonoBehaviour
                 break;
         }
 
+        conductingRulesManager.SetCurrentTrackType(currentTrackType);
+        conductingRulesManager.GetNewRules(stateName);
+        
         if (prevTrackType != currentTrackType) {
             timeline.SetCurrentStep(stateName);
             conductingRulesManager.DrawRules();
