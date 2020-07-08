@@ -8,7 +8,8 @@ public class WwiseCallBack : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
     private string m_MusicCueName;
-    public AK.Wwise.Event voice;
+    //public AK.Wwise.Event voice;
+    public AK.Wwise.Event musicToLaunch;
 
     public void StopMusic()
     {
@@ -27,12 +28,21 @@ public class WwiseCallBack : MonoBehaviour
     
     public void LoadOrchestra()
     {
-        AkSoundEngine.PostEvent("Play_Music", gameObject, (uint)AkCallbackType.AK_MusicSyncUserCue | (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction, this);
+        musicToLaunch.Post (gameObject, (uint)AkCallbackType.AK_MusicSyncUserCue | (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction, this);
         AkSoundEngine.SetState("Music", "Metronome");
         AkSoundEngine.SetState("PotionCount", "Left_0");   // Nombre de potions restantes que le joueur doit lancer pour corriger la famille
         AkSoundEngine.SetSwitch("SW_Family_Solist", "Woods", gameObject);  //Famille soliste qui devra être recaller
         soundEngineTuner.SetTempo(SoundEngineTuner.START_TEMPO);
     }
+
+    /*public void LoadStringsTutorial()
+    {
+        AkSoundEngine.PostEvent("Play_TutoMode", gameObject);
+        AkSoundEngine.SetState("Music", "Metronome");
+        AkSoundEngine.SetState("PotionCount", "Left_0");   // Nombre de potions restantes que le joueur doit lancer pour corriger la famille
+        AkSoundEngine.SetSwitch("SW_Family_Solist", "None", gameObject);  //Famille soliste qui devra être recaller
+        soundEngineTuner.SetTempo(SoundEngineTuner.START_TEMPO);
+    }*/
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
@@ -63,10 +73,10 @@ public class WwiseCallBack : MonoBehaviour
         }
     }
 
-    public void LoadVoice()
+    /*public void LoadVoice()
     {
         voice.Post(gameObject, (uint)AkCallbackType.AK_Marker, MarkerCallback,this);
-    }
+    }*/
     public event Action<string> OnCue;
 }
  
