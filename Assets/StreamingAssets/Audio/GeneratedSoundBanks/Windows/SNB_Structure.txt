@@ -6,11 +6,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	345071173	SFX_Potion_Collision			\SFX_Event\SFX\Potion\SFX_Potion_Collision	
 	535791215	SFX_Feedback_RightParameters			\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters	
 	589115224	UI_Menu_Option_Select			\UI_Event\UI\UI_Menu_Option_Select	
+	642907784	SFX_Tutorial_ItemApparition			\SFX_Event\SFX\Tutorial\SFX_Tutorial_ItemApparition	
 	699063162	Play_Tutorial_Voice_13_A			\Voice_Event\Play_Tutorial_Voice_13_A	
 	699210195	Play_Tutorial_Voice_12_A			\Voice_Event\Play_Tutorial_Voice_12_A	
 	722522513	UI_Menu_Option_Hovered			\UI_Event\UI\UI_Menu_Option_Hovered	
 	741796782	UI_Menu_Main_StartGame			\UI_Event\UI\UI_Menu_Main_StartGame	
 	795989787	UI_Menu_Pause_Select			\UI_Event\UI\UI_Menu_Pause_Select	
+	901498837	ResetFreeMode			\Setup_Event\ResetFreeMode	
 	922786755	UI_Menu_Back			\UI_Event\UI\UI_Menu_Back	
 	932413975	SFX_Toaster_Disapear			\SFX_Event\SFX\Toaster\SFX_Toaster_Disapear	
 	996746435	Play_FreeMode_BobMarley_CouldYouBeLoved			\Music_Event\Music\Play_FreeMode_BobMarley_CouldYouBeLoved	
@@ -50,11 +52,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	2368806795	Music_End_Beat			\Music_Event\Music\Music_End_Beat	
 	2452274067	SFX_Feedback_Fireworks			\SFX_Event\SFX\Fireworks\SFX_Feedback_Fireworks	
 	2546653270	Music_Tuning			\Music_Event\Music\Music_Tuning	
+	2589793865	Play_TutoMode			\Music_Event\Music\Play_TutoMode	
 	2768496808	Music_Introduction_Beat			\Music_Event\Music\Music_Introduction_Beat	
 	2814570109	UI_Menu_Main_Hovered			\UI_Event\UI\UI_Menu_Main_Hovered	
 	2842862468	UI_Menu_TV_On			\UI_Event\UI\UI_Menu_TV_On	
 	2932040671	Play_Music			\Music_Event\Music\Play_Music	
 	3019098628	UI_Menu_Main_Select			\UI_Event\UI\UI_Menu_Main_Select	
+	3046555393	SFX_Tutorial_StepSuccess			\SFX_Event\SFX\Tutorial\SFX_Tutorial_StepSuccess	
 	3086540886	StopAll			\Setup_Event\StopAll	
 	3155227535	Play_Tutorial_Voice_09_A			\Voice_Event\Play_Tutorial_Voice_09_A	
 	3155374820	Play_Tutorial_Voice_06_A			\Voice_Event\Play_Tutorial_Voice_06_A	
@@ -135,6 +139,7 @@ State	ID	Name	State Group			Notes
 	748895195	None	PotionCount			
 	748895195	None	Music			
 	1281810935	Start	Music			
+	1865857008	Transition	Music			
 	3537469747	Metronome	Music			
 
 Custom State	ID	Name	State Group	Owner		Notes
