@@ -37,6 +37,7 @@ public class ArticulationPotion : BreakableObject
     override protected void OnBreak(Collision other) 
     {
         base.OnBreak(other);
+        SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
         articulationManager.SetArticulation(articulationType, true, gameObject);
         spawnerPotion.SpawnPotion(articulationType);
     }

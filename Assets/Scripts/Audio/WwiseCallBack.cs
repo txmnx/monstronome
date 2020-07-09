@@ -8,7 +8,6 @@ public class WwiseCallBack : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
     private string m_MusicCueName;
-    //public AK.Wwise.Event voice;
     public AK.Wwise.Event musicToLaunch;
 
     public void StopMusic()
@@ -35,15 +34,6 @@ public class WwiseCallBack : MonoBehaviour
         soundEngineTuner.SetTempo(SoundEngineTuner.START_TEMPO);
     }
 
-    /*public void LoadStringsTutorial()
-    {
-        AkSoundEngine.PostEvent("Play_TutoMode", gameObject);
-        AkSoundEngine.SetState("Music", "Metronome");
-        AkSoundEngine.SetState("PotionCount", "Left_0");   // Nombre de potions restantes que le joueur doit lancer pour corriger la famille
-        AkSoundEngine.SetSwitch("SW_Family_Solist", "None", gameObject);  //Famille soliste qui devra être recaller
-        soundEngineTuner.SetTempo(SoundEngineTuner.START_TEMPO);
-    }*/
-
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
 
@@ -62,21 +52,6 @@ public class WwiseCallBack : MonoBehaviour
         }
     }
 
-    
-    void MarkerCallback(object in_cookie, AkCallbackType in_type, object in_info)
-    {
-        if (in_type == AkCallbackType.AK_Marker)
-        { 
-            print("Antonin<3");                                        //Appel a chaque fois que le cursur detecte un marqueur 
-            AkMarkerCallbackInfo info = (AkMarkerCallbackInfo)in_info;
-            //print(info.strLabel);                                    //J'ai mis la fonction pour avoir le nom du marqueur au cas ou pour l'instant j'ai rien mis dans wwise
-        }
-    }
-
-    /*public void LoadVoice()
-    {
-        voice.Post(gameObject, (uint)AkCallbackType.AK_Marker, MarkerCallback,this);
-    }*/
     public event Action<string> OnCue;
 }
  
