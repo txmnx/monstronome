@@ -27,7 +27,7 @@ public class BreakableObject : MonoBehaviour
     public AK.Wwise.Event SFXOnObjectBreak;
     public AK.Wwise.Event SFXOnObjectCollision;
 
-    private Rigidbody m_Rigidbody;
+    protected Rigidbody m_Rigidbody;
     private Rigidbody[] m_RigidbodyPieces;
     private Collider[] m_Colliders;
     private ParticleSystem[] m_ParticleSystems;
@@ -83,9 +83,7 @@ public class BreakableObject : MonoBehaviour
     }
 
     protected virtual void OnBreak(Collision other)
-    {
-        SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
-    }
+    { }
 
     protected virtual void OnCollisionSFX(Collision other)
     {

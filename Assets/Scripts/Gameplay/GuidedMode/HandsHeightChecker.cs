@@ -64,7 +64,7 @@ public class HandsHeightChecker : MonoBehaviour
     }
 
     /* Events */
-    public Action OnRaiseHand;
-    public Action OnEnterRaiseHand;
-    public Action OnExitRaiseHand;
+    public event Action OnRaiseHand;
+    public event Action OnEnterRaiseHand;
+    public event Action OnExitRaiseHand;
 }
