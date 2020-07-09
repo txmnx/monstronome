@@ -41,6 +41,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private float m_TransitionTime = 2f;
     
     private TutorialSequence m_Sequence;
+    private bool m_HasStarted;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class TutorialManager : MonoBehaviour
         wwiseCallback.OnCue += LaunchState;
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
+            OnStopOrchestra += family.StopPlaying;
             orchestraLauncher.OnLoadOrchestra += family.StopPlaying;
         }
         conductingRulesManager.ShowRules(false);
@@ -188,8 +190,15 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Transition - 12
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
+        {
+            tempoManager.StopBPMTrack();
+            intensityManager.StopIntensityTrack();
+        }));
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
         {
+            tempoManager.StartBPMTrack();
+            intensityManager.StartIntensityTrack();
             timeline.ResetCursor(0.16666f);
             conductingRulesManager.SetCurrentTrackType(GuidedModeManager.TrackType.Transition);
             conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
@@ -209,6 +218,10 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
 
         // -- Tutorial conclusion - 13
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
+        {
+            OnStopOrchestra?.Invoke();
+        }));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[12], m_SubtitlesDisplay, m_VoiceReference));
         
         
@@ -216,6 +229,7 @@ public class TutorialManager : MonoBehaviour
     }
 
     private event Action OnStartOrchestra;
+    private event Action OnStopOrchestra;
     private event Action OnTempoIntensityGood;
     private event Action OnArticulationTempoIntensityGood;
 
@@ -237,9 +251,12 @@ public class TutorialManager : MonoBehaviour
     {
         switch (stateName) {
             case "Start":
-                Debug.Log("START");
-                articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
-                OnStartOrchestra?.Invoke();
+                if (!m_HasStarted) {
+                    Debug.Log("START");
+                    articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
+                    OnStartOrchestra?.Invoke();
+                    m_HasStarted = true;
+                }
                 break;
         }
     }
