@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Tutorial step used to process a lambda
+ * Tutorial step used to provide feedback between two steps
  */
-public class TutorialLambdaStep : TutorialStep
+public class TutorialTransitionStep : TutorialStep
 {
-    private Action m_LambdaFunction;
+    private readonly float m_Seconds;
+    private readonly AK.Wwise.Event m_SFXFeedback;
     
-    public TutorialLambdaStep(TutorialSequence sequence, Action transitionFunction)
+    public TutorialTransitionStep(TutorialSequence sequence, float seconds, AK.Wwise.Event SFXFeedback)
         : base(sequence)
     {
-        m_LambdaFunction = transitionFunction;
+        m_Seconds = seconds;
+        m_SFXFeedback = SFXFeedback;
     }
 
     protected override IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
         coroutineHandler.StartCoroutine(base.Launch(coroutineHandler));
-        m_LambdaFunction.Invoke();
+        m_SFXFeedback.Post(null);
+        yield return new WaitForSeconds(m_Seconds);
         OnSuccess();
         yield return null;
     }

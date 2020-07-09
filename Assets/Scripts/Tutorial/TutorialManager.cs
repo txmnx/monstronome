@@ -30,7 +30,6 @@ public class TutorialManager : MonoBehaviour
 
     [Header("Voice instructions")]
     [SerializeField] private GameObject m_VoiceReference;
-
     [SerializeField] private TextMeshPro m_SubtitlesDisplay;
     [SerializeField] private TutorialDescriptionStep.Instruction[] m_Instructions;
 
@@ -38,7 +37,9 @@ public class TutorialManager : MonoBehaviour
     public AK.Wwise.Event SFXOnItemSpawn;
     public AK.Wwise.Event SFXOnStepSuccess;
 
-
+    [Header("Transitions")] 
+    [SerializeField] private float m_TransitionTime = 2f;
+    
     private TutorialSequence m_Sequence;
 
     // Start is called before the first frame update
@@ -68,7 +69,8 @@ public class TutorialManager : MonoBehaviour
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
-
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        
         // -- Use toaster - 3
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
@@ -90,6 +92,7 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = false));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
         
         // -- Change the tempo - 4
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -100,11 +103,13 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodTempoChange += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => tempoManager.StopBPMTrack()));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
         
         // -- Change the intensity - 5
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 3f, () => intensityManager.OnStartOrchestra()));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodIntensityChange += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
 
         // -- Check both tempo and intensity - 6
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -128,6 +133,7 @@ public class TutorialManager : MonoBehaviour
             conductingRulesManager.OnGoodTempoChange -= CheckTempoIntensity;
             conductingRulesManager.OnGoodIntensityChange -= CheckTempoIntensity;
         }));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
         
         // -- Articulation potion - 7
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -143,11 +149,13 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[6], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodArticulationChange += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
         
         // -- Lower toaster slider - 8
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = true));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[7], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => toasterSlider.OnToastsIn += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
             
         // -- Select a family - 9
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
@@ -159,6 +167,8 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[8], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnSelectFamily += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+            
 
         // -- Reframing - 10
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 4f, () =>
@@ -168,10 +178,12 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[9], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => reframingManager.OnSuccess += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
         
         // -- Deselect a family - 11
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[10], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnDeselectFamily += act));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
         
         // -- Transition - 12
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
@@ -192,6 +204,7 @@ public class TutorialManager : MonoBehaviour
             conductingRulesManager.OnGoodTempoChange -= CheckArticulationTempoIntensity;
             conductingRulesManager.OnGoodIntensityChange -= CheckArticulationTempoIntensity;
         }));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
 
         // -- Tutorial conclusion - 13
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[12], m_SubtitlesDisplay, m_VoiceReference));
