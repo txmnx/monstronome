@@ -6,20 +6,20 @@ using UnityEngine;
 /**
  * Tutorial step used to process a lambda
  */
-public class TutorialTransitionStep : TutorialStep
+public class TutorialLambdaStep : TutorialStep
 {
-    private Action m_TransitionFunction;
+    private Action m_LambdaFunction;
     
-    public TutorialTransitionStep(TutorialSequence sequence, Action transitionFunction)
+    public TutorialLambdaStep(TutorialSequence sequence, Action transitionFunction)
         : base(sequence)
     {
-        m_TransitionFunction = transitionFunction;
+        m_LambdaFunction = transitionFunction;
     }
 
     protected override IEnumerator Launch(MonoBehaviour coroutineHandler)
     {
         coroutineHandler.StartCoroutine(base.Launch(coroutineHandler));
-        m_TransitionFunction.Invoke();
+        m_LambdaFunction.Invoke();
         OnSuccess();
         yield return null;
     }

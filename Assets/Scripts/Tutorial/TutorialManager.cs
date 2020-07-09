@@ -34,6 +34,10 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private TextMeshPro m_SubtitlesDisplay;
     [SerializeField] private TutorialDescriptionStep.Instruction[] m_Instructions;
 
+    [Header("SFX")] 
+    public AK.Wwise.Event SFXOnItemSpawn;
+    public AK.Wwise.Event SFXOnStepSuccess;
+
 
     private TutorialSequence m_Sequence;
 
@@ -62,13 +66,15 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
-        
+
         // -- Use toaster - 3
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
             metronomicon.SetActive(true);
+            SFXOnItemSpawn.Post(metronomicon);
+            
             tempoManager.SetTempo(60);
             intensityManager.SetAmplitude(1f);
             conductingRulesManager.SetCurrentOrchestraState(new ConductingRulesManager.OrchestraState(
@@ -83,18 +89,17 @@ public class TutorialManager : MonoBehaviour
             );
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => toasterSlider.enableSlider = false));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = false));
         
         // -- Change the tempo - 4
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
-            metronomicon.SetActive(true);
             conductingRulesManager.OnStartOrchestra();
             tempoManager.OnStartOrchestra();
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodTempoChange += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => tempoManager.StopBPMTrack()));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => tempoManager.StopBPMTrack()));
         
         // -- Change the intensity - 5
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 3f, () => intensityManager.OnStartOrchestra()));
@@ -102,7 +107,7 @@ public class TutorialManager : MonoBehaviour
             (act) => conductingRulesManager.OnGoodIntensityChange += act));
 
         // -- Check both tempo and intensity - 6
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
             intensityManager.StopIntensityTrack();
         }));
@@ -118,16 +123,18 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[5], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => OnTempoIntensityGood += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
             conductingRulesManager.OnGoodTempoChange -= CheckTempoIntensity;
             conductingRulesManager.OnGoodIntensityChange -= CheckTempoIntensity;
         }));
         
         // -- Articulation potion - 7
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
             potionFactory.transform.position = Vector3.zero;
+            SFXOnItemSpawn.Post(potionFactory);
+            
             conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
                 InstrumentFamily.ArticulationType.Legato, 
                 InstrumentFamily.IntensityType.Fortissimo,
@@ -138,7 +145,7 @@ public class TutorialManager : MonoBehaviour
             (act) => conductingRulesManager.OnGoodArticulationChange += act));
         
         // -- Lower toaster slider - 8
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () => toasterSlider.enableSlider = true));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = true));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[7], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => toasterSlider.OnToastsIn += act));
             
@@ -157,6 +164,7 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 4f, () =>
         {
             reframingPotions.SetActive(true);
+            SFXOnItemSpawn.Post(reframingPotions);
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[9], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => reframingManager.OnSuccess += act));
@@ -178,7 +186,7 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[11], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => OnArticulationTempoIntensityGood += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, () =>
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
             conductingRulesManager.OnGoodArticulationChange -= CheckArticulationTempoIntensity;
             conductingRulesManager.OnGoodTempoChange -= CheckArticulationTempoIntensity;
@@ -210,7 +218,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     
-    public void LaunchState(string stateName)
+    private void LaunchState(string stateName)
     {
         switch (stateName) {
             case "Start":
