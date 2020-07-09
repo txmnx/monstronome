@@ -91,8 +91,7 @@ public class XRTVController : MonoBehaviour
                 m_PrevChoice = null;
             }
             m_HasChoice = false;
-            
-            
+            m_CachedCollider = null;
         }
     }
 }
