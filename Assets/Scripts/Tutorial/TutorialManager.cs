@@ -65,25 +65,26 @@ public class TutorialManager : MonoBehaviour
 
         // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        //m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => { 
+            tempoManager.SetTempo(60);
+            intensityManager.SetAmplitude(1f);
+        }));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Use toaster - 3
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
             metronomicon.SetActive(true);
             SFXOnItemSpawn.Post(metronomicon);
-            
-            tempoManager.SetTempo(60);
-            intensityManager.SetAmplitude(1f);
             conductingRulesManager.SetCurrentOrchestraState(new ConductingRulesManager.OrchestraState(
-                InstrumentFamily.ArticulationType.Pizzicato, 
-                InstrumentFamily.IntensityType.Fortissimo, 
-                InstrumentFamily.TempoType.Lento), false
+                    InstrumentFamily.ArticulationType.Pizzicato, 
+                    InstrumentFamily.IntensityType.Fortissimo, 
+                    InstrumentFamily.TempoType.Lento), false
             );
             conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
                 InstrumentFamily.ArticulationType.Pizzicato, 
@@ -93,7 +94,7 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = false));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Change the tempo - 4
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -104,13 +105,13 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodTempoChange += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => tempoManager.StopBPMTrack()));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Change the intensity - 5
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 3f, () => intensityManager.OnStartOrchestra()));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodIntensityChange += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
 
         // -- Check both tempo and intensity - 6
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -134,7 +135,7 @@ public class TutorialManager : MonoBehaviour
             conductingRulesManager.OnGoodTempoChange -= CheckTempoIntensity;
             conductingRulesManager.OnGoodIntensityChange -= CheckTempoIntensity;
         }));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Articulation potion - 7
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -150,13 +151,13 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[6], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodArticulationChange += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Lower toaster slider - 8
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = true));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[7], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => toasterSlider.OnToastsIn += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
             
         // -- Select a family - 9
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
@@ -168,7 +169,7 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[8], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnSelectFamily += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
             
 
         // -- Reframing - 10
@@ -179,12 +180,12 @@ public class TutorialManager : MonoBehaviour
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[9], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => reframingManager.OnSuccess += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Deselect a family - 11
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[10], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnDeselectFamily += act));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Transition - 12
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 10f, () =>
@@ -205,7 +206,7 @@ public class TutorialManager : MonoBehaviour
             conductingRulesManager.OnGoodTempoChange -= CheckArticulationTempoIntensity;
             conductingRulesManager.OnGoodIntensityChange -= CheckArticulationTempoIntensity;
         }));
-        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, SFXOnStepSuccess));
+        m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
 
         // -- Tutorial conclusion - 13
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[12], m_SubtitlesDisplay, m_VoiceReference));
@@ -236,6 +237,7 @@ public class TutorialManager : MonoBehaviour
     {
         switch (stateName) {
             case "Start":
+                Debug.Log("START");
                 articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
                 OnStartOrchestra?.Invoke();
                 break;
