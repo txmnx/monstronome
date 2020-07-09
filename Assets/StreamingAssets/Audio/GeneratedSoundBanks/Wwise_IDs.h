@@ -13,6 +13,8 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMB_CITY_BACKGROUND = 2830206838U;
+        static const AkUniqueID AMB_PUBLIC_CROWD_END = 1138076237U;
         static const AkUniqueID LEGATO = 1422035515U;
         static const AkUniqueID MUSIC_END_BEAT = 2368806795U;
         static const AkUniqueID MUSIC_INTRODUCTION_BEAT = 2768496808U;
@@ -53,8 +55,8 @@ namespace AK
         static const AkUniqueID PLAY_TUTORIAL_VOICE_14 = 1642173093U;
         static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
         static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
-        static const AkUniqueID RESETFREEMODE = 901498837U;
         static const AkUniqueID RESETSTATEPOTIONCOUNT = 3564748305U;
+        static const AkUniqueID RESETTUTOMODE = 215937633U;
         static const AkUniqueID RESUME_ALL = 3679762312U;
         static const AkUniqueID SETWOODS = 3271167387U;
         static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
@@ -332,6 +334,7 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID AMBIENCE = 85412153U;
         static const AkUniqueID AMBISONICS_BUS = 3539010900U;
         static const AkUniqueID BRASS_ORCHESTRAL = 1346697092U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;

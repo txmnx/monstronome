@@ -33,6 +33,10 @@
 			<ShortName>VO\EN\Play_Tutorial_Voice_03.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_03_D322F509.wem</Path>
 		</File>
+		<File Id="89820079" Language="SFX">
+			<ShortName>Ambiance\Public\End\Amb_Crowd_End-03.wav</ShortName>
+			<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-03_7CB100DF.wem</Path>
+		</File>
 		<File Id="110456409" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_01.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_01_B220E007.wem</Path>
@@ -49,6 +53,10 @@
 			<ShortName>VO\EN\Play_Tutorial_Voice_07.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_07_45EDA19D.wem</Path>
 		</File>
+		<File Id="144671315" Language="SFX">
+			<ShortName>Ambiance\City\Amb_City_Background.wav</ShortName>
+			<Path>SFX\Ambiance\City\Amb_City_Background_93268242.wem</Path>
+		</File>
 		<File Id="170823187" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_05.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_05_976628DD.wem</Path>
@@ -60,6 +68,14 @@
 		<File Id="248624816" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_03_A.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_03_A_8A9A5642.wem</Path>
+		</File>
+		<File Id="273929314" Language="SFX">
+			<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+			<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_1F3C01DD.wem</Path>
+		</File>
+		<File Id="404808053" Language="SFX">
+			<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+			<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_8D6824D2.wem</Path>
 		</File>
 		<File Id="419537257" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_04.wav</ShortName>
@@ -73,13 +89,29 @@
 			<ShortName>VO\EN\Play_Tutorial_Voice_07_A.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_07_A_160CA807.wem</Path>
 		</File>
+		<File Id="512521302" Language="SFX">
+			<ShortName>Ambiance\City\Amb_City_Background_02.wav</ShortName>
+			<Path>SFX\Ambiance\City\Amb_City_Background_02_AD9996F2.wem</Path>
+		</File>
 		<File Id="531084856" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_06_A.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_06_A_CC4C12D6.wem</Path>
 		</File>
+		<File Id="552284263" Language="SFX">
+			<ShortName>Ambiance\City\Amb_City_Background.wav</ShortName>
+			<Path>SFX\Ambiance\City\Amb_City_Background_A2FDF969.wem</Path>
+		</File>
+		<File Id="606230282" Language="SFX">
+			<ShortName>Ambiance\City\Amb_City_Background_02.wav</ShortName>
+			<Path>SFX\Ambiance\City\Amb_City_Background_02_1C8EF467.wem</Path>
+		</File>
 		<File Id="607881076" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_06.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_06_8A6FE499.wem</Path>
+		</File>
+		<File Id="644592002" Language="SFX">
+			<ShortName>Ambiance\Public\End\Amb_Crowd_End-02.wav</ShortName>
+			<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-02_BEBD595D.wem</Path>
 		</File>
 		<File Id="677409190" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_13.wav</ShortName>
@@ -117,9 +149,17 @@
 			<ShortName>Instruments\Theme\Brass\BrassLegato-01.wav</ShortName>
 			<Path>SFX\Instruments\Theme\Brass\BrassLegato-01_A8D79311.wem</Path>
 		</File>
+		<File Id="1028794320" Language="SFX">
+			<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+			<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_EF2C91C6.wem</Path>
+		</File>
 		<File Id="1033073361" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_08.wav</ShortName>
 			<Path>SFX\VO\EN\Play_Tutorial_Voice_08_995DA946.wem</Path>
+		</File>
+		<File Id="1046506212" Language="SFX">
+			<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+			<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_4CF6EA72.wem</Path>
 		</File>
 		<File Id="1063281004" Language="SFX">
 			<ShortName>VO\EN\Play_Tutorial_Voice_08_A.wav</ShortName>
@@ -133,6 +173,54 @@
 			<ShortName>SNB_Structure</ShortName>
 			<Path>SNB_Structure.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2830206838" Name="Amb_City_Background" ObjectPath="\Events\Ambience_Event\Amb_City_Background" MaxAttenuation="100.000000" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="144671315" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_93268242.wem</Path>
+						</File>
+						<File Id="512521302" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background_02.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_02_AD9996F2.wem</Path>
+						</File>
+						<File Id="552284263" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_A2FDF969.wem</Path>
+						</File>
+						<File Id="606230282" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background_02.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_02_1C8EF467.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+				</Event>
+				<Event Id="1138076237" Name="Amb_Public_Crowd_End" ObjectPath="\Events\Ambience_Event\Amb_Public_Crowd_End" MaxAttenuation="100.000000" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="89820079" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-03.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-03_7CB100DF.wem</Path>
+						</File>
+						<File Id="273929314" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_1F3C01DD.wem</Path>
+						</File>
+						<File Id="404808053" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_8D6824D2.wem</Path>
+						</File>
+						<File Id="644592002" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-02.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-02_BEBD595D.wem</Path>
+						</File>
+						<File Id="1028794320" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_EF2C91C6.wem</Path>
+						</File>
+						<File Id="1046506212" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_4CF6EA72.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+				</Event>
 				<Event Id="1422035515" Name="Legato" ObjectPath="\Events\Music_Event\Debug\Legato" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2368806795" Name="Music_End_Beat" ObjectPath="\Events\Music_Event\Music\Music_End_Beat" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="2.310644" DurationMax="2.950875">
 					<ExcludedMemoryFiles>
@@ -197,30 +285,10 @@
 						</File>
 					</ReferencedStreamedFiles>
 					<ExcludedMemoryFiles>
-						<File Id="374943670" Language="SFX">
-							<ShortName>Ambiance\Public\Intro\Public.wav</ShortName>
-							<Path>SFX\Ambiance\Public\Intro\Public_A8D79311.wem</Path>
-						</File>
-						<File Id="389960133" Language="SFX">
-							<ShortName>Ambiance\Public\Intro\Public-04.wav</ShortName>
-							<Path>SFX\Ambiance\Public\Intro\Public-04_A8D79311.wem</Path>
-						</File>
-						<File Id="406093743" Language="SFX">
-							<ShortName>Ambiance\Public\Intro\Public-03.wav</ShortName>
-							<Path>SFX\Ambiance\Public\Intro\Public-03_A8D79311.wem</Path>
-						</File>
 						<File Id="918373737" Language="SFX">
 							<ShortName>Orchestra_Tuning.wav</ShortName>
 							<Path>SFX\Orchestra_Tuning_CDEEE2FF.wem</Path>
 							<PrefetchSize>8282</PrefetchSize>
-						</File>
-						<File Id="1017612957" Language="SFX">
-							<ShortName>Ambiance\Public\Intro\Public-01.wav</ShortName>
-							<Path>SFX\Ambiance\Public\Intro\Public-01_A8D79311.wem</Path>
-						</File>
-						<File Id="1030348302" Language="SFX">
-							<ShortName>Ambiance\Public\Intro\Public-02.wav</ShortName>
-							<Path>SFX\Ambiance\Public\Intro\Public-02_A8D79311.wem</Path>
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
@@ -14855,6 +14923,10 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-01.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-01_A8D79311.wem</Path>
 						</File>
+						<File Id="35051269" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-19.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-19_A8D79311.wem</Path>
+						</File>
 						<File Id="41043165" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-02.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-02_A8D79311.wem</Path>
@@ -14919,6 +14991,10 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-11.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-11_A8D79311.wem</Path>
 						</File>
+						<File Id="135295113" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-07.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-07_A8D79311.wem</Path>
+						</File>
 						<File Id="155942407" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-20.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-20_A8D79311.wem</Path>
@@ -14931,9 +15007,21 @@
 							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-12.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-12_A8D79311.wem</Path>
 						</File>
+						<File Id="187106558" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-22.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-22_A8D79311.wem</Path>
+						</File>
+						<File Id="189235463" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-14.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-14_A8D79311.wem</Path>
+						</File>
 						<File Id="201055956" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato_A8D79311.wem</Path>
+						</File>
+						<File Id="204010640" Language="SFX">
+							<ShortName>Midi_Theme_BlocStart_Strings.mid</ShortName>
+							<Path>SFX\Midi_Theme_BlocStart_Strings_D237A1A9.wmid</Path>
 						</File>
 						<File Id="204569312" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-07.wav</ShortName>
@@ -14946,6 +15034,10 @@
 						<File Id="223613050" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-31.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-31_A8D79311.wem</Path>
+						</File>
+						<File Id="238767214" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-26.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-26_A8D79311.wem</Path>
 						</File>
 						<File Id="266953526" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-28.wav</ShortName>
@@ -14966,6 +15058,14 @@
 						<File Id="293940179" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi_A8D79311.wem</Path>
+						</File>
+						<File Id="319406455" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-08.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-08_A8D79311.wem</Path>
+						</File>
+						<File Id="336293865" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-01.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-01_A8D79311.wem</Path>
 						</File>
 						<File Id="337051429" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-01.wav</ShortName>
@@ -15014,6 +15114,14 @@
 						<File Id="418752010" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-08.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-08_A8D79311.wem</Path>
+						</File>
+						<File Id="423450085" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-17.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-17_A8D79311.wem</Path>
+						</File>
+						<File Id="429858681" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-15.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-15_A8D79311.wem</Path>
 						</File>
 						<File Id="432065583" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-13.wav</ShortName>
@@ -15151,6 +15259,10 @@
 							<ShortName>Instruments\Metronome\Metronome.wav</ShortName>
 							<Path>SFX\Instruments\Metronome\Metronome_A8D79311.wem</Path>
 						</File>
+						<File Id="662484460" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-02.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-02_A8D79311.wem</Path>
+						</File>
 						<File Id="667538231" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-14.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-14_A8D79311.wem</Path>
@@ -15158,6 +15270,10 @@
 						<File Id="668627985" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-16.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-16_A8D79311.wem</Path>
+						</File>
+						<File Id="668781230" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-12.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-12_A8D79311.wem</Path>
 						</File>
 						<File Id="669721811" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-10.wav</ShortName>
@@ -15175,6 +15291,10 @@
 							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-02.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-02_A8D79311.wem</Path>
 						</File>
+						<File Id="681265815" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-13.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-13_A8D79311.wem</Path>
+						</File>
 						<File Id="681969474" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal_A8D79311.wem</Path>
@@ -15182,6 +15302,10 @@
 						<File Id="692412507" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-01.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-01_A8D79311.wem</Path>
+						</File>
+						<File Id="697927091" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-09.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-09_A8D79311.wem</Path>
 						</File>
 						<File Id="698620562" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-09.wav</ShortName>
@@ -15211,9 +15335,17 @@
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-03.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-03_A8D79311.wem</Path>
 						</File>
+						<File Id="763593252" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-11.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-11_A8D79311.wem</Path>
+						</File>
 						<File Id="782726773" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-05.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-05_A8D79311.wem</Path>
+						</File>
+						<File Id="784277744" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-03.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-03_A8D79311.wem</Path>
 						</File>
 						<File Id="785863222" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-05.wav</ShortName>
@@ -15227,6 +15359,10 @@
 							<ShortName>Midi_BlocStartA_Strings_Legato.mid</ShortName>
 							<Path>SFX\Midi_BlocStartA_Strings_Legato_2558FF0E.wmid</Path>
 						</File>
+						<File Id="819778173" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-24.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-24_A8D79311.wem</Path>
+						</File>
 						<File Id="825001344" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-10.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-10_A8D79311.wem</Path>
@@ -15234,6 +15370,14 @@
 						<File Id="829494735" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-05.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-05_A8D79311.wem</Path>
+						</File>
+						<File Id="831644192" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-23.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-23_A8D79311.wem</Path>
+						</File>
+						<File Id="835771368" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-16.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-16_A8D79311.wem</Path>
 						</File>
 						<File Id="840882138" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight.wav</ShortName>
@@ -15255,6 +15399,18 @@
 							<ShortName>Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-13.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Staccato\Transition1_Strings_Staccato-13_A8D79311.wem</Path>
 						</File>
+						<File Id="869086343" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-06.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-06_A8D79311.wem</Path>
+						</File>
+						<File Id="871955472" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-10.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-10_A8D79311.wem</Path>
+						</File>
+						<File Id="878322050" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-25.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-25_A8D79311.wem</Path>
+						</File>
 						<File Id="889679742" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-09.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-09_A8D79311.wem</Path>
@@ -15275,6 +15431,10 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-07.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-07_A8D79311.wem</Path>
 						</File>
+						<File Id="932298648" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-04.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-04_A8D79311.wem</Path>
+						</File>
 						<File Id="935163781" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Transition1_Strings_Pizzi-15.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Transition1_Strings_Pizzi-15_A8D79311.wem</Path>
@@ -15294,6 +15454,10 @@
 						<File Id="946790530" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-05.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Staccato\BlocStart_A_Strings_Staccato-05_A8D79311.wem</Path>
+						</File>
+						<File Id="958558525" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-05.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-05_A8D79311.wem</Path>
 						</File>
 						<File Id="963594528" Language="SFX">
 							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\BlocA_Strings_Pizzicato-03.wav</ShortName>
@@ -15319,6 +15483,14 @@
 							<ShortName>Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-03.wav</ShortName>
 							<Path>SFX\Instruments\BlocA_Start\Strings\Legato\BlocStart_A_Strings_LegatoHight-03_A8D79311.wem</Path>
 						</File>
+						<File Id="1056793345" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-21.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-21_A8D79311.wem</Path>
+						</File>
+						<File Id="1059171477" Language="SFX">
+							<ShortName>Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-18.wav</ShortName>
+							<Path>SFX\Instruments\BlocA_Start\Strings\Pizzicato\Strings_Theme_BlocStart-18_A8D79311.wem</Path>
+						</File>
 						<File Id="1060088697" Language="SFX">
 							<ShortName>Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-10.wav</ShortName>
 							<Path>SFX\Instruments\Transition1\Strings\Legato\StringsLegatoTransitionfinal-10_1F11F988.wem</Path>
@@ -15343,6 +15515,35 @@
 								<File Id="942347072"/>
 								<File Id="806669226"/>
 								<File Id="13250845"/>
+								<File Id="204010640"/>
+								<File Id="204010640"/>
+								<File Id="204010640"/>
+								<File Id="336293865"/>
+								<File Id="662484460"/>
+								<File Id="784277744"/>
+								<File Id="932298648"/>
+								<File Id="958558525"/>
+								<File Id="869086343"/>
+								<File Id="135295113"/>
+								<File Id="319406455"/>
+								<File Id="697927091"/>
+								<File Id="871955472"/>
+								<File Id="763593252"/>
+								<File Id="668781230"/>
+								<File Id="681265815"/>
+								<File Id="189235463"/>
+								<File Id="429858681"/>
+								<File Id="835771368"/>
+								<File Id="423450085"/>
+								<File Id="1059171477"/>
+								<File Id="35051269"/>
+								<File Id="1056793345"/>
+								<File Id="187106558"/>
+								<File Id="831644192"/>
+								<File Id="819778173"/>
+								<File Id="878322050"/>
+								<File Id="238767214"/>
+								<File Id="187106558"/>
 							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{68C50061-6A98-42F5-9E09-302CA71CB7CC}">
@@ -16062,7 +16263,7 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="9.258662" DurationMax="9.258662">
+				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="11.258662" DurationMax="11.258662">
 					<ExcludedMemoryFiles>
 						<File Id="374943670" Language="SFX">
 							<ShortName>Ambiance\Public\Intro\Public.wav</ShortName>
@@ -16086,8 +16287,8 @@
 						</File>
 					</ExcludedMemoryFiles>
 				</Event>
-				<Event Id="901498837" Name="ResetFreeMode" ObjectPath="\Events\Setup_Event\ResetFreeMode" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3564748305" Name="ResetStatePotionCount" ObjectPath="\Events\Setup_Event\ResetStatePotionCount" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="215937633" Name="ResetTutoMode" ObjectPath="\Events\Setup_Event\ResetTutoMode" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3679762312" Name="Resume_All" ObjectPath="\Events\Setup_Event\Resume_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3271167387" Name="SetWoods" ObjectPath="\Events\Music_Event\Debug\SetWoods" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2012101007" Name="SFX_Family_Broken" ObjectPath="\Events\SFX_Event\SFX\Family\SFX_Family_Broken" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.867052" DurationMax="4.601083">
@@ -22470,8 +22671,8 @@
 			<Path>SNB_UI.bnk</Path>
 			<IncludedEvents>
 				<Event Id="3864097025" Name="Pause_All" ObjectPath="\Events\Setup_Event\Pause_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="901498837" Name="ResetFreeMode" ObjectPath="\Events\Setup_Event\ResetFreeMode" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3564748305" Name="ResetStatePotionCount" ObjectPath="\Events\Setup_Event\ResetStatePotionCount" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="215937633" Name="ResetTutoMode" ObjectPath="\Events\Setup_Event\ResetTutoMode" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3679762312" Name="Resume_All" ObjectPath="\Events\Setup_Event\Resume_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3086540886" Name="StopAll" ObjectPath="\Events\Setup_Event\StopAll" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="922786755" Name="UI_Menu_Back" ObjectPath="\Events\UI_Event\UI\UI_Menu_Back" DurationType="OneShot" DurationMin="0.803729" DurationMax="0.803729">
@@ -22851,6 +23052,54 @@
 			<ShortName>SNB_SFX</ShortName>
 			<Path>SNB_SFX.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2830206838" Name="Amb_City_Background" ObjectPath="\Events\Ambience_Event\Amb_City_Background" MaxAttenuation="100.000000" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="144671315" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_93268242.wem</Path>
+						</File>
+						<File Id="512521302" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background_02.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_02_AD9996F2.wem</Path>
+						</File>
+						<File Id="552284263" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_A2FDF969.wem</Path>
+						</File>
+						<File Id="606230282" Language="SFX">
+							<ShortName>Ambiance\City\Amb_City_Background_02.wav</ShortName>
+							<Path>SFX\Ambiance\City\Amb_City_Background_02_1C8EF467.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+				</Event>
+				<Event Id="1138076237" Name="Amb_Public_Crowd_End" ObjectPath="\Events\Ambience_Event\Amb_Public_Crowd_End" MaxAttenuation="100.000000" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="89820079" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-03.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-03_7CB100DF.wem</Path>
+						</File>
+						<File Id="273929314" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_1F3C01DD.wem</Path>
+						</File>
+						<File Id="404808053" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_8D6824D2.wem</Path>
+						</File>
+						<File Id="644592002" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-02.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-02_BEBD595D.wem</Path>
+						</File>
+						<File Id="1028794320" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_EF2C91C6.wem</Path>
+						</File>
+						<File Id="1046506212" Language="SFX">
+							<ShortName>Ambiance\Public\End\Amb_Crowd_End-01.wav</ShortName>
+							<Path>SFX\Ambiance\Public\End\Amb_Crowd_End-01_4CF6EA72.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+				</Event>
 				<Event Id="1625395407" Name="Play_Tutorial_Voice_01" ObjectPath="\Events\Voice_Event\Play_Tutorial_Voice_01" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="22.645916" DurationMax="22.645916">
 					<ReferencedStreamedFiles>
 						<File Id="110456409" Language="SFX">
@@ -23418,7 +23667,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="9.258662" DurationMax="9.258662">
+				<Event Id="4283111574" Name="Public_ApplauseIntro" ObjectPath="\Events\Ambience_Event\Public_ApplauseIntro" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="11.258662" DurationMax="11.258662">
 					<IncludedMemoryFiles>
 						<File Id="374943670" Language="SFX">
 							<ShortName>Ambiance\Public\Intro\Public.wav</ShortName>
