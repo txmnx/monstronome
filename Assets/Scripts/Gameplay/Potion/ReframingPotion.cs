@@ -48,6 +48,7 @@ public class ReframingPotion : BreakableObject
     override protected void OnBreak(Collision other)
     {
         base.OnBreak(other);
+        SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
         reframingManager.CheckReframingPotionType(this, other);
         spawnerPotion.SpawnPotion(type);
     }

@@ -11,7 +11,8 @@ public class TutorialActionStep : TutorialDescriptionStep
 {
     private Action<Action> m_SubscribeEvent;
     
-    public TutorialActionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay, GameObject voiceReference, Action<Action> subscribeEvent)
+    public TutorialActionStep(TutorialSequence sequence, Instruction instruction, TextMeshPro subtitlesDisplay
+        , GameObject voiceReference, Action<Action> subscribeEvent)
         : base(sequence, instruction, subtitlesDisplay, voiceReference)
     {
         m_SubscribeEvent = subscribeEvent;

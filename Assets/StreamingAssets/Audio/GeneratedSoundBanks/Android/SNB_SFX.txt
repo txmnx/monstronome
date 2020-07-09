@@ -3,6 +3,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	247346967	SFX_Feedback_ReframingSuccess			\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess	
 	345071173	SFX_Potion_Collision			\SFX_Event\SFX\Potion\SFX_Potion_Collision	
 	535791215	SFX_Feedback_RightParameters			\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters	
+	642907784	SFX_Tutorial_ItemApparition			\SFX_Event\SFX\Tutorial\SFX_Tutorial_ItemApparition	
 	699063162	Play_Tutorial_Voice_13_A			\Voice_Event\Play_Tutorial_Voice_13_A	
 	699210195	Play_Tutorial_Voice_12_A			\Voice_Event\Play_Tutorial_Voice_12_A	
 	932413975	SFX_Toaster_Disapear			\SFX_Event\SFX\Toaster\SFX_Toaster_Disapear	
@@ -30,6 +31,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2204132664	SFX_Feedback_LightOff			\SFX_Event\SFX\Feedback\SFX_Feedback_LightOff	
 	2242916472	SFX_Potion_Spawn			\SFX_Event\SFX\Potion\SFX_Potion_Spawn	
 	2452274067	SFX_Feedback_Fireworks			\SFX_Event\SFX\Fireworks\SFX_Feedback_Fireworks	
+	3046555393	SFX_Tutorial_StepSuccess			\SFX_Event\SFX\Tutorial\SFX_Tutorial_StepSuccess	
 	3155227535	Play_Tutorial_Voice_09_A			\Voice_Event\Play_Tutorial_Voice_09_A	
 	3155374820	Play_Tutorial_Voice_06_A			\Voice_Event\Play_Tutorial_Voice_06_A	
 	3155919147	Play_Tutorial_Voice_05_A			\Voice_Event\Play_Tutorial_Voice_05_A	
@@ -159,6 +161,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	500780424	SFX_Feedback_Toaster_Out-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-06_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Toaster\SFX_Feedback_Toast_Spawn\SFX_Feedback_Toaster_Out-06		29638
 	530994819	SFX_Potion_Spawn_Neutre	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Potion\Feedback\SFX_Potion_Spawn_Neutre_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Spawn\SFX_Potion_Spawn_Articulation\SFX_Potion_Spawn_Neutre		108550
 	531084856	Play_Tutorial_Voice_06_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\VO\EN\Play_Tutorial_Voice_06_A_CC4C12D6.wem		\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_06_A\Play_Tutorial_Voice_06_A		3294
+	534518354	SFX_Tutorial_StepSuccess	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Tutorial\SFX_Tutorial_StepSuccess_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Tutorial\SFX_Tutorial_StepSuccess\SFX_Tutorial_StepSuccess		229253
 	541550513	SFX_Family_Strings_Broken-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\FamilyFeedback\SFX_Family_Strings_Broken-01_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Family\SFX_Broken_Family\SFX_Strings_Broken\SFX_Family_Strings_Broken-01		229760
 	564284785	SFX_Potion_Spawn_Neutre-05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Potion\Feedback\SFX_Potion_Spawn_Neutre-05_0BB0D37F.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Spawn\SFX_Potion_Spawn_Reframing\SFX_Potion_Spawn_Neutre-05		105874
 	564936145	SFX_Feedback_Toaster_Out-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out-01_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Toaster\SFX_Feedback_Toast_Spawn\SFX_Feedback_Toaster_Out-01		32580
@@ -170,6 +173,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	609475916	FireworksExplosion-08	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Fireworks\FireworksExplosion-08_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Feedback\SFX_Feedback_FireworksExplosion\FireworksExplosion-08		28699
 	612428455	SFX_Potion_Shake-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Potion\Shake\SFX_Potion_Shake-06_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Shake\SFX_Potion_Shake-06		77263
 	612772428	SFX_Bottle_Broken-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Potion\Broken\SFX_Bottle_Broken-06_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Broken\SFX_Potion_Malus\SFX_Bottle_Broken-06		164769
+	617144229	SFX_Tutorial_ItemApparition	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Tutorial\SFX_Tutorial_ItemApparition_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Tutorial\SFX_Tutorial_ItemApparition\SFX_Tutorial_ItemApparition		307142
 	620827041	SFX_Potion_Throw-06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Potion\Throw\SFX_Potion_Throw-06_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Throw\SFX_Potion_Throw-06		27617
 	623703984	SFX_Potion_Spawn_Neutre-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Potion\Feedback\SFX_Potion_Spawn_Neutre-02_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Potion\SFX_Potion_Spawn\SFX_Potion_Spawn_Articulation\SFX_Potion_Spawn_Neutre-02		198539
 	625324779	SFX_Feedback_Toaster_Out	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Android\SFX\SFX\Toaster\Out\SFX_Feedback_Toaster_Out_A8D79311.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Toaster\SFX_Feedback_Toast_Spawn\SFX_Feedback_Toaster_Out		35967
