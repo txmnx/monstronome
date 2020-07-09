@@ -48,6 +48,7 @@ public class TutorialManager : MonoBehaviour
         wwiseCallback.OnCue += LaunchState;
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
+            orchestraLauncher.OnLoadOrchestra += family.StopPlaying;
         }
         conductingRulesManager.ShowRules(false);
 
@@ -235,8 +236,8 @@ public class TutorialManager : MonoBehaviour
     {
         switch (stateName) {
             case "Start":
-                OnStartOrchestra?.Invoke();
                 articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
+                OnStartOrchestra?.Invoke();
                 break;
         }
     }

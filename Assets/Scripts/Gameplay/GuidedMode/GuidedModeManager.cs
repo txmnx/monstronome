@@ -60,6 +60,7 @@ public class GuidedModeManager : MonoBehaviour
         
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
+            orchestraLauncher.OnLoadOrchestra += family.StopPlaying;
         }
         OnStartOrchestra += tempoManager.OnStartOrchestra;
         OnStartOrchestra += intensityManager.OnStartOrchestra;
