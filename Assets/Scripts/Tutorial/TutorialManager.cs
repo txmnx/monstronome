@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
     public HandHeightArea leftHandHeightArea;
     public HandHeightArea rightHandHeightArea;
     public Timeline timeline;
+    public SoundEngineTuner soundEngineTuner;
 
     [Header("Objects to show")] 
     public GameObject potionFactory;
@@ -69,7 +70,7 @@ public class TutorialManager : MonoBehaviour
 
         // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        //m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -151,6 +152,8 @@ public class TutorialManager : MonoBehaviour
         {
             potionFactory.transform.position = Vector3.zero;
             SFXOnItemSpawn.Post(potionFactory);
+
+            soundEngineTuner.SetSolistFamily(families[0]);
             
             conductingRulesManager.SetNewRules(new ConductingRulesManager.OrchestraState(
                 InstrumentFamily.ArticulationType.Legato, 
