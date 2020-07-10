@@ -58,7 +58,6 @@ public class HandHeightArea : MonoBehaviour
     private void OnSliderComplete()
     {
         m_CurrentAreaState = AreaState.Following;
-        Debug.Log("ON LOCK");
         OnLock?.Invoke();
         StartCoroutine(FollowHand());
     }
