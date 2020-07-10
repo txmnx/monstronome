@@ -47,4 +47,9 @@ public class VignetteAnimation : MonoBehaviour
         m_Vignette.intensity.value = intensity;
         m_CurrentIntensity = intensity;
     }
+
+    private void OnDestroy()
+    {
+        m_Vignette.intensity.value = 0;
+    }
 }
