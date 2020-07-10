@@ -34,7 +34,7 @@ public class IntensityManager : MonoBehaviour
             m_BufferLastAmplitudes.Enqueue(BASE_AMPLITUDE);
         }
         
-        float averageAmplitude = CustomUtilities.Average(m_BufferLastAmplitudes);
+        float averageAmplitude = CustomUtilities.WeightedAverage(m_BufferLastAmplitudes);
         SoundEngineTuner.RTPCRange<InstrumentFamily.IntensityType> intensityRange = soundEngineTuner.GetIntensityRange(averageAmplitude);
         OnIntensityChange?.Invoke(intensityRange.type, false);
     }
@@ -76,7 +76,7 @@ public class IntensityManager : MonoBehaviour
 
     private void UpdateIntensity()
     {
-        float averageAmplitude = CustomUtilities.Average(m_BufferLastAmplitudes);
+        float averageAmplitude = CustomUtilities.WeightedAverage(m_BufferLastAmplitudes);
         SoundEngineTuner.RTPCRange<InstrumentFamily.IntensityType> intensityRange = soundEngineTuner.GetIntensityRange(averageAmplitude);
         if (m_CurrentIntensityType != intensityRange.type) {
             soundEngineTuner.SetGlobalIntensity(intensityRange.value);
