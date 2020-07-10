@@ -88,7 +88,7 @@ public class TempoManager : MonoBehaviour
             float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), MIN_BPM, MAX_BPM);
             m_BufferLastBPMs.Enqueue(currentBPM);
             m_BufferLastBPMs.Dequeue();
-            bpm = CustomUtilities.Average(m_BufferLastBPMs);
+            bpm = CustomUtilities.WeightedAverage(m_BufferLastBPMs);
             UpdateTempo();
         }
         
