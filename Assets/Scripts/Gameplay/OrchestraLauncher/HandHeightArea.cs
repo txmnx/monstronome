@@ -11,6 +11,7 @@ using UnityEngine;
 public class HandHeightArea : MonoBehaviour
 {
     public Transform headset;
+    public float heightOffset;
     public GameObject waitedHand;
     public UIRadialSlider slider;
 
@@ -25,20 +26,22 @@ public class HandHeightArea : MonoBehaviour
 
     private AreaState m_CurrentAreaState;
     
-    private void Start()
+    private void Awake()
     {
         m_StartPos = transform.position;
         m_CurrentAreaState = AreaState.Waiting;
-
         slider.OnComplete += OnSliderComplete;
-        
+    }
+
+    private void Start()
+    {
         StartCoroutine(UpdateOffsetPosition());
     }
 
     private IEnumerator UpdateOffsetPosition()
     {
         while (m_CurrentAreaState != AreaState.Following) {
-            transform.position = new Vector3(m_StartPos.x, headset.position.y + m_StartPos.y, m_StartPos.z);
+            transform.position = new Vector3(m_StartPos.x, headset.position.y + heightOffset, m_StartPos.z);
             yield return null;
         }
     }
@@ -54,6 +57,7 @@ public class HandHeightArea : MonoBehaviour
     private void OnSliderComplete()
     {
         m_CurrentAreaState = AreaState.Following;
+        Debug.Log("ON LOCK");
         OnLock?.Invoke();
         StartCoroutine(FollowHand());
     }
@@ -68,16 +72,23 @@ public class HandHeightArea : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("ENTER");
         if (other.gameObject == waitedHand) {
-            m_CurrentAreaState = AreaState.Loading;
-            StartCoroutine(LoadHand());
+            Debug.Log("GOOD HAND");
+            if (m_CurrentAreaState == AreaState.Waiting) {
+                m_CurrentAreaState = AreaState.Loading;
+                StartCoroutine(LoadHand());
+            }
         }
     }
     
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == waitedHand) {
-            m_CurrentAreaState = AreaState.Waiting;
+            if (m_CurrentAreaState == AreaState.Loading) {
+                m_CurrentAreaState = AreaState.Waiting;
+                slider.ResetValue();
+            }
         }
     }
 
