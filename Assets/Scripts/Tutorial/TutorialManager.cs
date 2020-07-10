@@ -21,6 +21,8 @@ public class TutorialManager : MonoBehaviour
     public ToastsSlider toasterSlider;
     public InstrumentFamilyLooker instrumentFamilyLooker;
     public InstrumentFamilySelector instrumentFamilySelector;
+    public HandHeightArea leftHandHeightArea;
+    public HandHeightArea rightHandHeightArea;
     public Timeline timeline;
 
     [Header("Objects to show")] 
@@ -67,10 +69,15 @@ public class TutorialManager : MonoBehaviour
 
         // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        //m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
-        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => orchestraLauncher.InitLauncher(families)));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
+        {
+            orchestraLauncher.InitLauncher(families);
+            leftHandHeightArea.gameObject.SetActive(true);
+            rightHandHeightArea.gameObject.SetActive(true);
+        }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => { 
             tempoManager.SetTempo(60);
