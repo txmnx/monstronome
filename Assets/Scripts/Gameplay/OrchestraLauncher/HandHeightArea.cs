@@ -14,6 +14,7 @@ public class HandHeightArea : MonoBehaviour
     public float heightOffset;
     public GameObject waitedHand;
     public UIRadialSlider slider;
+    public Renderer downHint;
 
     private Vector3 m_StartPos;
     
@@ -72,9 +73,7 @@ public class HandHeightArea : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ENTER");
         if (other.gameObject == waitedHand) {
-            Debug.Log("GOOD HAND");
             if (m_CurrentAreaState == AreaState.Waiting) {
                 m_CurrentAreaState = AreaState.Loading;
                 StartCoroutine(LoadHand());
@@ -90,6 +89,11 @@ public class HandHeightArea : MonoBehaviour
                 slider.ResetValue();
             }
         }
+    }
+
+    public void DisplayHint(bool show)
+    {
+        downHint.enabled = show;
     }
 
     public event Action OnLock;

@@ -8,6 +8,65 @@ using UnityEngine;
  */
 public class HandsHeightChecker : MonoBehaviour
 {
+    public Transform headset;
+    public HandHeightArea leftArea;
+    public HandHeightArea rightArea;
+    public GameObject leftHandCollider;
+    public GameObject rightHandCollider;
+    public float downTreshold = -0.1f;
+
+    private int m_LockToken;
+    
+    private enum RaiseHandMode
+    {
+        Low,
+        Raised
+    }
+    private RaiseHandMode m_CurrentRaiseMode;
+    
+    
+    
+    private void Awake()
+    {
+        m_CurrentRaiseMode = RaiseHandMode.Low;
+        leftArea.OnLock += OnHandAreaLock;
+        rightArea.OnLock += OnHandAreaLock;
+    }
+
+    private void OnHandAreaLock()
+    {
+        m_LockToken += 1;
+        if (m_LockToken == 2) {
+            OnEnterRaiseHand?.Invoke();
+            m_CurrentRaiseMode = RaiseHandMode.Raised;
+            StartCoroutine(CheckExitRaiseHand());
+        }
+    }
+
+    private IEnumerator CheckExitRaiseHand()
+    {
+        while (m_CurrentRaiseMode == RaiseHandMode.Raised) {
+            float height = downTreshold + headset.position.y;
+            if (leftArea.transform.position.y < height && rightArea.transform.position.y < height) {
+                m_CurrentRaiseMode = RaiseHandMode.Low;
+                
+                OnExitRaiseHand?.Invoke();
+
+                leftArea.gameObject.SetActive(false);
+                rightArea.gameObject.SetActive(false);
+                leftHandCollider.SetActive(false);
+                rightHandCollider.SetActive(false);
+            }
+            else {
+                leftArea.DisplayHint(leftArea.transform.position.y > height);
+                rightArea.DisplayHint(rightArea.transform.position.y > height);
+            }
+
+            yield return null;
+        }
+    }
+    
+    /* TODO : we keep that truc au cas ou
     public Transform cameraTransform;
     public Transform leftHand;
     public Transform rightHand;
@@ -62,9 +121,10 @@ public class HandsHeightChecker : MonoBehaviour
             }
         }
     }
+    */
 
     /* Events */
-    public event Action OnRaiseHand;
     public event Action OnEnterRaiseHand;
     public event Action OnExitRaiseHand;
+    
 }
