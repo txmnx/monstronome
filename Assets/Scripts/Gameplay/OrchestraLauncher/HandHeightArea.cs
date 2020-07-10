@@ -11,7 +11,6 @@ using UnityEngine;
 public class HandHeightArea : MonoBehaviour
 {
     public Transform headset;
-    public float offset;
     public GameObject waitedHand;
     public UIRadialSlider slider;
 
@@ -39,7 +38,7 @@ public class HandHeightArea : MonoBehaviour
     private IEnumerator UpdateOffsetPosition()
     {
         while (m_CurrentAreaState != AreaState.Following) {
-            transform.position = new Vector3(m_StartPos.x, headset.position.y + offset, m_StartPos.z);
+            transform.position = new Vector3(m_StartPos.x, headset.position.y + m_StartPos.y, m_StartPos.z);
             yield return null;
         }
     }

@@ -17,6 +17,7 @@ public class UIRadialSlider : MonoBehaviour
     private void Start()
     {
         m_HasComplete = false;
+        m_Points = 0;
         Draw();
     }
 
