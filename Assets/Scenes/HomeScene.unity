@@ -3275,6 +3275,7 @@ GameObject:
   - component: {fileID: 864769580}
   - component: {fileID: 864769579}
   - component: {fileID: 864769578}
+  - component: {fileID: 864769582}
   - component: {fileID: 864769581}
   m_Layer: 0
   m_Name: MusicLauncher
@@ -3366,6 +3367,36 @@ MonoBehaviour:
   volumewoods: 0
   volumepercussions: 0
   volumebrass: 0
+--- !u!114 &864769582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864769577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1a577e6a0b833458196893481d51f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 71caa801d9c463d4ab6ad5a7269fa1c5,
+      type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
 --- !u!1 &971985430
 GameObject:
   m_ObjectHideFlags: 0

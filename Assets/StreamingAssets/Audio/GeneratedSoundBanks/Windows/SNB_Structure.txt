@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	56434811	Staccato			\Music_Event\Debug\Staccato	
 	121937159	Public_ApplauseEnd			\Ambience_Event\Public_ApplauseEnd	
 	122105866	Play_Metronome			\Music_Event\Music\Play_Metronome	
+	215937633	ResetTutoMode			\Setup_Event\ResetTutoMode	
 	247346967	SFX_Feedback_ReframingSuccess			\SFX_Event\SFX\Feedback\SFX_Feedback_ReframingSuccess	
 	345071173	SFX_Potion_Collision			\SFX_Event\SFX\Potion\SFX_Potion_Collision	
 	535791215	SFX_Feedback_RightParameters			\SFX_Event\SFX\Feedback\SFX_Feedback_RightParameters	
@@ -12,10 +13,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	722522513	UI_Menu_Option_Hovered			\UI_Event\UI\UI_Menu_Option_Hovered	
 	741796782	UI_Menu_Main_StartGame			\UI_Event\UI\UI_Menu_Main_StartGame	
 	795989787	UI_Menu_Pause_Select			\UI_Event\UI\UI_Menu_Pause_Select	
-	901498837	ResetFreeMode			\Setup_Event\ResetFreeMode	
 	922786755	UI_Menu_Back			\UI_Event\UI\UI_Menu_Back	
 	932413975	SFX_Toaster_Disapear			\SFX_Event\SFX\Toaster\SFX_Toaster_Disapear	
 	996746435	Play_FreeMode_BobMarley_CouldYouBeLoved			\Music_Event\Music\Play_FreeMode_BobMarley_CouldYouBeLoved	
+	1138076237	Amb_Public_Crowd_End			\Ambience_Event\Amb_Public_Crowd_End	
 	1163937302	SFX_Feedback_ChangingParameters			\SFX_Event\SFX\Feedback\SFX_Feedback_ChangingParameters	
 	1231703344	SFX_Potion_Broken			\SFX_Event\SFX\Potion\SFX_Potion_Broken	
 	1266119938	UI_Menu_TV_Off			\UI_Event\UI\UI_Menu_TV_Off	
@@ -55,6 +56,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2589793865	Play_TutoMode			\Music_Event\Music\Play_TutoMode	
 	2768496808	Music_Introduction_Beat			\Music_Event\Music\Music_Introduction_Beat	
 	2814570109	UI_Menu_Main_Hovered			\UI_Event\UI\UI_Menu_Main_Hovered	
+	2830206838	Amb_City_Background			\Ambience_Event\Amb_City_Background	
 	2842862468	UI_Menu_TV_On			\UI_Event\UI\UI_Menu_TV_On	
 	2932040671	Play_Music			\Music_Event\Music\Play_Music	
 	3019098628	UI_Menu_Main_Select			\UI_Event\UI\UI_Menu_Main_Select	
@@ -478,18 +480,26 @@ Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	
 	68355202	Play_Tutorial_Voice_05_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_05_A_4763C688.wem	68355202.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_05_A\Play_Tutorial_Voice_05_A	
 	80466567	Play_Tutorial_Voice_09_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_09_A_6779EB1A.wem	80466567.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_09_A\Play_Tutorial_Voice_09_A	
 	84344269	Play_Tutorial_Voice_03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_03_D322F509.wem	84344269.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_03\Play_Tutorial_Voice_03	
+	89820079	Amb_Crowd_End-03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\Public\End\Amb_Crowd_End-03_7CB100DF.wem	89820079.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Public_Crowd_End\Amb_Crowd_End-03	
 	110456409	Play_Tutorial_Voice_01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_01_B220E007.wem	110456409.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_01\Play_Tutorial_Voice_01	
 	130229035	Play_Tutorial_Voice_10_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_10_A_30969A1B.wem	130229035.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_10_A\Play_Tutorial_Voice_10_A	
 	130245362	Play_Tutorial_Voice_12_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_12_A_8FF0EDDF.wem	130245362.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_12_A\Play_Tutorial_Voice_12_A	
 	134013709	Play_Tutorial_Voice_07	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_07_45EDA19D.wem	134013709.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_07\Play_Tutorial_Voice_07	
+	144671315	Amb_City_Background	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\City\Amb_City_Background_93268242.wem	144671315.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\City_Background\Amb_City_Background	
 	170823187	Play_Tutorial_Voice_05	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_05_976628DD.wem	170823187.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_05\Play_Tutorial_Voice_05	
 	233154889	Music_Menu	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Music\Menu\Music_Menu_7CB100DF.wem	233154889.wem	\Interactive Music Hierarchy\Music\Music_Menu\Music_Menu\Music_Menu	
 	248624816	Play_Tutorial_Voice_03_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_03_A_8A9A5642.wem	248624816.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_03_A\Play_Tutorial_Voice_03_A	
+	273929314	Amb_Crowd_End-01_03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\Public\End\Amb_Crowd_End-01_1F3C01DD.wem	273929314.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Public_Crowd_End\Amb_Crowd_End-01_03	
+	404808053	Amb_Crowd_End-01_01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\Public\End\Amb_Crowd_End-01_8D6824D2.wem	404808053.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Public_Crowd_End\Amb_Crowd_End-01_01	
 	419537257	Play_Tutorial_Voice_04	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_04_3B991B7A.wem	419537257.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_04\Play_Tutorial_Voice_04	
 	426184329	Play_Tutorial_Voice_13_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_13_A_A975974D.wem	426184329.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_13_A\Play_Tutorial_Voice_13_A	
 	435464203	Play_Tutorial_Voice_07_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_07_A_160CA807.wem	435464203.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_07_A\Play_Tutorial_Voice_07_A	
+	512521302	Amb_City_Background_01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\City\Amb_City_Background_02_AD9996F2.wem	512521302.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\City_Background\Amb_City_Background_01	
 	531084856	Play_Tutorial_Voice_06_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_06_A_CC4C12D6.wem	531084856.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_06_A\Play_Tutorial_Voice_06_A	
+	552284263	Amb_City_Background_03	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\City\Amb_City_Background_A2FDF969.wem	552284263.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\City_Background\Amb_City_Background_03	
+	606230282	Amb_City_Background_02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\City\Amb_City_Background_02_1C8EF467.wem	606230282.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\City_Background\Amb_City_Background_02	
 	607881076	Play_Tutorial_Voice_06	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_06_8A6FE499.wem	607881076.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_06\Play_Tutorial_Voice_06	
+	644592002	Amb_Crowd_End-02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\Public\End\Amb_Crowd_End-02_BEBD595D.wem	644592002.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Public_Crowd_End\Amb_Crowd_End-02	
 	677409190	Play_Tutorial_Voice_13	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_13_156FC96B.wem	677409190.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_13\Play_Tutorial_Voice_13	
 	704797801	Play_Tutorial_Voice_09	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_09_BD8058D8.wem	704797801.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_09\Play_Tutorial_Voice_09	
 	716308355	Play_Tutorial_Voice_12	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_12_EE2A390C.wem	716308355.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_12\Play_Tutorial_Voice_12	
@@ -499,6 +509,8 @@ Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	
 	918373737	Music_Tuning	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Orchestra_Tuning_CDEEE2FF.wem	918373737.wem	\Actor-Mixer Hierarchy\Default Work Unit\Music\Introduction\Music_Tuning	
 	978371764	Play_Tutorial_Voice_11	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_11_F6A47569.wem	978371764.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_11\Play_Tutorial_Voice_11	
 	986933918	BrassLegato-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Instruments\Theme\Brass\BrassLegato-01_A8D79311.wem	986933918.wem	\Actor-Mixer Hierarchy\Default Work Unit\Music\Music_GuidedMode\Solist\BlocMiddle\Brass\Legato\BrassLegato-01	
+	1028794320	Amb_Crowd_End-01	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\Public\End\Amb_Crowd_End-01_EF2C91C6.wem	1028794320.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Public_Crowd_End\Amb_Crowd_End-01	
 	1033073361	Play_Tutorial_Voice_08	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_08_995DA946.wem	1033073361.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_08\Play_Tutorial_Voice_08	
+	1046506212	Amb_Crowd_End-01_02	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\Ambiance\Public\End\Amb_Crowd_End-01_4CF6EA72.wem	1046506212.wem	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Public_Crowd_End\Amb_Crowd_End-01_02	
 	1063281004	Play_Tutorial_Voice_08_A	C:\Users\Terry\Documents\MONSTRONOME\Monstronome_WwiseProject\trunk\Monstronome\.cache\Windows\SFX\VO\EN\Play_Tutorial_Voice_08_A_CE7E876D.wem	1063281004.wem	\Actor-Mixer Hierarchy\Default Work Unit\Voice\Tutorial_Voice_08_A\Play_Tutorial_Voice_08_A	
 
