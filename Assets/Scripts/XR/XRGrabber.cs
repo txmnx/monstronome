@@ -97,8 +97,11 @@ public class XRGrabber : MonoBehaviour
     {
         XRGrabbable obj = other.GetComponent<XRGrabbable>();
         if (obj) {
-            m_HighlightedObjects.Add(obj);
-            obj.Highlight();
+            if (!m_HighlightedObjects.Contains(obj)) {
+                m_HighlightedObjects.Add(obj);
+                m_Controller.HapticImpulse(0.1f, 0.01f);
+                obj.Highlight();
+            }
         }
     }
 
@@ -107,17 +110,14 @@ public class XRGrabber : MonoBehaviour
         XRGrabbable obj = other.GetComponent<XRGrabbable>();
         if (obj) {
             m_HighlightedObjects.Remove(obj);
-            obj.RemoveHighlight();
+            if (!m_HighlightedObjects.Contains(obj)) {
+                obj.RemoveHighlight();
+            }
         }
     }
 
     public void HapticImpulse(float amplitude, float duration)
     {
-        if (m_Controller.inputDevice.TryGetHapticCapabilities(out UnityEngine.XR.HapticCapabilities capabilities)) {
-            if (capabilities.supportsImpulse) {
-                uint channel = 0;
-                m_Controller.inputDevice.SendHapticImpulse(channel, amplitude, duration);
-            }
-        }
+        m_Controller.HapticImpulse(amplitude, duration);
     }
 }
