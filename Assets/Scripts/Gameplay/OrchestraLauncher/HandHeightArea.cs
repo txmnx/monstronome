@@ -9,7 +9,8 @@ public class HandHeightArea : MonoBehaviour
 {
     public Transform headset;
     public float heightOffset;
-    public GameObject waitedHand;
+    public XRCustomController waitedController;
+    public GameObject waitedCollider;
     public UIRadialSlider slider;
     public Renderer downHint;
 
@@ -48,6 +49,7 @@ public class HandHeightArea : MonoBehaviour
     {
         while (m_CurrentAreaState == AreaState.Loading) {
             slider.Add(Time.deltaTime);
+            waitedController.HapticImpulse(slider.value / 5f, 0.01f);
             yield return null;
         }
     }
@@ -55,6 +57,7 @@ public class HandHeightArea : MonoBehaviour
     private void OnSliderComplete()
     {
         m_CurrentAreaState = AreaState.Following;
+        waitedController.HapticImpulse(0.5f, 0.01f);
         OnLock?.Invoke();
         StartCoroutine(FollowHand());
     }
@@ -62,14 +65,14 @@ public class HandHeightArea : MonoBehaviour
     private IEnumerator FollowHand()
     {
         while (m_CurrentAreaState == AreaState.Following) {
-            transform.position = waitedHand.transform.position;
+            transform.position = waitedCollider.transform.position;
             yield return null;
         }
     }
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == waitedHand) {
+        if (other.gameObject == waitedCollider) {
             if (m_CurrentAreaState == AreaState.Waiting) {
                 m_CurrentAreaState = AreaState.Loading;
                 StartCoroutine(LoadHand());
@@ -79,7 +82,7 @@ public class HandHeightArea : MonoBehaviour
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == waitedHand) {
+        if (other.gameObject == waitedCollider) {
             if (m_CurrentAreaState == AreaState.Loading) {
                 m_CurrentAreaState = AreaState.Waiting;
                 slider.ResetValue();

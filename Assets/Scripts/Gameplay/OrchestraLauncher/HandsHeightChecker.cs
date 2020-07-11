@@ -11,8 +11,6 @@ public class HandsHeightChecker : MonoBehaviour
     public Transform headset;
     public HandHeightArea leftArea;
     public HandHeightArea rightArea;
-    public GameObject leftHandCollider;
-    public GameObject rightHandCollider;
     public float downTreshold = -0.1f;
 
     private int m_LockToken;
@@ -50,12 +48,15 @@ public class HandsHeightChecker : MonoBehaviour
             if (leftArea.transform.position.y < height && rightArea.transform.position.y < height) {
                 m_CurrentRaiseMode = RaiseHandMode.Low;
                 
+                leftArea.waitedController.HapticImpulse(0.5f, 0.01f);
+                rightArea.waitedController.HapticImpulse(0.5f, 0.01f);
+                
                 OnExitRaiseHand?.Invoke();
 
                 leftArea.gameObject.SetActive(false);
                 rightArea.gameObject.SetActive(false);
-                leftHandCollider.SetActive(false);
-                rightHandCollider.SetActive(false);
+                leftArea.waitedCollider.SetActive(false);
+                rightArea.waitedCollider.SetActive(false);
             }
             else {
                 leftArea.DisplayHint(leftArea.transform.position.y > height);

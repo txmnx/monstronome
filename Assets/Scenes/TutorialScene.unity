@@ -2560,7 +2560,6 @@ MonoBehaviour:
   rightHandHeightArea: {fileID: 1456578785}
   timeline: {fileID: 1811084566}
   soundEngineTuner: {fileID: 348619491}
-  soundReference: {fileID: 409129985464560567}
   potionFactory: {fileID: 1280015607}
   reframingPotions: {fileID: 809855243}
   metronomicon: {fileID: 303602566}
@@ -9614,7 +9613,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headset: {fileID: 224941988}
   heightOffset: 0.2
-  waitedHand: {fileID: 771860476}
+  waitedController: {fileID: 1968274598}
+  waitedCollider: {fileID: 771860476}
   slider: {fileID: 1471730241}
   downHint: {fileID: 972557990}
 --- !u!135 &1427702276
@@ -9721,7 +9721,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headset: {fileID: 224941988}
   heightOffset: 0.2
-  waitedHand: {fileID: 1186862680}
+  waitedController: {fileID: 1484290208}
+  waitedCollider: {fileID: 1186862680}
   slider: {fileID: 2013884580}
   downHint: {fileID: 711311037}
 --- !u!54 &1456578786
@@ -10239,8 +10240,6 @@ MonoBehaviour:
   headset: {fileID: 224941988}
   leftArea: {fileID: 1427702275}
   rightArea: {fileID: 1456578785}
-  leftHandCollider: {fileID: 771860476}
-  rightHandCollider: {fileID: 1186862680}
   downTreshold: -0.1
 --- !u!95 &1530883018
 Animator:
