@@ -51,6 +51,10 @@ public class XRTVController : MonoBehaviour
                     }
                     choice.Highlight(true);
 
+                    if (choice.canSelect) {
+                        m_Controller.HapticImpulse(0.1f, 0.01f);
+                    }
+
                     m_HasChoice = true;
                     m_PrevChoice = choice;
                 }
@@ -69,7 +73,10 @@ public class XRTVController : MonoBehaviour
                 if (m_HasChoice) {
                     if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool trigger)) {
                         if (trigger) {
-                            m_PrevChoice.AddSelect(Time.deltaTime);
+                            if (m_PrevChoice.canSelect) {
+                                m_Controller.HapticImpulse(m_PrevChoice.select / 5f, 0.01f);
+                            }
+                            m_PrevChoice.AddSelect(Time.deltaTime, m_Controller);
                         }
                         else {
                             m_PrevChoice.ResetSelect();

@@ -17,6 +17,13 @@ public class TVChoice : MonoBehaviour
     public AK.Wwise.Event SFXOnSelect; 
     
     private float m_Select;
+    public float select
+    {
+        get {
+            return m_Select;
+        }
+    }
+    
     private bool m_IsHighlighted;
     private bool m_HasLaunchSelected;
     
@@ -37,12 +44,13 @@ public class TVChoice : MonoBehaviour
         }
     }
 
-    public void AddSelect(float select)
+    public void AddSelect(float selectPoints, XRCustomController controller)
     {
         if (canSelect) {
             if (!m_HasLaunchSelected) {
-                m_Select = m_Select + select;
+                m_Select = m_Select + selectPoints;
                 if (m_Select > 1) {
+                    controller.HapticImpulse(0.6f, 0.01f);
                     SFXOnSelect.Post(gameObject);
                     OnSelect.Invoke();
                     m_HasLaunchSelected = true;
