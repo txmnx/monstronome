@@ -345,12 +345,16 @@ MonoBehaviour:
   pivotPoint: {fileID: 1380497417}
   leftArm: {fileID: 659150876}
   rightArm: {fileID: 659150877}
+  trigger: {fileID: 659150878}
   leftAnchors:
   - {fileID: 1145713957}
   - {fileID: 852025272}
   rightAnchors:
   - {fileID: 451985045}
   - {fileID: 1968636569}
+  triggerAnchors:
+  - {fileID: 1092923235}
+  - {fileID: 1742261999}
   SFXOnEmptyGrab:
     idInternal: 0
     valueGuidInternal: 
@@ -2844,6 +2848,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: HideDuringTransition
       objectReference: {fileID: 0}
+    - target: {fileID: -8290749300382985297, guid: c84d1e3c54ce2d34687c5144bd2115c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8290749300382985297, guid: c84d1e3c54ce2d34687c5144bd2115c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8290749300382985297, guid: c84d1e3c54ce2d34687c5144bd2115c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8290749300382985297, guid: c84d1e3c54ce2d34687c5144bd2115c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -5779947309776657914, guid: c84d1e3c54ce2d34687c5144bd2115c4,
         type: 3}
       propertyPath: m_TagString
@@ -2991,6 +3015,12 @@ Transform:
 --- !u!4 &659150877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1427852021141823552, guid: c84d1e3c54ce2d34687c5144bd2115c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 659150874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &659150878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8290749300382985297, guid: c84d1e3c54ce2d34687c5144bd2115c4,
     type: 3}
   m_PrefabInstance: {fileID: 659150874}
   m_PrefabAsset: {fileID: 0}
@@ -3694,6 +3724,36 @@ Transform:
   - {fileID: 789712182}
   m_Father: {fileID: 0}
   m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1092923234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092923235}
+  m_Layer: 0
+  m_Name: Trigger Anchor 0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092923235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092923234}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0016460943, y: 0.01126687, z: -0.0010525036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 659150875}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1141259138
 GameObject:
@@ -4586,6 +4646,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716595280}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1742261998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1742261999}
+  m_Layer: 0
+  m_Name: Trigger Anchor 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1742261999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742261998}
+  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
+  m_LocalPosition: {x: -0.0016460943, y: 0.01126687, z: -0.0010525036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 659150875}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
 --- !u!1 &1800221535
 GameObject:
   m_ObjectHideFlags: 0
