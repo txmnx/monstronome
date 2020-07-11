@@ -983,7 +983,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headset: {fileID: 224941988}
   heightOffset: 0.2
-  waitedHand: {fileID: 1234405856}
+  waitedController: {fileID: 1484290208}
+  waitedCollider: {fileID: 1234405856}
   slider: {fileID: 1061866640}
   downHint: {fileID: 1085717192}
 --- !u!1 &191826160
@@ -2980,7 +2981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headset: {fileID: 224941988}
   heightOffset: 0.2
-  waitedHand: {fileID: 667582161}
+  waitedController: {fileID: 1968274598}
+  waitedCollider: {fileID: 667582161}
   slider: {fileID: 1593389818}
   downHint: {fileID: 1398802927}
 --- !u!114 &413094687 stripped
@@ -10822,8 +10824,6 @@ MonoBehaviour:
   headset: {fileID: 224941988}
   leftArea: {fileID: 411942548}
   rightArea: {fileID: 163039687}
-  leftHandCollider: {fileID: 667582161}
-  rightHandCollider: {fileID: 1234405856}
   downTreshold: -0.1
 --- !u!1 &1532169726
 GameObject:

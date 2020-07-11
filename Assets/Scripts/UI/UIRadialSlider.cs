@@ -11,6 +11,11 @@ public class UIRadialSlider : MonoBehaviour
 {
     public Image image;
     private float m_Points;
+    public float value
+    {
+        get { return m_Points; }
+    }
+    
     private bool m_HasComplete;
 
 
