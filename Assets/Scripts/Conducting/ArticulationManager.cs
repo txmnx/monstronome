@@ -21,6 +21,10 @@ public class ArticulationManager : MonoBehaviour
             family.SetArticulation((int)type);
         }
     }
+    
+    public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type) {
+        family.SetArticulation((int)type);
+    }
 
     /* Events */
     public Action<InstrumentFamily.ArticulationType, bool, GameObject> OnArticulationChange;
