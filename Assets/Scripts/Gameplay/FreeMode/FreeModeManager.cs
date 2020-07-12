@@ -15,9 +15,20 @@ public class FreeModeManager : MonoBehaviour
     public IntensityManager intensityManager;
     public OrchestraLauncher orchestraLauncher;
     public InstrumentFamily[] families = new InstrumentFamily[4];
+
+    private enum FreeModeStep
+    {
+        Tuning,
+        Playing,
+        Ending
+    }
+
+    private FreeModeStep m_CurrentStep;
+    
     
     private void Start()
     {
+        m_CurrentStep = FreeModeStep.Tuning;
         orchestraLauncher.InitLauncher(families);
 
         foreach (InstrumentFamily family in families) {
@@ -35,13 +46,16 @@ public class FreeModeManager : MonoBehaviour
     {
         switch (stateName) {
             case "Start":
-                StartOrchestra();
+                if (m_CurrentStep == FreeModeStep.Tuning) {
+                    StartOrchestra();
+                }
                 break;
         }
     }
 
     private void StartOrchestra()
     {
+        m_CurrentStep = FreeModeStep.Playing;
         OnStartOrchestra?.Invoke();
         articulationManager.SetArticulation(InstrumentFamily.ArticulationType.Pizzicato);
     }
