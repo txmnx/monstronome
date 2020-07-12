@@ -26,6 +26,11 @@ public class TutorialManager : MonoBehaviour
     public Timeline timeline;
     public SoundEngineTuner soundEngineTuner;
 
+    [Header("Ending button")]
+    public Transform endingButton;
+    public Transform endingButtonAnchor;
+    
+    
     [Header("Objects to show")] 
     public GameObject potionFactory;
     public GameObject reframingPotions;
@@ -231,6 +236,11 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
             OnStopOrchestra?.Invoke();
+        }));
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 2f, () =>
+        {
+            endingButton.position = endingButtonAnchor.position;
+            endingButton.rotation = endingButtonAnchor.rotation;
         }));
         m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[12], m_SubtitlesDisplay, m_VoiceReference));
         
