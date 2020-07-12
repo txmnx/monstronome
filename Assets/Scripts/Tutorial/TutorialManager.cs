@@ -75,7 +75,7 @@ public class TutorialManager : MonoBehaviour
 
         // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        //m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
