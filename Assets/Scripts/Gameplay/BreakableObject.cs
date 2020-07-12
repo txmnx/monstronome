@@ -14,15 +14,8 @@ public class BreakableObject : MonoBehaviour
     public Transform defaultObject;
     public Transform breakedObject;
     public float speedUntilBreak = 4.0f;
-    public float explosionForceFactor = 1.2f;
-    public float explosionRadius = 2.0f;
-    public float upwardsModifier = 2.0f;
     private bool m_HasBroken = false;
-    
-    
-    [Header("VFX")]
-    public Transform particlesAnimation;
-    
+
     [Header("Sound")]
     public AK.Wwise.Event SFXOnObjectBreak;
     public AK.Wwise.Event SFXOnObjectCollision;

@@ -165,10 +165,10 @@ GameObject:
   - component: {fileID: 8574096024930444335}
   - component: {fileID: 7747678097318364447}
   - component: {fileID: 8040306597253924903}
-  - component: {fileID: 5630949628128396868}
   - component: {fileID: 6258141260864070303}
   - component: {fileID: 1756403381858793630}
   - component: {fileID: 5949276809286069580}
+  - component: {fileID: 3677071414178059895}
   m_Layer: 0
   m_Name: Pizzicato_POTION_Articulation
   m_TagString: Potion
@@ -251,39 +251,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3119658582053976084, guid: ecbcffdb46934a64192fbdc1cb9c7e45, type: 3}
---- !u!114 &5630949628128396868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062916387907485919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36074c1f3664cc044a5c0c148ea4be99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultObject: {fileID: 822267834101187594}
-  breakedObject: {fileID: 2727376787740945564}
-  speedUntilBreak: 4
-  explosionForceFactor: 0.8
-  explosionRadius: 2
-  upwardsModifier: 15
-  particlesAnimation: {fileID: 322112078084640392}
-  SFXOnObjectBreak:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: ac4efd0d877e34848a92fa5fdaeb98e4,
-      type: 2}
-  SFXOnObjectCollision:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: a17058b129526474eb62c63355277295,
-      type: 2}
-  soundEngineTuner: {fileID: 0}
-  articulationManager: {fileID: 0}
-  articulationType: 1
-  spawnerPotion: {fileID: 0}
 --- !u!136 &6258141260864070303
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -324,6 +291,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.09550813
   m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!114 &3677071414178059895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062916387907485919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31dc9d4d72914664ead2b86a2a75bdf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultObject: {fileID: 822267834101187594}
+  breakedObject: {fileID: 2727376787740945564}
+  speedUntilBreak: 4
+  SFXOnObjectBreak:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ac4efd0d877e34848a92fa5fdaeb98e4,
+      type: 2}
+  SFXOnObjectCollision:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a17058b129526474eb62c63355277295,
+      type: 2}
+  articulationManager: {fileID: 0}
+  articulationType: 1
+  spawnerPotion: {fileID: 0}
 --- !u!1 &1340757173554348592
 GameObject:
   m_ObjectHideFlags: 0
