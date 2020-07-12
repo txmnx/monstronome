@@ -33,6 +33,15 @@ public class XRSlider : XRGrabbable
 
     private bool m_LeftToRight = true;
 
+    private bool m_CanSlide = true;
+    public bool enableSlider
+    {
+        set
+        {
+            m_CanSlide = value;
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -61,22 +70,24 @@ public class XRSlider : XRGrabbable
     
     public override void OnUpdateGrab(XRGrabber xrGrabber)
     {
-        Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.GetPivot());
-        
-        if (nextPos.x > m_CachedMax.x) {
-            nextPos = m_CachedMax;
-        }
-        else if (nextPos.x < m_CachedMin.x){
-            nextPos = m_CachedMin;
-        }
+        if (m_CanSlide) {
+            Vector3 nextPos = transform.parent.InverseTransformPoint(xrGrabber.GetPivot());
 
-        transform.localPosition = new Vector3(nextPos.x, transform.localPosition.y, transform.localPosition.z);
-        
-        if (m_LeftToRight) {
-            m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);
-        }
-        else {
-            m_Value = Mathf.InverseLerp(m_CachedMax.x, m_CachedMin.x, transform.localPosition.x);
+            if (nextPos.x > m_CachedMax.x) {
+                nextPos = m_CachedMax;
+            }
+            else if (nextPos.x < m_CachedMin.x) {
+                nextPos = m_CachedMin;
+            }
+
+            transform.localPosition = new Vector3(nextPos.x, transform.localPosition.y, transform.localPosition.z);
+
+            if (m_LeftToRight) {
+                m_Value = Mathf.InverseLerp(m_CachedMin.x, m_CachedMax.x, transform.localPosition.x);
+            }
+            else {
+                m_Value = Mathf.InverseLerp(m_CachedMax.x, m_CachedMin.x, transform.localPosition.x);
+            }
         }
     }
 

@@ -48,4 +48,14 @@ public class XRCustomController : MonoBehaviour
             transform.localRotation = deviceRotation;
         }
     }
+    
+    public void HapticImpulse(float amplitude, float duration)
+    {
+        if (inputDevice.TryGetHapticCapabilities(out HapticCapabilities capabilities)) {
+            if (capabilities.supportsImpulse) {
+                uint channel = 0;
+                inputDevice.SendHapticImpulse(channel, amplitude, duration);
+            }
+        }
+    }
 }

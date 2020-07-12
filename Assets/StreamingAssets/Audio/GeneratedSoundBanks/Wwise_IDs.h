@@ -13,6 +13,8 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMB_CITY_BACKGROUND = 2830206838U;
+        static const AkUniqueID AMB_PUBLIC_CROWD_END = 1138076237U;
         static const AkUniqueID LEGATO = 1422035515U;
         static const AkUniqueID MUSIC_END_BEAT = 2368806795U;
         static const AkUniqueID MUSIC_INTRODUCTION_BEAT = 2768496808U;
@@ -21,8 +23,10 @@ namespace AK
         static const AkUniqueID PAUSE_ALL = 3864097025U;
         static const AkUniqueID PIZZICATO = 2077337834U;
         static const AkUniqueID PLAY_FREEMODE = 3484671981U;
+        static const AkUniqueID PLAY_FREEMODE_BOBMARLEY_COULDYOUBELOVED = 996746435U;
         static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
+        static const AkUniqueID PLAY_TUTOMODE = 2589793865U;
         static const AkUniqueID PLAY_TUTORIAL_VOICE_01 = 1625395407U;
         static const AkUniqueID PLAY_TUTORIAL_VOICE_02 = 1625395404U;
         static const AkUniqueID PLAY_TUTORIAL_VOICE_02_A = 4229833920U;
@@ -52,6 +56,7 @@ namespace AK
         static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
         static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
         static const AkUniqueID RESETSTATEPOTIONCOUNT = 3564748305U;
+        static const AkUniqueID RESETTUTOMODE = 215937633U;
         static const AkUniqueID RESUME_ALL = 3679762312U;
         static const AkUniqueID SETWOODS = 3271167387U;
         static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
@@ -73,6 +78,8 @@ namespace AK
         static const AkUniqueID SFX_POTION_WRONG = 3427361090U;
         static const AkUniqueID SFX_TOASTER_DISAPEAR = 932413975U;
         static const AkUniqueID SFX_TOASTER_SPAWN = 3169891211U;
+        static const AkUniqueID SFX_TUTORIAL_ITEMAPPARITION = 642907784U;
+        static const AkUniqueID SFX_TUTORIAL_STEPSUCCESS = 3046555393U;
         static const AkUniqueID SFX_WAND_ENTER = 3420964884U;
         static const AkUniqueID SFX_WAND_EXIT = 1368847222U;
         static const AkUniqueID SFX_WAND_IDDLE = 3638337738U;
@@ -123,6 +130,7 @@ namespace AK
                 static const AkUniqueID METRONOME = 3537469747U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID START = 1281810935U;
+                static const AkUniqueID TRANSITION = 1865857008U;
             } // namespace STATE
         } // namespace MUSIC
 
@@ -326,6 +334,7 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID AMBIENCE = 85412153U;
         static const AkUniqueID AMBISONICS_BUS = 3539010900U;
         static const AkUniqueID BRASS_ORCHESTRAL = 1346697092U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
@@ -336,6 +345,7 @@ namespace AK
         static const AkUniqueID ORCHESTRAL = 2542362038U;
         static const AkUniqueID PERCUSSIONS_ORCHESTRAL = 4206581327U;
         static const AkUniqueID SFX = 393239870U;
+        static const AkUniqueID SFX_TUTORIAL = 2966073251U;
         static const AkUniqueID STRINGS_ORCHESTRAL = 1192927207U;
         static const AkUniqueID THEME = 1319017392U;
         static const AkUniqueID THEME_BRASS = 1189259686U;

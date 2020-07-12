@@ -56,7 +56,17 @@ public class TempoManager : MonoBehaviour
     //We can't change tempo if the orchestra hasn't started
     public void OnStartOrchestra()
     {
+        StartBPMTrack();
+    }
+
+    public void StartBPMTrack()
+    {
         beatManager.OnBeatMajorHand += OnBeatMajorHand;
+    }
+    
+    public void StopBPMTrack()
+    {
+        beatManager.OnBeatMajorHand -= OnBeatMajorHand;
     }
     
     //We register the bpm only if there have been 2 beats since beginning conducting 
@@ -78,7 +88,7 @@ public class TempoManager : MonoBehaviour
             float currentBPM = Mathf.Clamp((60.0f / timeSinceLastBeat), MIN_BPM, MAX_BPM);
             m_BufferLastBPMs.Enqueue(currentBPM);
             m_BufferLastBPMs.Dequeue();
-            bpm = CustomUtilities.Average(m_BufferLastBPMs);
+            bpm = CustomUtilities.WeightedAverage(m_BufferLastBPMs);
             UpdateTempo();
         }
         

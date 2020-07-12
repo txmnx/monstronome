@@ -19,12 +19,22 @@ public class InstrumentFamilyLooker : MonoBehaviour
 
     private Transform m_CachedSelectedFamilyTransform;
 
+    private bool m_IsLookingAtFamily;
+    private bool m_CanLook = true;
+
+    public bool enableLooker
+    {
+        set {
+            m_CanLook = value;
+        }
+    }
+
     //TODO : for the moment we use a raycast to detect which family is looked at
     // but when the exact position of the families will be known
     // since they won't move we could divide the orchestra into 4 areas and check in which rectangle the transform.forward falls
     private void Update()
     {
-        if (!instrumentFamilySelector.hasSelected) {
+        if (!instrumentFamilySelector.hasSelected && m_CanLook) {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, sightLength, LAYER_MASK_INSTRUMENTS)) {
                 if (hit.transform != m_CachedSelectedFamilyTransform) {
@@ -32,11 +42,13 @@ public class InstrumentFamilyLooker : MonoBehaviour
                     if (instrumentFamily = hit.transform.GetComponent<InstrumentFamily>()) {
                         instrumentFamily.OnBeginLookedAt();
                         instrumentFamily.OnLookedAt();
+                        m_IsLookingAtFamily = true;
 
                         lookedFamily?.OnEndLookedAt();
                         lookedFamily = instrumentFamily;
                     }
                     else {
+                        m_IsLookingAtFamily = false;
                         lookedFamily?.OnEndLookedAt();
                         lookedFamily = null;
                     }
@@ -48,15 +60,23 @@ public class InstrumentFamilyLooker : MonoBehaviour
                 m_CachedSelectedFamilyTransform = hit.transform;
             }
             else {
-                lookedFamily?.OnEndLookedAt();
-                lookedFamily = null;
-                m_CachedSelectedFamilyTransform = null;
+                if (m_IsLookingAtFamily) {
+                    DeleteLookedData();
+                }
             }
         }
         else {
-            lookedFamily?.OnEndLookedAt();
-            lookedFamily = null;
-            m_CachedSelectedFamilyTransform = null;
+            if (m_IsLookingAtFamily) {
+                DeleteLookedData();
+            }
         }
+    }
+
+    private void DeleteLookedData()
+    {
+        lookedFamily?.OnEndLookedAt();
+        m_IsLookingAtFamily = false;
+        lookedFamily = null;
+        m_CachedSelectedFamilyTransform = null;
     }
 }

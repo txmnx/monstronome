@@ -44,7 +44,7 @@ public class InstrumentFamilySelector : MonoBehaviour
             if (!hasSelected) {
                 selectedFamily = instrumentFamilyLooker.lookedFamily;
                 hasSelected = true;
-                OnSelectFamily?.Invoke(selectedFamily);
+                OnSelectFamily?.Invoke();
                 conductingEventsManager.enableConducting = false;
             }
         }
@@ -53,7 +53,7 @@ public class InstrumentFamilySelector : MonoBehaviour
     private void OnDeselectButtonPressed()
     {
         if (hasSelected) {
-            OnDeselectFamily?.Invoke(selectedFamily);
+            OnDeselectFamily?.Invoke();
             selectedFamily = null;
             hasSelected = false;
             conductingEventsManager.enableConducting = true;
@@ -61,6 +61,6 @@ public class InstrumentFamilySelector : MonoBehaviour
     }
 
     //Events
-    public event Action<InstrumentFamily> OnSelectFamily;
-    public event Action<InstrumentFamily> OnDeselectFamily;
+    public event Action OnSelectFamily;
+    public event Action OnDeselectFamily;
 }

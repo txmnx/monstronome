@@ -20,8 +20,6 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public TextMeshPro scoreText;
-
     private enum PerfectRunState
     {
         NotYet,
@@ -36,14 +34,12 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         m_Score = START_SCORE;
-        scoreText.text = m_Score.ToString("0.0") + "%";
     }
 
     public void AddScore(float points)
     {
         //TODO : here we can trigger feedback based on score modifications
         m_Score = Mathf.Clamp(m_Score + points, 0, 100);
-        scoreText.text = m_Score.ToString("0.0") + "%";
         soundEngineTuner.UpdateScore(m_Score);
         SetGlobalSkillScore();
     }

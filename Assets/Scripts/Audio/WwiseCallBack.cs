@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class WwiseCallBack : MonoBehaviour
 {
     public SoundEngineTuner soundEngineTuner;
     private string m_MusicCueName;
+    public AK.Wwise.Event musicToLaunch;
 
     public void StopMusic()
     {
@@ -25,10 +27,10 @@ public class WwiseCallBack : MonoBehaviour
     
     public void LoadOrchestra()
     {
-        AkSoundEngine.PostEvent("Play_Music", gameObject, (uint)AkCallbackType.AK_MusicSyncUserCue | (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction, this);
+        musicToLaunch.Post (gameObject, (uint)AkCallbackType.AK_MusicSyncUserCue | (uint)AkCallbackType.AK_MusicSyncBeat, CallbackFunction, this);
         AkSoundEngine.SetState("Music", "Metronome");
         AkSoundEngine.SetState("PotionCount", "Left_0");   // Nombre de potions restantes que le joueur doit lancer pour corriger la famille
-        AkSoundEngine.SetSwitch("SW_Family_Solist", "Woods", gameObject);  //Famille soliste qui devra être recaller
+        AkSoundEngine.SetSwitch("SW_Family_Solist", "Nobody", gameObject);  //Famille soliste qui devra être recaller
         soundEngineTuner.SetTempo(SoundEngineTuner.START_TEMPO);
     }
 
@@ -49,6 +51,7 @@ public class WwiseCallBack : MonoBehaviour
             OnCue?.Invoke(m_MusicCueName);
         }
     }
-    
+
     public event Action<string> OnCue;
 }
+ 

@@ -22,27 +22,27 @@ public class SelectedFamilyHighlighter : MonoBehaviour
         m_CachedIntensities = new float[lightsToDisable.Length];
     }
 
-    private void OnSelectFamily(InstrumentFamily family)
+    private void OnSelectFamily()
     {
         for (int i = 0; i < lightsToDisable.Length; ++i) {
             m_CachedIntensities[i] = lightsToDisable[i].intensity;
             lightsToDisable[i].intensity = 0;
         }
         
-        family.spotlight.enabled = true;
-        family.OnEnterHighlight();
+        selector.selectedFamily.enabled = true;
+        selector.selectedFamily.OnEnterHighlight();
         
-        soundEngineTuner.FocusFamily(family);
+        soundEngineTuner.FocusFamily(selector.selectedFamily);
     }
 
-    private void OnDeselectFamily(InstrumentFamily family)
+    private void OnDeselectFamily()
     {
         for (int i = 0; i < lightsToDisable.Length; ++i) {
             lightsToDisable[i].intensity = m_CachedIntensities[i];
         }
 
-        family.spotlight.enabled = false;
-        family.OnExitHighlight();
+        selector.selectedFamily.spotlight.enabled = false;
+        selector.selectedFamily.OnExitHighlight();
         
         soundEngineTuner.UnfocusFamily();
     }
