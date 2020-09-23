@@ -169,7 +169,7 @@ public class SoundEngineTuner : MonoBehaviour
     {
         AkSoundEngine.SetRTPCValue("RTPC_Potion_Speed", speed, potion);
     }
-    
+
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {

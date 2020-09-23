@@ -16,6 +16,12 @@ public class FreeModeManager : MonoBehaviour
     public OrchestraLauncher orchestraLauncher;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
+    public enum FreeModePotion
+    {
+        Solo,
+        Ending
+    }
+    
     private enum FreeModeStep
     {
         Tuning,

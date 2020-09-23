@@ -14,6 +14,8 @@ public class SpawnerPotion : MonoBehaviour
     [Header("Prefabs")]
     public Transform[] articulationPrefabs = new Transform[3];
     public Transform[] reframingPrefabs = new Transform[6];
+    public Transform[] freeModePrefabs = new Transform[2];
+    
     public SoundEngineTuner soundEngineTuner;
     public ArticulationManager articulationManager;
     public ReframingManager reframingManager;
@@ -42,6 +44,11 @@ public class SpawnerPotion : MonoBehaviour
     public void SpawnPotion(ReframingPotion.ReframingPotionType type)
     {
         Spawn(reframingPrefabs[(int)type], SoundEngineTuner.PotionType.Reframing);
+    }
+    
+    public void SpawnPotion(FreeModeManager.FreeModePotion type)
+    {
+        Spawn(freeModePrefabs[(int)type], SoundEngineTuner.PotionType.Articulation);
     }
 
     private void Spawn(Transform prefab, SoundEngineTuner.PotionType type)
