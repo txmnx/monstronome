@@ -35,6 +35,8 @@ public class TutorialManager : MonoBehaviour
     public GameObject potionFactory;
     public GameObject reframingPotions;
     public GameObject metronomicon;
+    public ParticleSystem vfxSpawnMetronomicon;
+    public ParticleSystem[] vfxSpawnFactory;
 
     [Header("Voice instructions")]
     [SerializeField] private GameObject m_VoiceReference;
@@ -75,7 +77,7 @@ public class TutorialManager : MonoBehaviour
 
         // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        //m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -90,12 +92,17 @@ public class TutorialManager : MonoBehaviour
             intensityManager.SetAmplitude(1f);
         }));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
-        
+
         // -- Use toaster - 3
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
-            metronomicon.SetActive(true);
+            vfxSpawnMetronomicon.Play();
             SFXOnItemSpawn.Post(metronomicon);
+        }));
+        m_Sequence.Add(new TutorialWaitStep(m_Sequence, 1f));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
+        {
+            metronomicon.SetActive(true);
             conductingRulesManager.SetCurrentOrchestraState(new ConductingRulesManager.OrchestraState(
                     InstrumentFamily.ArticulationType.Pizzicato, 
                     InstrumentFamily.IntensityType.Fortissimo, 
@@ -155,8 +162,15 @@ public class TutorialManager : MonoBehaviour
         // -- Articulation potion - 7
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
+            foreach (ParticleSystem vfx in vfxSpawnFactory) {
+                vfx.Play();
+            }
+            SFXOnItemSpawn.Post(metronomicon);
+        }));
+        m_Sequence.Add(new TutorialWaitStep(m_Sequence, 1f));
+        m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
+        {
             potionFactory.transform.position = Vector3.zero;
-            SFXOnItemSpawn.Post(potionFactory);
 
             soundEngineTuner.SetSolistFamily(families[0]);
             
@@ -190,10 +204,16 @@ public class TutorialManager : MonoBehaviour
             
 
         // -- Reframing - 10
+        m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 3f, () =>
+        {
+            foreach (ParticleSystem vfx in vfxSpawnFactory) {
+                vfx.Play();
+            }
+            SFXOnItemSpawn.Post(metronomicon);
+        }));
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 4f, () =>
         {
             reframingPotions.SetActive(true);
-            SFXOnItemSpawn.Post(reframingPotions);
         }));
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[9], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => reframingManager.OnSuccess += act));
