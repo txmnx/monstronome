@@ -24,6 +24,11 @@ public class WwiseCallBack : MonoBehaviour
     {
         AkSoundEngine.SetState("Music", "Start");
     }
+
+    public void StopOrchestra()
+    {
+        AkSoundEngine.SetState("Music", "None");
+    }
     
     public void LoadOrchestra()
     {
