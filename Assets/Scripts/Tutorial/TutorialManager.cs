@@ -82,10 +82,12 @@ public class TutorialManager : MonoBehaviour
         //Assign language
         if (m_Language == UILanguageSwitch.Language.English)
         {
+            AkSoundEngine.SetSwitch("Language", "English", m_VoiceReference);
             m_CurrentInstructions = m_InstructionsEN;
         }
         else if (m_Language == UILanguageSwitch.Language.French)
         {
+            AkSoundEngine.SetSwitch("Language", "Francais", m_VoiceReference);
             m_CurrentInstructions = m_InstructionsFR;
         } 
         
