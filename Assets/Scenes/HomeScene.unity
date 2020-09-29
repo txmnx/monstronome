@@ -3547,6 +3547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundReference: {fileID: 0}
+  START_TEMPO: 90
   volumestrings: 0
   volumewoods: 0
   volumepercussions: 0
@@ -4650,6 +4651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wwiseBank: {fileID: 327133862}
+  language: 0
   SFXOnQuitScene:
     idInternal: 0
     valueGuidInternal: 
@@ -5279,6 +5281,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 106785589369620661, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418660977831926767, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 78110fb670aef1d4da1383e7a26e00b1, type: 2}
+    - target: {fileID: 1418660978370141607, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9354c1a77d983b46b39d843fb367be5, type: 2}
+    - target: {fileID: 6329334175547845970, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: sceneTransitionsManager
+      value: 
+      objectReference: {fileID: 1632813826}
+    - target: {fileID: 6329334175547845970, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: enPushedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: b9354c1a77d983b46b39d843fb367be5, type: 2}
+    - target: {fileID: 6329334175547845970, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: frPushedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 3eba4beaa05195c4b8ce706b8c065e82, type: 2}
+    - target: {fileID: 6329334175547845970, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: enUnpushedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e610cd07261493542ba3381b5cea5745, type: 2}
+    - target: {fileID: 6329334175547845970, guid: cccd53938cdd521458684169e83a3a6f,
+        type: 3}
+      propertyPath: frUnpushedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 78110fb670aef1d4da1383e7a26e00b1, type: 2}
     - target: {fileID: 8695645755692888677, guid: cccd53938cdd521458684169e83a3a6f,
         type: 3}
       propertyPath: m_Name
