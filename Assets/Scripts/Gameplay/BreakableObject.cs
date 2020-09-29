@@ -14,15 +14,9 @@ public class BreakableObject : MonoBehaviour
     public Transform defaultObject;
     public Transform breakedObject;
     public float speedUntilBreak = 4.0f;
-    public float explosionForceFactor = 1.2f;
-    public float explosionRadius = 2.0f;
-    public float upwardsModifier = 2.0f;
     private bool m_HasBroken = false;
-    
-    
-    [Header("VFX")]
-    public Transform particlesAnimation;
-    
+    public bool canBreak;
+
     [Header("Sound")]
     public AK.Wwise.Event SFXOnObjectBreak;
     public AK.Wwise.Event SFXOnObjectCollision;
@@ -45,7 +39,7 @@ public class BreakableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (m_HasBroken) return;
+        if (m_HasBroken || !canBreak) return;
         
         float speed = other.relativeVelocity.magnitude;
         if (speed > speedUntilBreak) {
@@ -104,7 +98,7 @@ public class BreakableObject : MonoBehaviour
     {
         m_FlagWind = false;
     }
-    
+
     private IEnumerator ApplyWindCoroutine(Vector3 windDirection)
     {
         Rigidbody rb = GetComponent<Rigidbody>();

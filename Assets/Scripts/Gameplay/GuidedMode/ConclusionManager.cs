@@ -11,6 +11,7 @@ public class ConclusionManager : MonoBehaviour
 {
     public ScoreManager scoreManager;
     public TempoManager tempoManager;
+    public SoundEngineTuner soundEngineTuner;
     private InstrumentFamily[] m_Families;
 
     [Header("Display")]
@@ -28,13 +29,15 @@ public class ConclusionManager : MonoBehaviour
         m_Families = families;
     }
     
-    public void Final()
+    public void Final(bool results = true)
     {
-        tempoManager.SetTempo(SoundEngineTuner.START_TEMPO);
+        tempoManager.SetTempo(soundEngineTuner.START_TEMPO);
         tempoManager.StopTempo();
 
-        DisplayResults();
-        
+        if (results) {
+            DisplayResults();
+        }
+
         foreach (InstrumentFamily family in m_Families) {
             family.StopPlaying();
         }

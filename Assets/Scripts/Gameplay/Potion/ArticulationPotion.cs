@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Potion used to change an instrument family's articulation
  */
-public class ArticulationPotion : BreakableObject
+public abstract class ArticulationPotion : BreakableObject
 {
     [Header("Articulation")]
     public ArticulationManager articulationManager;
@@ -32,13 +32,5 @@ public class ArticulationPotion : BreakableObject
             SoundEngineTuner.SetSwitchPotionBonusMalus(SoundEngineTuner.SFXPotionScoreType.Neutral, gameObject);
             m_HasSwitchSFX = true;
         }
-    }
-    
-    override protected void OnBreak(Collision other) 
-    {
-        base.OnBreak(other);
-        SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
-        articulationManager.SetArticulation(articulationType, true, gameObject);
-        spawnerPotion.SpawnPotion(articulationType);
     }
 }
