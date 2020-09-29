@@ -24,6 +24,9 @@ namespace AK
         static const AkUniqueID PIZZICATO = 2077337834U;
         static const AkUniqueID PLAY_FREEMODE = 3484671981U;
         static const AkUniqueID PLAY_FREEMODE_BOBMARLEY_COULDYOUBELOVED = 996746435U;
+        static const AkUniqueID PLAY_FREEMODE_BOLERORAVEL = 1247698659U;
+        static const AkUniqueID PLAY_FREEMODE_DEATHSTARE = 2731463783U;
+        static const AkUniqueID PLAY_FREEMODE_RIDEOFTHEVALKYRIES = 1333380572U;
         static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAY_TUTOMODE = 2589793865U;

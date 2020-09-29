@@ -14,6 +14,8 @@ public class SpawnerPotion : MonoBehaviour
     [Header("Prefabs")]
     public Transform[] articulationPrefabs = new Transform[3];
     public Transform[] reframingPrefabs = new Transform[6];
+    public Transform[] freeModePrefabs = new Transform[2];
+    
     public SoundEngineTuner soundEngineTuner;
     public ArticulationManager articulationManager;
     public ReframingManager reframingManager;
@@ -42,6 +44,11 @@ public class SpawnerPotion : MonoBehaviour
     public void SpawnPotion(ReframingPotion.ReframingPotionType type)
     {
         Spawn(reframingPrefabs[(int)type], SoundEngineTuner.PotionType.Reframing);
+    }
+    
+    public void SpawnPotion(FreeModeManager.FreeModePotion type)
+    {
+        Spawn(freeModePrefabs[(int)type], SoundEngineTuner.PotionType.Solo);
     }
 
     private void Spawn(Transform prefab, SoundEngineTuner.PotionType type)
@@ -80,11 +87,17 @@ public class SpawnerPotion : MonoBehaviour
             articulation.spawnerPotion = this;
             articulation.OnSpawn();
         }
-        else {
+        else if (prefab.Item2 == SoundEngineTuner.PotionType.Reframing) {
             ReframingPotion reframing = potion.GetComponent<ReframingPotion>();
             reframing.reframingManager = reframingManager;
             reframing.spawnerPotion = this;
             reframing.OnSpawn();
+        }
+        else if (prefab.Item2 == SoundEngineTuner.PotionType.Solo) {
+            SoloPotion solo = potion.GetComponent<SoloPotion>();
+            solo.soundEngineTuner = soundEngineTuner;
+            solo.spawnerPotion = this;
+            solo.OnSpawn();
         }
 
         SoundEngineTuner.SetSwitchPotionType(prefab.Item2, gameObject);
