@@ -52,8 +52,8 @@ public class UILanguageSwitch : XRGrabbable
             SetMaterial(emissionFrenchButtonRend, frUnpushedMaterial);
             SetMaterial(emissionEnglishButtonRend, enPushedMaterial);
         }
-        
-        sceneTransitionsManager.language = m_CurrentLanguage;
+
+        AkSoundEngine.SetState("Language", (m_CurrentLanguage == Language.English) ? "English" : "Francais");
     }
 
     private void SetMaterial(Renderer rend, Material mat)
