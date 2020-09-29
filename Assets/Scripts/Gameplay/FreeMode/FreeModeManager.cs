@@ -39,7 +39,8 @@ public class FreeModeManager : MonoBehaviour
     {
         m_CurrentStep = FreeModeStep.Tuning;
         orchestraLauncher.InitLauncher(families);
-
+        conclusionManager.LoadFamilies(families);
+        
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
             orchestraLauncher.OnLoadOrchestra += family.StopPlaying;
@@ -61,7 +62,7 @@ public class FreeModeManager : MonoBehaviour
                 }
                 break;
             case "Final":
-                conclusionManager.Final();
+                conclusionManager.Final(false);
                 break;
         }
     }
