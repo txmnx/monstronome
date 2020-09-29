@@ -29,13 +29,15 @@ public class ConclusionManager : MonoBehaviour
         m_Families = families;
     }
     
-    public void Final()
+    public void Final(bool results = true)
     {
         tempoManager.SetTempo(soundEngineTuner.START_TEMPO);
         tempoManager.StopTempo();
 
-        DisplayResults();
-        
+        if (results) {
+            DisplayResults();
+        }
+
         foreach (InstrumentFamily family in m_Families) {
             family.StopPlaying();
         }

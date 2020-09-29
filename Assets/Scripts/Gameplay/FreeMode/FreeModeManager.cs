@@ -15,6 +15,8 @@ public class FreeModeManager : MonoBehaviour
     public IntensityManager intensityManager;
     public OrchestraLauncher orchestraLauncher;
     public InstrumentFamily[] families = new InstrumentFamily[4];
+
+    public ConclusionManager conclusionManager;
     public EndingPotion endingPotion;
 
     public enum FreeModePotion
@@ -57,6 +59,9 @@ public class FreeModeManager : MonoBehaviour
                     StartOrchestra();
                     endingPotion.Activate();
                 }
+                break;
+            case "Final":
+                conclusionManager.Final();
                 break;
         }
     }
