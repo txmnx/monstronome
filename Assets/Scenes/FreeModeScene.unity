@@ -3359,6 +3359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wwiseCallback: {fileID: 1915118170}
+  soundEngineTuner: {fileID: 0}
   tempoManager: {fileID: 348619489}
   articulationManager: {fileID: 348619495}
   intensityManager: {fileID: 348619490}
@@ -3371,7 +3372,6 @@ MonoBehaviour:
   - {fileID: 854011154}
   handCheckers: {fileID: 1888940037}
   musicSelection: {fileID: 1603995283}
-  wwiseCallBack: {fileID: 1915118170}
   conclusionManager: {fileID: 348619496}
   endingPotion: {fileID: 1538157226}
 --- !u!114 &348619493
@@ -12961,6 +12961,7 @@ GameObject:
   - component: {fileID: 1853705464}
   - component: {fileID: 1853705466}
   - component: {fileID: 1853705465}
+  - component: {fileID: 1853705467}
   m_Layer: 9
   m_Name: MusicChoiceMonstronome
   m_TagString: TVChoice
@@ -13000,9 +13001,9 @@ MonoBehaviour:
   OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 348619492}
+      - m_Target: {fileID: 1853705467}
         m_MethodName: OnSelect
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13038,6 +13039,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.53869355, y: 0.069336385, z: 0.05182578}
   m_Center: {x: -0.25821614, y: 0.0017560571, z: -0.0005737301}
+--- !u!114 &1853705467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853705463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719cb0fc47ae2148b9765c344475f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freeModeManager: {fileID: 348619492}
+  musicName: Play_FreeMode
+  bpm: 90
 --- !u!1 &1887650655
 GameObject:
   m_ObjectHideFlags: 0
@@ -13136,6 +13152,7 @@ GameObject:
   - component: {fileID: 1889576786}
   - component: {fileID: 1889576788}
   - component: {fileID: 1889576787}
+  - component: {fileID: 1889576789}
   m_Layer: 9
   m_Name: MusicChoiceDeathStare
   m_TagString: TVChoice
@@ -13175,9 +13192,9 @@ MonoBehaviour:
   OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 348619492}
+      - m_Target: {fileID: 1889576789}
         m_MethodName: OnSelect
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13213,6 +13230,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.53869355, y: 0.069336385, z: 0.05182578}
   m_Center: {x: -0.25821614, y: 0.0017560571, z: -0.0005737301}
+--- !u!114 &1889576789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889576785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719cb0fc47ae2148b9765c344475f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freeModeManager: {fileID: 348619492}
+  musicName: Play_FreeMode_DeathStare
+  bpm: 90
 --- !u!1001 &1896244706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17679,9 +17711,9 @@ MonoBehaviour:
   OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 348619492}
+      - m_Target: {fileID: 1200345112045813105}
         m_MethodName: OnSelect
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17719,9 +17751,9 @@ MonoBehaviour:
   OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 348619492}
+      - m_Target: {fileID: 1200345112647560381}
         m_MethodName: OnSelect
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17759,9 +17791,9 @@ MonoBehaviour:
   OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 348619492}
+      - m_Target: {fileID: 1200345113784297426}
         m_MethodName: OnSelect
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18868,6 +18900,7 @@ GameObject:
   - component: {fileID: 1983598280373419267}
   - component: {fileID: 7737512581396873449}
   - component: {fileID: 426971583436739004}
+  - component: {fileID: 1200345112045813105}
   m_Layer: 9
   m_Name: MusicChoiceReggae
   m_TagString: TVChoice
@@ -18875,6 +18908,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1200345112045813105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200345112045813104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719cb0fc47ae2148b9765c344475f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freeModeManager: {fileID: 348619492}
+  musicName: Play_FreeMode_BobMarley_CouldYouBeLoved
+  bpm: 90
 --- !u!1 &1200345112647560380
 GameObject:
   m_ObjectHideFlags: 0
@@ -18886,6 +18934,7 @@ GameObject:
   - component: {fileID: 1983598280845405391}
   - component: {fileID: 7737512581998367013}
   - component: {fileID: 426971583899811952}
+  - component: {fileID: 1200345112647560381}
   m_Layer: 9
   m_Name: MusicChoiceValkyrie
   m_TagString: TVChoice
@@ -18893,6 +18942,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1200345112647560381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200345112647560380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719cb0fc47ae2148b9765c344475f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freeModeManager: {fileID: 348619492}
+  musicName: Play_FreeMode_RideOfTheValkyries
+  bpm: 90
 --- !u!1 &1200345113784297425
 GameObject:
   m_ObjectHideFlags: 0
@@ -18904,6 +18968,7 @@ GameObject:
   - component: {fileID: 1983598279440164770}
   - component: {fileID: 7737512582598498888}
   - component: {fileID: 426971584885820189}
+  - component: {fileID: 1200345113784297426}
   m_Layer: 9
   m_Name: MusicChoiceBolero
   m_TagString: TVChoice
@@ -18911,6 +18976,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1200345113784297426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200345113784297425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719cb0fc47ae2148b9765c344475f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freeModeManager: {fileID: 348619492}
+  musicName: Play_FreeMode_BoleroRavel
+  bpm: 90
 --- !u!33 &1236163090906764028
 MeshFilter:
   m_ObjectHideFlags: 0

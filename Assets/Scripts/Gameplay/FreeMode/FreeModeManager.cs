@@ -10,6 +10,7 @@ public class FreeModeManager : MonoBehaviour
 {
     [Header("Callbacks")]
     public WwiseCallBack wwiseCallback;
+    public SoundEngineTuner soundEngineTuner;
     public TempoManager tempoManager;
     public ArticulationManager articulationManager;
     public IntensityManager intensityManager;
@@ -19,7 +20,6 @@ public class FreeModeManager : MonoBehaviour
 
     public GameObject handCheckers;
     public GameObject musicSelection;
-    public WwiseCallBack wwiseCallBack;
     
     public ConclusionManager conclusionManager;
     public EndingPotion endingPotion;
@@ -58,10 +58,11 @@ public class FreeModeManager : MonoBehaviour
         wwiseCallback.OnCue += LaunchState;
     }
 
-    public void OnSelect(string music)
+    public void OnSelectMusic(string music, float bpm)
     {
+        soundEngineTuner.START_TEMPO = bpm;
         musicSelection.SetActive(false);
-        wwiseCallBack.musicToLaunch = music;
+        wwiseCallback.musicToLaunch = music;
         m_CurrentStep = FreeModeStep.Tuning;
         StartCoroutine(ShowCheckers());
     }
