@@ -38,6 +38,7 @@ public class EndingPotion : BreakableObject
 
     public void Activate()
     {
+        canBreak = true;
         GetComponent<XRThrowable>().enabled = true;
     }
 }
