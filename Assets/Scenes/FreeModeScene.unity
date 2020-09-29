@@ -3113,6 +3113,7 @@ MonoBehaviour:
   - {fileID: 1129380438}
   - {fileID: 1247558651}
   - {fileID: 854011154}
+  endingPotion: {fileID: 1538157226}
 --- !u!114 &348619493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10275,6 +10276,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndingPotion
       objectReference: {fileID: 0}
+    - target: {fileID: 2522391738118848203, guid: cdb9659d3581b48419b9a27ed644327c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4039328690309115250, guid: cdb9659d3581b48419b9a27ed644327c,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -10318,6 +10324,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1538157224}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1538157226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8379204065496503680, guid: cdb9659d3581b48419b9a27ed644327c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538157224}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ab579cf7b6de84a880e0b134d616a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1543886620
 GameObject:
   m_ObjectHideFlags: 0

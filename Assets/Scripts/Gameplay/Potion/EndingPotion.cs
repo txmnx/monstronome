@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting;
 using UnityEngine;
 
 /**
@@ -8,7 +9,6 @@ using UnityEngine;
 public class EndingPotion : BreakableObject
 {
     public SoundEngineTuner soundEngineTuner;
-    public SpawnerPotion spawnerPotion;
     public WwiseCallBack wwiseCallback;
     private bool m_HasSwitchSFX = false;
 
@@ -17,11 +17,6 @@ public class EndingPotion : BreakableObject
     override protected void Start()
     {
         base.Start();
-        SetSwitchSFX();
-    }
-       
-    public void OnSpawn()
-    {
         SetSwitchSFX();
     }
 
@@ -39,6 +34,10 @@ public class EndingPotion : BreakableObject
         base.OnBreak(other);
         SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
         wwiseCallback.StopOrchestra();
-        spawnerPotion.SpawnPotion(type);
+    }
+
+    public void Activate()
+    {
+        GetComponent<XRThrowable>().enabled = true;
     }
 }

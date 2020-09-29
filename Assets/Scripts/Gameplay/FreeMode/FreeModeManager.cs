@@ -15,6 +15,7 @@ public class FreeModeManager : MonoBehaviour
     public IntensityManager intensityManager;
     public OrchestraLauncher orchestraLauncher;
     public InstrumentFamily[] families = new InstrumentFamily[4];
+    public EndingPotion endingPotion;
 
     public enum FreeModePotion
     {
@@ -54,6 +55,7 @@ public class FreeModeManager : MonoBehaviour
             case "Start":
                 if (m_CurrentStep == FreeModeStep.Tuning) {
                     StartOrchestra();
+                    endingPotion.Activate();
                 }
                 break;
         }
