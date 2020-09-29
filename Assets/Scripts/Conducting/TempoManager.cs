@@ -41,7 +41,7 @@ public class TempoManager : MonoBehaviour
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
             
         m_BufferLastBPMs = new Queue<float>();
-        float baseTempo = SoundEngineTuner.START_TEMPO;
+        float baseTempo = soundEngineTuner.START_TEMPO;
         for (int i = 0; i < BPM_BUFFER_SIZE; i++) {
             m_BufferLastBPMs.Enqueue(baseTempo);
         }

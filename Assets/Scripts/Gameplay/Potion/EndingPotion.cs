@@ -39,5 +39,6 @@ public class EndingPotion : BreakableObject
         base.OnBreak(other);
         SoundEngineTuner.SetPotionSpeed(m_Rigidbody.velocity.magnitude, gameObject);
         wwiseCallback.StopOrchestra();
+        spawnerPotion.SpawnPotion(type);
     }
 }
