@@ -14,10 +14,12 @@ public class FreeModeManager : MonoBehaviour
     public ArticulationManager articulationManager;
     public IntensityManager intensityManager;
     public OrchestraLauncher orchestraLauncher;
+    public ConductingEventsManager conducting;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
     public GameObject handCheckers;
     public GameObject musicSelection;
+    public WwiseCallBack wwiseCallBack;
     
     public ConclusionManager conclusionManager;
     public EndingPotion endingPotion;
@@ -56,9 +58,17 @@ public class FreeModeManager : MonoBehaviour
         wwiseCallback.OnCue += LaunchState;
     }
 
-    public void OnSelect()
+    public void OnSelect(string music)
     {
         musicSelection.SetActive(false);
+        wwiseCallBack.musicToLaunch = music;
+        m_CurrentStep = FreeModeStep.Tuning;
+        StartCoroutine(ShowCheckers());
+    }
+
+    private IEnumerator ShowCheckers()
+    {
+        yield return new WaitForSeconds(1f);
         handCheckers.SetActive(true);
     }
     

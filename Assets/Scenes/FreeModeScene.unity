@@ -2970,6 +2970,7 @@ MonoBehaviour:
   articulationManager: {fileID: 348619495}
   intensityManager: {fileID: 348619490}
   orchestraLauncher: {fileID: 348619494}
+  conducting: {fileID: 348619493}
   families:
   - {fileID: 413094687}
   - {fileID: 1129380438}
@@ -2977,6 +2978,7 @@ MonoBehaviour:
   - {fileID: 854011154}
   handCheckers: {fileID: 1888940037}
   musicSelection: {fileID: 1603995283}
+  wwiseCallBack: {fileID: 1915118170}
   conclusionManager: {fileID: 348619496}
   endingPotion: {fileID: 1538157226}
 --- !u!114 &348619493
@@ -15897,13 +15899,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 348619492}
         m_MethodName: OnSelect
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Play_FreeMode_BobMarley_CouldYouBeLoved
           m_BoolArgument: 0
         m_CallState: 2
   defaultChoice: {fileID: 9190229133144677082}
@@ -15918,7 +15920,7 @@ MonoBehaviour:
   SFXOnSelect:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c1f04ef2542bdcd48a287de7a8e4c0f2,
+    WwiseObjectReference: {fileID: 11400000, guid: 3fb9cff8597b13e4886e96bdb569835a,
       type: 2}
 --- !u!114 &426971583899811952
 MonoBehaviour:
@@ -15937,13 +15939,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 348619492}
         m_MethodName: OnSelect
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Play_FreeMode_RideOfTheValkyries
           m_BoolArgument: 0
         m_CallState: 2
   defaultChoice: {fileID: 9190229132547377942}
@@ -15958,7 +15960,7 @@ MonoBehaviour:
   SFXOnSelect:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c1f04ef2542bdcd48a287de7a8e4c0f2,
+    WwiseObjectReference: {fileID: 11400000, guid: 3fb9cff8597b13e4886e96bdb569835a,
       type: 2}
 --- !u!114 &426971584885820189
 MonoBehaviour:
@@ -15977,13 +15979,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 348619492}
         m_MethodName: OnSelect
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Play_FreeMode_BoleroRavel
           m_BoolArgument: 0
         m_CallState: 2
   defaultChoice: {fileID: 9190229131913592955}
@@ -15998,7 +16000,7 @@ MonoBehaviour:
   SFXOnSelect:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c1f04ef2542bdcd48a287de7a8e4c0f2,
+    WwiseObjectReference: {fileID: 11400000, guid: 3fb9cff8597b13e4886e96bdb569835a,
       type: 2}
 --- !u!1 &430119528559720535
 GameObject:
