@@ -16,6 +16,9 @@ public class FreeModeManager : MonoBehaviour
     public OrchestraLauncher orchestraLauncher;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
+    public GameObject handCheckers;
+    public GameObject musicSelection;
+    
     public ConclusionManager conclusionManager;
     public EndingPotion endingPotion;
 
@@ -27,6 +30,7 @@ public class FreeModeManager : MonoBehaviour
     
     private enum FreeModeStep
     {
+        Selection,
         Tuning,
         Playing,
         Ending
@@ -37,7 +41,7 @@ public class FreeModeManager : MonoBehaviour
     
     private void Start()
     {
-        m_CurrentStep = FreeModeStep.Tuning;
+        m_CurrentStep = FreeModeStep.Selection;
         orchestraLauncher.InitLauncher(families);
         conclusionManager.LoadFamilies(families);
         
@@ -50,6 +54,12 @@ public class FreeModeManager : MonoBehaviour
         OnStartOrchestra += intensityManager.OnStartOrchestra;
         
         wwiseCallback.OnCue += LaunchState;
+    }
+
+    public void OnSelect()
+    {
+        musicSelection.SetActive(false);
+        handCheckers.SetActive(true);
     }
     
     private void LaunchState(string stateName)

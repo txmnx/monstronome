@@ -1046,14 +1046,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163039683}
-  m_LocalRotation: {x: -0.06975647, y: 0, z: 0, w: 0.9975641}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalRotation: {x: -0.06975647, y: 0.000000029802319, z: -0, w: 0.9975641}
+  m_LocalPosition: {x: 0.4000001, y: 0, z: 0}
+  m_LocalScale: {x: 0.39999998, y: 0.4, z: 1}
   m_Children:
   - {fileID: 1061866639}
   - {fileID: 1615112259}
   - {fileID: 1085717191}
-  m_Father: {fileID: 700027099}
+  m_Father: {fileID: 1888940038}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -8, y: 0, z: 0}
 --- !u!54 &163039685
@@ -2975,6 +2975,8 @@ MonoBehaviour:
   - {fileID: 1129380438}
   - {fileID: 1247558651}
   - {fileID: 854011154}
+  handCheckers: {fileID: 1888940037}
+  musicSelection: {fileID: 1603995283}
   conclusionManager: {fileID: 348619496}
   endingPotion: {fileID: 1538157226}
 --- !u!114 &348619493
@@ -3592,14 +3594,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411942544}
-  m_LocalRotation: {x: -0.06975647, y: 0, z: 0, w: 0.9975641}
-  m_LocalPosition: {x: -0.4, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalRotation: {x: -0.06975647, y: 0.000000029802319, z: -0, w: 0.9975641}
+  m_LocalPosition: {x: -0.4000002, y: 0, z: 0}
+  m_LocalScale: {x: 0.39999998, y: 0.4, z: 1}
   m_Children:
   - {fileID: 1593389817}
   - {fileID: 197164004}
   - {fileID: 1398802926}
-  m_Father: {fileID: 700027099}
+  m_Father: {fileID: 1888940038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -8, y: 0, z: 0}
 --- !u!54 &411942546
@@ -5510,8 +5512,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0.33700025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 411942545}
-  - {fileID: 163039684}
+  - {fileID: 1888940038}
   m_Father: {fileID: 1504346132}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11455,6 +11456,43 @@ MonoBehaviour:
   m_TrackingOriginMode: 2
   m_TrackingSpace: 1
   m_CameraYOffset: 0
+--- !u!1 &1888940037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888940038}
+  m_Layer: 5
+  m_Name: Checkers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1888940038
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888940037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 411942545}
+  - {fileID: 163039684}
+  m_Father: {fileID: 700027099}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1896244706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15856,7 +15894,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSelect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348619492}
+        m_MethodName: OnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   defaultChoice: {fileID: 9190229133144677082}
   highlightChoice: {fileID: 6302482478258014392}
   selectBar: {fileID: 6258205716411101301}
@@ -15885,7 +15934,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSelect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348619492}
+        m_MethodName: OnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   defaultChoice: {fileID: 9190229132547377942}
   highlightChoice: {fileID: 6302482478730271092}
   selectBar: {fileID: 6258205717021761977}
@@ -15914,7 +15974,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSelect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 348619492}
+        m_MethodName: OnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   defaultChoice: {fileID: 9190229131913592955}
   highlightChoice: {fileID: 6302482480244036121}
   selectBar: {fileID: 6258205717914741460}
