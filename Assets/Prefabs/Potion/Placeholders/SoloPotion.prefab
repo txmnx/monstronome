@@ -376,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 2445014976048210770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.85, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 935847076445320960}
   - {fileID: 5712577161040176883}
@@ -457,6 +457,7 @@ MonoBehaviour:
   defaultObject: {fileID: 935847076445320960}
   breakedObject: {fileID: 5712577161040176883}
   speedUntilBreak: 4
+  canBreak: 1
   SFXOnObjectBreak:
     idInternal: 0
     valueGuidInternal: 

@@ -16,6 +16,9 @@ public class FreeModeManager : MonoBehaviour
     public OrchestraLauncher orchestraLauncher;
     public InstrumentFamily[] families = new InstrumentFamily[4];
 
+    public ConclusionManager conclusionManager;
+    public EndingPotion endingPotion;
+
     public enum FreeModePotion
     {
         Solo,
@@ -36,7 +39,8 @@ public class FreeModeManager : MonoBehaviour
     {
         m_CurrentStep = FreeModeStep.Tuning;
         orchestraLauncher.InitLauncher(families);
-
+        conclusionManager.LoadFamilies(families);
+        
         foreach (InstrumentFamily family in families) {
             OnStartOrchestra += family.StartPlaying;
             orchestraLauncher.OnLoadOrchestra += family.StopPlaying;
@@ -54,7 +58,11 @@ public class FreeModeManager : MonoBehaviour
             case "Start":
                 if (m_CurrentStep == FreeModeStep.Tuning) {
                     StartOrchestra();
+                    endingPotion.Activate();
                 }
+                break;
+            case "Final":
+                conclusionManager.Final(false);
                 break;
         }
     }

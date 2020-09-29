@@ -15,6 +15,7 @@ public class BreakableObject : MonoBehaviour
     public Transform breakedObject;
     public float speedUntilBreak = 4.0f;
     private bool m_HasBroken = false;
+    public bool canBreak;
 
     [Header("Sound")]
     public AK.Wwise.Event SFXOnObjectBreak;
@@ -38,7 +39,7 @@ public class BreakableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (m_HasBroken) return;
+        if (m_HasBroken || !canBreak) return;
         
         float speed = other.relativeVelocity.magnitude;
         if (speed > speedUntilBreak) {
@@ -97,7 +98,7 @@ public class BreakableObject : MonoBehaviour
     {
         m_FlagWind = false;
     }
-    
+
     private IEnumerator ApplyWindCoroutine(Vector3 windDirection)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
