@@ -41,8 +41,12 @@ public class TutorialManager : MonoBehaviour
     [Header("Voice instructions")]
     [SerializeField] private GameObject m_VoiceReference;
     [SerializeField] private TextMeshPro m_SubtitlesDisplay;
-    [SerializeField] private TutorialDescriptionStep.Instruction[] m_Instructions;
+    [SerializeField] private UILanguageSwitch.Language m_Language;
+    [SerializeField] private TutorialDescriptionStep.Instruction[] m_InstructionsEN;
+    [SerializeField] private TutorialDescriptionStep.Instruction[] m_InstructionsFR;
 
+    private TutorialDescriptionStep.Instruction[] m_CurrentInstructions;
+    
     [Header("SFX")] 
     public AK.Wwise.Event SFXOnItemSpawn;
     public AK.Wwise.Event SFXOnStepSuccess;
@@ -75,9 +79,19 @@ public class TutorialManager : MonoBehaviour
         
         m_Sequence = new TutorialSequence(this);
 
+        //Assign language
+        if (m_Language == UILanguageSwitch.Language.English)
+        {
+            m_CurrentInstructions = m_InstructionsEN;
+        }
+        else if (m_Language == UILanguageSwitch.Language.French)
+        {
+            m_CurrentInstructions = m_InstructionsFR;
+        } 
+        
         // -- Introduction - 1
         m_Sequence.Add(new TutorialWaitStep(m_Sequence, 5f));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[0], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_CurrentInstructions[0], m_SubtitlesDisplay, m_VoiceReference));
 
         // -- Launch orchestra - 2
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
@@ -86,7 +100,7 @@ public class TutorialManager : MonoBehaviour
             leftHandHeightArea.gameObject.SetActive(true);
             rightHandHeightArea.gameObject.SetActive(true);
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => { 
             tempoManager.SetTempo(60);
             intensityManager.SetAmplitude(1f);
@@ -114,7 +128,7 @@ public class TutorialManager : MonoBehaviour
                 InstrumentFamily.TempoType.Andante)
             );
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[2], m_SubtitlesDisplay, m_VoiceReference, (act) => toasterSlider.OnToastsOut += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = false));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
@@ -124,14 +138,14 @@ public class TutorialManager : MonoBehaviour
             conductingRulesManager.OnStartOrchestra();
             tempoManager.OnStartOrchestra();
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[3], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[3], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodTempoChange += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => tempoManager.StopBPMTrack()));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Change the intensity - 5
         m_Sequence.Add(new TutorialParallelWaitStep(m_Sequence, 3f, () => intensityManager.OnStartOrchestra()));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[4], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[4], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodIntensityChange += act));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
 
@@ -150,7 +164,7 @@ public class TutorialManager : MonoBehaviour
                 InstrumentFamily.TempoType.Lento)
             );
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[5], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[5], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => OnTempoIntensityGood += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
@@ -180,13 +194,13 @@ public class TutorialManager : MonoBehaviour
                 InstrumentFamily.TempoType.Lento)
             );
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[6], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[6], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => conductingRulesManager.OnGoodArticulationChange += act));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Lower toaster slider - 8
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => toasterSlider.enableSlider = true));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[7], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[7], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => toasterSlider.OnToastsIn += act));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
             
@@ -198,7 +212,7 @@ public class TutorialManager : MonoBehaviour
             reframingManager.SetReframingFamily(families[0]);
             reframingManager.LaunchFail();
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[8], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[8], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnSelectFamily += act));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
             
@@ -215,12 +229,12 @@ public class TutorialManager : MonoBehaviour
         {
             reframingPotions.SetActive(true);
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[9], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[9], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => reframingManager.OnSuccess += act));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
         // -- Deselect a family - 11
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[10], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[10], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => instrumentFamilySelector.OnDeselectFamily += act));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
         
@@ -242,7 +256,7 @@ public class TutorialManager : MonoBehaviour
                 InstrumentFamily.TempoType.Allegro)
             );
         }));
-        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_Instructions[11], m_SubtitlesDisplay, m_VoiceReference, 
+        m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[11], m_SubtitlesDisplay, m_VoiceReference, 
             (act) => OnArticulationTempoIntensityGood += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () =>
         {
@@ -262,7 +276,7 @@ public class TutorialManager : MonoBehaviour
             endingButton.position = endingButtonAnchor.position;
             endingButton.rotation = endingButtonAnchor.rotation;
         }));
-        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_Instructions[12], m_SubtitlesDisplay, m_VoiceReference));
+        m_Sequence.Add(new TutorialOnlyDescriptionStep(m_Sequence, m_CurrentInstructions[12], m_SubtitlesDisplay, m_VoiceReference));
         
         
         m_Sequence.Launch();
