@@ -5890,6 +5890,97 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 588827916}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &595935944
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1603995284}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.444
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 266.17
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 318.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 670224309865224971, guid: a162fe1e4a057724fba1a9ca6bee35e5,
+        type: 3}
+    - target: {fileID: -927199367670048503, guid: ca9933664ed836147b48db22c01d266e,
+        type: 3}
+      propertyPath: m_Name
+      value: BG_Arrondi_Coins_Longs_Epais
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca9933664ed836147b48db22c01d266e, type: 3}
+--- !u!4 &595935945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ca9933664ed836147b48db22c01d266e,
+    type: 3}
+  m_PrefabInstance: {fileID: 595935944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &596141367
 GameObject:
   m_ObjectHideFlags: 0
@@ -10229,7 +10320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1603995284}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1286092630
 BoxCollider:
@@ -10242,8 +10333,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.767462, y: 1.3059398, z: 0.08738913}
-  m_Center: {x: -0.009201765, y: 0.15297022, z: -0.061089862}
+  m_Size: {x: 1.7397532, y: 1.9680569, z: 0.08738913}
+  m_Center: {x: 0.004652439, y: 0.444143, z: -0.061092984}
 --- !u!23 &1286092631
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11738,6 +11829,7 @@ Transform:
   - {fileID: 1983598279440164770}
   - {fileID: 1983598280845405391}
   - {fileID: 1983598280373419267}
+  - {fileID: 595935945}
   - {fileID: 1286092629}
   m_Father: {fileID: 0}
   m_RootOrder: 16
