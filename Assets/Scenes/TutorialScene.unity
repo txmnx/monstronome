@@ -2112,6 +2112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundReference: {fileID: 1915118170}
+  START_TEMPO: 90
   volumestrings: 0
   volumewoods: 0
   volumepercussions: 0
@@ -2482,7 +2483,8 @@ MonoBehaviour:
   - {fileID: 1200357076}
   m_VoiceReference: {fileID: 451920519}
   m_SubtitlesDisplay: {fileID: 451920518}
-  m_Instructions:
+  m_Language: 0
+  m_InstructionsEN:
   - mainInstruction:
       SFXVoice:
         idInternal: 0
@@ -2647,7 +2649,7 @@ MonoBehaviour:
         WwiseObjectReference: {fileID: 11400000, guid: b6651b1a60b91ae4a8c8416d9ec0aa44,
           type: 2}
       subtitles:
-      - You may now disable the Metronomicon
+      - "\rYou may now disable the Metronomicon"
       - by lowering its handle with your claw.
   - mainInstruction:
       SFXVoice:
@@ -2743,6 +2745,277 @@ MonoBehaviour:
       - Well. I taught you everything you needed for this concert,
       - time is running away, you will now conduct the orchestra alone.
       - I wish you good luck for the celebration. Everything is gonna be just fine!
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: []
+  m_InstructionsFR:
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 071ce42e2d825b9468b63913cd2f8b55,
+          type: 2}
+      subtitles:
+      - Bienvenue, Monstronome.
+      - "Vous \xEAtes le chef d\u2019orchestre le plus chanceux de l\u2019ann\xE9e, "
+      - "on vous a \xE9lu pour mener le concert de comm\xE9moration "
+      - de la guerre Monstronomique.
+      - Je suis la Grande Maestronome,
+      - "\xE0 votre disposition pour vous apprendre \xE0 utiliser"
+      - "les reliques c\xE9r\xE9monielles la Baguette magique, le Metronomicon"
+      - et la Fabrique de potions magiques.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 0}
+      subtitles: []
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: dbdf5a8df6d1b89499f3ce9a60dc135b,
+          type: 2}
+      subtitles:
+      - Bien, pour commencer le concert,
+      - vous devez avertir les Instrumonstres.
+      - "Pour cela, levez les deux mains en l\u2019air, et donnez"
+      - un coup vers le bas pour battre le premier temps.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 52adac9f5e662f44c8560e5c29fc100a,
+          type: 2}
+      subtitles:
+      - "Levez les deux mains en l\u2019air,"
+      - puis donnez un coup vers le bas pour battre le premier temps.
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 609dcf094c598c44ba5517a4bfc9d9ce,
+          type: 2}
+      subtitles:
+      - "Parfait\u202F! Maintenant, vous devez activer le Metronomicon"
+      - "pour conna\xEEtre l\u2019\xE9tat de votre orchestre. Pour cela,"
+      - attrapez la manette du Metronomicon avec votre pince  et levez-la.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 86e58b1be1d199544a348f7ddd987083,
+          type: 2}
+      subtitles:
+      - Attrapez la manette du Metronomicon
+      - avec votre pince et levez-la.
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 51272249281225d48a85594a33821db3,
+          type: 2}
+      subtitles:
+      - Vous devez augmenter la Vitesse de votre orchestre,
+      - "pour cela, activez la Baguette magique \xE0 l\u2019aide de sa g\xE2chette
+        et battez le temps"
+      - en faisant des aller-retours dans le Cercle Magique.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 6193d28bf0afdaa4090940f0cad26320,
+          type: 2}
+      subtitles:
+      - Activez la Baguette magique
+      - "\xE0 l\u2019aide de sa g\xE2chette et battez le temps"
+      - en faisant des aller-retours dans le Cercle Magique.
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: a277ffe728d617d4b898b25f9dcab1ea,
+          type: 2}
+      subtitles:
+      - "Cette fois-ci, il faut r\xE9duire la Puissance de votre orchestre."
+      - "Toujours \xE0 l\u2019aide de votre Baguette magique, battez le temps en
+        faisant des gestes de la bonne amplitude :"
+      - il faut activer les cercles jaunes, mais pas les rouges.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 61e00e647b7188e49abff1f882b3d8a2,
+          type: 2}
+      subtitles:
+      - "Battez le temps en faisant des gestes de la bonne amplitude\u202F:"
+      - il faut activer les cercles jaunes, mais pas les rouges.
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: ec8fcfc24cfb9044a8ace84e70e925b1,
+          type: 2}
+      subtitles:
+      - "La Baguette magique est une relique tr\xE8s impressionnante"
+      - ": en battant le temps avec, vous changez \xE0 la fois la Vitesse et la Puissance
+        de l\u2019orchestre."
+      - "Suivez les indications du Metronomicon et utilisez la Baguette Magique pour
+        correspondre \xE0 ses attentes. "
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 617fedd889b669b4e97c1a9ee97ac9eb,
+          type: 2}
+      subtitles:
+      - 'Suivez les indications du Metronomicon '
+      - et utilisez la Baguette Magique
+      - "pour correspondre \xE0 ses attentes."
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: cc09affb54ea5ac4487dfaafb577037f,
+          type: 2}
+      subtitles:
+      - "Parfait\u202F! Il est maintenant l\u2019heure d\u2019utiliser la Fabrique
+        de potions magiques."
+      - "Elle cr\xE9e \xE0 son rythme de magnifiques potions. "
+      - "Pour cet entrainement vous aurez toutes les potions qu\u2019il vous faut
+        \xE0 votre disposition,"
+      - "mais il faudra r\xE9ussir \xE0 g\xE9rer votre r\xE9serve pendant le concert."
+      - "Suivez les indications du Metronomicon et activez votre pince en appuyant
+        sur sa g\xE2chette"
+      - "pour attraper la bonne potion,et lancez l\xE0 en direction de l\u2019orchestre"
+      - pour changer le style musical.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 629abd359def39d48a5a2cc9a4d2f48b,
+          type: 2}
+      subtitles:
+      - Suivez les indications du Metronomicon et activez votre pince
+      - "en appuyant sur sa g\xE2chette pour attraper la bonne potion,"
+      - "et lancez-la en direction de l\u2019orchestre."
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: e3f04ec51e8db2f4aabda8641206b9a6,
+          type: 2}
+      subtitles:
+      - "Bravo\u202F! Vous pouvez d\xE9sactiver le Metronomicon"
+      - en abaissant sa manette avec votre pince.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: b6651b1a60b91ae4a8c8416d9ec0aa44,
+          type: 2}
+      subtitles:
+      - "Vous pouvez d\xE9sactiver le Metronomicon"
+      - en abaissant sa manette avec votre pince.
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 436fa7c568daf854d80954bccc1ee978,
+          type: 2}
+      subtitles:
+      - "Il est maintenant temps d\u2019apprendre \xE0 g\xE9rer votre orchestre Famille
+        par Famille."
+      - "Il arrive que la Metronomagie s\u2019affaiblisse et qu\u2019une famille
+        d\u2019Instrumonstres de votre orchestre"
+      - "se mette \xE0 jouer de mani\xE8re cacophonique. Pour corriger cela,"
+      - vous devez commencer par cibler la famille en question
+      - avec votre regard et le bouton avant de votre pince.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 01c52a5159837344fb49452a1cf454ee,
+          type: 2}
+      subtitles:
+      - Vous devez commencer par cibler la famille en question avec votre regard
+      - et le bouton avant de votre pince.
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: fd5bead2c8bcbbc4ea79d826c12cdecc,
+          type: 2}
+      subtitles:
+      - "La Fabrique de potions magiques produit \xE9galement des potions plus petites,"
+      - "que l\u2019on utilise pour aider les familles d\u2019Instrumonstres."
+      - "Observez l\u2019ordre indiqu\xE9 au-dessus de la famille"
+      - et lancez les potions correspondantes en visant bien.
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: b3f7250c758ec5a42b180b0c92958129,
+          type: 2}
+      subtitles:
+      - "Observez l\u2019ordre indiqu\xE9"
+      - au-dessus de la famille et lancez les potions correspondantes
+      - en visant bien.
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: c32aa0d3cf84cba49b4e564cdfb32427,
+          type: 2}
+      subtitles:
+      - "Vous pouvez maintenant arr\xEAter de cibler la famille"
+      - en appuyant sur
+      - "le bouton arri\xE8re de votre pince."
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 3618cadfbc4895847aa71e94a4716f2f,
+          type: 2}
+      subtitles:
+      - "Vous pouvez maintenant arr\xEAter de cibler la famille"
+      - "en appuyant sur le bouton arri\xE8re de votre pince."
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 7dbcc25ab9a17ea46bd2eff41fcb6cb2,
+          type: 2}
+      subtitles:
+      - "Le concert est constitu\xE9 de blocs musicaux entrecoup\xE9s de transitions,"
+      - vous pouvez observer la structure sur le Metronomicon.
+      - "Pendant ces transitions, les lumi\xE8res du Metronomicon vont devenir bleues"
+      - "et il faudra trouver les changements \xE0 ex\xE9cuter. C\u2019est parti\u202F!"
+    secondInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: 795f319eed771d1408feb6eec88d6e43,
+          type: 2}
+      subtitles:
+      - Ciblez le Metronomicon
+      - puis utilisez votre baguette
+      - "et les potions pour r\xE9ussir la transition."
+  - mainInstruction:
+      SFXVoice:
+        idInternal: 0
+        valueGuidInternal: 
+        WwiseObjectReference: {fileID: 11400000, guid: ddc9e73fa9b070942af3ea8eecc95100,
+          type: 2}
+      subtitles:
+      - "Je vous ai appris tout ce qu\u2019il y avait \xE0 savoir pour le concert,"
+      - "il est maintenant l\u2019heure de vous laisser diriger l\u2019orchestre
+        seul,"
+      - "je vous souhaite bonne chance pour la c\xE9r\xE9monie, je suis s\xFBre que
+        tout va bien se passer."
     secondInstruction:
       SFXVoice:
         idInternal: 0
@@ -43155,6 +43428,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d3851da8a0997434e9e7a1bfd63d358b,
         type: 2}
+    - target: {fileID: 409129984310784827, guid: f7f7f254d03981b43aaa2ae8a6d9a6df,
+        type: 3}
+      propertyPath: musicToLaunch
+      value: Play_TutoMode
+      objectReference: {fileID: 0}
     - target: {fileID: 409129984404440070, guid: f7f7f254d03981b43aaa2ae8a6d9a6df,
         type: 3}
       propertyPath: m_LocalRotation.x
