@@ -27,6 +27,8 @@ public class UILanguageSwitch : XRGrabbable
     
     public float pushDistance;
 
+    public AK.Wwise.Event SFXOnSwitch;
+
     private Language m_CurrentLanguage;
     
 
@@ -53,6 +55,8 @@ public class UILanguageSwitch : XRGrabbable
             SetMaterial(emissionEnglishButtonRend, enPushedMaterial);
         }
 
+        SFXOnSwitch.Post(gameObject);
+        
         AkSoundEngine.UnloadBank("SNB_Voice", IntPtr.Zero);
         AkSoundEngine.SetCurrentLanguage((m_CurrentLanguage == Language.English) ? "English(US)" : "Francais");
         AkSoundEngine.LoadBank("SNB_Voice", out uint id);
