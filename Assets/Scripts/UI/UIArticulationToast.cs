@@ -54,7 +54,7 @@ public class UIArticulationToast : UIToast
         }
         else {
             if (isTransition) {
-                SetLight(transitionMaterial);
+                SetLight(wrongTransitionMaterial);
                 UIBackgroundToast.SetBackground(UIBackgroundToast.ToastBackgroundType.Transition);
             }
             else {
