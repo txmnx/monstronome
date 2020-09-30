@@ -11,7 +11,8 @@ public class SoundEngineTuner : MonoBehaviour
     public WwiseCallBack soundReference;
 
     public const float BASE_TEMPO = 120.0f;
-    public const float START_TEMPO = 90.0f;
+    [HideInInspector]
+    public float START_TEMPO = 90.0f;
     public const float MAX_DELAY = 0.5f;
     //Track length (in beats)
     public const float TRACK_LENGTH = 480.0f;
@@ -144,7 +145,8 @@ public class SoundEngineTuner : MonoBehaviour
     public enum PotionType
     {
         Articulation,
-        Reframing
+        Reframing,
+        Solo
     }
     
     /* POTIONS */
@@ -169,7 +171,7 @@ public class SoundEngineTuner : MonoBehaviour
     {
         AkSoundEngine.SetRTPCValue("RTPC_Potion_Speed", speed, potion);
     }
-    
+
     /* ARTICULATION */
     public void SetArticulation(InstrumentFamily family, InstrumentFamily.ArticulationType type)
     {

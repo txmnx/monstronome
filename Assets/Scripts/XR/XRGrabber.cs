@@ -96,7 +96,7 @@ public class XRGrabber : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         XRGrabbable obj = other.GetComponent<XRGrabbable>();
-        if (obj) {
+        if (obj && obj.enabled) {
             if (!m_HighlightedObjects.Contains(obj)) {
                 m_HighlightedObjects.Add(obj);
                 m_Controller.HapticImpulse(0.1f, 0.01f);

@@ -24,6 +24,9 @@ namespace AK
         static const AkUniqueID PIZZICATO = 2077337834U;
         static const AkUniqueID PLAY_FREEMODE = 3484671981U;
         static const AkUniqueID PLAY_FREEMODE_BOBMARLEY_COULDYOUBELOVED = 996746435U;
+        static const AkUniqueID PLAY_FREEMODE_BOLERORAVEL = 1247698659U;
+        static const AkUniqueID PLAY_FREEMODE_DEATHSTARE = 2731463783U;
+        static const AkUniqueID PLAY_FREEMODE_RIDEOFTHEVALKYRIES = 1333380572U;
         static const AkUniqueID PLAY_METRONOME = 122105866U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
         static const AkUniqueID PLAY_TUTOMODE = 2589793865U;
@@ -50,14 +53,14 @@ namespace AK
         static const AkUniqueID PLAY_TUTORIAL_VOICE_11_A = 1772433356U;
         static const AkUniqueID PLAY_TUTORIAL_VOICE_12 = 1642173091U;
         static const AkUniqueID PLAY_TUTORIAL_VOICE_12_A = 699210195U;
-        static const AkUniqueID PLAY_TUTORIAL_VOICE_13 = 1642173090U;
-        static const AkUniqueID PLAY_TUTORIAL_VOICE_13_A = 699063162U;
         static const AkUniqueID PLAY_TUTORIAL_VOICE_14 = 1642173093U;
         static const AkUniqueID PUBLIC_APPLAUSEEND = 121937159U;
         static const AkUniqueID PUBLIC_APPLAUSEINTRO = 4283111574U;
         static const AkUniqueID RESETSTATEPOTIONCOUNT = 3564748305U;
         static const AkUniqueID RESETTUTOMODE = 215937633U;
         static const AkUniqueID RESUME_ALL = 3679762312U;
+        static const AkUniqueID SET_SOLIST_BRASS = 770450070U;
+        static const AkUniqueID SET_SOLIST_WOOD = 3587885392U;
         static const AkUniqueID SETWOODS = 3271167387U;
         static const AkUniqueID SFX_FAMILY_BROKEN = 2012101007U;
         static const AkUniqueID SFX_FEEDBACK_CHANGINGPARAMETERS = 1163937302U;
@@ -121,6 +124,18 @@ namespace AK
             } // namespace STATE
         } // namespace FOCUS
 
+        namespace LANGUAGE
+        {
+            static const AkUniqueID GROUP = 2441027675U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ENGLISH = 3383237639U;
+                static const AkUniqueID FANCAIS = 1239684384U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace LANGUAGE
+
         namespace MUSIC
         {
             static const AkUniqueID GROUP = 3991942870U;
@@ -152,17 +167,6 @@ namespace AK
 
     namespace SWITCHES
     {
-        namespace LANGUAGE
-        {
-            static const AkUniqueID GROUP = 2441027675U;
-
-            namespace SWITCH
-            {
-                static const AkUniqueID ENGLISH = 3383237639U;
-                static const AkUniqueID FRANCAIS = 3417400528U;
-            } // namespace SWITCH
-        } // namespace LANGUAGE
-
         namespace SW_ARTICULATION_BRASS
         {
             static const AkUniqueID GROUP = 554303915U;
@@ -330,6 +334,7 @@ namespace AK
         static const AkUniqueID SNB_SFX = 3710691832U;
         static const AkUniqueID SNB_STRUCTURE = 1080929334U;
         static const AkUniqueID SNB_UI = 2467341413U;
+        static const AkUniqueID SNB_VOICE = 1768465895U;
     } // namespace BANKS
 
     namespace BUSSES
