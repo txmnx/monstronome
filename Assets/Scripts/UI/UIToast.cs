@@ -18,6 +18,7 @@ public class UIToast : MonoBehaviour
     public Material okMaterial;
     public Material wrongMaterial;
     public Material transitionMaterial;
+    public Material wrongTransitionMaterial;
 
     [Header("SFX")]
     public GameObject toasterSoundReference;

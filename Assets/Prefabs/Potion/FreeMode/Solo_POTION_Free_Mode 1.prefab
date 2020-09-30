@@ -1333,7 +1333,7 @@ Transform:
   m_GameObject: {fileID: 1062916387907485919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 822267834101187594}
   - {fileID: 3695797171773097180}
@@ -1438,10 +1438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610c8348b085f8f458d3fe8b3e69363d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultObject: {fileID: 935847076445320960, guid: 822d665392b05bb44b9112b7f4a1b35b,
-    type: 3}
-  breakedObject: {fileID: 5712577161040176883, guid: 822d665392b05bb44b9112b7f4a1b35b,
-    type: 3}
+  defaultObject: {fileID: 822267834101187594}
+  breakedObject: {fileID: 7610029337312712346}
   speedUntilBreak: 4
   canBreak: 1
   SFXOnObjectBreak:
