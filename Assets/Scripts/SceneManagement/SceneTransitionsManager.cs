@@ -6,7 +6,6 @@ public class SceneTransitionsManager : MonoBehaviour
 {
     [Header("Persistent Items")]
     public GameObject wwiseBank;
-    public UILanguageSwitch.Language language;
 
     [Header("SFX")]
     public AK.Wwise.Event SFXOnQuitScene;

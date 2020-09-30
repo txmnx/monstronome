@@ -1042,6 +1042,8 @@ GameObject:
   - component: {fileID: 327133867}
   - component: {fileID: 327133866}
   - component: {fileID: 327133865}
+  - component: {fileID: 327133871}
+  - component: {fileID: 327133873}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -1240,6 +1242,53 @@ MonoBehaviour:
   unloadTriggerList: 
   bankNameInternal: 
   valueGuidInternal: 
+--- !u!114 &327133871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327133862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d6c97c24bfa0b4a977ef34afb5e835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1c4adda30db24d14e88313ec5b295842,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 
+  bankNameInternal: 
+  valueGuidInternal: 
+--- !u!114 &327133873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327133862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1863bddd2fb1eb949af782de6e7b9265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &395014132
 GameObject:
   m_ObjectHideFlags: 0
@@ -4651,7 +4700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wwiseBank: {fileID: 327133862}
-  language: 0
   SFXOnQuitScene:
     idInternal: 0
     valueGuidInternal: 
