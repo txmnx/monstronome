@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +25,8 @@ public class XRGrabber : MonoBehaviour
     protected bool m_HasEmptyGrabbed = false;
     private bool m_IsGrabbing = false;
 
+    private float  m_LastTriggerButton;
+
     protected virtual void Start()
     {
         m_Controller = GetComponent<XRCustomController>();
@@ -33,8 +35,9 @@ public class XRGrabber : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed)) {
-            if (triggerPressed) {
+        if (m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerPressed)) {
+            m_Controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerButton);
+            if (triggerButton && (triggerPressed > m_LastTriggerButton || triggerPressed > 0.9f)) {
                 if (!m_IsGrabbing) {
                     if (m_HighlightedObjects.Count > 0) {
                         if (m_HighlightedObjects[0] == null) {
@@ -63,6 +66,7 @@ public class XRGrabber : MonoBehaviour
                 m_IsEmptyGrabbing = false;
                 m_HasEmptyGrabbed = false;
             }
+            m_LastTriggerButton = triggerPressed;
         }
     }
 
