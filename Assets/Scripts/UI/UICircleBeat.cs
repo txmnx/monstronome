@@ -12,6 +12,8 @@ public class UICircleBeat : MonoBehaviour
     public SpriteRenderer circleRenderer;
     public Color highlightColor;
     public Color defaultColor;
+
+    public InstrumentFamily.IntensityType amplitude;
     
     public enum BeatPlaneSide { Left, Right, None };
     [HideInInspector]

@@ -105,7 +105,7 @@ public class TutorialManager : MonoBehaviour
         m_Sequence.Add(new TutorialActionStep(m_Sequence, m_CurrentInstructions[1], m_SubtitlesDisplay, m_VoiceReference, (act) => orchestraLauncher.OnStartOrchestra += act));
         m_Sequence.Add(new TutorialLambdaStep(m_Sequence, () => { 
             tempoManager.SetTempo(60);
-            intensityManager.SetAmplitude(1f);
+            intensityManager.SetAmplitude(InstrumentFamily.IntensityType.Fortissimo);
         }));
         m_Sequence.Add(new TutorialTransitionStep(m_Sequence, m_TransitionTime, m_VoiceReference, SFXOnStepSuccess));
 

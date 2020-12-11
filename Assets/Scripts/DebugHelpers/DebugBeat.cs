@@ -23,7 +23,7 @@ public class DebugBeat : MonoBehaviour
         m_DefaultMaterial = panelRenderer.material;
     }
 
-    public void OnBeatMajorHand(float amplitude)
+    public void OnBeatMajorHand(InstrumentFamily.IntensityType amplitude)
     {
         amplitudeText.text = amplitude.ToString();
         panelRenderer.material = onBeatMaterial;

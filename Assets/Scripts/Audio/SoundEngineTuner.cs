@@ -21,7 +21,7 @@ public class SoundEngineTuner : MonoBehaviour
     //Used to retrieve tempo range from a tempo type
     private Dictionary<InstrumentFamily.TempoType, RTPCRange<InstrumentFamily.TempoType>> m_TempoRanges;
     //Used to retrieve intensity ranges from an intensity type
-    private Dictionary<InstrumentFamily.IntensityType, RTPCRange<InstrumentFamily.IntensityType>> m_IntensityRanges;
+    private Dictionary<InstrumentFamily.IntensityType, float> m_IntensityRanges;
 
     public float volumestrings;
     public float volumewoods;
@@ -46,11 +46,11 @@ public class SoundEngineTuner : MonoBehaviour
             { InstrumentFamily.TempoType.Presto, new RTPCRange<InstrumentFamily.TempoType>(135, 165, 150, InstrumentFamily.TempoType.Presto) },
         };
 
-        m_IntensityRanges = new Dictionary<InstrumentFamily.IntensityType, RTPCRange<InstrumentFamily.IntensityType>>()
+        m_IntensityRanges = new Dictionary<InstrumentFamily.IntensityType, float>()
         {
-            { InstrumentFamily.IntensityType.Pianissimo, new RTPCRange<InstrumentFamily.IntensityType>(0, 0.3f, 25, InstrumentFamily.IntensityType.Pianissimo) },
-            { InstrumentFamily.IntensityType.MezzoForte, new RTPCRange<InstrumentFamily.IntensityType>(0.3f, 0.6f, 50, InstrumentFamily.IntensityType.MezzoForte) },
-            { InstrumentFamily.IntensityType.Fortissimo, new RTPCRange<InstrumentFamily.IntensityType>(0.6f, 1000, 75, InstrumentFamily.IntensityType.Fortissimo) }
+            { InstrumentFamily.IntensityType.Pianissimo, 25f },
+            { InstrumentFamily.IntensityType.MezzoForte, 50f },
+            { InstrumentFamily.IntensityType.Fortissimo, 75f }
         };
     }
 
@@ -196,13 +196,15 @@ public class SoundEngineTuner : MonoBehaviour
         }
     }
 
-    public void SetGlobalIntensity(float intensity)
+    public void SetGlobalIntensity(InstrumentFamily.IntensityType intensity)
     {
         foreach (string keywordFamily in m_KeywordFamily.Values) {
-            AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest(keywordFamily), intensity);
+            AkSoundEngine.SetRTPCValue(GetIntensityRTPCRequest(keywordFamily), m_IntensityRanges[intensity]);
         }
     }
 
+    //TODO : Deprecated
+    /*
     public RTPCRange<InstrumentFamily.IntensityType> GetIntensityRange(float amplitude)
     {
         foreach (RTPCRange<InstrumentFamily.IntensityType> range in m_IntensityRanges.Values) {
@@ -212,6 +214,7 @@ public class SoundEngineTuner : MonoBehaviour
         }
         return m_IntensityRanges[InstrumentFamily.IntensityType.MezzoForte];
     }
+    */
 
     /* SCORE */
     public void UpdateScore(float score)
