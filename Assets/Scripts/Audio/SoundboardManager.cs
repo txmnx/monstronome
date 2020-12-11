@@ -9,6 +9,8 @@ public class SoundboardManager : MonoBehaviour
     public SoundSlider musicSlider;
     public SoundSlider metronomeSlider;
 
+    public UILanguageSwitch languageSwitch;
+
 
     public (float, float, float, float) GetSliders()
     {
@@ -21,5 +23,17 @@ public class SoundboardManager : MonoBehaviour
         sfxSlider.value = sfx;
         musicSlider.value = music;
         metronomeSlider.value = metronome;
+
+        if (languageSwitch != null) {
+            switch (AkSoundEngine.GetCurrentLanguage())
+            {
+                case "English(US)":
+                    languageSwitch.SetLanguageModel(UILanguageSwitch.Language.English);
+                    break;
+                case "Francais":
+                    languageSwitch.SetLanguageModel(UILanguageSwitch.Language.French);
+                    break;
+            };
+        }
     }
 }
