@@ -12,12 +12,6 @@ public class IntensityManager : MonoBehaviour
     public BeatManager beatManager;
     public SoundEngineTuner soundEngineTuner;
     public ConductingEventsManager conductingEventsManager;
-
-    //TODO : if we don't want to smoothen the intensity evolution we don't have to use a buffer
-    //The bigger the buffer size is, the smoother the intensity's evolution is
-    private const int AMPLITUDE_BUFFER_SIZE = 1;
-    private const float BASE_AMPLITUDE = 0.3f;
-    private Queue<float> m_BufferLastAmplitudes;
     
     /* Conduct */
     private int m_BeatsCountSinceBeginConducting = 0;
@@ -27,16 +21,10 @@ public class IntensityManager : MonoBehaviour
     private void Start()
     {
         conductingEventsManager.OnBeginConducting += OnBeginConducting;
-        
-        m_BufferLastAmplitudes = new Queue<float>();
 
-        for (int i = 0; i < AMPLITUDE_BUFFER_SIZE; i++) {
-            m_BufferLastAmplitudes.Enqueue(BASE_AMPLITUDE);
-        }
+        m_CurrentIntensityType = InstrumentFamily.IntensityType.MezzoForte;
         
-        float averageAmplitude = CustomUtilities.WeightedAverage(m_BufferLastAmplitudes);
-        SoundEngineTuner.RTPCRange<InstrumentFamily.IntensityType> intensityRange = soundEngineTuner.GetIntensityRange(averageAmplitude);
-        OnIntensityChange?.Invoke(intensityRange.type, false);
+        OnIntensityChange?.Invoke(m_CurrentIntensityType, false);
     }
 
     //We can't change intensity if the orchestra hasn't started
@@ -61,39 +49,39 @@ public class IntensityManager : MonoBehaviour
         m_BeatsCountSinceBeginConducting = 0;
     }
     
-    public void OnBeatMajorHand(float amplitude)
+    public void OnBeatMajorHand(InstrumentFamily.IntensityType amplitude)
     {
+        //TODO : Deprecated
+        /*
         m_BufferLastAmplitudes.Enqueue(amplitude);
         m_BufferLastAmplitudes.Dequeue();
-
+        */
+        
         m_BeatsCountSinceBeginConducting += 1;
 
         //We register the intensity only if there have been 2 beats
         if (m_BeatsCountSinceBeginConducting > 1) {
-            UpdateIntensity();
+            UpdateIntensity(amplitude);
         }
     }
 
-    private void UpdateIntensity()
+    private void UpdateIntensity(InstrumentFamily.IntensityType amplitude)
     {
-        float averageAmplitude = CustomUtilities.WeightedAverage(m_BufferLastAmplitudes);
-        SoundEngineTuner.RTPCRange<InstrumentFamily.IntensityType> intensityRange = soundEngineTuner.GetIntensityRange(averageAmplitude);
-        if (m_CurrentIntensityType != intensityRange.type) {
-            soundEngineTuner.SetGlobalIntensity(intensityRange.value);
+        //TODO : Deprecated
+        //float averageAmplitude = CustomUtilities.WeightedAverage(m_BufferLastAmplitudes);
+        //SoundEngineTuner.RTPCRange<InstrumentFamily.IntensityType> intensityRange = soundEngineTuner.GetIntensityRange(averageAmplitude);
+        
+        if (m_CurrentIntensityType != amplitude) {
+            soundEngineTuner.SetGlobalIntensity(amplitude);
         }
-        m_CurrentIntensityType = intensityRange.type;
+        m_CurrentIntensityType = amplitude;
         
         OnIntensityChange?.Invoke(m_CurrentIntensityType, true);
     }
     
-    public void SetAmplitude(float amplitude)
+    public void SetAmplitude(InstrumentFamily.IntensityType amplitude)
     {
-        m_BufferLastAmplitudes.Clear();
-        for (int i = 0; i < AMPLITUDE_BUFFER_SIZE; i++) {
-            m_BufferLastAmplitudes.Enqueue(amplitude);
-        }
-
-        UpdateIntensity();
+        UpdateIntensity(amplitude);
     }
     
     /* Events */

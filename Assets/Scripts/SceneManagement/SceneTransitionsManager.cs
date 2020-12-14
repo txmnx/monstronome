@@ -108,7 +108,7 @@ public class SceneTransitionsManager : MonoBehaviour
         GameObject soundboard = GameObject.FindWithTag("Soundboard");
         soundboard.GetComponent<SoundboardManager>().SetSliders(settings.Item1,settings.Item2, settings.Item3, settings.Item4);
     }
-    
+
     private void UpdateFadeBackground()
     {
         GameObject background = GameObject.FindWithTag("TransitionBackground");

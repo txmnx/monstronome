@@ -78,7 +78,7 @@ public class TempoManager : MonoBehaviour
     //On each beat of the leading hand we store the beat duration in a buffer
     //the current bpm is defined with a weighted average of the buffer
     //it permits to smoothen the bpm evolution
-    public void OnBeatMajorHand(float amplitude)
+    public void OnBeatMajorHand(InstrumentFamily.IntensityType amplitude)
     {
         m_BeatsCountSinceBeginConducting += 1;
 

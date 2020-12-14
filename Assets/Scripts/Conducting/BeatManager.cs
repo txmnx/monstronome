@@ -12,25 +12,25 @@ public class BeatManager : MonoBehaviour
     public bool canBeat = true;
 
     //Events
-    public event Action<float> OnBeat;
-    public event Action<float> OnBeatMajorHand;
-    public event Action<float> OnBeatMinorHand;
+    public event Action<InstrumentFamily.IntensityType> OnBeat;
+    public event Action<InstrumentFamily.IntensityType> OnBeatMajorHand;
+    public event Action<InstrumentFamily.IntensityType> OnBeatMinorHand;
 
-    public void PostOnBeatEvent(float amplitude)
+    public void PostOnBeatEvent(InstrumentFamily.IntensityType amplitude)
     {
         if (canBeat) {
             OnBeat?.Invoke(amplitude);
         }
     }
 
-    public void PostOnBeatMajorHandEvent(float amplitude)
+    public void PostOnBeatMajorHandEvent(InstrumentFamily.IntensityType amplitude)
     {
         if (canBeat) {
             OnBeatMajorHand?.Invoke(amplitude);
         }
     }
 
-    public void PostOnBeatMinorHandEvent(float amplitude)
+    public void PostOnBeatMinorHandEvent(InstrumentFamily.IntensityType amplitude)
     {
         if (canBeat) {
             OnBeatMinorHand?.Invoke(amplitude);

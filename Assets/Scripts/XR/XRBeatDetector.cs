@@ -30,7 +30,7 @@ public class XRBeatDetector : MonoBehaviour
     /* AMPLITUDE COMPUTATION */
     private Vector3[] m_MaximumGesturePoints;
     private int m_MaximumGesturePointIndex;
-    private float m_Amplitude;
+    private InstrumentFamily.IntensityType m_Amplitude;
     
     [Header("Beat Circles")]
     public Transform beatPlaneTransform;
@@ -106,17 +106,20 @@ public class XRBeatDetector : MonoBehaviour
             if (mainCircleBeat.currentSide != UICircleBeat.BeatPlaneSide.None) {
                 OnBeat(m_Amplitude);
                 mainCircleBeat.OnBeat(true);
-                m_Amplitude = 0;
+                m_Amplitude = mainCircleBeat.amplitude;
                 m_MaximumGesturePointIndex = (m_MaximumGesturePointIndex + 1) % 2;
             }
             mainCircleBeat.currentSide = side;
         }
         else {
+            //TODO : use UICIrcle Beat OnBeat Instead
+            /*
             float distanceLastMaximum = Vector3.Distance(beatPositionDetection.position, m_MaximumGesturePoints[(m_MaximumGesturePointIndex + 1) % 2]);
             if (m_Amplitude < distanceLastMaximum) {
                 m_MaximumGesturePoints[m_MaximumGesturePointIndex] = beatPositionDetection.position;
                 m_Amplitude = distanceLastMaximum;
             }
+            */
         }
     }
     private void ProcessCircleBeat(UICircleBeat circleBeat, float impulsePower = 0.1f)
@@ -124,11 +127,14 @@ public class XRBeatDetector : MonoBehaviour
         UICircleBeat.BeatPlaneSide side = circleBeat.GetSide(beatPositionDetection.position);
         if (side != circleBeat.currentSide) {
             circleBeat.OnBeat();
+            if (circleBeat.currentSide == UICircleBeat.BeatPlaneSide.Left) {
+                m_Amplitude = circleBeat.amplitude;
+            }
             circleBeat.currentSide = side;
         }
     }
 
-    private void OnBeat(float amplitude)
+    private void OnBeat(InstrumentFamily.IntensityType amplitude)
     {
         //Here we define the major hand as the right one
         //TODO : abstract this selection
