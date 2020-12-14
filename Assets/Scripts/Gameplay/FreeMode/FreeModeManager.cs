@@ -56,6 +56,12 @@ public class FreeModeManager : MonoBehaviour
         OnStartOrchestra += intensityManager.OnStartOrchestra;
         
         wwiseCallback.OnCue += LaunchState;
+        
+        //For this build the only music available is "Monstronome"
+        soundEngineTuner.START_TEMPO = 90;
+        wwiseCallback.musicToLaunch = "Play_FreeMode";
+        m_CurrentStep = FreeModeStep.Tuning;
+        StartCoroutine(ShowCheckers());
     }
 
     public void OnSelectMusic(string music, float bpm)
