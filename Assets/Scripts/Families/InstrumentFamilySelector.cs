@@ -1,11 +1,13 @@
-﻿using System;
+﻿#define OCULUS_BUILD
+
+using System;
 using UnityEngine;
 using UnityEngine.XR;
 
 /**
  * Used to select a family
  */
-#define OCULUS_BUILD
+
 public class InstrumentFamilySelector : MonoBehaviour
 {
     public XRCustomController controller;
