@@ -5120,6 +5120,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 413094687, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 413094687, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: soundEngineTuner
       value: 
       objectReference: {fileID: 348619491}
@@ -5127,6 +5131,10 @@ PrefabInstance:
       propertyPath: startAnimation
       value: Tuning
       objectReference: {fileID: 0}
+    - target: {fileID: 413094687, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.data[2]
+      value: 
+      objectReference: {fileID: 1031486166}
     - target: {fileID: 651346519, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5136,6 +5144,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 854011154, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 854011154, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: soundEngineTuner
       value: 
       objectReference: {fileID: 348619491}
@@ -5143,6 +5155,14 @@ PrefabInstance:
       propertyPath: startAnimation
       value: Tuning
       objectReference: {fileID: 0}
+    - target: {fileID: 854011154, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.data[0]
+      value: 
+      objectReference: {fileID: 1031486169}
+    - target: {fileID: 1129380438, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1129380438, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: soundEngineTuner
       value: 
@@ -5150,6 +5170,18 @@ PrefabInstance:
     - target: {fileID: 1129380438, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: startAnimation
       value: Tuning
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129380438, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.data[0]
+      value: 
+      objectReference: {fileID: 1031486165}
+    - target: {fileID: 1129380438, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.data[1]
+      value: 
+      objectReference: {fileID: 1031486164}
+    - target: {fileID: 1247558651, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1247558651, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: soundEngineTuner
@@ -5159,6 +5191,14 @@ PrefabInstance:
       propertyPath: startAnimation
       value: Tuning
       objectReference: {fileID: 0}
+    - target: {fileID: 1247558651, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.data[0]
+      value: 
+      objectReference: {fileID: 1031486168}
+    - target: {fileID: 1247558651, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
+      propertyPath: familyAnimators.Array.data[1]
+      value: 
+      objectReference: {fileID: 1031486167}
     - target: {fileID: 1915118170, guid: 90a9c0b3722b3a94eb0ed0077ca4d187, type: 3}
       propertyPath: soundEngineTuner
       value: 
@@ -8017,6 +8057,42 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
+--- !u!95 &1031486164 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3636430108486744795, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1031486165 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2802922438505070552, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1031486166 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3161099488431955567, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1031486167 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6366561275520826073, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1031486168 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 577552048002913322, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1031486169 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4034087578524137684, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031486160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!108 &1037845743 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 8353485314868337293, guid: 90a9c0b3722b3a94eb0ed0077ca4d187,
